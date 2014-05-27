@@ -26,7 +26,7 @@ namespace NUtils {
 	/// provides the requested format and an <see cref="IFormatProvider"/> instance that provides how certain elements
 	/// like numbers should be represented.
 	/// </summary>
-	public interface IFFormatFormatProviderToString : IFormatToString, IFormatProviderToString {
+	public interface IFormatFormatProviderToString : IFormatToString, IFormatProviderToString {
 
 		/// <summary>
 		/// Converts the numeric value of this instance to its equivalent string representation using the specified format and culture-specific format information.
