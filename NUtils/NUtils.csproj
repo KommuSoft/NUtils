@@ -35,6 +35,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MathUtils.cs" />
+    <Compile Include="IFormatProviderToString.cs" />
+    <Compile Include="IFormatToString.cs" />
+    <Compile Include="IFFormatFormatProviderToString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
