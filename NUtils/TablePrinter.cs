@@ -34,7 +34,7 @@ namespace NUtils {
 		/// <returns>A textual representation of the given 2d-structure.</returns>
 		/// <param name="table">The given 2d-structure to be converted to a <see cref="string"/>.</param>
 		/// <remarks>
-		/// <para>For performance reasons, one can use the <see cref="M:WriteTable(IEnumerable<IEnumerable<object>>,TextWriter)"/> if the table is only part of the written content.</para>
+		/// <para>For performance reasons, one can use the <see cref="M:WriteTable(IEnumerable`1,TextWriter)"/> if the table is only part of the written content.</para>
 		/// </remarks>
 		public static string WriteTable (this IEnumerable<IEnumerable<object>> table) {
 			using (StringWriter sb = new StringWriter ()) {
