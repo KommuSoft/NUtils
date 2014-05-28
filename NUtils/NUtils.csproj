@@ -39,6 +39,7 @@
     <Compile Include="IFormatToString.cs" />
     <Compile Include="IFormatFormatProviderToString.cs" />
     <Compile Include="FunctionUtils.cs" />
+    <Compile Include="TablePrinter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
