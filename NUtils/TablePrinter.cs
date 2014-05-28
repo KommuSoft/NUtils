@@ -21,11 +21,21 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace NUtils {
+	/// <summary>
+	/// A utility class that converts a 2d structure of objects such that they can be written to a textual human-readable format.
+	/// </summary>
 	public static class TablePrinter {
 
+		/// <summary>
+		/// Writes the given 2d-structure to a <see cref="string"/>.
+		/// </summary>
+		/// <returns>A textual representation of the given 2d-structure.</returns>
+		/// <param name="table">The given 2d-structure to be converted to a <see cref="string"/>.</param>
+		/// <remarks>
+		/// <para>For performance reasons, one can use the <see cref="M:WriteTable(IEnumerable<IEnumerable<object>>,TextWriter)"/> if the table is only part of the written content.</para>
+		/// </remarks>
 		public static string WriteTable (this IEnumerable<IEnumerable<object>> table) {
 			using (StringWriter sb = new StringWriter ()) {
 				WriteTable (table, sb);
@@ -34,6 +44,11 @@ namespace NUtils {
 
 		}
 
+		/// <summary>
+		/// Writes the given 2d-structure to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="table">A 2d-structure that must be converted into a textual format.</param>
+		/// <param name="tw">The given <see cref="TextWriter"/> to write the textual format to.</param>
 		public static void WriteTable (this IEnumerable<IEnumerable<object>> table, TextWriter tw) {
 			List<int> columns = new List<int> ();
 			List<List<string>> stringTable = new List<List<string>> ();
@@ -43,14 +58,14 @@ namespace NUtils {
 					List<string> stringRow = new List<string> ();
 					IEnumerator<object> rowEnum = row.GetEnumerator ();
 					for (int i = 0x00; i < n && rowEnum.MoveNext (); i++) {
-						object cell = row;
+						object cell = rowEnum.Current;
 						string sCell = string.Format ("{0}", cell);
 						int nCell = sCell.Length;
 						columns [i] = Math.Max (columns [i], nCell);
 						stringRow.Add (sCell);
 					}
 					while (rowEnum.MoveNext ()) {
-						object cell = row;
+						object cell = rowEnum.Current;
 						string sCell = string.Format ("{0}", cell);
 						int nCell = sCell.Length;
 						columns.Add (nCell);
@@ -78,9 +93,9 @@ namespace NUtils {
 					tw.Write (cell);
 					tw.Write (new String (' ', columns [index] - cell.Length));
 					tw.Write (" |");
-					tw.WriteLine ();
 					index++;
 				}
+				tw.WriteLine ();
 				tw.WriteLine (interrow);
 			}
 		}
