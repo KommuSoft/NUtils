@@ -36,12 +36,33 @@ namespace NUtils {
 		/// <remarks>
 		/// <para>For performance reasons, one can use the <see cref="M:WriteTable(IEnumerable`1,TextWriter)"/> if the table is only part of the written content.</para>
 		/// </remarks>
+		public static string WriteTable (params IEnumerable<object>[] table) {
+			return WriteTable ((IEnumerable<IEnumerable<object>>)table);
+		}
+
+		/// <summary>
+		/// Writes the given 2d-structure to a <see cref="string"/>.
+		/// </summary>
+		/// <returns>A textual representation of the given 2d-structure.</returns>
+		/// <param name="table">The given 2d-structure to be converted to a <see cref="string"/>.</param>
+		/// <remarks>
+		/// <para>For performance reasons, one can use the <see cref="M:WriteTable(IEnumerable`1,TextWriter)"/> if the table is only part of the written content.</para>
+		/// </remarks>
 		public static string WriteTable (this IEnumerable<IEnumerable<object>> table) {
 			using (StringWriter sb = new StringWriter ()) {
 				WriteTable (table, sb);
 				return sb.ToString ();
 			}
 
+		}
+
+		/// <summary>
+		/// Writes the given 2d-structure to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="table">A 2d-structure that must be converted into a textual format.</param>
+		/// <param name="tw">The given <see cref="TextWriter"/> to write the textual format to.</param>
+		public static void WriteTable (TextWriter tw, params IEnumerable<object>[] table) {
+			WriteTable ((IEnumerable<IEnumerable<object>>)table, tw);
 		}
 
 		/// <summary>
