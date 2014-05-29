@@ -40,6 +40,10 @@
     <Compile Include="IFormatFormatProviderToString.cs" />
     <Compile Include="FunctionUtils.cs" />
     <Compile Include="TablePrinter.cs" />
+    <Compile Include="TupleUtils.cs" />
+    <Compile Include="EnumerableUtils.cs" />
+    <Compile Include="MultiThreadedList.cs" />
+    <Compile Include="LinqCache.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
