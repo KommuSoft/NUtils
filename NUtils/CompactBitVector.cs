@@ -64,9 +64,9 @@ namespace NUtils {
 				int dl1 = dc.Length - 0x01;
 				int c = 0x00;
 				for (int i = 0x00; i < dl1; i++) {
-					c += NumericalUtils.CountBits (dc [i]);
+					c += BitUtils.CountBits (dc [i]);
 				}
-				c += NumericalUtils.CountBits (dc [dl1] & this.LastMask);
+				c += BitUtils.CountBits (dc [dl1] & this.LastMask);
 				return c;
 			}
 		}
@@ -143,7 +143,7 @@ namespace NUtils {
 			this.n = n;
 			this.data = new ulong[(n + 0x3f) >> 0x06];
 			int i = 0x00;
-			foreach (ulong pack in NumericalUtils.PackUlong (values)) {
+			foreach (ulong pack in BitUtils.PackUlong (values)) {
 				this.data [i++] = pack;
 			}
 		}
@@ -470,7 +470,7 @@ namespace NUtils {
 		/// Copies all the elements of the current one-dimensional <see cref="T:System.Array" /> to the specified one-dimensional <see cref="T:System.Array" /> starting at the specified destination <see cref="T:System.Array" /> index. The index is specified as a 32-bit integer.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="T:System.Array" /> that is the destination of the elements copied from the current <see cref="T:System.Array" />.</param>
-		/// <param name="index">A 32-bit integer that represents the index in <paramref name="array" /> at which copying begins.</param>
+		/// <param name="arrayIndex">A 32-bit integer that represents the index in <paramref name="array" /> at which copying begins.</param>
 		/// <exception cref="T:System.ArgumentNullException"><paramref name="array" /> is null.</exception>
 		/// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index" /> is less than the lower bound of <paramref name="array" />.</exception>
 		/// <exception cref="T:System.ArgumentException"><paramref name="array" /> is multidimensional.</exception>
@@ -555,10 +555,10 @@ namespace NUtils {
 			ulong[] d = this.data;
 			int dl1 = d.Length - 0x01;
 			for (int i = 0x00; i < dl1; i++) {
-				NumericalUtils.PrintBitString (sb, d [i]);
+				BitUtils.PrintBitString (sb, d [i]);
 				sb.Append (' ');
 			}
-			NumericalUtils.PrintBitString (sb, d [dl1], this.LastN);
+			BitUtils.PrintBitString (sb, d [dl1], this.LastN);
 			return sb.ToString ();
 		}
 		#endregion

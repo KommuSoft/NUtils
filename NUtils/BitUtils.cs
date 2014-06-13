@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 
 namespace NUtils {
-	public static class NumericalUtils {
+	public static class BitUtils {
 
 		public const ulong IdentityTile = 0x8040201008040201;
 
