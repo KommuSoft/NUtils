@@ -47,7 +47,8 @@
     <Compile Include="CompactBitVector.cs" />
     <Compile Include="IBitVector.cs" />
     <Compile Include="ILength.cs" />
-    <Compile Include="NumericalUtils.cs" />
+    <Compile Include="BitUtils.cs" />
+    <Compile Include="IPermutable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
