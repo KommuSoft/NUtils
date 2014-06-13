@@ -5,7 +5,11 @@ using System.Collections.Generic;
 namespace NUtils {
 	public static class BitUtils {
 
-		public const ulong IdentityTile = 0x8040201008040201;
+		public const ulong ITile = 0x8040201008040201UL;
+		public const ulong L08ULong = 0x00000000000000FFUL;
+		public const ulong L16ULong = 0x000000000000FFFFUL;
+		public const ulong L32ULong = 0x00000000FFFFFFFFUL;
+		public const ulong L64ULong = 0xFFFFFFFFFFFFFFFFUL;
 
 		public static ulong Transpose (ulong origin) {
 			return
@@ -33,6 +37,13 @@ namespace NUtils {
 			mask |= mask << 0x10;
 			mask |= mask << 0x08;
 			return mask;
+		}
+
+		public static ulong AndCompress8Rows (ulong origin) {
+			origin &= (origin & 0xF0F0F0F0F0F0F0F0UL) >> 0x04;
+			origin &= (origin & 0x0A0A0A0A0A0A0A0AUL) >> 0x02;
+			origin &= (origin & 0x0202020202020202UL) >> 0x01;
+			return origin;
 		}
 
 		public static ulong Or8Rows (ulong origin) {
