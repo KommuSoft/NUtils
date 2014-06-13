@@ -39,4 +39,3 @@ namespace NUtils {
 		string ToString (string format, IFormatProvider provider);
 	}
 }
-

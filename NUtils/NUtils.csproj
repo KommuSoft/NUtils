@@ -44,6 +44,10 @@
     <Compile Include="EnumerableUtils.cs" />
     <Compile Include="MultiThreadedList.cs" />
     <Compile Include="LinqCache.cs" />
+    <Compile Include="CompactBitVector.cs" />
+    <Compile Include="IBitVector.cs" />
+    <Compile Include="ILength.cs" />
+    <Compile Include="NumericalUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
