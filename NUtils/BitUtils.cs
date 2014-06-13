@@ -10,6 +10,7 @@ namespace NUtils {
 		public const ulong L16ULong = 0x000000000000FFFFUL;
 		public const ulong L32ULong = 0x00000000FFFFFFFFUL;
 		public const ulong L64ULong = 0xFFFFFFFFFFFFFFFFUL;
+		public const ulong I8S8L1ULong = 0x0101010101010101UL;
 
 		public static ulong Transpose (ulong origin) {
 			return
@@ -41,7 +42,7 @@ namespace NUtils {
 
 		public static ulong AndCompress8Rows (ulong origin) {
 			origin &= (origin & 0xF0F0F0F0F0F0F0F0UL) >> 0x04;
-			origin &= (origin & 0x0A0A0A0A0A0A0A0AUL) >> 0x02;
+			origin &= (origin & 0x0C0C0C0C0C0C0C0CUL) >> 0x02;
 			origin &= (origin & 0x0202020202020202UL) >> 0x01;
 			return origin;
 		}
