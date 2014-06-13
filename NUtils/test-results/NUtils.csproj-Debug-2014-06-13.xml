@@ -122,6 +122,21 @@
   at MonoDevelop.NUnit.NUnitAssemblyTestSuite.OnRun (MonoDevelop.NUnit.TestContext testContext) [0x00000] in &lt;filename unknown&gt;:0 
   at MonoDevelop.NUnit.UnitTest.Run (MonoDevelop.NUnit.TestContext testContext) [0x00000] in &lt;filename unknown&gt;:0 </StackTrace>
     </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2014-06-13T16:25:35</TestDate>
+      <Status />
+      <Passed>1</Passed>
+      <Errors>0</Errors>
+      <Failures>0</Failures>
+      <Inconclusive>0</Inconclusive>
+      <NotRunnable>0</NotRunnable>
+      <Skipped>0</Skipped>
+      <Ignored>0</Ignored>
+      <Time />
+      <Message>Test successful
+
+Execution time: 0.04ms</Message>
+    </UnitTestResult>
   </Results>
   <Tests>
     <TestRecord Name="NUtils">
@@ -230,6 +245,21 @@
           <Time />
           <Message>One or more child tests had errors</Message>
         </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2014-06-13T16:25:35</TestDate>
+          <Status />
+          <Passed>1</Passed>
+          <Errors>0</Errors>
+          <Failures>0</Failures>
+          <Inconclusive>0</Inconclusive>
+          <NotRunnable>0</NotRunnable>
+          <Skipped>0</Skipped>
+          <Ignored>0</Ignored>
+          <Time />
+          <Message>Test successful
+
+Execution time: 0.03ms</Message>
+        </UnitTestResult>
       </Results>
       <Tests>
         <TestRecord Name="BitUtilsTest">
@@ -337,6 +367,21 @@
               <Ignored>0</Ignored>
               <Time />
               <Message>One or more child tests had errors</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2014-06-13T16:25:35</TestDate>
+              <Status />
+              <Passed>1</Passed>
+              <Errors>0</Errors>
+              <Failures>0</Failures>
+              <Inconclusive>0</Inconclusive>
+              <NotRunnable>0</NotRunnable>
+              <Skipped>0</Skipped>
+              <Ignored>0</Ignored>
+              <Time />
+              <Message>Test successful
+
+Execution time: 0.03ms</Message>
             </UnitTestResult>
           </Results>
           <Tests>
@@ -519,6 +564,23 @@
   at NUtils.BitUtilsTest.TestAndCompress8Rows () [0x00161] in /home/kommusoft/Projects/doctoraat/carloslimit/NUtils/NUtils/Tests/BitUtilsTest.cs:32 
   at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&amp;)
   at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in &lt;filename unknown&gt;:0 </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2014-06-13T16:25:35</TestDate>
+                  <Status />
+                  <Passed>1</Passed>
+                  <Errors>0</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.01ms</Message>
                   <ConsoleOutput />
                   <ConsoleError />
                 </UnitTestResult>
