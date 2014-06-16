@@ -528,11 +528,11 @@ namespace NUtils {
 		#endregion
 		#region Equals and GetHashCode method
 		/// <summary>
-		/// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="CesaroLimit.CompactBitVector"/>.
+		/// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="CompactBitVector"/>.
 		/// </summary>
-		/// <param name="obj">The <see cref="System.Object"/> to compare with the current <see cref="CesaroLimit.CompactBitVector"/>.</param>
+		/// <param name="obj">The <see cref="System.Object"/> to compare with the current <see cref="CompactBitVector"/>.</param>
 		/// <returns><c>true</c> if the specified <see cref="System.Object"/> is equal to the current
-		/// <see cref="CesaroLimit.CompactBitVector"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="CompactBitVector"/>; otherwise, <c>false</c>.</returns>
 		public override bool Equals (object obj) {
 			IBitVector ibv = obj as IBitVector;
 			if (this.Length == ibv.Length) {
@@ -551,7 +551,7 @@ namespace NUtils {
 		}
 
 		/// <summary>
-		/// Serves as a hash function for a <see cref="CesaroLimit.CompactBitVector"/> object.
+		/// Serves as a hash function for a <see cref="CompactBitVector"/> object.
 		/// </summary>
 		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
 		public override int GetHashCode () {
@@ -567,9 +567,9 @@ namespace NUtils {
 		#endregion
 		#region ToString method
 		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="CesaroLimit.CompactBitVector"/>.
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="CompactBitVector"/>.
 		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="CesaroLimit.CompactBitVector"/>.</returns>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="CompactBitVector"/>.</returns>
 		/// <remarks>
 		/// <para>A bit string is represented as a sequence of zeros (<c>0</c>) and ones (<c>1</c>). The bits are grouped in blocks of 64 bits
 		/// separated by spaces.</para>
@@ -584,6 +584,15 @@ namespace NUtils {
 			}
 			BitUtils.PrintBitString (sb, d [dl1], this.LastN);
 			return sb.ToString ();
+		}
+		#endregion
+		#region ILowest implementation
+		/// <summary>
+		/// Returns the lowest element contained in this instance.
+		/// </summary>
+		/// <returns>The lowest element contained in this instance.</returns>
+		int ILowest<int>.GetLowest () {
+			return this.GetLowest ();
 		}
 		#endregion
 	}
