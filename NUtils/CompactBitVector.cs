@@ -289,7 +289,6 @@ namespace NUtils {
 		/// Applies the NOT-operator on this <see cref="CompactBitVector"/> instance and the <paramref name="other"/> instance.
 		/// The result is stored in this instance.
 		/// </summary>
-		/// <param name="other">A <see cref="CompactBitVector"/> instance to apply the NOT-operation with.</param>
 		/// <remarks>
 		/// <para>The method semantically differs from the <see cref="M:Not"/> method since the length of the
 		/// vector is not modified. Furthermore this method will use less memory.</para>
@@ -388,6 +387,31 @@ namespace NUtils {
 		/// <param name="block">The given block index.</param>
 		public ulong GetBlock64 (int block) {
 			return this.data [block];
+		}
+
+		/// <summary>
+		/// Calculates the index of the lowest bit that is set with an index greater than or equal to the given
+		/// <paramref name="lower"/> bound.
+		/// </summary>
+		/// <returns>The lowest index larger or equal than <paramref name="lower"/> of the lowest bit that is true.</returns>
+		/// <param name="lower">The given lower bound on the index.</param>
+		/// <remarks>
+		/// <para>If no bit is set with an index larger than or equal to the given <paramref name="lower"/> bound, <c>-1</c> is returned.</para>
+		/// </remarks>
+		public int GetLowest (int lower = 0x00) {
+			int block = lower >> 0x06;
+			ulong[] data = this.data;
+			int dl = data.Length, dl1 = dl - 0x01;
+			ulong xi = data [block] & (BitUtils.L64ULong << (lower & 0x3f));
+			int idx = BitUtils.LowestBit (xi);
+			block++;
+			while (idx != -0x01 && block < dl1) {
+				idx = BitUtils.LowestBit (data [block++]);
+			}
+			if (block == dl1) {
+				idx = BitUtils.LowestBit (data [block] & this.LastMask);
+			}
+			return idx;
 		}
 		#endregion
 		#region IEnumerable implementation

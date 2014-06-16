@@ -158,5 +158,18 @@ namespace NUtils {
 		public static int CountBits (ulong val) {
 			return CountBits ((uint)(val & 0xFFFFFFFF)) + CountBits ((uint)(val >> 0x20));
 		}
+
+		public static int LowestBit (ulong low) {
+			if (low != 0x00) {
+				int index = 0x00;
+				while ((low&0x01) == 0x00) {
+					low >>= 0x01;
+					index++;
+				}
+				return index;
+			} else {
+				return -0x01;
+			}
+		}
 	}
 }

@@ -120,6 +120,17 @@ namespace NUtils {
 		/// <returns>An <see cref="ulong"/> that contains 64 bits of the given <paramref name="block"/> index.</returns>
 		/// <param name="block">The given block index.</param>
 		ulong GetBlock64 (int block);
+
+		/// <summary>
+		/// Calculates the index of the lowest bit that is set with an index greater than or equal to the given
+		/// <paramref name="lower"/> bound.
+		/// </summary>
+		/// <returns>The lowest index larger or equal than <paramref name="lower"/> of the lowest bit that is true.</returns>
+		/// <param name="lower">The given lower bound on the index.</param>
+		/// <remarks>
+		/// <para>If no bit is set with an index larger than or equal to the given <paramref name="lower"/> bound, <c>-1</c> is returned.</para>
+		/// </remarks>
+		int GetLowest (int lower = 0x00);
 	}
 }
 
