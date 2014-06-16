@@ -119,7 +119,11 @@ namespace NUtils {
 		/// </summary>
 		/// <param name="n">The given number of elements.</param>
 		/// <param name="data">The given internal data for the bit-vector.</param>
-		private CompactBitVector (int n, ulong[] data) {
+		/// <remarks>
+		/// <para>The values are not copied: when modifyin the bit array, the <see cref="data"/> will be modified
+		/// as well and vice versa.</para>
+		/// </remarks>
+		public CompactBitVector (int n, ulong[] data) {
 			this.n = n;
 			this.data = data;
 		}
