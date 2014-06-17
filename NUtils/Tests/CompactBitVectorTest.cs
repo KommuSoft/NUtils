@@ -19,6 +19,18 @@ namespace NUtils {
 			}
 			Assert.AreEqual (-0x01, cbv.GetLowest (n));
 		}
+
+		[Test()]
+		public void TestToString () {
+			Assert.AreEqual ("0", new CompactBitVector (0x01, new ulong[] { 0x00 }).ToString ());
+			Assert.AreEqual ("1", new CompactBitVector (0x01, new ulong[] { 0x01 }).ToString ());
+			Assert.AreEqual ("00", new CompactBitVector (0x02, new ulong[] { 0x00 }).ToString ());
+			Assert.AreEqual ("10", new CompactBitVector (0x02, new ulong[] { 0x01 }).ToString ());
+			Assert.AreEqual ("01", new CompactBitVector (0x02, new ulong[] { 0x02 }).ToString ());
+			Assert.AreEqual ("11", new CompactBitVector (0x02, new ulong[] { 0x03 }).ToString ());
+			Assert.AreEqual ("1001", new CompactBitVector (0x04, new ulong[] { 0x09 }).ToString ());
+			Assert.AreEqual ("1001000", new CompactBitVector (0x07, new ulong[] { 0x09 }).ToString ());
+		}
 	}
 }
 
