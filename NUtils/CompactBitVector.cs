@@ -100,6 +100,22 @@ namespace NUtils {
 				}
 			}
 		}
+
+		/// <summary>
+		/// Gets a value indicating whether all the bits in this <see cref="NUtils.IBitVector"/> instance are set.
+		/// </summary>
+		/// <value><c>true</c> if all bits are set; otherwise, <c>false</c>.</value>
+		public bool AllSet {
+			get {
+				ulong[] d = this.data;
+				int l1 = d.Length - 0x01;
+				int i = 0x00;
+				for (; i < l1 && ~d[i] == 0x00; i++)
+					;
+				ulong lm = this.LastMask;
+				return (i == l1 && (d [l1] & lm) == lm);
+			}
+		}
 		#endregion
 		#region ILength implementation
 		/// <summary>

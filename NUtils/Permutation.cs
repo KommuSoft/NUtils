@@ -19,14 +19,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Text;
 
 namespace NUtils {
 	/// <summary>
 	/// A basic implementation of the <see cref="IPermutation"/> interface.
 	/// </summary>
-	public class Permutation : IPermutation {
+	public class Permutation : IPermutation, IValidateable {
 
+		#region Fields
 		private readonly int[] indices;
+		#endregion
+		#region IValidateable implementation
+		/// <summary>
+		/// Gets a value indicating whether this instance is valid.
+		/// </summary>
+		/// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
+		public bool IsValid {
+			get {
+				int[] idc = this.indices;
+				int n = idc.Length;
+				CompactBitVector cbv = new CompactBitVector (n);
+				for (int i = 0x00; i < n; i++) {
+					cbv.Add (idc [i]);
+				}
+				return cbv.AllSet;
+			}
+		}
+		#endregion
 		#region IPermutation implementation
 		/// <summary>
 		/// Gets the index on which the given index maps.
@@ -98,6 +118,20 @@ namespace NUtils {
 		}
 		#endregion
 		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="NUtils.Permutation"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="NUtils.Permutation"/>.</returns>
+		public override string ToString () {
+			StringBuilder sb = new StringBuilder ("{");
+			int[] d = this.indices;
+			int dl = d.Length;
+			for (int i = 0x00; i < dl; i++) {
+				sb.AppendFormat (" {0}->{1}", i, d [i]);
+			}
+			sb.Append (" }");
+			return sb.ToString ();
+		}
 		#endregion
 	}
 }

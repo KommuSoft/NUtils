@@ -38,6 +38,14 @@ namespace NUtils {
 		}
 
 		/// <summary>
+		/// Gets a value indicating whether all the bits in this <see cref="NUtils.IBitVector"/> instance are set.
+		/// </summary>
+		/// <value><c>true</c> if all bits are set; otherwise, <c>false</c>.</value>
+		bool AllSet {
+			get;
+		}
+
+		/// <summary>
 		/// Computes the AND-operator of this <see cref="IBitVector"/> and the given <see cref="IBitVector"/>.
 		/// </summary>
 		/// <returns>An <see cref="IBitVector"/> instance with length the maximum of both vectors
