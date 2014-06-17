@@ -57,6 +57,21 @@ namespace NUtils {
 			this.indices = new int[n];
 			this.Reset ();
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Permutation"/> class with a given initial permutation.
+		/// </summary>
+		/// <param name="n">The number of indices.</param>
+		/// <param name="indices">The initial indices.</param>
+		/// <remarks>
+		/// <para>The values of the given indices are not copied: modifications made to the <paramref name="indices"/>
+		/// array will have effect on the permutations as well.</para>
+		/// <para>Consistency is not checked: it is possible that the described permutation is not possible. The user
+		/// should check this.</para>
+		/// </remarks>
+		public Permutation (params int[] indices) {
+			this.indices = indices;
+		}
 		#region IPermutable implementation
 		/// <summary>
 		/// Swaps the content associated with the two given indices.
@@ -81,6 +96,8 @@ namespace NUtils {
 				idx [i] = i;
 			}
 		}
+		#endregion
+		#region ToString method
 		#endregion
 	}
 }
