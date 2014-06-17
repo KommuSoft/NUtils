@@ -32,6 +32,12 @@ namespace NUtils {
 		/// <param name="i">The first index to swap.</param>
 		/// <param name="j">The second index to swap.</param>
 		void Swap (int i, int j);
+
+		/// <summary>
+		/// Swaps the content of the indices according to the given permutation.
+		/// </summary>
+		/// <param name="permutation">The given permutation that specifies how the content should be permutated.</param>
+		void Swap (IPermutation permutation);
 	}
 }
 

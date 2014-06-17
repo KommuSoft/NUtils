@@ -81,7 +81,6 @@ namespace NUtils {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Permutation"/> class with a given initial permutation.
 		/// </summary>
-		/// <param name="n">The number of indices.</param>
 		/// <param name="indices">The initial indices.</param>
 		/// <remarks>
 		/// <para>The values of the given indices are not copied: modifications made to the <paramref name="indices"/>
@@ -103,6 +102,21 @@ namespace NUtils {
 			int tmp = idx [i];
 			idx [i] = idx [j];
 			idx [j] = tmp;
+		}
+
+		/// <summary>
+		/// Swaps the content of the indices according to the given permutation.
+		/// </summary>
+		/// <param name="permutation">The given permutation that specifies how the content should be permutated.</param>
+		public void Swap (IPermutation permutation) {
+			int[] ia = this.indices;
+			int l = ia.Length, lp = permutation.Length, f;
+			for (int i = 0x00; i < l; i++) {
+				f = ia [i];
+				if (f < lp) {
+					ia [i] = permutation [f];
+				}
+			}
 		}
 		#endregion
 		#region IResetable implementation
@@ -127,7 +141,7 @@ namespace NUtils {
 			int[] d = this.indices;
 			int dl = d.Length;
 			for (int i = 0x00; i < dl; i++) {
-				sb.AppendFormat (" {0}->{1}", i, d [i]);
+				sb.AppendFormat (" {0}>{1}", i, d [i]);
 			}
 			sb.Append (" }");
 			return sb.ToString ();
