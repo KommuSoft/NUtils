@@ -384,6 +384,20 @@ namespace NUtils {
 		}
 		#endregion
 		#region IBitVector implementation
+		/// <Docs>The item to remove from the current collection.</Docs>
+		/// <para>Removes the first occurrence of an item from the current collection.</para>
+		/// <summary>
+		/// Remove the specified other.
+		/// </summary>
+		/// <param name="other">Other.</param>
+		public void Remove (IBitVector other) {
+			ulong[] d = this.data;
+			int k = Math.Min (d.Length, (other.Length + 0x3f) >> 0x06);
+			for (int i = 0x00; i < k; i++) {
+				d [i] &= ~other.GetBlock64 (i);
+			}
+		}
+
 		/// <summary>
 		/// Gets 64 bits all packed in one <see cref="ulong"/> of the given <paramref name="block"/> index.
 		/// </summary>

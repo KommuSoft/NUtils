@@ -159,6 +159,19 @@ namespace NUtils {
 		public static IEnumerable<T> Cache<T> (this IEnumerable<T> source) {
 			return new LinqCache<T> (source);
 		}
+
+		/// <summary>
+		/// Flattens the given two-dimensional source to a one-dimensional list.
+		/// </summary>
+		/// <param name="source">The given two-dimensional list to flatten.</param>
+		/// <typeparam name="T">The type of items to enumerate.</typeparam>
+		public static IEnumerable<T> Flatten <T> (this IEnumerable<IEnumerable<T>> source) {
+			foreach (IEnumerable<T> list in source) {
+				foreach (T item in list) {
+					yield return item;
+				}
+			}
+		}
 		#endregion
 	}
 }

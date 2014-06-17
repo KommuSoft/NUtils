@@ -3,15 +3,40 @@ using System.Text;
 using System.Collections.Generic;
 
 namespace NUtils {
+	/// <summary>
+	/// A utility class that specifies usefull operations on bit strings, bit tiles, etc.
+	/// </summary>
+	/// <remarks>
+	/// <para>A bit tile is defined as a 64 bit string that is ordered as a 8x8 matrix (left to right, top to down).</para>
+	/// </remarks>
 	public static class BitUtils {
 
+		#region Constants
+		/// <summary>
+		/// A constant 64-bit string that represents the identity matrix for a bit tile.
+		/// </summary>
 		public const ulong ITile = 0x8040201008040201UL;
+		/// <summary>
+		/// A constant 64-bit string where the last 8 bits are set.
+		/// </summary>
 		public const ulong L08ULong = 0x00000000000000FFUL;
+		/// <summary>
+		/// A constant 64-bit string where the last 16 bits are set.
+		/// </summary>
 		public const ulong L16ULong = 0x000000000000FFFFUL;
+		/// <summary>
+		/// A constant 64-bit string where the last 32 bits are set.
+		/// </summary>
 		public const ulong L32ULong = 0x00000000FFFFFFFFUL;
+		/// <summary>
+		/// A constant 64-bit string where all the bits are set.
+		/// </summary>
 		public const ulong L64ULong = 0xFFFFFFFFFFFFFFFFUL;
+		/// <summary>
+		/// A constant 64-bit string where in each group of 8 bits, the last bit is set.
+		/// </summary>
 		public const ulong I8S8L1ULong = 0x0101010101010101UL;
-
+		#endregion
 		public static ulong Transpose (ulong origin) {
 			return
 				((origin & 0x8040201008040201)) |
@@ -31,6 +56,12 @@ namespace NUtils {
 				((origin & 0x0100000000000000) >> 0x31);
 		}
 
+		/// <summary>
+		/// Copies the row with the given <paramref name="row"/> index to all the other rows in the given <paramref name="origin"/> bit tile.
+		/// </summary>
+		/// <returns>A bit tile that contains eight rows who all have the same values as the row with the given <paramref name="row"/> index.</returns>
+		/// <param name="origin">The original bit tile.</param>
+		/// <param name="row">The index of the row to copy.</param>
 		public static ulong Copy8Row (ulong origin, int row = 0x00) {
 			int shft = row << 0x03;
 			ulong mask = ((0xffUL << shft) & origin) >> shft;
@@ -157,6 +188,14 @@ namespace NUtils {
 
 		public static int CountBits (ulong val) {
 			return CountBits ((uint)(val & 0xFFFFFFFF)) + CountBits ((uint)(val >> 0x20));
+		}
+
+		public static ulong MaskTileColumn (ulong source, int index) {
+			return source & (I8S8L1ULong << index);
+		}
+
+		public static ulong MaskTileRow (ulong source, int index) {
+			return source & (L08ULong << (index << 0x03));
 		}
 
 		public static int LowestBit (ulong low) {

@@ -120,6 +120,13 @@ namespace NUtils {
 		/// <returns>An <see cref="ulong"/> that contains 64 bits of the given <paramref name="block"/> index.</returns>
 		/// <param name="block">The given block index.</param>
 		ulong GetBlock64 (int block);
+
+		/// <summary>
+		/// Resets the bits of this <see cref="IBitVector"/> instance where the corresponding bits
+		/// in the given <paramref name="other"/> <see cref="IBitVector"/> are set.
+		/// </summary>
+		/// <param name="other">A <see cref="IBitVector"/> that specifies which indices to remove.</param>
+		void Remove (IBitVector other);
 	}
 }
 

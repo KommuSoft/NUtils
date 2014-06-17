@@ -53,6 +53,9 @@
     <Compile Include="Tests\BitUtilsTest.cs" />
     <Compile Include="Tests\CompactBitVectorTest.cs" />
     <Compile Include="ILowest.cs" />
+    <Compile Include="IResetable.cs" />
+    <Compile Include="Permutation.cs" />
+    <Compile Include="IPermutation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
