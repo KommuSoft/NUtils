@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Textual {
 	/// <summary>
 	/// An interface specifying that an instance supports being converted to a string, given a <see cref="String"/> that
 	/// provides the requested format and an <see cref="IFormatProvider"/> instance that provides how certain elements

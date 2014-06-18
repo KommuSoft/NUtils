@@ -1,5 +1,5 @@
 //
-//  IFormatProviderToString.cs
+//  IFormatToString.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,21 +20,22 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Textual {
 	/// <summary>
-	/// An interface that specifies that the instance can be converted to a string, given a <see cref="IFormatProvider"/> instance
-	/// that specifies how certain elements should be printed.
+	/// An interface specifying that the instance can be converted to a string given another <see cref="String"/> that provided the
+	/// requested format.
 	/// </summary>
-	public interface IFormatProviderToString {
+	public interface IFormatToString {
 
 		/// <summary>
-		/// Converts the numeric value of this instance to its equivalent string representation using the specified culture-specific format information.
+		/// Converts the numeric value of this instance to its equivalent string representation, using the specified format.
 		/// </summary>
 		/// <returns>
-		/// The string representation of the value of this instance as specified by <paramref name="provider"/>.
+		/// The string representation of the value of this instance as specified by <paramref name="format" />.
 		/// </returns>
-		/// <param name="provider">An <see cref="T:System.IFormatProvider" /> that supplies culture-specific formatting information.</param>
-		string ToString (IFormatProvider provider);
+		/// <param name="format">A numeric format string.</param>
+		/// <exception cref="T:System.FormatException"><paramref name="format" /> is invalid.</exception>
+		string ToString (string format);
 	}
 }
 

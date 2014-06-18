@@ -103,7 +103,7 @@ namespace NUtils.Bitwise {
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether all the bits in this <see cref="NUtils.IBitVector"/> instance are set.
+		/// Gets a value indicating whether all the bits in this <see cref="IBitVector"/> instance are set.
 		/// </summary>
 		/// <value><c>true</c> if all bits are set; otherwise, <c>false</c>.</value>
 		public bool AllSet {
