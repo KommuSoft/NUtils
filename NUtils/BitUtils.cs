@@ -37,7 +37,13 @@ namespace NUtils {
 		/// </summary>
 		public const ulong I8S8L1ULong = 0x0101010101010101UL;
 		#endregion
-		public static ulong Transpose (ulong origin) {
+		#region Static utility functions
+		/// <summary>
+		/// Calculate the transposed version of the tile: the rows are read as columns and vice versa.
+		/// </summary>
+		/// <returns>A bit tile that is the transpose of the <paramref name="original"/> bit tile.</returns>
+		/// <param name="origin">The original bit tile to transpose.</param>
+		public static ulong TransposeTile (ulong origin) {
 			return
 				((origin & 0x8040201008040201)) |
 				((origin & 0x0080402010080402) << 0x07) |
@@ -71,6 +77,14 @@ namespace NUtils {
 			return mask;
 		}
 
+		/// <summary>
+		/// Compress the values of each row into the first column by performing an AND-operation on the values.
+		/// </summary>
+		/// <returns>A bit tile where the first column contains the AND-operations performed on every row.</returns>
+		/// <param name="origin">The original tile to transform.</param>
+		/// <remarks>
+		/// <para>The other columns are guaranteed to contain zeros after the operation.</para>
+		/// </remarks>
 		public static ulong AndCompress8Rows (ulong origin) {
 			origin &= (origin & 0xF0F0F0F0F0F0F0F0UL) >> 0x04;
 			origin &= (origin & 0x0C0C0C0C0C0C0C0CUL) >> 0x02;
@@ -78,6 +92,15 @@ namespace NUtils {
 			return origin;
 		}
 
+		/// <summary>
+		/// Compress the values of each row into the first column by performing an OR-operation on the values.
+		/// </summary>
+		/// <returns>A bit tile where the first column contains the OR-operations performed on every row.</returns>
+		/// <param name="origin">The original tile to transform.</param>
+		/// <remarks>
+		/// <para>The content of the other columns is modified as well, the behavior is unknown. One can mask
+		/// these columns out, due to performance reasons, this is not done automatically.</para>
+		/// </remarks>
 		public static ulong OrCompress8Rows (ulong origin) {
 			origin |= (origin & 0xF0F0F0F0F0F0F0F0UL) >> 0x04;
 			origin |= (origin & 0x0C0C0C0C0C0C0C0CUL) >> 0x02;
@@ -229,5 +252,6 @@ namespace NUtils {
 				return -0x01;
 			}
 		}
+		#endregion
 	}
 }

@@ -26,7 +26,7 @@ namespace NUtils {
 	/// <summary>
 	/// A basic implementation of the <see cref="IPermutation"/> interface.
 	/// </summary>
-	public class Permutation : IPermutation, IValidateable {
+	public class ExplicitPermutation : IPermutation, IValidateable {
 
 		#region Fields
 		private readonly int[] indices;
@@ -74,7 +74,7 @@ namespace NUtils {
 		/// Initializes a new instance of the <see cref="Permutation"/> class.
 		/// </summary>
 		/// <param name="n">N.</param>
-		public Permutation (int n) {
+		public ExplicitPermutation (int n) {
 			this.indices = new int[n];
 			this.Reset ();
 		}
@@ -83,7 +83,7 @@ namespace NUtils {
 		/// Initializes a new instance of the <see cref="Permutation"/> class with a given list of initial permutations.
 		/// </summary>
 		/// <param name="indices">The initial indices.</param>
-		public Permutation (IEnumerable<int> indices) : this(indices.ToArray ()) {
+		public ExplicitPermutation (IEnumerable<int> indices) : this(indices.ToArray ()) {
 		}
 
 		/// <summary>
@@ -96,7 +96,7 @@ namespace NUtils {
 		/// <para>Consistency is not checked: it is possible that the described permutation is not possible. The user
 		/// should check this.</para>
 		/// </remarks>
-		public Permutation (params int[] indices) {
+		public ExplicitPermutation (params int[] indices) {
 			this.indices = indices;
 		}
 		#region IPermutable implementation
@@ -141,7 +141,7 @@ namespace NUtils {
 			for (int i = 0x00; i < na; i++) {
 				ib [ia [i]] = i;
 			}
-			return new Permutation (ib);
+			return new ExplicitPermutation (ib);
 		}
 
 		/// <summary>
@@ -193,12 +193,12 @@ namespace NUtils {
 		/// </summary>
 		/// <returns>A <see cref="Permutation"/> that represents the identity operation for the given number of elements.</returns>
 		/// <param name="n">The given number of elements.</param>
-		public static Permutation Identity (int n) {
+		public static ExplicitPermutation Identity (int n) {
 			int[] idx = new int[n];
 			for (int i = 0x00; i < n; i++) {
 				idx [i] = i;
 			}
-			return new Permutation (idx);
+			return new ExplicitPermutation (idx);
 		}
 		#endregion
 	}
