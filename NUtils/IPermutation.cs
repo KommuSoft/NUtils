@@ -31,6 +31,20 @@ namespace NUtils {
 		int this [int index] {
 			get;
 		}
+
+		/// <summary>
+		/// Calculate a permuatation that is the oposite function of this <see cref="IPermutation"/>
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IPermutation"/> that represents the opposite permutation. In other words
+		/// applying the resulting permutation on this permuation results in an identity permutation.
+		/// </returns>
+		IPermutation Reverse ();
+
+		/// <summary>
+		/// Calculates the reverse permutation and stores it in this <see cref="IPermutation"/> instance.
+		/// </summary>
+		void LocalReverse ();
 	}
 }
 

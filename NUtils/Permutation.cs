@@ -18,7 +18,8 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace NUtils {
@@ -79,6 +80,13 @@ namespace NUtils {
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="Permutation"/> class with a given list of initial permutations.
+		/// </summary>
+		/// <param name="indices">The initial indices.</param>
+		public Permutation (IEnumerable<int> indices) : this(indices.ToArray ()) {
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="Permutation"/> class with a given initial permutation.
 		/// </summary>
 		/// <param name="indices">The initial indices.</param>
@@ -118,6 +126,24 @@ namespace NUtils {
 				}
 			}
 		}
+
+		/// <summary>
+		/// Calculate a permuatation that is the oposite function of this <see cref="IPermutation"/>
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IPermutation"/> that represents the opposite permutation. In other words
+		/// applying the resulting permutation on this permuation results in an identity permutation.
+		/// </returns>
+		public IPermutation Reverse () {
+			throw new System.NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Calculates the reverse permutation and stores it in this <see cref="IPermutation"/> instance.
+		/// </summary>
+		public void LocalReverse () {
+			throw new System.NotImplementedException ();
+		}
 		#endregion
 		#region IResetable implementation
 		/// <summary>
@@ -145,6 +171,20 @@ namespace NUtils {
 			}
 			sb.Append (" }");
 			return sb.ToString ();
+		}
+		#endregion
+		#region Static generators
+		/// <summary>
+		/// Calculate the identity permutation for a given number of elements.
+		/// </summary>
+		/// <returns>A <see cref="Permutation"/> that represents the identity operation for the given number of elements.</returns>
+		/// <param name="n">The given number of elements.</param>
+		public static Permutation Identity (int n) {
+			int[] idx = new int[n];
+			for (int i = 0x00; i < n; i++) {
+				idx [i] = i;
+			}
+			return new Permutation (idx);
 		}
 		#endregion
 	}

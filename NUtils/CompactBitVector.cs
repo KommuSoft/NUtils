@@ -49,7 +49,7 @@ namespace NUtils {
 		/// <value>A bit mask that only passes the relevant bits of the last block.</value>
 		public ulong LastMask {
 			get {
-				return (BitUtils.L64ULong >> ((0x40 - this.n) & 0x3F));
+				return (BitUtils.L64ULong >> (0x40 - (this.n & 0x3F)));
 			}
 		}
 		#endregion
@@ -436,14 +436,22 @@ namespace NUtils {
 			int block = lower >> 0x06;
 			ulong[] data = this.data;
 			int dl = data.Length, dl1 = dl - 0x01;
-			ulong xi = data [block] & (BitUtils.L64ULong << (lower & 0x3f));
-			int idx = BitUtils.LowestBit (xi);
+			ulong xi = data [block];
+			ulong lm = this.LastMask;
+			if (block == dl1) {
+				xi &= lm;
+			}
+			int mod = lower & 0x3f;
+			int idx = BitUtils.LowestBit (xi >> mod);
+			if (idx >= 0x00) {
+				return mod + idx;
+			}
 			block++;
 			while (idx != -0x01 && block < dl1) {
 				idx = BitUtils.LowestBit (data [block++]);
 			}
 			if (block == dl1) {
-				idx = BitUtils.LowestBit (data [block] & this.LastMask);
+				idx = BitUtils.LowestBit (data [block] & lm);
 			}
 			return idx;
 		}

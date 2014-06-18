@@ -187,6 +187,18 @@ namespace NUtils {
 				(col7) << 0x07;
 		}
 
+		public static ulong TileSerialColumn (ulong tile, int index = 0x00) {
+			ulong res = (tile >> (0x00 + index)) & 0x01;
+			res |= (tile >> (0x07 + index)) & 0x02;
+			res |= (tile >> (0x0e + index)) & 0x04;
+			res |= (tile >> (0x15 + index)) & 0x08;
+			res |= (tile >> (0x1c + index)) & 0x10;
+			res |= (tile >> (0x23 + index)) & 0x20;
+			res |= (tile >> (0x2a + index)) & 0x40;
+			res |= (tile >> (0x31 + index)) & 0x80;
+			return res;
+		}
+
 		public static int CountBits (uint val) {
 			val = val - ((val >> 0x01) & 0x55555555);
 			val = (val & 0x33333333) + ((val >> 0x02) & 0x33333333);
