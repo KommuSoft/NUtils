@@ -135,14 +135,28 @@ namespace NUtils {
 		/// applying the resulting permutation on this permuation results in an identity permutation.
 		/// </returns>
 		public IPermutation Reverse () {
-			throw new System.NotImplementedException ();
+			int[] ia = this.indices;
+			int na = ia.Length;
+			int[] ib = new int[na];
+			for (int i = 0x00; i < na; i++) {
+				ib [ia [i]] = i;
+			}
+			return new Permutation (ib);
 		}
 
 		/// <summary>
 		/// Calculates the reverse permutation and stores it in this <see cref="IPermutation"/> instance.
 		/// </summary>
 		public void LocalReverse () {
-			throw new System.NotImplementedException ();
+			int[] ia = this.indices;
+			int na = ia.Length;
+			int[] ib = new int[na];
+			for (int i = 0x00; i < na; i++) {
+				ib [ia [i]] = i;
+			}
+			for (int i = 0x00; i < na; i++) {
+				ia [i] = ib [i];
+			}
 		}
 		#endregion
 		#region IResetable implementation
