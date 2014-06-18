@@ -18,11 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUtils.Abstract;
+using NUtils.Bitwise;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
 	/// A basic implementation of the <see cref="IPermutation"/> interface.
 	/// </summary>

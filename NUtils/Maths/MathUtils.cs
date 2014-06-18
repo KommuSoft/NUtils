@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
 	/// A utility class that contains mathematical constants, functions and random number generators.
 	/// </summary>

@@ -1,6 +1,6 @@
 using System;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// An interface specifying that an instance can be invalid, but that an instance has the ability to check this.
 	/// </summary>

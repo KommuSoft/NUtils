@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
 	/// <summary>
 	/// A utility class that specifies usefull operations on bit strings, bit tiles, etc.
 	/// </summary>

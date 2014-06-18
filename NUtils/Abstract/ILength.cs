@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// An interface specifying that the instance contains a number of subelements with a determined cardinality.
 	/// </summary>

@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// A utility class that is used to manipulate functions to enrich functionality. For instance the
 	/// introduction of useless parameters.

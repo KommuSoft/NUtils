@@ -18,9 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using NUtils.Abstract;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
 	/// An interface specifying that the content in the object can be permutated.
 	/// </summary>

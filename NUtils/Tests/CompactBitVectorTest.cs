@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using System;
+using NUtils.Bitwise;
 
 namespace NUtils {
 	[TestFixture()]

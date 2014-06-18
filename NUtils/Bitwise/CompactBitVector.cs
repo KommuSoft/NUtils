@@ -18,11 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUtils.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
 	/// <summary>
 	/// An implementation of an <see cref="IBitVector"/>, the implementation uses <see cref="ulong"/> data in an array fashion.
 	/// </summary>
@@ -322,7 +323,7 @@ namespace NUtils {
 		}
 		#endregion
 		#region IBitVector implementation
-		IBitVector IBitVector.And (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.And (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -335,7 +336,7 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Or (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.Or (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -348,7 +349,7 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Xor (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.Xor (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -361,11 +362,11 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Not () {
+		IBitVector IBitwise<IBitVector>.Not () {
 			return this.Not ();
 		}
 
-		void IBitVector.AndLocal (IBitVector other) {
+		void ILocalBitwise<IBitVector>.AndLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -375,7 +376,7 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.OrLocal (IBitVector other) {
+		void ILocalBitwise<IBitVector>.OrLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -385,7 +386,7 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.XorLocal (IBitVector other) {
+		void ILocalBitwise<IBitVector>.XorLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -395,7 +396,7 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.NotLocal () {
+		void ILocalBitwise<IBitVector>.NotLocal () {
 			this.NotLocal ();
 		}
 		#endregion
@@ -648,32 +649,8 @@ namespace NUtils {
 		/// <remarks>
 		/// <para>The items are ordered in ascending order.</para>
 		/// </remarks>
-		public IEnumerator<int> GetEnumeratorLower (int lower) {
-			ulong[] dc = this.data;
-			int dl = dc.Length, dl1 = dl - 0x01, idx;
-			ulong d;
-			for (int i = 0x00; i < dl1; i++) {
-				d = dc [i];
-				if (d != 0x00) {
-					idx = i << 0x06;
-					do {
-						if ((d & 0x01) != 0x00) {
-							yield return idx;
-						}
-						d >>= 0x01;
-						idx++;
-					} while(d != 0x00);
-				}
-			}
-			d = dc [dl1] & this.LastMask;
-			idx = dl1 << 0x06;
-			while (d != 0x00) {
-				if ((d & 0x01) != 0x00) {
-					yield return idx;
-				}
-				d >>= 0x01;
-				idx++;
-			}
+		public IEnumerator<int> GetEnumeratorLower (int lower = 0x00) {
+			yield break;
 		}
 		#endregion
 	}

@@ -18,7 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-namespace NUtils {
+using NUtils.Abstract;
+
+namespace NUtils.Maths {
 	/// <summary>
 	/// An interface representing a permutation. A permutation is permutable.
 	/// </summary>
