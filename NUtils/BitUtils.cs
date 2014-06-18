@@ -78,6 +78,13 @@ namespace NUtils {
 			return origin;
 		}
 
+		public static ulong OrCompress8Rows (ulong origin) {
+			origin |= (origin & 0xF0F0F0F0F0F0F0F0UL) >> 0x04;
+			origin |= (origin & 0x0C0C0C0C0C0C0C0CUL) >> 0x02;
+			origin |= (origin & 0x0202020202020202UL) >> 0x01;
+			return origin;
+		}
+
 		public static ulong Or8Rows (ulong origin) {
 			ulong mask = origin & 0x0101010101010101UL;
 			mask |= (origin & 0x0202020202020202UL) >> 0x01;

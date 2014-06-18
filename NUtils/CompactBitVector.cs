@@ -49,7 +49,7 @@ namespace NUtils {
 		/// <value>A bit mask that only passes the relevant bits of the last block.</value>
 		public ulong LastMask {
 			get {
-				return (0xFFFFFFFFUL >> ((0x40 - this.n) & 0x3F));
+				return (BitUtils.L64ULong >> ((0x40 - this.n) & 0x3F));
 			}
 		}
 		#endregion
