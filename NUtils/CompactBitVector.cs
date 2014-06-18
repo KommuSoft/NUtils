@@ -637,6 +637,45 @@ namespace NUtils {
 			return this.GetLowest ();
 		}
 		#endregion
+		#region ILowerEnumerable implementation
+		/// <summary>
+		/// Get an <see cref="T:IEnumerator`1"/> that enumerates all items that are larger than or equal to the given
+		/// <paramref name="lower"/> bound.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerator`1"/> that enumerates all items larger than or equal to the given
+		/// <paramref name="lower"/> bound.</returns>
+		/// <param name="lower">The given lower bound of the items to be enumerated.</param>
+		/// <remarks>
+		/// <para>The items are ordered in ascending order.</para>
+		/// </remarks>
+		public IEnumerator<int> GetEnumeratorLower (int lower) {
+			ulong[] dc = this.data;
+			int dl = dc.Length, dl1 = dl - 0x01, idx;
+			ulong d;
+			for (int i = 0x00; i < dl1; i++) {
+				d = dc [i];
+				if (d != 0x00) {
+					idx = i << 0x06;
+					do {
+						if ((d & 0x01) != 0x00) {
+							yield return idx;
+						}
+						d >>= 0x01;
+						idx++;
+					} while(d != 0x00);
+				}
+			}
+			d = dc [dl1] & this.LastMask;
+			idx = dl1 << 0x06;
+			while (d != 0x00) {
+				if ((d & 0x01) != 0x00) {
+					yield return idx;
+				}
+				d >>= 0x01;
+				idx++;
+			}
+		}
+		#endregion
 	}
 }
 

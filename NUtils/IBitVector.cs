@@ -25,7 +25,7 @@ namespace NUtils {
 	/// <summary>
 	/// A vector of bits. This should be implemented in a compact way.
 	/// </summary>
-	public interface IBitVector : ILength, ICollection<int>, ILowest<int> {
+	public interface IBitVector : ILength, ICollection<int>, ILowest<int>, ILowerEnumerable<int> {
 
 		/// <summary>
 		/// Gets or sets the value of a single bit in the bitvector.

@@ -56,9 +56,10 @@
     <Compile Include="Tests\CompactBitVectorTest.cs" />
     <Compile Include="ILowest.cs" />
     <Compile Include="IResetable.cs" />
-    <Compile Include="Permutation.cs" />
     <Compile Include="IPermutation.cs" />
     <Compile Include="IValidateable.cs" />
+    <Compile Include="ExplicitPermutation.cs" />
+    <Compile Include="ILowerEnumerable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
