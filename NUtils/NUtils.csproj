@@ -62,6 +62,7 @@
     <Compile Include="Functional\LinqCache.cs" />
     <Compile Include="Functional\MultiThreadedList.cs" />
     <Compile Include="Functional\TupleUtils.cs" />
+    <Compile Include="Functional\ArrayUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

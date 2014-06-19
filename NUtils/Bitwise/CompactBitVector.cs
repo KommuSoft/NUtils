@@ -653,6 +653,22 @@ namespace NUtils.Bitwise {
 			yield break;
 		}
 		#endregion
+		#region Static constructors
+		/// <summary>
+		/// Generate a <see cref="CompactBitVector"/> where all bits are set.
+		/// </summary>
+		/// <returns>A <see cref="CompactBitVector"/> of length <paramref name="n"/> with all bits set.</returns>
+		/// <param name="n">The length of the <see cref="CompactBitVector"/> to generate.</param>
+		public static CompactBitVector All (int n) {
+			int l = (n + 0x3f) >> 0x06;
+			ulong[] d = new ulong[l];
+			ulong u = BitUtils.L64ULong;
+			for (int i = 0x00; i < l; i++) {
+				d [i] = u;
+			}
+			return new CompactBitVector (n, d);
+		}
+		#endregion
 	}
 }
 
