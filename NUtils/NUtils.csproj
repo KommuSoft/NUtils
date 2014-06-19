@@ -37,10 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TupleUtils.cs" />
-    <Compile Include="EnumerableUtils.cs" />
-    <Compile Include="MultiThreadedList.cs" />
-    <Compile Include="LinqCache.cs" />
     <Compile Include="Tests\BitUtilsTest.cs" />
     <Compile Include="Tests\CompactBitVectorTest.cs" />
     <Compile Include="Bitwise\BitUtils.cs" />
@@ -62,6 +58,10 @@
     <Compile Include="Textual\IFormatProviderToString.cs" />
     <Compile Include="Textual\IFormatToString.cs" />
     <Compile Include="Textual\TablePrinter.cs" />
+    <Compile Include="Functional\EnumerableUtils.cs" />
+    <Compile Include="Functional\LinqCache.cs" />
+    <Compile Include="Functional\MultiThreadedList.cs" />
+    <Compile Include="Functional\TupleUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -70,6 +70,7 @@
     <Folder Include="Abstract\" />
     <Folder Include="Maths\" />
     <Folder Include="Textual\" />
+    <Folder Include="Functional\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
