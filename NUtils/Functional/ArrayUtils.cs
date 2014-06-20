@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A utility class that provides operations on arrays like swapping and more advanced copying.
 	/// </summary>
@@ -39,7 +39,7 @@ namespace NUtils {
 		/// <param name="targetStride">The difference in index values between two swap opperations with respect to the <paramref name="target"/> array.</param>
 		/// <typeparam name="T">The type of elements to swap.</typeparam>
 		public static void Swap<T> (T[] source, int sourceOffset, T[] target, int targetOffset, int length, int sourceStride = 0x01, int targetStride = 0x01) {
-			int mx = Math.Min (Math.Min (source.Length - sourceOffset, target.Length - targetOffset), length) + sourceOffset;
+			int mx = Math.Min (Math.Min (source.Length - sourceOffset, (target.Length - targetOffset) * sourceStride / targetStride), length) + sourceOffset;
 			T tmp;
 			for (int i = sourceOffset, j = targetOffset; i < mx; i += sourceStride, j += targetStride) {
 				tmp = source [i];
@@ -61,9 +61,11 @@ namespace NUtils {
 		/// <typeparam name="TS">The type of values provided by the <paramref name="source"/> array.</typeparam>
 		/// <typeparam name="TT">The type of values stored in the <paramref name="target"/> array.</typeparam>
 		public static void Copy<TS,TT> (TS[] source, int sourceOffset, TT[] target, int targetOffset, int length, int sourceStride = 0x01, int targetStride = 0x01) where TS : TT {
-			int mx = Math.Min (Math.Min (source.Length - sourceOffset, target.Length - targetOffset), length) + sourceOffset;
+			int mx = Math.Min (Math.Min (source.Length - sourceOffset, (target.Length - targetOffset) * sourceStride / targetStride), length) + sourceOffset;
+			Console.WriteLine ("mx {0}", mx);
 			for (int i = sourceOffset, j = targetOffset; i < mx; i += sourceStride, j += targetStride) {
 				target [j] = source [i];
+				Console.WriteLine ("copy {0} -> {1}", i, j);
 			}
 		}
 	}

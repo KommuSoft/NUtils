@@ -63,6 +63,8 @@
     <Compile Include="Functional\MultiThreadedList.cs" />
     <Compile Include="Functional\TupleUtils.cs" />
     <Compile Include="Functional\ArrayUtils.cs" />
+    <Compile Include="Maths\CyclePermutation.cs" />
+    <Compile Include="Abstract\INormalize.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
