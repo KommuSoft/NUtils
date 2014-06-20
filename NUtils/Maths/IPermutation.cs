@@ -29,10 +29,9 @@ namespace NUtils.Maths {
 		/// <summary>
 		/// Gets the index on which the given index maps.
 		/// </summary>
+		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
 		/// <param name="index">The given index.</param>
-		int this [int index] {
-			get;
-		}
+		int GetPermutationOfIndex (int index);
 
 		/// <summary>
 		/// Calculate a permuatation that is the oposite function of this <see cref="IPermutation"/>
