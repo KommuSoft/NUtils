@@ -130,11 +130,14 @@ namespace NUtils {
 		}
 
 		public void CopyTo (TElement[] array, int arrayIndex) {
-			throw new NotImplementedException ();
+			this.queue.CopyTo (array, arrayIndex);
 		}
 
 		public bool Remove (TElement item) {
-			throw new NotImplementedException ();
+			if (this.hash.Remove (item)) {
+				throw new NotImplementedException ();//TODO: remove from queue
+			}
+			return false;
 		}
 		#endregion
 		#region IEnumerable implementation

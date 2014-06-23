@@ -68,6 +68,7 @@
     <Compile Include="Collections\IUniqueQueue.cs" />
     <Compile Include="Collections\IQueue.cs" />
     <Compile Include="Collections\UniqueQueue.cs" />
+    <Compile Include="Bitwise\IBitMatrix.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
