@@ -516,8 +516,8 @@ namespace NUtils.Bitwise {
 		/// Reset all bits in the <see cref="CompactBitVector"/> instance.
 		/// </summary>
 		public void Clear () {
-			int nc = this.n;
 			ulong[] dc = this.data;
+			int nc = dc.Length;
 			for (int i = 0x00; i < nc; i++) {
 				dc [i] = 0x00UL;
 			}

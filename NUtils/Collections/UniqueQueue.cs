@@ -54,7 +54,7 @@ namespace NUtils {
 		#endregion
 		#region ISet implementation
 		public bool Add (TElement item) {
-			this.Enqueue (item);
+			return this.Enqueue (item);
 		}
 
 		public void ExceptWith (IEnumerable<TElement> other) {
@@ -106,11 +106,13 @@ namespace NUtils {
 		}
 
 		public TElement Dequeue () {
-			throw new NotImplementedException ();
+			TElement el = this.queue.Dequeue ();
+			this.hash.Remove (el);
+			return el;
 		}
 
 		public TElement Peek () {
-			throw new NotImplementedException ();
+			return this.queue.Peek ();
 		}
 		#endregion
 		#region ICollection implementation
