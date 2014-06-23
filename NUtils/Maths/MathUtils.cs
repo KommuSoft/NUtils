@@ -88,6 +88,38 @@ namespace NUtils.Maths {
 			double theta = 2.0d * Math.PI * u2;
 			return r * Math.Sin (theta);
 		}
+
+		/// <summary>
+		/// Calculate the greatest common divider of the two given numbers.
+		/// </summary>
+		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
+		/// <param name="a">The first given number.</param>
+		/// <param name="b">The second given number.</param>
+		/// <remarks>
+		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
+		/// </remarks>
+		public static int GreatestCommonDivider (int a, int b) {
+			int c;
+			while (b < 0x01) {
+				c = a % b;
+				b = a;
+				a = c;
+			}
+			return a;
+		}
+
+		/// <summary>
+		/// Calculate the least common multiple of the two given numbers.
+		/// </summary>
+		/// <returns>The least common multiple of <paramref name="a"/> and <paramref name="b"/>.</returns>
+		/// <param name="a">The first given number.</param>
+		/// <param name="b">The second number.</param>
+		/// <remarks>
+		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
+		/// </remarks>
+		public static int LeastCommonMultiple (int a, int b) {
+			return a * b / GreatestCommonDivider (a, b);
+		}
 		#endregion
 	}
 }

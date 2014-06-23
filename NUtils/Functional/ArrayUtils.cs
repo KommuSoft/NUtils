@@ -62,10 +62,8 @@ namespace NUtils.Functional {
 		/// <typeparam name="TT">The type of values stored in the <paramref name="target"/> array.</typeparam>
 		public static void Copy<TS,TT> (TS[] source, int sourceOffset, TT[] target, int targetOffset, int length, int sourceStride = 0x01, int targetStride = 0x01) where TS : TT {
 			int mx = Math.Min (Math.Min (source.Length - sourceOffset, (target.Length - targetOffset) * sourceStride / targetStride), length) + sourceOffset;
-			Console.WriteLine ("mx {0}", mx);
 			for (int i = sourceOffset, j = targetOffset; i < mx; i += sourceStride, j += targetStride) {
 				target [j] = source [i];
-				Console.WriteLine ("copy {0} -> {1}", i, j);
 			}
 		}
 	}

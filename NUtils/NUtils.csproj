@@ -65,6 +65,9 @@
     <Compile Include="Functional\ArrayUtils.cs" />
     <Compile Include="Maths\CyclePermutation.cs" />
     <Compile Include="Abstract\INormalize.cs" />
+    <Compile Include="Collections\IUniqueQueue.cs" />
+    <Compile Include="Collections\IQueue.cs" />
+    <Compile Include="Collections\UniqueQueue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -74,6 +77,7 @@
     <Folder Include="Maths\" />
     <Folder Include="Textual\" />
     <Folder Include="Functional\" />
+    <Folder Include="Collections\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

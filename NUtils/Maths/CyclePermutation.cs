@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using NUtils.Abstract;
+using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -56,7 +57,13 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public bool IsValid {
 			get {
-				throw new NotImplementedException ();
+				HashSet<int> hs = new HashSet<int> ();
+				foreach (int ix in this.cycle) {
+					if (ix < 0x00 || !hs.Add (ix)) {
+						return false;
+					}
+				}
+				return true;
 			}
 		}
 		#endregion
@@ -102,6 +109,7 @@ namespace NUtils.Maths {
 						mi = i;
 					}
 				}
+				int gcd = MathUtils.GreatestCommonDivider (nc, mi);
 				for (int i = 0x00; i < mi; i++) {//perform shift
 					int tmp = c [i];
 					int j = i;
