@@ -18,7 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-namespace NUtils {
+using NUtils.Abstract;
+
+namespace NUtils.Maths {
 	/// <summary>
 	/// An interface representing a permutation. A permutation is permutable.
 	/// </summary>
@@ -27,10 +29,9 @@ namespace NUtils {
 		/// <summary>
 		/// Gets the index on which the given index maps.
 		/// </summary>
+		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
 		/// <param name="index">The given index.</param>
-		int this [int index] {
-			get;
-		}
+		int GetPermutationOfIndex (int index);
 
 		/// <summary>
 		/// Calculate a permuatation that is the oposite function of this <see cref="IPermutation"/>

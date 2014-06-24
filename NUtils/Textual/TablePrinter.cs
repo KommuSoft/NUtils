@@ -22,7 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NUtils {
+namespace NUtils.Textual {
 	/// <summary>
 	/// A utility class that converts a 2d structure of objects such that they can be written to a textual human-readable format.
 	/// </summary>

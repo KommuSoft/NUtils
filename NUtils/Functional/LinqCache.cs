@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A class that is used to cache the results of some LINQ-query. This is done
 	/// if the query is computationally expensive and the result will be used many

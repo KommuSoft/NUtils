@@ -18,11 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUtils.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
 	/// <summary>
 	/// An implementation of an <see cref="IBitVector"/>, the implementation uses <see cref="ulong"/> data in an array fashion.
 	/// </summary>
@@ -102,7 +103,7 @@ namespace NUtils {
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether all the bits in this <see cref="NUtils.IBitVector"/> instance are set.
+		/// Gets a value indicating whether all the bits in this <see cref="IBitVector"/> instance are set.
 		/// </summary>
 		/// <value><c>true</c> if all bits are set; otherwise, <c>false</c>.</value>
 		public bool AllSet {
@@ -322,7 +323,7 @@ namespace NUtils {
 		}
 		#endregion
 		#region IBitVector implementation
-		IBitVector IBitVector.And (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.And (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -335,7 +336,7 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Or (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.Or (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -348,7 +349,7 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Xor (IBitVector other) {
+		IBitVector IBitwise<IBitVector>.Xor (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int bn = other.Length;
@@ -361,11 +362,12 @@ namespace NUtils {
 			return new CompactBitVector (Math.Max (this.n, bn), dc);
 		}
 
-		IBitVector IBitVector.Not () {
+		IBitVector IBitwise<IBitVector>.Not () {
 			return this.Not ();
 		}
-
-		void IBitVector.AndLocal (IBitVector other) {
+		#endregion
+		#region ILocalBitwise implementation
+		void ILocalBitwise<IBitVector>.AndLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -375,7 +377,7 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.OrLocal (IBitVector other) {
+		void ILocalBitwise<IBitVector>.OrLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -385,7 +387,7 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.XorLocal (IBitVector other) {
+		void ILocalBitwise<IBitVector>.XorLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
 			int dbl = (other.Length + 0x3f) >> 0x06;
@@ -395,8 +397,61 @@ namespace NUtils {
 			}
 		}
 
-		void IBitVector.NotLocal () {
+		void ILocalBitwise<IBitVector>.NotLocal () {
 			this.NotLocal ();
+		}
+
+		/// <summary>
+		/// Resets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		public void ResetRange (int lower, int upper) {
+			int bl = lower >> 0x06;
+			int bu = upper >> 0x06;
+			int il = lower & 0x3f;
+			int iu = 0x3f - (lower & 0x3f);
+			ulong[] d = this.data;
+			ulong ml = BitUtils.L64ULong;
+			ulong mu = ml;
+			mu <<= il;
+			ml >>= iu;
+			if (bl != bu) {
+				d [bl] &= ~ml;
+				for (bl++; bl < bu; bl++) {//loop in between for better caching
+					d [bl] = 0x00;
+				}
+				d [bu] &= ~mu;
+			} else {
+				d [bl] &= ~(ml & mu);
+			}
+		}
+
+		/// <summary>
+		/// Sets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		public void SetRange (int lower, int upper) {
+			int bl = lower >> 0x06;
+			int bu = upper >> 0x06;
+			int il = lower & 0x3f;
+			int iu = 0x3f - (lower & 0x3f);
+			ulong[] d = this.data;
+			ulong mi = BitUtils.L64ULong;
+			ulong ml = mi;
+			ulong mu = mi;
+			mu <<= il;
+			ml >>= iu;
+			if (bl != bu) {
+				d [bl] |= ml;
+				for (bl++; bl < bu; bl++) {//loop in between for better caching
+					d [bl] = mi;
+				}
+				d [bu] |= mu;
+			} else {
+				d [bl] |= ml & mu;
+			}
 		}
 		#endregion
 		#region IBitVector implementation
@@ -421,6 +476,15 @@ namespace NUtils {
 		/// <param name="block">The given block index.</param>
 		public ulong GetBlock64 (int block) {
 			return this.data [block];
+		}
+
+		/// <summary>
+		/// Sets 64 bits all packed in one given <see cref="ulong"/> to the given <paramref name="block"/> index.
+		/// </summary>
+		/// <param name="block">The given block index.</param>
+		/// <param name="data">A given 64 bit number representing the block to be set.</param>
+		public void SetBlock64 (int block, ulong data) {
+			this.data [block] = data;
 		}
 
 		/// <summary>
@@ -515,8 +579,8 @@ namespace NUtils {
 		/// Reset all bits in the <see cref="CompactBitVector"/> instance.
 		/// </summary>
 		public void Clear () {
-			int nc = this.n;
 			ulong[] dc = this.data;
+			int nc = dc.Length;
 			for (int i = 0x00; i < nc; i++) {
 				dc [i] = 0x00UL;
 			}
@@ -648,32 +712,24 @@ namespace NUtils {
 		/// <remarks>
 		/// <para>The items are ordered in ascending order.</para>
 		/// </remarks>
-		public IEnumerator<int> GetEnumeratorLower (int lower) {
-			ulong[] dc = this.data;
-			int dl = dc.Length, dl1 = dl - 0x01, idx;
-			ulong d;
-			for (int i = 0x00; i < dl1; i++) {
-				d = dc [i];
-				if (d != 0x00) {
-					idx = i << 0x06;
-					do {
-						if ((d & 0x01) != 0x00) {
-							yield return idx;
-						}
-						d >>= 0x01;
-						idx++;
-					} while(d != 0x00);
-				}
+		public IEnumerator<int> GetEnumeratorLower (int lower = 0x00) {
+			yield break;
+		}
+		#endregion
+		#region Static constructors
+		/// <summary>
+		/// Generate a <see cref="CompactBitVector"/> where all bits are set.
+		/// </summary>
+		/// <returns>A <see cref="CompactBitVector"/> of length <paramref name="n"/> with all bits set.</returns>
+		/// <param name="n">The length of the <see cref="CompactBitVector"/> to generate.</param>
+		public static CompactBitVector All (int n) {
+			int l = (n + 0x3f) >> 0x06;
+			ulong[] d = new ulong[l];
+			ulong u = BitUtils.L64ULong;
+			for (int i = 0x00; i < l; i++) {
+				d [i] = u;
 			}
-			d = dc [dl1] & this.LastMask;
-			idx = dl1 << 0x06;
-			while (d != 0x00) {
-				if ((d & 0x01) != 0x00) {
-					yield return idx;
-				}
-				d >>= 0x01;
-				idx++;
-			}
+			return new CompactBitVector (n, d);
 		}
 		#endregion
 	}

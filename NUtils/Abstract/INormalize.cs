@@ -1,5 +1,5 @@
 //
-//  IPermutable.cs
+//  INormalize.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,24 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
-	/// An interface specifying that the content in the object can be permutated.
+	/// An interface specifying that the instance provides a method to normalize the object. Normalization
+	/// means a representation is chosen such that all objects with the same "content" have the same "representation".
 	/// </summary>
-	public interface IPermutable : ILength {
+	public interface INormalize {
 
 		/// <summary>
-		/// Swaps the content associated with the two given indices.
+		/// Normalizes this instance.
 		/// </summary>
-		/// <param name="i">The first index to swap.</param>
-		/// <param name="j">The second index to swap.</param>
-		void Swap (int i, int j);
-
-		/// <summary>
-		/// Swaps the content of the indices according to the given permutation.
-		/// </summary>
-		/// <param name="permutation">The given permutation that specifies how the content should be permutated.</param>
-		void Swap (IPermutation permutation);
+		/// <remarks>
+		/// <para>
+		/// Normalization modifies the representation of the instance such that instances with the same "content" all
+		/// have the same "representation".
+		/// </para>
+		/// </remarks>
+		void Normalize ();
 	}
 }
 

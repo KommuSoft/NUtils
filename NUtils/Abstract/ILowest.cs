@@ -1,6 +1,6 @@
 using System;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// An interface specifying that this instance contains elements with an inherent order relation and that the
 	/// lowest element can be derived (optionally given an additional lower bound).

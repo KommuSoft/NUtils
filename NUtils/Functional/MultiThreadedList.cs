@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A <see cref="T:ICollection`1"/> that supports 
 	/// </summary>

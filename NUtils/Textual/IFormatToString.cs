@@ -1,5 +1,5 @@
 //
-//  IFFormatFormatProviderToString.cs
+//  IFormatToString.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,22 +20,22 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Textual {
 	/// <summary>
-	/// An interface specifying that an instance supports being converted to a string, given a <see cref="String"/> that
-	/// provides the requested format and an <see cref="IFormatProvider"/> instance that provides how certain elements
-	/// like numbers should be represented.
+	/// An interface specifying that the instance can be converted to a string given another <see cref="String"/> that provided the
+	/// requested format.
 	/// </summary>
-	public interface IFormatFormatProviderToString : IFormatToString, IFormatProviderToString {
+	public interface IFormatToString {
 
 		/// <summary>
-		/// Converts the numeric value of this instance to its equivalent string representation using the specified format and culture-specific format information.
+		/// Converts the numeric value of this instance to its equivalent string representation, using the specified format.
 		/// </summary>
 		/// <returns>
-		/// The string representation of the value of this instance as specified by <paramref name="format" /> and <paramref name="provider" />.
+		/// The string representation of the value of this instance as specified by <paramref name="format" />.
 		/// </returns>
 		/// <param name="format">A numeric format string.</param>
-		/// <param name="provider">An <see cref="T:System.IFormatProvider" /> that supplies culture-specific formatting information.</param>
-		string ToString (string format, IFormatProvider provider);
+		/// <exception cref="T:System.FormatException"><paramref name="format" /> is invalid.</exception>
+		string ToString (string format);
 	}
 }
+

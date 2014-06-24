@@ -37,32 +37,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MathUtils.cs" />
-    <Compile Include="IFormatProviderToString.cs" />
-    <Compile Include="IFormatToString.cs" />
-    <Compile Include="IFormatFormatProviderToString.cs" />
-    <Compile Include="FunctionUtils.cs" />
-    <Compile Include="TablePrinter.cs" />
-    <Compile Include="TupleUtils.cs" />
-    <Compile Include="EnumerableUtils.cs" />
-    <Compile Include="MultiThreadedList.cs" />
-    <Compile Include="LinqCache.cs" />
-    <Compile Include="CompactBitVector.cs" />
-    <Compile Include="IBitVector.cs" />
-    <Compile Include="ILength.cs" />
-    <Compile Include="BitUtils.cs" />
-    <Compile Include="IPermutable.cs" />
     <Compile Include="Tests\BitUtilsTest.cs" />
     <Compile Include="Tests\CompactBitVectorTest.cs" />
-    <Compile Include="ILowest.cs" />
-    <Compile Include="IResetable.cs" />
-    <Compile Include="IPermutation.cs" />
-    <Compile Include="IValidateable.cs" />
-    <Compile Include="ExplicitPermutation.cs" />
-    <Compile Include="ILowerEnumerable.cs" />
+    <Compile Include="Bitwise\BitUtils.cs" />
+    <Compile Include="Bitwise\CompactBitVector.cs" />
+    <Compile Include="Bitwise\IBitVector.cs" />
+    <Compile Include="Abstract\FunctionUtils.cs" />
+    <Compile Include="Abstract\ILength.cs" />
+    <Compile Include="Abstract\ILowerEnumerable.cs" />
+    <Compile Include="Abstract\ILowest.cs" />
+    <Compile Include="Abstract\IResetable.cs" />
+    <Compile Include="Abstract\IValidateable.cs" />
+    <Compile Include="Maths\ExplicitPermutation.cs" />
+    <Compile Include="Maths\IPermutable.cs" />
+    <Compile Include="Maths\IPermutation.cs" />
+    <Compile Include="Maths\MathUtils.cs" />
+    <Compile Include="Bitwise\IBitwise.cs" />
+    <Compile Include="Bitwise\ILocalBitwise.cs" />
+    <Compile Include="Textual\IFormatFormatProviderToString.cs" />
+    <Compile Include="Textual\IFormatProviderToString.cs" />
+    <Compile Include="Textual\IFormatToString.cs" />
+    <Compile Include="Textual\TablePrinter.cs" />
+    <Compile Include="Functional\EnumerableUtils.cs" />
+    <Compile Include="Functional\LinqCache.cs" />
+    <Compile Include="Functional\MultiThreadedList.cs" />
+    <Compile Include="Functional\TupleUtils.cs" />
+    <Compile Include="Functional\ArrayUtils.cs" />
+    <Compile Include="Maths\CyclePermutation.cs" />
+    <Compile Include="Abstract\INormalize.cs" />
+    <Compile Include="Collections\IUniqueQueue.cs" />
+    <Compile Include="Collections\IQueue.cs" />
+    <Compile Include="Collections\UniqueQueue.cs" />
+    <Compile Include="Bitwise\IBitMatrix.cs" />
+    <Compile Include="Bitwise\IConflictMiner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Tests\" />
+    <Folder Include="Bitwise\" />
+    <Folder Include="Abstract\" />
+    <Folder Include="Maths\" />
+    <Folder Include="Textual\" />
+    <Folder Include="Functional\" />
+    <Folder Include="Collections\" />
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <StandardHeader Text=" &#xA; ${FileName}&#xA; &#xA; Author:&#xA;      ${AuthorName} &lt;${AuthorEmail}&gt;&#xA;&#xA; Copyright (c) ${Year} ${CopyrightHolder}&#xA;&#xA; This program is free software: you can redistribute it and/or modify&#xA; it under the terms of the GNU General Public License as published by&#xA; the Free Software Foundation, either version 3 of the License, or&#xA; (at your option) any later version.&#xA;&#xA; This program is distributed in the hope that it will be useful,&#xA; but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA; GNU General Public License for more details.&#xA;&#xA; You should have received a copy of the GNU General Public License&#xA; along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;." IncludeInNewFiles="True" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

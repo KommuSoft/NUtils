@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A utility funcation for <see cref="T:IEnumerable`1"/> lists.
 	/// </summary>

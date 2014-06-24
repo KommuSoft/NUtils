@@ -1,5 +1,5 @@
 //
-//  IFormatProviderToString.cs
+//  IPermutable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,26 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using NUtils.Abstract;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
-	/// An interface that specifies that the instance can be converted to a string, given a <see cref="IFormatProvider"/> instance
-	/// that specifies how certain elements should be printed.
+	/// An interface specifying that the content in the object can be permutated.
 	/// </summary>
-	public interface IFormatProviderToString {
+	public interface IPermutable : ILength {
 
 		/// <summary>
-		/// Converts the numeric value of this instance to its equivalent string representation using the specified culture-specific format information.
+		/// Swaps the content associated with the two given indices.
 		/// </summary>
-		/// <returns>
-		/// The string representation of the value of this instance as specified by <paramref name="provider"/>.
-		/// </returns>
-		/// <param name="provider">An <see cref="T:System.IFormatProvider" /> that supplies culture-specific formatting information.</param>
-		string ToString (IFormatProvider provider);
+		/// <param name="i">The first index to swap.</param>
+		/// <param name="j">The second index to swap.</param>
+		void Swap (int i, int j);
+
+		/// <summary>
+		/// Swaps the content of the indices according to the given permutation.
+		/// </summary>
+		/// <param name="permutation">The given permutation that specifies how the content should be permutated.</param>
+		void Swap (IPermutation permutation);
 	}
 }
 

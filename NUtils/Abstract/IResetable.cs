@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// An interface specifying that a certain instance can be set back to its original state.
 	/// </summary>

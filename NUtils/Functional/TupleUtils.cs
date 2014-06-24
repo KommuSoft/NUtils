@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A utility class that defines operations on tuples. For instance filtering the elements.
 	/// </summary>

@@ -18,11 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUtils.Abstract;
+using NUtils.Bitwise;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
 	/// A basic implementation of the <see cref="IPermutation"/> interface.
 	/// </summary>
@@ -48,17 +50,6 @@ namespace NUtils {
 			}
 		}
 		#endregion
-		#region IPermutation implementation
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <param name="index">The given index.</param>
-		public int this [int index] {
-			get {
-				return this.indices [index];
-			}
-		}
-		#endregion
 		#region ILength implementation
 		/// <summary>
 		/// Gets the number of subelements.
@@ -70,6 +61,7 @@ namespace NUtils {
 			}
 		}
 		#endregion
+		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Permutation"/> class.
 		/// </summary>
@@ -99,6 +91,17 @@ namespace NUtils {
 		public ExplicitPermutation (params int[] indices) {
 			this.indices = indices;
 		}
+		#endregion
+		#region IPermutation implementation
+		/// <summary>
+		/// Gets the index on which the given index maps.
+		/// </summary>
+		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
+		/// <param name="index">The given index.</param>
+		public int GetPermutationOfIndex (int index) {
+			return this.indices [index];
+		}
+		#endregion
 		#region IPermutable implementation
 		/// <summary>
 		/// Swaps the content associated with the two given indices.
@@ -122,7 +125,7 @@ namespace NUtils {
 			for (int i = 0x00; i < l; i++) {
 				f = ia [i];
 				if (f < lp) {
-					ia [i] = permutation [f];
+					ia [i] = permutation.GetPermutationOfIndex (f);
 				}
 			}
 		}

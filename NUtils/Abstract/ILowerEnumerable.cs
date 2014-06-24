@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 	/// <summary>
 	/// An interface that specifies that the items of this instance can be enumerated that are larger or equal
 	/// to a certain given lower bound.
