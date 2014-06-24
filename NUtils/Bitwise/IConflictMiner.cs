@@ -1,5 +1,5 @@
 //
-//  IBitMatrix.cs
+//  IConflictMiner.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,31 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Bitwise;
+using System.Collections.Generic;
 
 namespace NUtils.Bitwise {
 	/// <summary>
-	/// An interface specifying a twodimensionally aranged array of bits. A bitmatrix does not have
-	/// to be fully modifyiable: sometimes only the upper right corner of the matrix can be set, etc.
+	/// An interface specifying a miner for conflicts. Such miner has the ability to
+	/// detect conficts between indices and can return the conflict classes.
 	/// </summary>
-	public interface IBitMatrix : IConflictMiner {
+	public interface IConflictMiner {
 
 		/// <summary>
-		/// Get the truth value at the given row and column.
+		/// Counts the number conflict classes.
 		/// </summary>
-		/// <returns>A <see cref="bool"/> specifying whether the value at the given <paramref name="row"/> and <paramref name="column"/> is true.</returns>
-		/// <param name="row">The given row.</param>
-		/// <param name="column">The given column.</param>
-		bool GetTruthValue (int row, int column);
+		/// <returns>The number of conflict classes.</returns>
+		int CountConflictClasses ();
+
+		/// <summary>
+		/// Enumerate all the conflict classes.
+		/// </summary>
+		/// <returns>A list of conflict classes.</returns>
+		/// <remarks>
+		/// <para>A conflict class is a list of indices that have no internal conflicts.</para>
+		/// <para>Modifying the resulting conflict classes is not allowed: this might
+		/// result in incorrect behavior.</para>
+		/// </remarks>
+		IEnumerable<IEnumerable<int>> GetConflictClasses ();
 	}
 }
 
