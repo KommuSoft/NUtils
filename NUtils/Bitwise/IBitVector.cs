@@ -53,6 +53,13 @@ namespace NUtils.Bitwise {
 		ulong GetBlock64 (int block);
 
 		/// <summary>
+		/// Sets 64 bits all packed in one given <see cref="ulong"/> to the given <paramref name="block"/> index.
+		/// </summary>
+		/// <param name="block">The given block index.</param>
+		/// <param name="data">A given 64 bit number representing the block to be set.</param>
+		void SetBlock64 (int block, ulong data);
+
+		/// <summary>
 		/// Resets the bits of this <see cref="IBitVector"/> instance where the corresponding bits
 		/// in the given <paramref name="other"/> <see cref="IBitVector"/> are set.
 		/// </summary>

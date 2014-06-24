@@ -425,6 +425,15 @@ namespace NUtils.Bitwise {
 		}
 
 		/// <summary>
+		/// Sets 64 bits all packed in one given <see cref="ulong"/> to the given <paramref name="block"/> index.
+		/// </summary>
+		/// <param name="block">The given block index.</param>
+		/// <param name="data">A given 64 bit number representing the block to be set.</param>
+		public void SetBlock64 (int block, ulong data) {
+			this.data [block] = data;
+		}
+
+		/// <summary>
 		/// Calculates the index of the lowest bit that is set with an index greater than or equal to the given
 		/// <paramref name="lower"/> bound.
 		/// </summary>
