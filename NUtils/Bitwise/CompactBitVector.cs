@@ -365,7 +365,8 @@ namespace NUtils.Bitwise {
 		IBitVector IBitwise<IBitVector>.Not () {
 			return this.Not ();
 		}
-
+		#endregion
+		#region ILocalBitwise implementation
 		void ILocalBitwise<IBitVector>.AndLocal (IBitVector other) {
 			ulong[] da = this.data;
 			int dal = da.Length;
@@ -398,6 +399,59 @@ namespace NUtils.Bitwise {
 
 		void ILocalBitwise<IBitVector>.NotLocal () {
 			this.NotLocal ();
+		}
+
+		/// <summary>
+		/// Resets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		public void ResetRange (int lower, int upper) {
+			int bl = lower >> 0x06;
+			int bu = upper >> 0x06;
+			int il = lower & 0x3f;
+			int iu = 0x3f - (lower & 0x3f);
+			ulong[] d = this.data;
+			ulong ml = BitUtils.L64ULong;
+			ulong mu = ml;
+			mu <<= il;
+			ml >>= iu;
+			if (bl != bu) {
+				d [bl] &= ~ml;
+				for (bl++; bl < bu; bl++) {//loop in between for better caching
+					d [bl] = 0x00;
+				}
+				d [bu] &= ~mu;
+			} else {
+				d [bl] &= ~(ml & mu);
+			}
+		}
+
+		/// <summary>
+		/// Sets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		public void SetRange (int lower, int upper) {
+			int bl = lower >> 0x06;
+			int bu = upper >> 0x06;
+			int il = lower & 0x3f;
+			int iu = 0x3f - (lower & 0x3f);
+			ulong[] d = this.data;
+			ulong mi = BitUtils.L64ULong;
+			ulong ml = mi;
+			ulong mu = mi;
+			mu <<= il;
+			ml >>= iu;
+			if (bl != bu) {
+				d [bl] |= ml;
+				for (bl++; bl < bu; bl++) {//loop in between for better caching
+					d [bl] = mi;
+				}
+				d [bu] |= mu;
+			} else {
+				d [bl] |= ml & mu;
+			}
 		}
 		#endregion
 		#region IBitVector implementation

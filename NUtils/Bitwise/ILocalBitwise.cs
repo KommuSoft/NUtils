@@ -69,6 +69,20 @@ namespace NUtils {
 		/// instances, no additional "bits" will be declared and the method will be faster.</para>
 		/// </remarks>
 		void NotLocal ();
+
+		/// <summary>
+		/// Resets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		void ResetRange (int lower, int upper);
+
+		/// <summary>
+		/// Sets the given range of bits.
+		/// </summary>
+		/// <param name="lower">The lower bound of the range (inclusive).</param>
+		/// <param name="upper">The upper bound of the range (inclusive).</param>
+		void SetRange (int lower, int upper);
 	}
 }
 

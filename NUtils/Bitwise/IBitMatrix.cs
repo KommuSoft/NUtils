@@ -35,6 +35,14 @@ namespace NUtils.Bitwise {
 		/// <param name="row">The given row.</param>
 		/// <param name="column">The given column.</param>
 		bool GetTruthValue (int row, int column);
+
+		/// <summary>
+		/// Copies the row with the given index into the given vector.
+		/// </summary>
+		/// <param name="row">The index of the row to load.</param>
+		/// <param name="vector">The given <see cref="IBitVector"/> to load the row in.</param>
+		/// <param name="columnOffset">The given column at which loading begins, zero (<c>0</c>) by default.</param>
+		void LoadRow (int row, IBitVector vector, int columnOffset = 0x00);
 	}
 }
 
