@@ -410,7 +410,7 @@ namespace NUtils.Bitwise {
 			int bl = lower >> 0x06;
 			int bu = upper >> 0x06;
 			int il = lower & 0x3f;
-			int iu = 0x3f - (lower & 0x3f);
+			int iu = 0x3f - (upper & 0x3f);
 			ulong[] d = this.data;
 			ulong ml = BitUtils.L64ULong;
 			ulong mu = ml;
@@ -436,7 +436,7 @@ namespace NUtils.Bitwise {
 			int bl = lower >> 0x06;
 			int bu = upper >> 0x06;
 			int il = lower & 0x3f;
-			int iu = 0x3f - (lower & 0x3f);
+			int iu = 0x3f - (upper & 0x3f);
 			ulong[] d = this.data;
 			ulong mi = BitUtils.L64ULong;
 			ulong ml = mi;
