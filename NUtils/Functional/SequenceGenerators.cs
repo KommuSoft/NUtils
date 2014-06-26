@@ -22,7 +22,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Functional {
 	/// <summary>
 	/// A utility class to generate several kinds of sequences with specific constraints.
 	/// </summary>
@@ -64,7 +64,9 @@ namespace NUtils {
 				list [l1] = elementNext (list [l1]);
 				while (overflow(list[l1]) || !partiallyCorrect(list,length)) {
 					list [l1] = initial;
-					NextSequence (list, elementNext, initial, overflow, partiallyCorrect, l1);
+					if (!NextSequence (list, elementNext, initial, overflow, partiallyCorrect, l1)) {
+						return false;
+					}
 				}
 				return true;
 			} else {
