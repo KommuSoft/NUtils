@@ -115,6 +115,26 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
+		/// Zip two list of values together in a list of tuples such that the <c>i</c>-th tuple contains the
+		/// <c>i</c>-th element of the first and second given list.
+		/// </summary>
+		/// <param name="sourcea">The first given list.</param>
+		/// <param name="sourceb">The second given list.</param>
+		/// <typeparam name="TA">The type of elements in the first list.</typeparam>
+		/// <typeparam name="TB">The type of elements in the second list.</typeparam>
+		public static IEnumerable<Tuple<TA,TB>> Zip<TA,TB> (this IEnumerable<TA> sourcea, IEnumerable<TB> sourceb) {
+			if (sourcea != null && sourceb != null) {
+				IEnumerator<TA> ea = sourcea.GetEnumerator ();
+				IEnumerator<TB> eb = sourceb.GetEnumerator ();
+				if (ea != null && eb != null) {
+					while (ea.MoveNext () && eb.MoveNext ()) {
+						yield return new Tuple<TA, TB> (ea.Current, eb.Current);
+					}
+				}
+			}
+		}
+
+		/// <summary>
 		/// Zips the given tuple of key-value pairs. When a key occurs a second time, the given function is applied to the cached value and
 		/// the new value.
 		/// </summary>
