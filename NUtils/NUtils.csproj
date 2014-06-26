@@ -72,6 +72,7 @@
     <Compile Include="Bitwise\IConflictMiner.cs" />
     <Compile Include="Maths\IFiniteStateMachine.cs" />
     <Compile Include="Maths\ITransition.cs" />
+    <Compile Include="Functional\SequenceGenerators.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
