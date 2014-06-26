@@ -61,11 +61,16 @@ namespace NUtils.Functional {
 		public static bool NextSequence<TElement,TList> (this TList list, Func<TElement,TElement> elementNext, TElement initial, Predicate<TElement> overflow, Func<TList,int,bool> partiallyCorrect, int length) where TList : IList<TElement> {
 			if (length > 0x00) {
 				int l1 = length - 0x01;
-				list [l1] = elementNext (list [l1]);
-				while (overflow(list[l1]) || !partiallyCorrect(list,length)) {
+				do {
+					list [l1] = elementNext (list [l1]);
+				} while (!partiallyCorrect(list,length) && !overflow(list[l1]));
+				while (overflow(list[l1])) {
 					list [l1] = initial;
 					if (!NextSequence (list, elementNext, initial, overflow, partiallyCorrect, l1)) {
 						return false;
+					}
+					while (!partiallyCorrect(list,length)) {
+						list [l1] = elementNext (list [l1]);
 					}
 				}
 				return true;
