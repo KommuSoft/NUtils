@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  IGenericTransition.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,17 +22,20 @@ using System;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interface specifying a transition function. That is a function that takes as input some type and
+	/// returns the the target value. Transitions are guaranteed to be injective but not surjective.
 	/// </summary>
-	public interface ITransition {
+	/// <typeparam name='TType'>
+	/// The type of objects on which the transition function is defined.
+	/// </typeparam>
+	public interface IGenericTransition<TType> {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Gets the instance on which this transition function maps from the given item.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <returns>The target item to which the transition points.</returns>
+		/// <param name="item">The item from which the transition originates.</param>
+		TType GetTransitionOf (TType item);
 	}
 }
 

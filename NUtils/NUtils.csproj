@@ -73,6 +73,7 @@
     <Compile Include="Maths\IFiniteStateMachine.cs" />
     <Compile Include="Maths\ITransition.cs" />
     <Compile Include="Functional\SequenceGenerators.cs" />
+    <Compile Include="Maths\IGenericTransition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
