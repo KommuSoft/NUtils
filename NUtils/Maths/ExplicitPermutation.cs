@@ -98,7 +98,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
 		/// <param name="index">The given index.</param>
-		public int GetPermutationOfIndex (int index) {
+		public int GetTransitionOfIndex (int index) {
 			return this.indices [index];
 		}
 		#endregion
@@ -125,7 +125,7 @@ namespace NUtils.Maths {
 			for (int i = 0x00; i < l; i++) {
 				f = ia [i];
 				if (f < lp) {
-					ia [i] = permutation.GetPermutationOfIndex (f);
+					ia [i] = permutation.GetTransitionOfIndex (f);
 				}
 			}
 		}

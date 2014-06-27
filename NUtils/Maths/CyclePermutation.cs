@@ -110,7 +110,7 @@ namespace NUtils.Maths {
 					}
 				}
 				int gcd = MathUtils.GreatestCommonDivider (nc, mi);
-				for (int i = 0x00; i < mi; i++) {//perform shift
+				for (int i = 0x00; i < mi; i++) {//TODO: perform shift
 					int tmp = c [i];
 					int j = i;
 					int k = i + mi;

@@ -24,14 +24,11 @@ namespace NUtils.Maths {
 	/// <summary>
 	/// An interface representing a permutation. A permutation is permutable.
 	/// </summary>
-	public interface IPermutation : IPermutable, IResetable {
-
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index.</param>
-		int GetPermutationOfIndex (int index);
+	/// <remarks>
+	/// <para>A permutation is a special case of a <see cref="ITransition"/> where two original indices cannot point
+	/// to the same target index. It is in other words a bijective transition.</para>
+	/// </remarks>
+	public interface IPermutation : ITransition, IPermutable, IResetable {
 
 		/// <summary>
 		/// Calculate a permuatation that is the oposite function of this <see cref="IPermutation"/>
@@ -48,4 +45,3 @@ namespace NUtils.Maths {
 		void LocalReverse ();
 	}
 }
-
