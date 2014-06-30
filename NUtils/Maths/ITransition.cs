@@ -19,13 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
 	/// An interface specifying a transition function on indices. Such function is guaranteed to
 	/// be injective but not surjective.
 	/// </summary>
-	public interface ITransition {
+	public interface ITransition : IEnumerable<int> {
 
 		/// <summary>
 		/// Gets the index on which the given index maps.
