@@ -21,18 +21,14 @@
 using NUtils.Abstract;
 using NUtils.Bitwise;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// A basic implementation of the <see cref="IPermutation"/> interface.
+	/// A basic implementation of the <see cref="IPermutation"/> interface that stores the permutation explicitly as
+	/// an array. This is useful for fast item access but takes much memory.
 	/// </summary>
-	public class ExplicitPermutation : IPermutation, IValidateable {
+	public class ExplicitPermutation : ExplicitTransition, IPermutation, IValidateable {
 
-		#region Fields
-		private readonly int[] indices;
-		#endregion
 		#region IValidateable implementation
 		/// <summary>
 		/// Gets a value indicating whether this instance is valid.
@@ -40,7 +36,7 @@ namespace NUtils.Maths {
 		/// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
 		public bool IsValid {
 			get {
-				int[] idc = this.indices;
+				int[] idc = this.Indices;
 				int n = idc.Length;
 				CompactBitVector cbv = new CompactBitVector (n);
 				for (int i = 0x00; i < n; i++) {
@@ -50,36 +46,24 @@ namespace NUtils.Maths {
 			}
 		}
 		#endregion
-		#region ILength implementation
-		/// <summary>
-		/// Gets the number of subelements.
-		/// </summary>
-		/// <value>The length.</value>
-		public int Length {
-			get {
-				return this.indices.Length;
-			}
-		}
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Permutation"/> class.
+		/// Initializes a new instance of the <see cref="ExplicitPermutation"/> class.
 		/// </summary>
 		/// <param name="n">N.</param>
-		public ExplicitPermutation (int n) {
-			this.indices = new int[n];
+		public ExplicitPermutation (int n) : base(n) {
 			this.Reset ();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Permutation"/> class with a given list of initial permutations.
+		/// Initializes a new instance of the <see cref="ExplicitPermutation"/> class with a given list of initial permutations.
 		/// </summary>
 		/// <param name="indices">The initial indices.</param>
-		public ExplicitPermutation (IEnumerable<int> indices) : this(indices.ToArray ()) {
+		public ExplicitPermutation (IEnumerable<int> indices) : base(indices) {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Permutation"/> class with a given initial permutation.
+		/// Initializes a new instance of the <see cref="ExplicitPermutation"/> class with a given initial permutation.
 		/// </summary>
 		/// <param name="indices">The initial indices.</param>
 		/// <remarks>
@@ -88,18 +72,7 @@ namespace NUtils.Maths {
 		/// <para>Consistency is not checked: it is possible that the described permutation is not possible. The user
 		/// should check this.</para>
 		/// </remarks>
-		public ExplicitPermutation (params int[] indices) {
-			this.indices = indices;
-		}
-		#endregion
-		#region IPermutation implementation
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index.</param>
-		public int GetTransitionOfIndex (int index) {
-			return this.indices [index];
+		public ExplicitPermutation (params int[] indices) : base(indices) {
 		}
 		#endregion
 		#region IPermutable implementation
@@ -109,7 +82,7 @@ namespace NUtils.Maths {
 		/// <param name="i">The first index to swap.</param>
 		/// <param name="j">The second index to swap.</param>
 		public void Swap (int i, int j) {
-			int[] idx = this.indices;
+			int[] idx = this.Indices;
 			int tmp = idx [i];
 			idx [i] = idx [j];
 			idx [j] = tmp;
@@ -120,7 +93,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <param name="permutation">The given permutation that specifies how the content should be permutated.</param>
 		public void Swap (IPermutation permutation) {
-			int[] ia = this.indices;
+			int[] ia = this.Indices;
 			int l = ia.Length, lp = permutation.Length, f;
 			for (int i = 0x00; i < l; i++) {
 				f = ia [i];
@@ -138,7 +111,7 @@ namespace NUtils.Maths {
 		/// applying the resulting permutation on this permuation results in an identity permutation.
 		/// </returns>
 		public IPermutation Reverse () {
-			int[] ia = this.indices;
+			int[] ia = this.Indices;
 			int na = ia.Length;
 			int[] ib = new int[na];
 			for (int i = 0x00; i < na; i++) {
@@ -151,7 +124,7 @@ namespace NUtils.Maths {
 		/// Calculates the reverse permutation and stores it in this <see cref="IPermutation"/> instance.
 		/// </summary>
 		public void LocalReverse () {
-			int[] ia = this.indices;
+			int[] ia = this.Indices;
 			int na = ia.Length;
 			int[] ib = new int[na];
 			for (int i = 0x00; i < na; i++) {
@@ -167,34 +140,18 @@ namespace NUtils.Maths {
 		/// Sets the instance back to its original state.
 		/// </summary>
 		public void Reset () {
-			int[] idx = this.indices;
+			int[] idx = this.Indices;
 			int n = idx.Length;
 			for (int i = 0x00; i < n; i++) {
 				idx [i] = i;
 			}
 		}
 		#endregion
-		#region ToString method
-		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="NUtils.Permutation"/>.
-		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="NUtils.Permutation"/>.</returns>
-		public override string ToString () {
-			StringBuilder sb = new StringBuilder ("{");
-			int[] d = this.indices;
-			int dl = d.Length;
-			for (int i = 0x00; i < dl; i++) {
-				sb.AppendFormat (" {0}>{1}", i, d [i]);
-			}
-			sb.Append (" }");
-			return sb.ToString ();
-		}
-		#endregion
 		#region Static generators
 		/// <summary>
 		/// Calculate the identity permutation for a given number of elements.
 		/// </summary>
-		/// <returns>A <see cref="Permutation"/> that represents the identity operation for the given number of elements.</returns>
+		/// <returns>A <see cref="ExplicitPermutation"/> that represents the identity operation for the given number of elements.</returns>
 		/// <param name="n">The given number of elements.</param>
 		public static ExplicitPermutation Identity (int n) {
 			int[] idx = new int[n];
