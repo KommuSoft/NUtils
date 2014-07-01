@@ -85,7 +85,8 @@ namespace NUtils.Maths {
 		public int GetTransitionOfIndex (int index) {
 			return this.Indices [index];
 		}
-
+		#endregion
+		#region IEnumerable`1 implementation
 		/// <summary>
 		/// Gets the enumerator that enumerates the target indices contained in this transition function.
 		/// </summary>

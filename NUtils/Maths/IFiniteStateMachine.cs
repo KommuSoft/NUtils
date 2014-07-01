@@ -18,30 +18,10 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using NUtils.Abstract;
+using System;
 
-namespace NUtils.Maths {
-	/// <summary>
-	/// An interface specifying a finite state machine. A formalism of a machine that has a limited
-	/// number of representable states and deterministic transitions between those states. States
-	/// also have an output (in order to classify output). A regular expression can be converted
-	/// to a finite state machine with booleans as output.
-	/// </summary>
-	public interface IFiniteStateMachine<in TInput,out TOutput> : ILength {
-
-		/// <summary>
-		/// Retrieve the transition function for the given <paramref name="input"/>.
-		/// </summary>
-		/// <returns>The transition function for the given <paramref name="input"/>.</returns>
-		/// <param name="input">The given input.</param>
-		ITransition GetTransitionFunction (TInput input);
-
-		/// <summary>
-		/// Get the output token for the given <paramref name="state"/> index.
-		/// </summary>
-		/// <returns>The output toke associated with the given <paramref name="state"/> index.</returns>
-		/// <param name="state">The given state index.</param>
-		TOutput GetOutput (int state);
+namespace NUtils {
+	public interface IFiniteStateMachine {
 	}
 }
 
