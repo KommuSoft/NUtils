@@ -1,5 +1,5 @@
 //
-//  IFiniteStateMachine.cs
+//  IFiniteStateOutput.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,18 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Maths;
 
-namespace NUtils {
+namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a finite state machine that uses no input character, but only a transition function
-	/// and outputs attached to its states.
+	/// An interface specifying that the instance has a number of states and that each state has an output value
+	/// attached to it.
 	/// </summary>
 	/// <typeparam name='TOutput'>
 	/// The type of values attached to each state.
 	/// </typeparam>
-	public interface IFiniteStateMachine<out TOutput> : ITransition, IFiniteStateOutput<TOutput> {
+	public interface IFiniteStateOutput<out TOutput> {
 
+		/// <summary>
+		/// Get the output token for the given <paramref name="state"/> index.
+		/// </summary>
+		/// <returns>The output toke associated with the given <paramref name="state"/> index.</returns>
+		/// <param name="state">The given state index.</param>
+		TOutput GetOutput (int state);
 	}
 }
 

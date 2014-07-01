@@ -76,6 +76,7 @@
     <Compile Include="Maths\IGenericTransition.cs" />
     <Compile Include="Maths\ExplicitTransition.cs" />
     <Compile Include="Maths\IInputFiniteStateMachine.cs" />
+    <Compile Include="Maths\IFiniteStateOutput.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
