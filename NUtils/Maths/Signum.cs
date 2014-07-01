@@ -1,5 +1,5 @@
 //
-//  IFiniteStateMachine.cs
+//  Signum.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,16 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
+
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a finite state machine that uses no input character, but only a transition function
-	/// and outputs attached to its states.
+	/// An enumeration that contains the possible signum values: positive, negative and zero.
 	/// </summary>
-	/// <typeparam name='TOutput'>
-	/// The type of values attached to each state.
-	/// </typeparam>
-	public interface IFiniteStateMachine<out TOutput> : ITransition, IFiniteStateOutput<TOutput> {
-
+	public enum Signum : byte {
+		/// <summary>
+		/// A negative signum (a value less than zero).
+		/// </summary>
+		Negative = 0xFF,
+		/// <summary>
+		/// The zero value.
+		/// </summary>
+		Zero = 0x00,
+		/// <summary>
+		/// A positive signum (a value larger than zero).
+		/// </summary>
+		Positive = 0x01
 	}
 }
 
