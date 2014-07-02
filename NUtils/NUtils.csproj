@@ -78,6 +78,8 @@
     <Compile Include="Maths\IInputFiniteStateMachine.cs" />
     <Compile Include="Maths\IFiniteStateOutput.cs" />
     <Compile Include="Maths\Signum.cs" />
+    <Compile Include="Maths\ReferencedFiniteStateMachine.cs" />
+    <Compile Include="Maths\ITransitionSensitive.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
