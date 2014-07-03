@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -119,6 +120,36 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public static int LeastCommonMultiple (int a, int b) {
 			return a * b / GreatestCommonDivider (a, b);
+		}
+
+		/// <summary>
+		/// Calculate the least common multiple of a given list of integers.
+		/// </summary>
+		/// <returns>The least common multiple of the given <paramref name="values"/>.</returns>
+		/// <param name="values">The given list of numbers to calculate the least common multiple from.</param>
+		/// <remarks>
+		/// <para>All numbers must be strictly larger than zero.</para>
+		/// <para>If no values are given, one (<c>1</c>) is returned.</para>
+		/// </remarks>
+		public static int LeastCommonMultiple (this IEnumerable<int> values) {
+			int result = 0x01;
+			foreach (int element in values) {
+				result = LeastCommonMultiple (result, element);
+			}
+			return result;
+		}
+
+		/// <summary>
+		/// Calculate the least common multiple of a given list of integers.
+		/// </summary>
+		/// <returns>The least common multiple of the given <paramref name="values"/>.</returns>
+		/// <param name="values">The given list of numbers to calculate the least common multiple from.</param>
+		/// <remarks>
+		/// <para>All numbers must be strictly larger than zero.</para>
+		/// <para>If no values are given, one (<c>1</c>) is returned.</para>
+		/// </remarks>
+		public static int LeastCommonMultiple (params int[] values) {
+			return LeastCommonMultiple ((IEnumerable<int>)values);
 		}
 		#endregion
 	}
