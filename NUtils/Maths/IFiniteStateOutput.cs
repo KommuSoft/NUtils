@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  IFiniteStateOutput.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interface specifying that the instance has a number of states and that each state has an output value
+	/// attached to it.
 	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
+	/// <typeparam name='TOutput'>
+	/// The type of values attached to each state.
+	/// </typeparam>
+	public interface IFiniteStateOutput<out TOutput> {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Get the output token for the given <paramref name="state"/> index.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <returns>The output toke associated with the given <paramref name="state"/> index.</returns>
+		/// <param name="state">The given state index.</param>
+		TOutput GetOutput (int state);
 	}
 }
 

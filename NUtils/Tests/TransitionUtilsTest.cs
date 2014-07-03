@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  TransitionUtilsTest.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,28 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUnit.Framework;
+using System.Linq;
 using System;
 using System.Collections.Generic;
-using NUtils.Abstract;
 
 namespace NUtils.Maths {
-	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
-	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
-
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+	[TestFixture()]
+	public class TransitionUtilsTest {
+		[Test()]
+		public void TestGetStronglyConnectedGroups () {
+			ExplicitTransition et = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
+			int[][] grps = et.GetStronglyConnectedGroups ().Select (x => x.ToArray ()).ToArray ();
+			Assert.AreEqual (3, grps.Length);
+			Assert.AreEqual (3, grps [0x00].Length);
+			Assert.AreEqual (4, grps [0x00] [0x00]);
+			Assert.AreEqual (1, grps [0x00] [0x01]);
+			Assert.AreEqual (0, grps [0x00] [0x02]);
+			Assert.AreEqual (2, grps [0x01].Length);
+			Assert.AreEqual (5, grps [0x01] [0x00]);
+			Assert.AreEqual (6, grps [0x01] [0x01]);
+			Assert.AreEqual (1, grps [0x02].Length);
+			Assert.AreEqual (7, grps [0x02] [0x00]);
+		}
 	}
 }
-

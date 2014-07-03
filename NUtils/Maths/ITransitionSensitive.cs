@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  ITransitionSensitive.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interface specifying that the instance is sensitive to a <see cref="T:ITransition"/> instance.
 	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
+	/// <typeparam name='TTransition'>
+	/// The type of the transition function (sometimes used to be more specific, by default <see cref="ITranstion"/>).
+	/// </typeparam>
+	public interface ITransitionSensitive<out TTransition> where TTransition : ITransition {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Gets the transition this <see cref="T:ITransitionSensitive`1"/> instance is sensitive to.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <value>The transition this <see cref="T:ITransitionSensitive`1"/> instance is sensitive to.</value>
+		TTransition Transition {
+			get;
+		}
 	}
 }
-

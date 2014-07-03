@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  IFiniteStateMachine.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,22 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using System.Collections.Generic;
 using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interface specifying a finite state machine. A formalism of a machine that has a limited
+	/// number of representable states and deterministic transitions between those states. States
+	/// also have an output (in order to classify output). A regular expression can be converted
+	/// to a finite state machine with booleans as output.
 	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
+	public interface IInputFiniteStateMachine<in TInput,out TOutput> : ILength, IFiniteStateOutput<TOutput> {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Retrieve the transition function for the given <paramref name="input"/>.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <returns>The transition function for the given <paramref name="input"/>.</returns>
+		/// <param name="input">The given input.</param>
+		ITransition GetTransitionFunction (TInput input);
 	}
 }
-

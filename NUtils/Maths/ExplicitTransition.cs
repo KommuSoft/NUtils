@@ -50,7 +50,7 @@ namespace NUtils.Maths {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExplicitTransition"/> class.
 		/// </summary>
-		/// <param name="n">N.</param>
+		/// <param name="n">The number of items over which the transition is defined.</param>
 		public ExplicitTransition (int n) {
 			this.Indices = new int[n];
 		}
@@ -85,7 +85,8 @@ namespace NUtils.Maths {
 		public int GetTransitionOfIndex (int index) {
 			return this.Indices [index];
 		}
-
+		#endregion
+		#region IEnumerable`1 implementation
 		/// <summary>
 		/// Gets the enumerator that enumerates the target indices contained in this transition function.
 		/// </summary>

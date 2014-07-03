@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  Signum.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An enumeration that contains the possible signum values: positive, negative and zero.
 	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
-
+	public enum Signum : sbyte {
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// A negative signum (a value less than zero).
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		Negative = -0x01,
+		/// <summary>
+		/// The zero value.
+		/// </summary>
+		Zero = 0x00,
+		/// <summary>
+		/// A positive signum (a value larger than zero).
+		/// </summary>
+		Positive = 0x01
 	}
 }
 
