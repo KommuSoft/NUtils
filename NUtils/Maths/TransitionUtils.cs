@@ -40,7 +40,10 @@ namespace NUtils.Maths {
 		/// <para>Singleton groups are generated as well: indices that have a transition to themselves.</para>
 		/// </remarks>
 		public static IEnumerable<IEnumerable<int>> GetStronglyConnectedGroups (this ITransition transition) {
-			CompactBitVector cbv = new CompactBitVector ();
+			int n = transition.Length;
+			CompactBitVector glb = new CompactBitVector (n);
+			CompactBitVector cur = new CompactBitVector (n);
+			return null;
 		}
 	}
 }

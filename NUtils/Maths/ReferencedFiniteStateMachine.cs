@@ -53,6 +53,16 @@ namespace NUtils.Maths {
 			get;
 			private set;
 		}
+
+		/// <summary>
+		/// Gets the number of states of the finite state machine (the length of the transition function).
+		/// </summary>
+		/// <value>The number of states of the finite state machine.</value>
+		public int Length {
+			get {
+				return this.Transition.Length;
+			}
+		}
 		#endregion
 		#region Constructors
 		/// <summary>
