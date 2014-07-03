@@ -24,11 +24,11 @@ namespace NUtils.Maths {
 	/// <summary>
 	/// An enumeration that contains the possible signum values: positive, negative and zero.
 	/// </summary>
-	public enum Signum : byte {
+	public enum Signum : sbyte {
 		/// <summary>
 		/// A negative signum (a value less than zero).
 		/// </summary>
-		Negative = 0xFF,
+		Negative = -0x01,
 		/// <summary>
 		/// The zero value.
 		/// </summary>
