@@ -41,6 +41,24 @@ namespace NUtils.ArtificialIntelligence {
 		/// </summary>
 		private readonly double[,] b;
 		#endregion
+		#region IValidateable implementation
+		public bool IsValid {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		#endregion
+		#region ILength implementation
+		/// <summary>
+		/// Gets the number of hidden states of the hidden Markov model.
+		/// </summary>
+		/// <value>The number of hidden states of the hidden Markov model.</value>
+		public int Length {
+			get {
+				return this.p.Length;
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExplicitHiddenMarkovModel"/> class with a given
@@ -52,6 +70,19 @@ namespace NUtils.ArtificialIntelligence {
 			this.p = new double[nHiddenStates];
 			this.a = new double[nHiddenStates, nHiddenStates];
 			this.b = new double[nHiddenStates, nOutputs];
+		}
+		#endregion
+		#region IFiniteDistribution implementation
+		/// <summary>
+		/// Get the distribution of the given <paramref name="index"/>.
+		/// </summary>
+		/// <returns>The distribution value of the given <paramref name="index"/>.</returns>
+		/// <param name="index">The given index.</param>
+		/// <remarks>
+		/// <para>The returned value is always positive.</para>
+		/// </remarks>
+		public double GetDistributionValue (int index) {
+			return this.p [index];
 		}
 		#endregion
 	}

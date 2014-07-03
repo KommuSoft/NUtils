@@ -1,5 +1,5 @@
 //
-//  IHiddenMarkovModel.cs
+//  IFiniteDistribution.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,11 +18,26 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using NUtils.Maths;
+using NUtils.Abstract;
 
-namespace NUtils.ArtificialIntelligence {
-	public interface IHiddenMarkovModel : IFiniteDistribution {
+namespace NUtils.Maths {
+	/// <summary>
+	/// An interfacing specifying a distribution over a finite range of values.
+	/// </summary>
+	/// <remarks>
+	/// <para>A finite distribution contains only positive values and sum up to one.</para>
+	/// </remarks>
+	public interface IFiniteDistribution : ILength, IValidateable {
+
+		/// <summary>
+		/// Get the distribution of the given <paramref name="index"/>.
+		/// </summary>
+		/// <returns>The distribution value of the given <paramref name="index"/>.</returns>
+		/// <param name="index">The given index.</param>
+		/// <remarks>
+		/// <para>The returned value is always positive.</para>
+		/// </remarks>
+		double GetDistributionValue (int index);
 	}
 }
 

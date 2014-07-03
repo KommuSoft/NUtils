@@ -84,6 +84,7 @@
     <Compile Include="Tests\TransitionUtilsTest.cs" />
     <Compile Include="ArtificialIntelligence\IHiddenMarkovModel.cs" />
     <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModel.cs" />
+    <Compile Include="Maths\IFiniteDistribution.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
