@@ -91,6 +91,26 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Writes values to the given <see cref="T:IList`1"/> of probabilities. The values are uniformly distributed
+		/// and sum up to one (<c>1</c>).
+		/// </summary>
+		/// <param name="list">The list where item should be written to.</param>
+		public static void NextScaledDistribution (IList<double> list) {
+			double sum = 0.0d;
+			int n = list.Count;
+			for (int i = 0x00; i < n; i++) {
+				double x = random.Next ();
+				sum += x;
+				list [i] = x;
+			}
+			sum = 1.0d / sum;
+			for (int i = 0x00; i < n; i++) {
+				list [i] *= sum;
+			}
+		}
+		#endregion
+		#region Number theory
+		/// <summary>
 		/// Calculate the greatest common divider of the two given numbers.
 		/// </summary>
 		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
@@ -108,8 +128,7 @@ namespace NUtils.Maths {
 			}
 			return a;
 		}
-		#endregion
-		#region Number theory
+
 		/// <summary>
 		/// Calculate the least common multiple of the two given numbers.
 		/// </summary>

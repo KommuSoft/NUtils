@@ -18,11 +18,33 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using NUtils.Maths;
 
 namespace NUtils.ArtificialIntelligence {
+	/// <summary>
+	/// An interface specifying a hidden Markov model.
+	/// </summary>
 	public interface IHiddenMarkovModel : IFiniteDistribution {
+
+		/// <summary>
+		/// Gets the transition probability of moving from a hidden state with <paramref name="index1"/> to a hidden
+		/// state with <paramref name="index2"/>.
+		/// </summary>
+		/// <returns>The probability of a transition from the hidden state with the first index to the hidden
+		/// state with the second index.</returns>
+		/// <param name="index1">The index of the initial hidden state.</param>
+		/// <param name="index2">The index of the final hidden state.</param>
+		double GetTransitionProbability (int index1, int index2);
+
+		/// <summary>
+		/// Gets the emission probability of producing the given <paramref name="output"/> given the system
+		/// is in the given <paramref name="state"/>.
+		/// </summary>
+		/// <returns>The probability of a transition from the hidden state with the first index to the hidden
+		/// state with the second index.</returns>
+		/// <param name="state">The given hidden state.</param>
+		/// <param name="output">The given output character.</param>
+		double GetEmissionProbability (int state, int output);
 	}
 }
 
