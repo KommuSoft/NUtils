@@ -82,6 +82,8 @@
     <Compile Include="Maths\ITransitionSensitive.cs" />
     <Compile Include="Maths\TransitionUtils.cs" />
     <Compile Include="Tests\TransitionUtilsTest.cs" />
+    <Compile Include="ArtificialIntelligence\IHiddenMarkovModel.cs" />
+    <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -92,6 +94,7 @@
     <Folder Include="Textual\" />
     <Folder Include="Functional\" />
     <Folder Include="Collections\" />
+    <Folder Include="ArtificialIntelligence\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

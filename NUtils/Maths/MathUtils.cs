@@ -108,7 +108,8 @@ namespace NUtils.Maths {
 			}
 			return a;
 		}
-
+		#endregion
+		#region Number theory
 		/// <summary>
 		/// Calculate the least common multiple of the two given numbers.
 		/// </summary>
@@ -152,6 +153,45 @@ namespace NUtils.Maths {
 			return LeastCommonMultiple ((IEnumerable<int>)values);
 		}
 		#endregion
+		#region Sums and products
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> to infinity, or more formally <c>a+a^2+a^3+a^4+...</c>
+		/// with <c>a</c> the given <paramref name="factor"/>.
+		/// </summary>
+		/// <returns>The sum of the power list.</returns>
+		/// <param name="factor">The factor of the power sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor) {
+			return 1.0d / (1.0d - factor);
+		}
+
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> from one (<c>1</c>) to <paramref name="n"/>, or more
+		/// formally <c>a+a^2+a^3+...a^n</c>.
+		/// </summary>
+		/// <returns>The sum of the power list from one to <paramref name="n"/>.</returns>
+		/// <param name="factor">The factor of power sum.</param>
+		/// <param name="n">The length of the power sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor, int n) {
+			return factor * (1.0d - Math.Pow (factor, n)) / (1.0d - factor);
+		}
+
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> from <paramref name="initial"/> to <paramref name="n"/>, or more
+		/// formally <c>a^i+a^(i+1)+a^(i+2)+...a^n</c>.
+		/// </summary>
+		/// <returns>The sum of the power list from <paramref name="initial"/> to <paramref name="n"/>.</returns>
+		/// <param name="factor">The factor of power sum.</param>
+		/// <param name="initial">The offset index of the sum.</param>
+		/// <param name="n">The end index of the sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor, int initial, int n) {
+			return (Math.Pow (factor, initial) - Math.Pow (factor, n + 0x01)) / (1.0d - factor);
+		}
+		#endregion
 	}
 }
-
