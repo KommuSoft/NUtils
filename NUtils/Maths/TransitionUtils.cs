@@ -52,7 +52,7 @@ namespace NUtils.Maths {
 					cur.Remove (idx);
 					pushQueue.Enqueue (idx);
 					idx = transition.GetTransitionOfIndex (idx);
-				} while(cur.Contains (idx) && glb.Contains (idx	));
+				} while(cur.Contains (idx) && glb.Contains (idx));
 				if (glb.Contains (idx)) {//we've found a new group
 					pushQueue.Enqueue (idx);
 					do {
@@ -63,6 +63,32 @@ namespace NUtils.Maths {
 				} else {
 					pushQueue.Clear ();
 				}
+				glb.AndLocal (cur);
+				low = glb.GetLowest (low + 0x01);
+			} while(low > 0x00);
+		}
+
+		public static int GetMaximumStronglyConnectedGroupsDistance (this ITransition transition) {
+			int n = transition.Length;
+			CompactBitVector glb = CompactBitVector.All (n);
+			CompactBitVector cur = CompactBitVector.All (n);
+			int low = 0x00, idx, rem;
+			Queue<int> pushQueue = new Queue<int> ();
+			do {
+				idx = low;
+				do {
+					cur.Remove (idx);
+					pushQueue.Enqueue (idx);
+					idx = transition.GetTransitionOfIndex (idx);
+				} while(cur.Contains (idx) && glb.Contains (idx	));
+				if (glb.Contains (idx)) {//we've found a new group
+					pushQueue.Enqueue (idx);
+					do {
+						rem = pushQueue.Dequeue ();
+					} while(rem != idx);
+				} else {
+				}
+				pushQueue.Clear ();
 				glb.AndLocal (cur);
 				low = glb.GetLowest (low + 0x01);
 			} while(low > 0x00);
