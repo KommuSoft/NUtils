@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -106,6 +107,40 @@ namespace NUtils.Maths {
 			sum = 1.0d / sum;
 			for (int i = 0x00; i < n; i++) {
 				list [i] *= sum;
+			}
+		}
+
+		/// <summary>
+		/// Writes values to the each of the given rows of the given probability matrix.
+		/// The values are uniformly distributed and sum up to one (<c>1</c>) per list.
+		/// </summary>
+		/// <param name="lists">A matrix that must be filled with uniformly distributed positive values
+		/// such that every row sums up to one.</param>
+		public static void NextScaledDistribution (double[,] lists) {
+			double sum = 0.0d;
+			int m = lists.GetLength (0x00);
+			int n = lists.GetLength (0x01);
+			for (int i = 0x00; i < m; i++) {
+				for (int j = 0x00; j < n; j++) {
+					double x = random.Next ();
+					sum += x;
+					lists [i, j] = x;
+				}
+				sum = 1.0d / sum;
+				for (int j = 0x00; j < n; j++) {
+					lists [i, j] *= sum;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Writes values to the each of the given <see cref="T:IList`1"/> of probabilities.
+		/// The values are uniformly distributed and sum up to one (<c>1</c>) per list.
+		/// </summary>
+		/// <param name="lists">A list of lists, each list is filled with scaled values that sum up to one.</param>
+		public static void NextScaledDistribution (IList<IList<double>> lists) {
+			foreach (IList<double> list in lists) {
+				NextScaledDistribution (list);
 			}
 		}
 		#endregion

@@ -76,8 +76,8 @@ namespace NUtils.ArtificialIntelligence {
 			this.a = new double[nHiddenStates, nHiddenStates];
 			this.b = new double[nHiddenStates, nOutputs];
 			MathUtils.NextScaledDistribution (this.p);
-			//MathUtils.NextScaledDistribution (this.a);
-			//MathUtils.NextScaledDistribution (this.b);
+			MathUtils.NextScaledDistribution (this.a);
+			MathUtils.NextScaledDistribution (this.b);
 		}
 		#endregion
 		#region IFiniteDistribution implementation
@@ -116,6 +116,18 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="output">The given output character.</param>
 		public double GetEmissionProbability (int state, int output) {
 			return this.b [state, output];
+		}
+
+		/// <summary>
+		/// Train this <see cref="IHiddenMarkovModel"/> by using the given <see cref="T:IFiniteStateMachine`1"/>
+		/// model. Since such finite state machine generates infinite sequences of output, training that sequence
+		/// would result in an underdetermined system. The sample length must thefore be specified.
+		/// </summary>
+		/// <param name="fsm">The finite state machine from which the <see cref="IHiddenMarkovModel"/> learns.</param>
+		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
+		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
+		public void Train (IFiniteStateMachine<int> fsm, IFiniteDistribution initialDistribution, int sampleLength) {
+
 		}
 		#endregion
 	}
