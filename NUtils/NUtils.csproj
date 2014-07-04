@@ -86,6 +86,7 @@
     <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModel.cs" />
     <Compile Include="Maths\IFiniteDistribution.cs" />
     <Compile Include="Bitwise\INumberVector.cs" />
+    <Compile Include="Tests\MathUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

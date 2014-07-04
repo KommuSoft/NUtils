@@ -48,5 +48,10 @@ namespace NUtils.Maths {
 		public void TestGetMaximumStronglyConnectedGroupsDistance () {
 			Assert.AreEqual (0x02, et0.GetMaximumStronglyConnectedGroupsDistance ());
 		}
+
+		[Test]
+		public void GetStronlyConnectedPeriod () {
+			Assert.AreEqual (0x06, et0.GetStronlyConnectedPeriod ());
+		}
 	}
 }

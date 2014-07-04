@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -156,10 +155,10 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public static int GreatestCommonDivider (int a, int b) {
 			int c;
-			while (b < 0x01) {
+			while (b > 0x00) {
 				c = a % b;
-				b = a;
-				a = c;
+				a = b;
+				b = c;
 			}
 			return a;
 		}
@@ -174,7 +173,7 @@ namespace NUtils.Maths {
 		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
 		/// </remarks>
 		public static int LeastCommonMultiple (int a, int b) {
-			return a * b / GreatestCommonDivider (a, b);
+			return (a * b) / GreatestCommonDivider (a, b);
 		}
 
 		/// <summary>

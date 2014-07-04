@@ -68,6 +68,49 @@ namespace NUtils.Maths {
 			} while(low > 0x00);
 		}
 
+		/// <summary>
+		/// Get the maximim walking distance from any index of the given <see cref="ITransition"/> to
+		/// its corresonding strongly connected group.
+		/// </summary>
+		/// <returns>The maximum walking distance from any index to a strongly connected group.</returns>
+		/// <param name="transition">The given <see cref="ITransition"/> for which this distance is calculated.</param>
+		/// <seealso cref="M:GetStronlyConnectedPeriod"/>
+		public static int GetStronlyConnectedPeriod (this ITransition transition) {
+			int n = transition.Length;
+			CompactBitVector glb = CompactBitVector.All (n);
+			CompactBitVector cur = CompactBitVector.All (n);
+			int low = 0x00, idx, rem, siz, period = 0x01;
+			Stack<int> stack = new Stack<int> ();
+			do {
+				idx = low;
+				do {
+					cur.Remove (idx);
+					stack.Push (idx);
+					idx = transition.GetTransitionOfIndex (idx);
+				} while(cur.Contains (idx) && glb.Contains (idx));
+				if (glb.Contains (idx)) {//we've found a new group
+					siz = 0x00;
+					do {
+						rem = stack.Pop ();
+						siz++;
+					} while(rem != idx);
+					Console.WriteLine (siz);
+					period = MathUtils.LeastCommonMultiple (period, siz);
+				}
+				stack.Clear ();
+				glb.AndLocal (cur);
+				low = glb.GetLowest (low + 0x01);
+			} while(low > 0x00);
+			return period;
+		}
+
+		/// <summary>
+		/// Get the maximim walking distance from any index of the given <see cref="ITransition"/> to
+		/// its corresonding strongly connected group.
+		/// </summary>
+		/// <returns>The maximum walking distance from any index to a strongly connected group.</returns>
+		/// <param name="transition">The given <see cref="ITransition"/> for which this distance is calculated.</param>
+		/// <seealso cref="M:GetStronlyConnectedPeriod"/>
 		public static int GetMaximumStronglyConnectedGroupsDistance (this ITransition transition) {
 			int n = transition.Length;
 			CompactBitVector glb = CompactBitVector.All (n);
