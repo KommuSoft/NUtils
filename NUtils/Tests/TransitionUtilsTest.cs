@@ -24,12 +24,14 @@ using System;
 using System.Collections.Generic;
 
 namespace NUtils.Maths {
-	[TestFixture()]
+	[TestFixture]
 	public class TransitionUtilsTest {
-		[Test()]
+
+		private static readonly ExplicitTransition et0 = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
+
+		[Test]
 		public void TestGetStronglyConnectedGroups () {
-			ExplicitTransition et = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
-			int[][] grps = et.GetStronglyConnectedGroups ().Select (x => x.ToArray ()).ToArray ();
+			int[][] grps = et0.GetStronglyConnectedGroups ().Select (x => x.ToArray ()).ToArray ();
 			Assert.AreEqual (3, grps.Length);
 			Assert.AreEqual (3, grps [0x00].Length);
 			Assert.AreEqual (4, grps [0x00] [0x00]);
@@ -40,6 +42,11 @@ namespace NUtils.Maths {
 			Assert.AreEqual (6, grps [0x01] [0x01]);
 			Assert.AreEqual (1, grps [0x02].Length);
 			Assert.AreEqual (7, grps [0x02] [0x00]);
+		}
+
+		[Test]
+		public void TestGetMaximumStronglyConnectedGroupsDistance () {
+			Assert.AreEqual (0x02, et0.GetMaximumStronglyConnectedGroupsDistance ());
 		}
 	}
 }
