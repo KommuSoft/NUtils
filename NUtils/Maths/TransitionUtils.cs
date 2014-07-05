@@ -196,5 +196,25 @@ namespace NUtils.Maths {
 			return new Tuple<int[], int[]> (dists, tours);
 		}
 		#endregion
+		#region Caching
+		/// <summary>
+		/// Converts the given <see cref="ITransition"/> to a <see cref="ExplicitTransition"/>. The values
+		/// are copied.
+		/// </summary>
+		/// <returns>An <see cref="ExplicitTransition"/> instance that is equivalent to the given transition,
+		/// but the values are copied.</returns>
+		/// <param name="transition">The transition to convert to an <see cref="ExplicitTransition"/>.</param>
+		/// <remarks>
+		/// <para>This method is mainly used to cache results of implicitly generated transitions.</para>
+		/// </remarks>
+		public static ExplicitTransition ToExplicitTransition (this ITransition transition) {
+			int n = transition.Length;
+			int[] ts = new int[n];
+			for (int i = 0x00; i < n; i++) {
+				ts [i] = transition.GetTransitionOfIndex (i);
+			}
+			return new ExplicitTransition (ts);
+		}
+		#endregion
 	}
 }
