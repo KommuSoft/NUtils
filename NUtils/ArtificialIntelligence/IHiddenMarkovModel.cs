@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using NUtils.Maths;
+using System.Collections.Generic;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
@@ -54,7 +55,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="fsm">The finite state machine from which the <see cref="IHiddenMarkovModel"/> learns.</param>
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
-		void Train (IFiniteStateMachine<int> fsm, IFiniteDistribution initialDistribution, int sampleLength);
+		void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength);
 	}
 }
 

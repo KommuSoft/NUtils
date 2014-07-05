@@ -164,6 +164,27 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Calculate the greatest common divider of the two given numbers.
+		/// </summary>
+		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
+		/// <param name="a">The first given number.</param>
+		/// <param name="b">The second given number.</param>
+		/// <remarks>
+		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
+		/// </remarks>
+		public static int GreatestCommonDivider (this IEnumerable<int> values) {
+			int r = 0x00;
+			IEnumerator<int> enr = values.GetEnumerator ();
+			if (enr.MoveNext ()) {
+				r = enr.Current;
+				while (enr.MoveNext ()) {
+					r = GreatestCommonDivider (r, enr.Current);
+				}
+			}
+			return r;
+		}
+
+		/// <summary>
 		/// Calculate the least common multiple of the two given numbers.
 		/// </summary>
 		/// <returns>The least common multiple of <paramref name="a"/> and <paramref name="b"/>.</returns>

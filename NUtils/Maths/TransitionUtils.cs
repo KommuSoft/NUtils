@@ -28,6 +28,7 @@ namespace NUtils.Maths {
 	/// </summary>
 	public static class TransitionUtils {
 
+		#region Strongly connected groups and walks
 		/// <summary>
 		/// Enumerate the sets of strongly connected groups: indices that form a cycle.
 		/// </summary>
@@ -143,6 +144,57 @@ namespace NUtils.Maths {
 			} while(low > 0x00);
 			return maxdist;
 		}
+
+		/// <summary>
+		/// Calculate for each index of the transition the distance towards its strongly connected group and the
+		/// tour size of that group.
+		/// </summary>
+		/// <returns>A <see cref="T:Tuple`2"/> containing two arrays. The first array contains the distance
+		/// to a strongly connected group for the index of the transition. The second index contains
+		/// the tour size the strongly connected group of the index of the transition.</returns>
+		/// <param name="transition">The transition to calculate these values for.</param>
+		public static Tuple<int[],int[]> GetStronglyConnectedGroupsDistanceTour (this ITransition transition) {
+			int n = transition.Length;
+			CompactBitVector glb = CompactBitVector.All (n);
+			CompactBitVector cur = CompactBitVector.All (n);
+			int[] dists = new int[n];
+			int[] tours = new int[n];//TODO replace with numbervector?
+			int low = 0x00, idx, rem, dist, tour;
+			Stack<int> stack = new Stack<int> ();
+			Stack<int> ttack = new Stack<int> ();
+			do {
+				idx = low;
+				do {
+					cur.Remove (idx);
+					stack.Push (idx);
+					idx = transition.GetTransitionOfIndex (idx);
+				} while(cur.Contains (idx) && glb.Contains (idx));
+				if (glb.Contains (idx)) {//we've found a new group
+					tour = 0x00;
+					do {
+						tour++;
+						rem = stack.Pop ();
+						dists [rem] = 0x00;
+						ttack.Push (rem);
+					} while(rem != idx);
+					while (ttack.Count > 0x00) {
+						tours [ttack.Pop ()] = tour;
+					}
+					dist = 0x00;
+				} else {
+					dist = dists [idx];
+					tour = tours [idx];
+				}
+				while (stack.Count > 0x00) {
+					rem = stack.Pop ();
+					dists [rem] = ++dist;
+					tours [rem] = tour;
+				}
+				glb.AndLocal (cur);
+				low = glb.GetLowest (low + 0x01);
+			} while(low > 0x00);
+			return new Tuple<int[], int[]> (dists, tours);
+		}
+		#endregion
 	}
 }
-
