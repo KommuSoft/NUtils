@@ -21,6 +21,8 @@
 using System;
 using System.Collections.Generic;
 using NUtils.Maths;
+using MathNet.Numerics.LinearAlgebra.Double;
+using MathNet.Numerics.LinearAlgebra.Factorization;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
@@ -134,44 +136,57 @@ namespace NUtils.ArtificialIntelligence {
 		/// Generates the influence matrix based on a given <see cref="T:IFiniteStateMachine`1"/> and an index
 		/// that is part of a strongly connected group in the finite state machine.
 		/// </summary>
+		/// <returns>A 2d-matrix that contains the influence matrix of the strongly connected group.</returns>
 		/// <param name="fsm">The given finite state machine to generate the influence matrix from.</param>
-		/// <param name="strongIndex">The initial index .</param>
-		/// <param name="trans">Trans.</param>
+		/// <param name="strongIndex">The initial index to generate an influence matrix from.</param>
+		/// <remarks>
+		/// <para>The given initial index must be part of a strongly connected group. If the index is not part,
+		/// the algorithm will loop.</para>
+		/// </remarks>
 		public void GenerateInfluenceMatrix (IFiniteStateMachine<int> fsm, int strongIndex) {
 			int n = fsm.Length;
 			int s = this.Length;
 			int o = this.OutputSize;
-			double[][] trans = new double[s][];
+			double[] trans = new double[s * s];
 			double[,] a = this.a, b = this.b;
-			double[] acache1 = new double[s], acache2 = new double[s], acachet;
+			double[] ch1 = new double[s], ch2 = new double[s], cht;
 			int idx, otp, j, i;
-			double sum;
+			double sum, nrml, ssum;
 			for (int ori = 0x00; ori < s; ori++) {
 				for (j = 0x00; j < ori; j++) {
-					acache2 [j] = 0.0d;
+					ch2 [j] = 0.0d;
 				}
-				acache2 [j] = 1.0d;
+				ch2 [j] = 1.0d;
 				for (j++; j < s; j++) {
-					acache2 [j] = 0.0d;
+					ch2 [j] = 0.0d;
 				}
+				nrml = 1.0d;
 				idx = strongIndex;
 				do {
-					acachet = acache1;
-					acache1 = acache2;
-					acache2 = acachet;
+					cht = ch1;
+					ch1 = ch2;
+					ch2 = cht;
 					otp = fsm.GetOutput (idx);
+					ssum = 0.0d;
 					for (j = 0x00; j < s; j++) {
 						sum = 0.0d;
 						for (i = 0x00; i < s; i++) {
-							sum += acache1 [i] * a [i, j];
+							sum += ch1 [i] * a [i, j];
 						}
-						acache2 [j] = sum * b [j] [o];
+						sum *= nrml * b [j, otp];
+						ssum += sum;
+						ch2 [j] = sum;
 					}
 					idx = fsm.GetTransitionOfIndex (idx);
+					nrml = 1.0d / ssum;
 				} while(idx != strongIndex);
-				trans [ori] = acache2;
-				acache2 = new double[s];
+				for (j = 0x00, i = s*ori; j < s; i++, j++) {
+					trans [i] = ch2 [j] * nrml;
+				}
 			}
+			DenseMatrix m = new DenseMatrix (s, s, trans);
+			Evd<double> eigen = m.Evd ();
+			Console.WriteLine (m);
 		}
 
 		/// <summary>
@@ -183,7 +198,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
 		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
-			int n = fsm.Length;
+			/*int n = fsm.Length;
 			int s = this.Length;
 			int o = this.OutputSize;
 			int[] dist, tour, init;
@@ -200,7 +215,7 @@ namespace NUtils.ArtificialIntelligence {
 
 				}
 			}
-			double[,] alpha = new double[maxt, s], beta = new double[maxt, s];
+			double[,] alpha = new double[maxt, s], beta = new double[maxt, s];*/
 		}
 		#endregion
 	}
