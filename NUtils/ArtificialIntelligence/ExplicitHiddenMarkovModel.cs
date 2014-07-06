@@ -131,6 +131,50 @@ namespace NUtils.ArtificialIntelligence {
 		}
 
 		/// <summary>
+		/// Generates the influence matrix based on a given <see cref="T:IFiniteStateMachine`1"/> and an index
+		/// that is part of a strongly connected group in the finite state machine.
+		/// </summary>
+		/// <param name="fsm">The given finite state machine to generate the influence matrix from.</param>
+		/// <param name="strongIndex">The initial index .</param>
+		/// <param name="trans">Trans.</param>
+		public void GenerateInfluenceMatrix (IFiniteStateMachine<int> fsm, int strongIndex) {
+			int n = fsm.Length;
+			int s = this.Length;
+			int o = this.OutputSize;
+			double[][] trans = new double[s][];
+			double[,] a = this.a, b = this.b;
+			double[] acache1 = new double[s], acache2 = new double[s], acachet;
+			int idx, otp, j, i;
+			double sum;
+			for (int ori = 0x00; ori < s; ori++) {
+				for (j = 0x00; j < ori; j++) {
+					acache2 [j] = 0.0d;
+				}
+				acache2 [j] = 1.0d;
+				for (j++; j < s; j++) {
+					acache2 [j] = 0.0d;
+				}
+				idx = strongIndex;
+				do {
+					acachet = acache1;
+					acache1 = acache2;
+					acache2 = acachet;
+					otp = fsm.GetOutput (idx);
+					for (j = 0x00; j < s; j++) {
+						sum = 0.0d;
+						for (i = 0x00; i < s; i++) {
+							sum += acache1 [i] * a [i, j];
+						}
+						acache2 [j] = sum * b [j] [o];
+					}
+					idx = fsm.GetTransitionOfIndex (idx);
+				} while(idx != strongIndex);
+				trans [ori] = acache2;
+				acache2 = new double[s];
+			}
+		}
+
+		/// <summary>
 		/// Train this <see cref="IHiddenMarkovModel"/> by using the given <see cref="T:IFiniteStateMachine`1"/>
 		/// model. Since such finite state machine generates infinite sequences of output, training that sequence
 		/// would result in an underdetermined system. The sample length must thefore be specified.
@@ -141,7 +185,7 @@ namespace NUtils.ArtificialIntelligence {
 		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
 			int n = fsm.Length;
 			int s = this.Length;
-			int o = this.Length;
+			int o = this.OutputSize;
 			int[] dist, tour, init;
 			double[,] trans = new double[s, s], emms = new double[s, o];
 			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);
