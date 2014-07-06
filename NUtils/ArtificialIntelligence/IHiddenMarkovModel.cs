@@ -20,12 +20,21 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using NUtils.Maths;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
 	/// An interface specifying a hidden Markov model.
 	/// </summary>
 	public interface IHiddenMarkovModel : IFiniteDistribution {
+
+		/// <summary>
+		/// Get the number of output characters of the hidden Markov model.
+		/// </summary>
+		/// <value>The number of output characters of the hidden Markov model.</value>
+		int OutputSize {
+			get;
+		}
 
 		/// <summary>
 		/// Gets the transition probability of moving from a hidden state with <paramref name="index1"/> to a hidden

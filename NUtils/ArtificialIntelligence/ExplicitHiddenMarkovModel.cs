@@ -65,6 +65,17 @@ namespace NUtils.ArtificialIntelligence {
 			}
 		}
 		#endregion
+		#region IHiddenMarkovModel implementation
+		/// <summary>
+		/// Get the number of output characters of the hidden Markov model.
+		/// </summary>
+		/// <value>The number of output characters of the hidden Markov model.</value>
+		public int OutputSize {
+			get {
+				return this.b.GetLength (0x01);
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExplicitHiddenMarkovModel"/> class with a given
@@ -132,10 +143,16 @@ namespace NUtils.ArtificialIntelligence {
 			int[] dist = dt.Item1;
 			int[] tour = dt.Item2;
 			int n = fsm.Length;
+			int s = this.Length;
+			int o = this.Length;
 			int maxt = 0x00;
 			for (int i = 0x00; i < n; i++) {
-				maxt = Math.Max (maxt, dist [i] + tour [i]);
+				if (initialDistribution [i] > 0x00) {
+					maxt = Math.Max (maxt, dist [i] + tour [i]);
+				}
 			}
+			double[,] alpha = new double[maxt, s], beta = new double[maxt, s];
+			double[,] trans = new double[s, s], emms = new double[s, o];
 		}
 		#endregion
 	}
