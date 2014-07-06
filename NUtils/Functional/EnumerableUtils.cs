@@ -184,6 +184,35 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
+		/// Zips five lists of values together in a list of tuples such that the <c>i</c>-th tuple contains the
+		/// <c>i</c>-th element of the given lists.
+		/// </summary>
+		/// <param name="sourcea">The first given list.</param>
+		/// <param name="sourceb">The second given list.</param>
+		/// <param name="sourcec">The third given list.</param>
+		/// <param name="sourced">The fourth given list.</param>
+		/// <param name="sourcee">The fifth given list.</param>
+		/// <typeparam name="TA">The type of elements in the first list.</typeparam>
+		/// <typeparam name="TB">The type of elements in the second list.</typeparam>
+		/// <typeparam name="TC">The type of elements in the third list.</typeparam>
+		/// <typeparam name="TD">The type of elements in the fourth list.</typeparam>
+		/// <typeparam name="TE">The type of elements in the fifth list.</typeparam>
+		public static IEnumerable<Tuple<TA,TB,TC,TD,TE>> Zip<TA,TB,TC,TD,TE> (this IEnumerable<TA> sourcea, IEnumerable<TB> sourceb, IEnumerable<TC> sourcec, IEnumerable<TD> sourced, IEnumerable<TE> sourcee) {
+			if (sourcea != null && sourceb != null && sourcec != null && sourced != null && sourcee != null) {
+				IEnumerator<TA> ea = sourcea.GetEnumerator ();
+				IEnumerator<TB> eb = sourceb.GetEnumerator ();
+				IEnumerator<TC> ec = sourcec.GetEnumerator ();
+				IEnumerator<TD> ed = sourced.GetEnumerator ();
+				IEnumerator<TE> ee = sourcee.GetEnumerator ();
+				if (ea != null && eb != null && ec != null && ed != null && ee != null) {
+					while (ea.MoveNext () && eb.MoveNext () && ec.MoveNext () && ed.MoveNext () && ee.MoveNext ()) {
+						yield return new Tuple<TA, TB, TC, TD, TE> (ea.Current, eb.Current, ec.Current, ed.Current, ee.Current);
+					}
+				}
+			}
+		}
+
+		/// <summary>
 		/// Zips the given tuple of key-value pairs. When a key occurs a second time, the given function is applied to the cached value and
 		/// the new value.
 		/// </summary>
