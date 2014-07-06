@@ -153,13 +153,17 @@ namespace NUtils.Maths {
 		/// to a strongly connected group for the index of the transition. The second index contains
 		/// the tour size the strongly connected group of the index of the transition.</returns>
 		/// <param name="transition">The transition to calculate these values for.</param>
-		public static Tuple<int[],int[]> GetStronglyConnectedGroupsDistanceTour (this ITransition transition) {
+		/// <param name="distances">An array containing the distances to the corresponding strongly connected groups.</param>
+		/// <param name="tourLengths">An array containing the tour lengths of the corresponding strongly connected groups.</param>
+		/// <param name="initialTours">An array containing the first index of the strongly connected group.</param>
+		public static void GetStronglyConnectedGroupsDistanceTour (this ITransition transition, out int[] distances, out int[] tourLengths, out int[] initialTours) {
 			int n = transition.Length;
 			CompactBitVector glb = CompactBitVector.All (n);
 			CompactBitVector cur = CompactBitVector.All (n);
-			int[] dists = new int[n];
-			int[] tours = new int[n];//TODO replace with numbervector?
-			int low = 0x00, idx, rem, dist, tour;
+			distances = new int[n];
+			tourLengths = new int[n];
+			initialTours = new int[n];
+			int low = 0x00, idx, ini, rem, dist, tour;
 			Stack<int> stack = new Stack<int> ();
 			Stack<int> ttack = new Stack<int> ();
 			do {
@@ -171,29 +175,32 @@ namespace NUtils.Maths {
 				} while(cur.Contains (idx) && glb.Contains (idx));
 				if (glb.Contains (idx)) {//we've found a new group
 					tour = 0x00;
+					ini = idx;
 					do {
 						tour++;
 						rem = stack.Pop ();
-						dists [rem] = 0x00;
+						distances [rem] = 0x00;
+						initialTours [rem] = rem;
 						ttack.Push (rem);
 					} while(rem != idx);
 					while (ttack.Count > 0x00) {
-						tours [ttack.Pop ()] = tour;
+						tourLengths [ttack.Pop ()] = tour;
 					}
 					dist = 0x00;
 				} else {
-					dist = dists [idx];
-					tour = tours [idx];
+					dist = distances [idx];
+					tour = tourLengths [idx];
+					ini = initialTours [idx];
 				}
 				while (stack.Count > 0x00) {
 					rem = stack.Pop ();
-					dists [rem] = ++dist;
-					tours [rem] = tour;
+					distances [rem] = ++dist;
+					tourLengths [rem] = tour;
+					initialTours [rem] = ini;
 				}
 				glb.AndLocal (cur);
 				low = glb.GetLowest (low + 0x01);
 			} while(low > 0x00);
-			return new Tuple<int[], int[]> (dists, tours);
 		}
 		#endregion
 		#region Caching

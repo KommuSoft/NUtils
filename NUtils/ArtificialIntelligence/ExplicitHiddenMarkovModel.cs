@@ -139,20 +139,24 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
 		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
-			Tuple<int[],int[]> dt = fsm.GetStronglyConnectedGroupsDistanceTour ();
-			int[] dist = dt.Item1;
-			int[] tour = dt.Item2;
 			int n = fsm.Length;
 			int s = this.Length;
 			int o = this.Length;
+			int[] dist, tour, init;
+			double[,] trans = new double[s, s], emms = new double[s, o];
+			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);
 			int maxt = 0x00;
 			for (int i = 0x00; i < n; i++) {
 				if (initialDistribution [i] > 0x00) {
 					maxt = Math.Max (maxt, dist [i] + tour [i]);
 				}
 			}
+			for (int i = 0x00; i < n; i++) {
+				if (initialDistribution [i] > 0x00) {
+
+				}
+			}
 			double[,] alpha = new double[maxt, s], beta = new double[maxt, s];
-			double[,] trans = new double[s, s], emms = new double[s, o];
 		}
 		#endregion
 	}

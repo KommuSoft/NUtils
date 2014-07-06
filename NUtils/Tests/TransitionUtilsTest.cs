@@ -56,9 +56,8 @@ namespace NUtils.Maths {
 
 		[Test]
 		public void GetStronglyConnectedGroupsDistanceTour () {
-			Tuple<int[],int[]> dt = et0.GetStronglyConnectedGroupsDistanceTour ();
-			int[] dst = dt.Item1;
-			int[] trs = dt.Item2;
+			int[] dst, trs, ini;
+			et0.GetStronglyConnectedGroupsDistanceTour (out dst, out trs, out ini);
 			Assert.AreEqual (0x08, dst.Length);
 			Assert.AreEqual (0x00, dst [0x00]);
 			Assert.AreEqual (0x00, dst [0x01]);
@@ -77,6 +76,15 @@ namespace NUtils.Maths {
 			Assert.AreEqual (0x02, trs [0x05]);
 			Assert.AreEqual (0x02, trs [0x06]);
 			Assert.AreEqual (0x01, trs [0x07]);
+			Assert.AreEqual (0x08, ini.Length);
+			Assert.AreEqual (0x00, ini [0x00]);
+			Assert.AreEqual (0x01, ini [0x01]);
+			Assert.AreEqual (0x06, ini [0x02]);
+			Assert.AreEqual (0x06, ini [0x03]);
+			Assert.AreEqual (0x04, ini [0x04]);
+			Assert.AreEqual (0x05, ini [0x05]);
+			Assert.AreEqual (0x06, ini [0x06]);
+			Assert.AreEqual (0x07, ini [0x07]);
 		}
 	}
 }
