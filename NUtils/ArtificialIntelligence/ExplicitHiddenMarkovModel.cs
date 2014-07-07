@@ -212,126 +212,191 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
 		public double Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
 			int N = fsm.Length;
-			int S = this.Length, S2 = S << 0x01, S3 = S + S2;
+			int S = this.Length;
 			int O = this.OutputSize;
+			int T = sampleLength;
+			int T1 = T - 0x01;
 			double[] p = this.p;
 			double[,] a = this.a, b = this.b;
-			int abgs = (sampleLength * S) * 0x03, epss = sampleLength * S * S, stride = S3, stride1 = stride - S, si, sj, o, ni, p0o, p0, p1o, p1, p2o, p2, t, n;
-			double[] albega = new double[abgs];
-			double[] eps = new double[epss];
-			for (si = abgs-stride+S; si < abgs-stride+2*S; si++) {
-				albega [si] = 1.0d;
+			double[,] alpha = new double[T, S], beta = new double[T, S], gamma = new double[T, S], bhat = new double[S, O], ahat = new double[S, O], phat = new double[S, O];
+			double[,,] epsilon = new double[T, S, S];
+			double[] asc = new double[S], bsc = new double[S];
+			for (int si = 0x00; si < S; si++) {
+				beta [T1, si] = 1.0d;
 			}
 			double norm, sum, ssum, tmp;
 			int[] os = new int[sampleLength];
-			for (ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
-				if (initialDistribution [ni] > 0x00) {
-					n = ni;
+			double sprob = 0.0d, prob;
+			int stok = 0x00;
+			for (int ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
+				int tok = initialDistribution [ni];
+				if (tok > 0x00) {
+					stok += tok;
+#if DEBUG
+					Console.WriteLine ("tick");
+#endif
+					int n = ni;
 					#region Forward algorithm
-					o = fsm.GetOutput (n);
+					prob = 1.0d;
+					int o = fsm.GetOutput (n);
 					os [0x00] = o;
 					ssum = 0.0d;
-					for (si = 0x00; si < S; si++) {
+					for (int si = 0x00; si < S; si++) {
 						sum = p [si] * b [si, o];
-						albega [si] = sum;
+						alpha [0x00, si] = sum;
 						ssum += sum;
 					}
 					n = fsm.GetTransitionOfIndex (n);
 					norm = 1.0d / ssum;
-					p0o = 0x00;
-					p1 = stride;
-					for (t = 0x01; t < sampleLength; t++) {
+					for (int t = 0x00; t < T1; t++) {
 						o = fsm.GetOutput (n);
-						os [t] = o;
+						os [t + 0x01] = o;
 						ssum = 0.0d;
-						for (sj = 0x00; sj < S; sj++) {
+						for (int sj = 0x00; sj < S; sj++) {
 							sum = 0.0d;
-							p0 = p0o;
-							for (si = 0x00; si < S; si++, p0++) {
-								sum += a [si, sj] * albega [p0];
+							for (int si = 0x00; si < S; si++) {
+								sum += a [si, sj] * alpha [t, si];
 							}
 							sum *= norm * b [sj, o];
 							ssum += sum;
-							albega [p1++] = sum;
+							alpha [t + 0x01, sj] = sum;
 						}
-						p0o += stride;
-						p1 += stride1;
 						n = fsm.GetTransitionOfIndex (n);
+						prob *= ssum;
 						norm = 1.0d / ssum;
 					}
+					sprob += tok * prob;
 					#endregion
 					#region Backward algorithm
 					norm = 1.0d;
-					p0o = abgs - 0x01 - S;
-					p1 = p0o - stride;
-					for (t = sampleLength-0x01; t > 0x00; t--) {
+					for (int t = sampleLength-0x01; t > 0x00; t--) {
 						o = os [t];//OST: soundtrack
 						ssum = 0.0d;
-						for (si = S-0x01; si >= 0x00; si--) {
+						for (int si = S-0x01; si >= 0x00; si--) {
 							sum = 0.0d;
-							p0 = p0o;
-							for (sj = S-0x01; sj >= 0x00; sj--, p0--) {
-								sum += a [si, sj] * albega [p0] * b [sj, o];
+							for (int sj = S-0x01; sj >= 0x00; sj--) {
+								sum += a [si, sj] * beta [t, sj] * b [sj, o];
 							}
 							sum *= norm;
 							ssum += sum;
-							albega [p1--] = sum;
+							beta [t - 0x01, si] = sum;
 						}
-						p0o -= stride;
-						p1 -= stride1;
 						norm = 1.0d / ssum;
 					}
 					#endregion
+#if SOME
 					Console.WriteLine ("Pseudo-normalized a-values");
-					for (t = 0x00; t < sampleLength; t++) {
-						for (si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", albega [t * stride + si]);
+					for (int t = 0x00; t < T; t++) {
+						for (int si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", alpha [t, si]);
 						}
 						Console.WriteLine ();
 					}
 					Console.WriteLine ("Pseudo-normalized b-values");
-					for (t = 0x00; t < sampleLength; t++) {
-						for (si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", albega [t * stride + si + S]);
+					for (int t = 0x00; t < T; t++) {
+						for (int si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", beta [t, si]);
 						}
 						Console.WriteLine ();
 					}
+#endif
 					#region Gamma/Xi values
-					p0 = 0x00;
-					p1 = S;
-					p2 = 0x02 * S;
-					for (t = 0x00; t < sampleLength; t++) {
+					for (int t = 0x00; t < T; t++) {
 						sum = 0.0d;
-						for (si = 0x00; si < S; si++) {
-							tmp = albega [p0++] * albega [p1++];
+						o = os [t];
+						for (int si = 0x00; si < S; si++) {
+							tmp = alpha [t, si] * beta [t, si];
 							sum += tmp;
-							albega [p2++] = tmp;
+							gamma [t, si] = tmp;
 						}
 						sum = 1.0d / sum;
-						p2 -= S;
-						for (si = 0x00; si < S; si++) {
-							albega [p2++] *= sum;
+						for (int si = 0x00; si < S; si++) {
+							tmp = gamma [t, si];
+							tmp *= sum;
+							gamma [t, si] = tmp;
+							asc [si] += tok * tmp;
+							bhat [si, o] += tok * tmp;
 						}
-						p0 += stride1;
-						p1 += stride1;
-						p2 += stride1;
 					}
+					for (int si = 0x00; si < S; si++) {
+						bsc [si] += tok * gamma [T1, si];
+					}
+					for (int t = 0x00; t < T1; t++) {
+						o = os [t + 0x01];
+						for (int si = 0x00; si < S; si++) {
+							sum = 0.0d;
+							for (int sj = 0x00; sj < S; sj++) {
+								tmp = alpha [t, si] * beta [t + 0x01, sj] * a [si, sj] * b [sj, o];
+								sum += tmp;
+								epsilon [t, si, sj] = tmp;
+							}
+							sum = gamma [t, si] / sum;
+							for (int sj = 0x00; sj < S; sj++) {
+								tmp = epsilon [t, si, sj];
+								tmp *= sum;
+								ahat [si, sj] += tok * tmp;
+								epsilon [t, si, sj] = tmp;
+							}
+						}
+
+					}
+					#endregion
+#if SOME
 					Console.WriteLine ("Normalized g-values");
-					for (t = 0x00; t < sampleLength; t++) {
-						for (si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", albega [t * stride + si + S + S]);
+					for (int t = 0x00; t < T; t++) {
+						for (int si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", gamma [t, si]);
 						}
 						Console.WriteLine ();
 					}
-					#endregion
+					Console.WriteLine ("Normalized e-values");
+					for (int t = 0x00; t < T1; t++) {
+						for (int si = 0x00; si < S; si++) {
+							for (int sj = 0x00; sj < S; sj++) {
+								Console.Write ("{0}\t", epsilon [t, si, sj]);
+							}
+							Console.Write ("\t");
+						}
+						Console.WriteLine ();
+					}
+#endif
 				}
-				#region Updates (should be moved after tokenizer)
-				for (si = 0x00; si < S; si++) {
-					p [si] = albega [S2 + si];
-				}
-				#endregion
 			}
-			return 0.0d;
+			#region Updates (should be moved after tokenselect)
+			for (int si = 0x00; si < S; si++) {
+				p [si] = gamma [0x00, si];
+				tmp = 1.0d / asc [si];
+				for (int o = 0x00; o < O; o++) {
+					b [si, o] = bhat [si, o] * tmp;
+				}
+				tmp = 1.0d / (asc [si] - bsc [si]);
+				for (int sj = 0x00; sj < S; sj++) {
+					a [si, sj] = ahat [si, sj] * tmp;
+				}
+			}
+			#endregion
+			#if DEBUG
+			Console.WriteLine ("New p-values");
+			for (int si = 0x00; si < S; si++) {
+				Console.Write ("{0}\t", p [si]);
+			}
+			Console.WriteLine ();
+			Console.WriteLine ("New a-values");
+			for (int si = 0x00; si < S; si++) {
+				for (int sj = 0x00; sj < S; sj++) {
+					Console.Write ("{0}\t", a [si, sj]);
+				}
+				Console.WriteLine ();
+			}
+			Console.WriteLine ("New b-values");
+			for (int si = 0x00; si < S; si++) {
+				for (int o = 0x00; o < O; o++) {
+					Console.Write ("{0}\t", b [si, o]);
+				}
+				Console.WriteLine ();
+			}
+			#endif
+			return sprob / stok;
 			/*int[] dist, tour, init;
 			double[,] trans = new double[s, s], emms = new double[s, o];
 			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);

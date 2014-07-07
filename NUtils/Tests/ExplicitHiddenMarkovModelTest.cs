@@ -27,7 +27,7 @@ namespace NUtils.ArtificialIntelligence {
 	public class ExplicitHiddenMarkovModelTest {
 
 		private static readonly ExplicitTransition et0 = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
-		private static readonly int[] ex0 = new int[] { 0x01, 0x01, 0x02, 0x00, 0x00, 0x02, 0x02, 0x01 };
+		private static readonly int[] ex0 = new int[] { 0x01, 0x01, 0x02, 0x00, 0x00, 0x00, 0x01, 0x01 };
 		private static readonly ReferencedFiniteStateMachine<int,ExplicitTransition> rfsm0 = new ReferencedFiniteStateMachine<int,ExplicitTransition> (et0, ex0);
 		private static readonly ExplicitHiddenMarkovModel ehm = new ExplicitHiddenMarkovModel (new double[] { 0.8d, 0.2d }, new double[,] {
 			{0.8d,0.2d},
@@ -36,8 +36,8 @@ namespace NUtils.ArtificialIntelligence {
 			{0.2d,0.4d,0.4d},
 			{0.5d,0.4d,0.1d}
 		});
-		private static readonly int[] tok0 = new int[] { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-		private static readonly int len0 = 0x04;
+		private static readonly int[] tok0 = new int[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x01, 0x00 };
+		private static readonly int len0 = 0x08;
 
 		[Test()]
 		public void TestGenerateInfluenceMatrix () {
@@ -46,7 +46,9 @@ namespace NUtils.ArtificialIntelligence {
 
 		[Test()]
 		public void TestTrain () {
-			ehm.Train (rfsm0, tok0, len0);
+			for (int i = 0x00; i < 30; i++) {
+				Console.WriteLine ("^p={0}", ehm.Train (rfsm0, tok0, len0));
+			}
 			Assert.Fail ();
 		}
 	}
