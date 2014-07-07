@@ -234,17 +234,21 @@ namespace NUtils.ArtificialIntelligence {
 					#region Forward algorithm
 					for (t = 0x00; t < sampleLength; t++) {
 						o = fsm.GetOutput (n);
+						ssum = 0.0d;
 						for (sj = 0x00; sj < S; sj++) {
 							sum = 0.0d;
 							p0 = p0o;
 							for (si = 0x00; si < S; si++, p0++) {
 								sum += a [si, sj] * alphabetar [p0];
 							}
-							alphabetar [p1++] = sum * b [sj, o];
+							sum *= norm * b [sj, o];
+							ssum += sum;
+							alphabetar [p1++] = sum;
 						}
 						p0o += stride;
 						p1 += S;
 						n = fsm.GetTransitionOfIndex (n);
+						norm = 1.0d / ssum;
 					}
 					#endregion
 					#region Backward algorithm
