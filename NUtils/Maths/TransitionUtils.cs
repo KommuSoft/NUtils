@@ -95,7 +95,6 @@ namespace NUtils.Maths {
 						rem = stack.Pop ();
 						siz++;
 					} while(rem != idx);
-					Console.WriteLine (siz);
 					period = MathUtils.LeastCommonMultiple (period, siz);
 				}
 				stack.Clear ();

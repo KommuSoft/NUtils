@@ -87,6 +87,7 @@
     <Compile Include="Maths\IFiniteDistribution.cs" />
     <Compile Include="Bitwise\INumberVector.cs" />
     <Compile Include="Tests\MathUtilsTest.cs" />
+    <Compile Include="Tests\ExplicitHiddenMarkovModelTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

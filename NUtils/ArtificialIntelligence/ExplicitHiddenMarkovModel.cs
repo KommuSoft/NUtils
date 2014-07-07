@@ -81,6 +81,23 @@ namespace NUtils.ArtificialIntelligence {
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExplicitHiddenMarkovModel"/> class with a given
+		/// intial state probability distribution, a transition matrix and an emission matrix.
+		/// </summary>
+		/// <param name="p">The given initial state distribution.</param>
+		/// <param name="a">The given initial transition matrix.</param>
+		/// <param name="b">The given initial emission matrix.</param>
+		/// <remarks>
+		/// <para>The values are not copied: modifying the given values after construction
+		/// will have an impact on the hidden Markov model.</para>
+		/// </remarks>
+		public ExplicitHiddenMarkovModel (double[] p, double[,] a, double[,] b) {
+			this.p = p;
+			this.a = a;
+			this.b = b;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExplicitHiddenMarkovModel"/> class with a given
 		/// number of hidden states and output characters.
 		/// </summary>
 		/// <param name="nHiddenStates">The number of hidden states of the Hidden Markov Model.</param>
@@ -151,7 +168,7 @@ namespace NUtils.ArtificialIntelligence {
 			double[,] a = this.a, b = this.b;
 			double[] ch1 = new double[s], ch2 = new double[s], cht;
 			int idx, otp, j, i;
-			double sum, nrml, ssum;
+			double sum;
 			for (int ori = 0x00; ori < s; ori++) {
 				for (j = 0x00; j < ori; j++) {
 					ch2 [j] = 0.0d;
@@ -160,33 +177,28 @@ namespace NUtils.ArtificialIntelligence {
 				for (j++; j < s; j++) {
 					ch2 [j] = 0.0d;
 				}
-				nrml = 1.0d;
 				idx = strongIndex;
 				do {
 					cht = ch1;
 					ch1 = ch2;
 					ch2 = cht;
 					otp = fsm.GetOutput (idx);
-					ssum = 0.0d;
 					for (j = 0x00; j < s; j++) {
 						sum = 0.0d;
 						for (i = 0x00; i < s; i++) {
 							sum += ch1 [i] * a [i, j];
 						}
-						sum *= nrml * b [j, otp];
-						ssum += sum;
+						sum *= b [j, otp];
 						ch2 [j] = sum;
 					}
 					idx = fsm.GetTransitionOfIndex (idx);
-					nrml = 1.0d / ssum;
 				} while(idx != strongIndex);
-				for (j = 0x00, i = s*ori; j < s; i++, j++) {
-					trans [i] = ch2 [j] * nrml;
+				for (j = 0x00, i = ori; j < s; i += s, j++) {
+					trans [i] = ch2 [j];
 				}
 			}
 			DenseMatrix m = new DenseMatrix (s, s, trans);
-			Evd<double> eigen = m.Evd ();
-			Console.WriteLine (m);
+			MathNet.Numerics.LinearAlgebra.Matrix<double> eigen = m.Evd ().EigenVectors;
 		}
 
 		/// <summary>
