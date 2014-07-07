@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.LinearAlgebra.Factorization;
+using Mono.Security.X509;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
@@ -210,10 +211,43 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
 		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
-			/*int n = fsm.Length;
+			int n = fsm.Length;
 			int s = this.Length;
 			int o = this.OutputSize;
-			int[] dist, tour, init;
+			double[] p = this.p;
+			double[,] a = this.a, b = this.b;
+			int abs = (n * s) << 0x01, i, j, k, p0o, p0, p1, t;
+			double[] alphabetar = new double[abs];
+			for (i = 0x00; i < s; i++) {
+				alphabetar [i] = p [i];
+			}
+			for (i = abs-s; i < abs; i--) {
+				alphabetar [i] = 1.0d;
+			}
+			double norm, sum, ssum;
+			for (k = 0x00; k < n; k++) {//TODO: extremely optimize this
+				if (initialDistribution [k] > 0x00) {
+					norm = 1.0d;
+					p0o = 0x00;
+					#region Forward algorithm
+					for (t = 0x00; t < sampleLength; t++) {
+						for (j = 0x00; j < s; j++) {
+							sum = 0.0d;
+							for (i = 0x00; i < s; i++, p0++) {
+								sum += a [i, j] * alphabetar [p0];
+							}
+						}
+					}
+					#endregion
+					#region Backward algorithm
+					#endregion
+					#region Gamma/Xi values
+					#endregion
+					#region Updates
+					#endregion
+				}
+			}
+			/*int[] dist, tour, init;
 			double[,] trans = new double[s, s], emms = new double[s, o];
 			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);
 			int maxt = 0x00;
