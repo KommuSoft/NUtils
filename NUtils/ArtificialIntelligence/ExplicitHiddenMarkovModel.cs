@@ -211,32 +211,40 @@ namespace NUtils.ArtificialIntelligence {
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
 		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
-			int n = fsm.Length;
-			int s = this.Length;
-			int o = this.OutputSize;
+			int N = fsm.Length;
+			int S = this.Length;
+			int O = this.OutputSize;
 			double[] p = this.p;
 			double[,] a = this.a, b = this.b;
-			int abs = (n * s) << 0x01, i, j, k, p0o, p0, p1, t;
+			int abs = (N * S) << 0x01, stride = S << 0x01, si, sj, o, ni, p0o, p0, p1, t;
 			double[] alphabetar = new double[abs];
-			for (i = 0x00; i < s; i++) {
-				alphabetar [i] = p [i];
+			for (si = 0x00; si < S; si++) {
+				alphabetar [si] = p [si];
 			}
-			for (i = abs-s; i < abs; i--) {
-				alphabetar [i] = 1.0d;
+			for (si = abs-S; si < abs; si--) {
+				alphabetar [si] = 1.0d;
 			}
 			double norm, sum, ssum;
-			for (k = 0x00; k < n; k++) {//TODO: extremely optimize this
-				if (initialDistribution [k] > 0x00) {
+			for (ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
+				if (initialDistribution [ni] > 0x00) {
+					int n = ni;
 					norm = 1.0d;
 					p0o = 0x00;
+					p1 = stride;
 					#region Forward algorithm
 					for (t = 0x00; t < sampleLength; t++) {
-						for (j = 0x00; j < s; j++) {
+						o = fsm.GetOutput (n);
+						for (sj = 0x00; sj < S; sj++) {
 							sum = 0.0d;
-							for (i = 0x00; i < s; i++, p0++) {
-								sum += a [i, j] * alphabetar [p0];
+							p0 = p0o;
+							for (si = 0x00; si < S; si++, p0++) {
+								sum += a [si, sj] * alphabetar [p0];
 							}
+							alphabetar [p1++] = sum * b [sj, o];
 						}
+						p0o += stride;
+						p1 += S;
+						n = fsm.GetTransitionOfIndex (n);
 					}
 					#endregion
 					#region Backward algorithm
