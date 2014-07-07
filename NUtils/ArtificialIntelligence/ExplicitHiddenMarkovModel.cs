@@ -217,14 +217,15 @@ namespace NUtils.ArtificialIntelligence {
 			double[] p = this.p;
 			double[,] a = this.a, b = this.b;
 			int abs = (N * S) << 0x01, stride = S << 0x01, si, sj, o, ni, p0o, p0, p1, t;
-			double[] alphabetar = new double[abs];
+			double[] albe = new double[abs];
 			for (si = 0x00; si < S; si++) {
-				alphabetar [si] = p [si];
+				albe [si] = p [si];
 			}
 			for (si = abs-S; si < abs; si--) {
-				alphabetar [si] = 1.0d;
+				albe [si] = 1.0d;
 			}
 			double norm, sum, ssum;
+			int[] os = new int[sampleLength];
 			for (ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
 				if (initialDistribution [ni] > 0x00) {
 					int n = ni;
@@ -234,16 +235,17 @@ namespace NUtils.ArtificialIntelligence {
 					#region Forward algorithm
 					for (t = 0x00; t < sampleLength; t++) {
 						o = fsm.GetOutput (n);
+						os [t] = o;
 						ssum = 0.0d;
 						for (sj = 0x00; sj < S; sj++) {
 							sum = 0.0d;
 							p0 = p0o;
 							for (si = 0x00; si < S; si++, p0++) {
-								sum += a [si, sj] * alphabetar [p0];
+								sum += a [si, sj] * albe [p0];
 							}
 							sum *= norm * b [sj, o];
 							ssum += sum;
-							alphabetar [p1++] = sum;
+							albe [p1++] = sum;
 						}
 						p0o += stride;
 						p1 += S;
@@ -252,6 +254,26 @@ namespace NUtils.ArtificialIntelligence {
 					}
 					#endregion
 					#region Backward algorithm
+					norm = 1.0d;
+					p0o = abs - 0x01;
+					p1 = p0o - stride;
+					for (t = sampleLength-0x01; t >= 0x00; t--) {
+						o = os [t];//OST: soundtrack
+						ssum = 0.0d;
+						for (si = S-0x01; si >= 0x00; si--) {
+							sum = 0.0d;
+							p0 = p0o;
+							for (sj = S-0x01; sj >= 0x00; sj--, p0--) {
+								sum += a [si, sj] * albe [p0] * b [sj, o];
+							}
+							sum *= norm;
+							ssum += sum;
+							albe [p1--] = sum;
+						}
+						p0o -= stride;
+						p1 -= S;
+						norm = 1.0d / ssum;
+					}
 					#endregion
 					#region Gamma/Xi values
 					#endregion
