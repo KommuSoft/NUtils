@@ -36,10 +36,18 @@ namespace NUtils.ArtificialIntelligence {
 			{0.2d,0.4d,0.4d},
 			{0.5d,0.4d,0.1d}
 		});
+		private static readonly int[] tok0 = new int[] { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+		private static readonly int len0 = 0x04;
 
 		[Test()]
 		public void TestGenerateInfluenceMatrix () {
 			ehm.GenerateInfluenceMatrix (rfsm0, 0x00);
+		}
+
+		[Test()]
+		public void TestTrain () {
+			ehm.Train (rfsm0, tok0, len0);
+			Assert.Fail ();
 		}
 	}
 }

@@ -61,10 +61,12 @@ namespace NUtils.ArtificialIntelligence {
 		/// model. Since such finite state machine generates infinite sequences of output, training that sequence
 		/// would result in an underdetermined system. The sample length must thefore be specified.
 		/// </summary>
+		/// <returns>The error on the training. In other words how different the original Hidden Markov model is from the
+		/// given finite state machine.</returns>
 		/// <param name="fsm">The finite state machine from which the <see cref="IHiddenMarkovModel"/> learns.</param>
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
-		void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength);
+		double Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength);
 	}
 }
 

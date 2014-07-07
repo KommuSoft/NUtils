@@ -22,8 +22,6 @@ using System;
 using System.Collections.Generic;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
-using MathNet.Numerics.LinearAlgebra.Factorization;
-using Mono.Security.X509;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
@@ -207,33 +205,42 @@ namespace NUtils.ArtificialIntelligence {
 		/// model. Since such finite state machine generates infinite sequences of output, training that sequence
 		/// would result in an underdetermined system. The sample length must thefore be specified.
 		/// </summary>
+		/// <returns>The error on the training. In other words how different the original Hidden Markov model is from the
+		/// given finite state machine.</returns>
 		/// <param name="fsm">The finite state machine from which the <see cref="IHiddenMarkovModel"/> learns.</param>
 		/// <param name="initialDistribution"> the initial distribution for the states of the finite state machine.</param>
 		/// <param name="sampleLength">The length of the samples, has impact on the trained model.</param>
-		public void Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
+		public double Train (IFiniteStateMachine<int> fsm, IList<int> initialDistribution, int sampleLength) {
 			int N = fsm.Length;
-			int S = this.Length;
+			int S = this.Length, S2 = S << 0x01, S3 = S + S2;
 			int O = this.OutputSize;
 			double[] p = this.p;
 			double[,] a = this.a, b = this.b;
-			int abs = (N * S) << 0x01, stride = S << 0x01, si, sj, o, ni, p0o, p0, p1, t;
-			double[] albe = new double[abs];
-			for (si = 0x00; si < S; si++) {
-				albe [si] = p [si];
+			int abgs = (sampleLength * S) * 0x03, epss = sampleLength * S * S, stride = S3, stride1 = stride - S, si, sj, o, ni, p0o, p0, p1o, p1, p2o, p2, t, n;
+			double[] albega = new double[abgs];
+			double[] eps = new double[epss];
+			for (si = abgs-stride+S; si < abgs-stride+2*S; si++) {
+				albega [si] = 1.0d;
 			}
-			for (si = abs-S; si < abs; si--) {
-				albe [si] = 1.0d;
-			}
-			double norm, sum, ssum;
+			double norm, sum, ssum, tmp;
 			int[] os = new int[sampleLength];
 			for (ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
 				if (initialDistribution [ni] > 0x00) {
-					int n = ni;
-					norm = 1.0d;
+					n = ni;
+					#region Forward algorithm
+					o = fsm.GetOutput (n);
+					os [0x00] = o;
+					ssum = 0.0d;
+					for (si = 0x00; si < S; si++) {
+						sum = p [si] * b [si, o];
+						albega [si] = sum;
+						ssum += sum;
+					}
+					n = fsm.GetTransitionOfIndex (n);
+					norm = 1.0d / ssum;
 					p0o = 0x00;
 					p1 = stride;
-					#region Forward algorithm
-					for (t = 0x00; t < sampleLength; t++) {
+					for (t = 0x01; t < sampleLength; t++) {
 						o = fsm.GetOutput (n);
 						os [t] = o;
 						ssum = 0.0d;
@@ -241,46 +248,90 @@ namespace NUtils.ArtificialIntelligence {
 							sum = 0.0d;
 							p0 = p0o;
 							for (si = 0x00; si < S; si++, p0++) {
-								sum += a [si, sj] * albe [p0];
+								sum += a [si, sj] * albega [p0];
 							}
 							sum *= norm * b [sj, o];
 							ssum += sum;
-							albe [p1++] = sum;
+							albega [p1++] = sum;
 						}
 						p0o += stride;
-						p1 += S;
+						p1 += stride1;
 						n = fsm.GetTransitionOfIndex (n);
 						norm = 1.0d / ssum;
 					}
 					#endregion
 					#region Backward algorithm
 					norm = 1.0d;
-					p0o = abs - 0x01;
+					p0o = abgs - 0x01 - S;
 					p1 = p0o - stride;
-					for (t = sampleLength-0x01; t >= 0x00; t--) {
+					for (t = sampleLength-0x01; t > 0x00; t--) {
 						o = os [t];//OST: soundtrack
 						ssum = 0.0d;
 						for (si = S-0x01; si >= 0x00; si--) {
 							sum = 0.0d;
 							p0 = p0o;
 							for (sj = S-0x01; sj >= 0x00; sj--, p0--) {
-								sum += a [si, sj] * albe [p0] * b [sj, o];
+								sum += a [si, sj] * albega [p0] * b [sj, o];
 							}
 							sum *= norm;
 							ssum += sum;
-							albe [p1--] = sum;
+							albega [p1--] = sum;
 						}
 						p0o -= stride;
-						p1 -= S;
+						p1 -= stride1;
 						norm = 1.0d / ssum;
 					}
 					#endregion
+					Console.WriteLine ("Pseudo-normalized a-values");
+					for (t = 0x00; t < sampleLength; t++) {
+						for (si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", albega [t * stride + si]);
+						}
+						Console.WriteLine ();
+					}
+					Console.WriteLine ("Pseudo-normalized b-values");
+					for (t = 0x00; t < sampleLength; t++) {
+						for (si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", albega [t * stride + si + S]);
+						}
+						Console.WriteLine ();
+					}
 					#region Gamma/Xi values
-					#endregion
-					#region Updates
+					p0 = 0x00;
+					p1 = S;
+					p2 = 0x02 * S;
+					for (t = 0x00; t < sampleLength; t++) {
+						sum = 0.0d;
+						for (si = 0x00; si < S; si++) {
+							tmp = albega [p0++] * albega [p1++];
+							sum += tmp;
+							albega [p2++] = tmp;
+						}
+						sum = 1.0d / sum;
+						p2 -= S;
+						for (si = 0x00; si < S; si++) {
+							albega [p2++] *= sum;
+						}
+						p0 += stride1;
+						p1 += stride1;
+						p2 += stride1;
+					}
+					Console.WriteLine ("Normalized g-values");
+					for (t = 0x00; t < sampleLength; t++) {
+						for (si = 0x00; si < S; si++) {
+							Console.Write ("{0}\t", albega [t * stride + si + S + S]);
+						}
+						Console.WriteLine ();
+					}
 					#endregion
 				}
+				#region Updates (should be moved after tokenizer)
+				for (si = 0x00; si < S; si++) {
+					p [si] = albega [S2 + si];
+				}
+				#endregion
 			}
+			return 0.0d;
 			/*int[] dist, tour, init;
 			double[,] trans = new double[s, s], emms = new double[s, o];
 			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);
