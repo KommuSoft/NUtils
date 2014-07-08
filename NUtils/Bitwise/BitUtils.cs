@@ -252,19 +252,34 @@ namespace NUtils.Bitwise {
 				return -0x01;
 			}
 		}
+
+		/// <summary>
+		/// Get the parity of the given bit.
+		/// </summary>
+		/// <returns>One (<c>1</c>) if the number of set bits is odd, otherwise zero (<c>0</c>).</returns>
+		/// <param name="value">The value to check the parity for.</param>
+		public static ulong GetParity (ulong value) {
+			value ^= value >> 0x20;
+			value ^= value >> 0x10;
+			value ^= value >> 0x08;
+			value ^= value >> 0x04;
+			value &= 0x0f;
+			return (0x6996UL >> (int)value) & 0x01;
+		}
 		#endregion
 		#region Gray encoding
 		public static ulong GrayIncrement (ulong original, int bits = 0x40) {
-			if ((original & 0x01) == 0x00) {
-				return original | 0x01UL;
+			ulong last = 0x01UL << (bits - 0x01);
+			if (GetParity (original) == 0x00) {
+				return original ^ 0x01UL;
 			} else {
 				ulong lbm = (original & ((~original) + 0x01));
-				Console.WriteLine ("lbm {0}", lbm);
-				Console.WriteLine ("xor {0}", (lbm << 0x01));
-				original ^= (lbm << 0x01);
-				ulong mask = L64ULong >> (0x40 - bits);
-				original &= mask;
-				return original;
+				if (lbm < last) {
+					original ^= (lbm << 0x01);
+					return original;
+				} else {
+					return 0x00;
+				}
 			}
 		}
 		#endregion
