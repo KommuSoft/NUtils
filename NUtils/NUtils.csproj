@@ -88,6 +88,7 @@
     <Compile Include="Bitwise\INumberVector.cs" />
     <Compile Include="Tests\MathUtilsTest.cs" />
     <Compile Include="Tests\ExplicitHiddenMarkovModelTest.cs" />
+    <Compile Include="IO\IWriteable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -99,6 +100,7 @@
     <Folder Include="Functional\" />
     <Folder Include="Collections\" />
     <Folder Include="ArtificialIntelligence\" />
+    <Folder Include="IO\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

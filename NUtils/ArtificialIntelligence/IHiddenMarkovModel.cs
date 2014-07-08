@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using NUtils.Maths;
 using System.Collections.Generic;
-using System.IO;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>

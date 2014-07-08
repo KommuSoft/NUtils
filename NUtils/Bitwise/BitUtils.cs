@@ -253,5 +253,20 @@ namespace NUtils.Bitwise {
 			}
 		}
 		#endregion
+		#region Gray encoding
+		public static ulong GrayIncrement (ulong original, int bits = 0x40) {
+			if ((original & 0x01) == 0x00) {
+				return original | 0x01UL;
+			} else {
+				ulong lbm = (original & ((~original) + 0x01));
+				Console.WriteLine ("lbm {0}", lbm);
+				Console.WriteLine ("xor {0}", (lbm << 0x01));
+				original ^= (lbm << 0x01);
+				ulong mask = L64ULong >> (0x40 - bits);
+				original &= mask;
+				return original;
+			}
+		}
+		#endregion
 	}
 }

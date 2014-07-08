@@ -20,15 +20,17 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.IO;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
+using NUtils.IO;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
 	/// An implementation of the <see cref="IHiddenMarkovModel"/> interface
 	/// where the probabilities are stored as 
 	/// </summary>
-	public class ExplicitHiddenMarkovModel : IHiddenMarkovModel {
+	public class ExplicitHiddenMarkovModel : IHiddenMarkovModel, IWriteable {
 
 		#region Fields
 		/// <summary>
@@ -218,9 +220,9 @@ namespace NUtils.ArtificialIntelligence {
 			int T1 = T - 0x01;
 			double[] p = this.p;
 			double[,] a = this.a, b = this.b;
-			double[,] alpha = new double[T, S], beta = new double[T, S], gamma = new double[T, S], bhat = new double[S, O], ahat = new double[S, O], phat = new double[S, O];
+			double[,] alpha = new double[T, S], beta = new double[T, S], gamma = new double[T, S], bhat = new double[S, O], ahat = new double[S, S];
 			double[,,] epsilon = new double[T, S, S];
-			double[] asc = new double[S], bsc = new double[S];
+			double[] asc = new double[S], bsc = new double[S], phat = new double[S];
 			for (int si = 0x00; si < S; si++) {
 				beta [T1, si] = 1.0d;
 			}
@@ -228,13 +230,12 @@ namespace NUtils.ArtificialIntelligence {
 			int[] os = new int[sampleLength];
 			double sprob = 0.0d, prob;
 			int stok = 0x00;
+			for (int ni = 0x00; ni < N; ni++) {
+				stok += initialDistribution [ni];
+			}
 			for (int ni = 0x00; ni < N; ni++) {//TODO: extremely optimize this
 				int tok = initialDistribution [ni];
 				if (tok > 0x00) {
-					stok += tok;
-#if DEBUG
-					Console.WriteLine ("tick");
-#endif
 					int n = ni;
 					#region Forward algorithm
 					prob = 1.0d;
@@ -265,7 +266,7 @@ namespace NUtils.ArtificialIntelligence {
 						prob *= ssum;
 						norm = 1.0d / ssum;
 					}
-					sprob += tok * prob;
+					sprob += Math.Abs ((double)tok / stok - prob);
 					#endregion
 					#region Backward algorithm
 					norm = 1.0d;
@@ -284,22 +285,6 @@ namespace NUtils.ArtificialIntelligence {
 						norm = 1.0d / ssum;
 					}
 					#endregion
-#if SOME
-					Console.WriteLine ("Pseudo-normalized a-values");
-					for (int t = 0x00; t < T; t++) {
-						for (int si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", alpha [t, si]);
-						}
-						Console.WriteLine ();
-					}
-					Console.WriteLine ("Pseudo-normalized b-values");
-					for (int t = 0x00; t < T; t++) {
-						for (int si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", beta [t, si]);
-						}
-						Console.WriteLine ();
-					}
-#endif
 					#region Gamma/Xi values
 					for (int t = 0x00; t < T; t++) {
 						sum = 0.0d;
@@ -319,6 +304,7 @@ namespace NUtils.ArtificialIntelligence {
 						}
 					}
 					for (int si = 0x00; si < S; si++) {
+						phat [si] = tok * gamma [0x00, si];
 						bsc [si] += tok * gamma [T1, si];
 					}
 					for (int t = 0x00; t < T1; t++) {
@@ -341,30 +327,12 @@ namespace NUtils.ArtificialIntelligence {
 
 					}
 					#endregion
-#if SOME
-					Console.WriteLine ("Normalized g-values");
-					for (int t = 0x00; t < T; t++) {
-						for (int si = 0x00; si < S; si++) {
-							Console.Write ("{0}\t", gamma [t, si]);
-						}
-						Console.WriteLine ();
-					}
-					Console.WriteLine ("Normalized e-values");
-					for (int t = 0x00; t < T1; t++) {
-						for (int si = 0x00; si < S; si++) {
-							for (int sj = 0x00; sj < S; sj++) {
-								Console.Write ("{0}\t", epsilon [t, si, sj]);
-							}
-							Console.Write ("\t");
-						}
-						Console.WriteLine ();
-					}
-#endif
 				}
 			}
 			#region Updates (should be moved after tokenselect)
+			sum = 1.0d / stok;
 			for (int si = 0x00; si < S; si++) {
-				p [si] = gamma [0x00, si];
+				p [si] = phat [si] * stok;
 				tmp = 1.0d / asc [si];
 				for (int o = 0x00; o < O; o++) {
 					b [si, o] = bhat [si, o] * tmp;
@@ -375,43 +343,16 @@ namespace NUtils.ArtificialIntelligence {
 				}
 			}
 			#endregion
-			#if DEBUG
-			Console.WriteLine ("New p-values");
-			for (int si = 0x00; si < S; si++) {
-				Console.Write ("{0}\t", p [si]);
-			}
-			Console.WriteLine ();
-			Console.WriteLine ("New a-values");
-			for (int si = 0x00; si < S; si++) {
-				for (int sj = 0x00; sj < S; sj++) {
-					Console.Write ("{0}\t", a [si, sj]);
-				}
-				Console.WriteLine ();
-			}
-			Console.WriteLine ("New b-values");
-			for (int si = 0x00; si < S; si++) {
-				for (int o = 0x00; o < O; o++) {
-					Console.Write ("{0}\t", b [si, o]);
-				}
-				Console.WriteLine ();
-			}
-			#endif
 			return sprob / stok;
-			/*int[] dist, tour, init;
-			double[,] trans = new double[s, s], emms = new double[s, o];
-			fsm.GetStronglyConnectedGroupsDistanceTour (out dist, out tour, out init);
-			int maxt = 0x00;
-			for (int i = 0x00; i < n; i++) {
-				if (initialDistribution [i] > 0x00) {
-					maxt = Math.Max (maxt, dist [i] + tour [i]);
-				}
-			}
-			for (int i = 0x00; i < n; i++) {
-				if (initialDistribution [i] > 0x00) {
-
-				}
-			}
-			double[,] alpha = new double[maxt, s], beta = new double[maxt, s];*/
+		}
+		#endregion
+		#region IWriteable implementation
+		/// <summary>
+		/// Writes the content of the instance to the the given <see cref="StreamWriter"/>.
+		/// </summary>
+		/// <param name="sw">The <see cref="StreamWriter"/> to write the data to.</param>
+		public void WriteToStream (StreamWriter sw) {
+			throw new NotImplementedException ();
 		}
 		#endregion
 	}
