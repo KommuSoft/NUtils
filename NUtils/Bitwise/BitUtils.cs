@@ -266,6 +266,34 @@ namespace NUtils.Bitwise {
 			value &= 0x0f;
 			return (0x6996UL >> (int)value) & 0x01;
 		}
+
+		/// <summary>
+		/// Add the eight rows of the tile into a binary value.
+		/// </summary>
+		/// <returns>The sum of the eight rows of the tile as a binary value.</returns>
+		/// <param name="tile">The tile for which the rows must be summed.</param>
+		/// <remarks>
+		/// <para>
+		/// Summation is done in 11 basic instructions. This is faster than an ordinary summation
+		/// that takes 22 basic instructions.
+		/// </para>
+		/// </remarks>
+		public static ulong ParallelTileRowSum (ulong tile) {
+			tile = ((tile >> 0x08) & 0x00FF00FF00FF00FFul) + (tile & 0x00FF00FF00FF00FFul);
+			tile += tile >> 0x10;
+			tile += tile >> 0x20;
+			tile += tile >> 0x40;
+			tile &= 0x0fff;
+			return tile;
+		}
+
+		public static ulong Spread (ulong res) {
+			res = (res & 0x01) | ((res & 0x02) << 0x07) | ((res & 0x04) << 0x0e) | ((res & 0x08) << 0x15) | ((res & 0x10) << 0x1c) | ((res & 0x10) << 0x23) | ((res & 0x20) << 0x2a) | ((res & 0x40) << 0x31) | ((res & 0x80) << 0x38);
+			res |= res << 0x01;
+			res |= res << 0x02;
+			res |= res << 0x04;
+			return res;
+		}
 		#endregion
 		#region Gray encoding
 		public static ulong GrayIncrement (ulong original, int bits = 0x40) {
