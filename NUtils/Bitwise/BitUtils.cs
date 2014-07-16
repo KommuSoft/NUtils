@@ -240,17 +240,32 @@ namespace NUtils.Bitwise {
 			return source & (L08ULong << (index << 0x03));
 		}
 
-		public static int LowestBit (ulong low) {
-			if (low != 0x00) {
+		/// <summary>
+		/// Get the index of the lowest set bit of the given value.
+		/// </summary>
+		/// <returns>The index of the lowest bit that is set of the given value.</returns>
+		/// <param name="value">The given value to check for.</param>
+		public static int LowestBitIndex (ulong value) {
+			if (value != 0x00) {
 				int index = 0x00;
-				while ((low&0x01) == 0x00) {
-					low >>= 0x01;
+				while ((value&0x01) == 0x00) {
+					value >>= 0x01;
 					index++;
 				}
 				return index;
 			} else {
 				return -0x01;
 			}
+		}
+
+		/// <summary>
+		/// Return a bitmask where only the lowest bit of the given value is set. If the given value
+		/// is zero (<c>0</c>), zero (<c>0</c> is returned as well).
+		/// </summary>
+		/// <returns>A bit mask where only the lowest set bit of the given <paramref name="value"/> is set.</returns>
+		/// <param name="value">The given value to calculate the mask for.</param>
+		public static ulong LowestBitMask (ulong value) {
+			return (value & ((~value) + 0x01));
 		}
 
 		/// <summary>
@@ -287,8 +302,33 @@ namespace NUtils.Bitwise {
 			return tile;
 		}
 
+		/// <summary>
+		/// Enumerate the rows of the given tile.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the several rows in the tile.</returns>
+		/// <param name="tile">The tile to get the rows from.</param>
+		/// <remarks>The number of emitted items is always equal to eight (<c>8</c>).</remarks>
+		public static IEnumerable<ulong> GetRows (ulong tile) {
+			for (int i = 0x08; i > 0x00; i--, tile >>= 0x08) {
+				yield return tile & 0xff;
+			}
+		}
+
+		/// <summary>
+		/// Spread the lowest eight bits of the given <paramref name="res"/> value over the different rows of the resulting tile.
+		/// In other words if the <c>i</c>-th bit is one, all bits in the <c>i</c>-th row of the resulting tile will be set,
+		/// if the bit is unset, all bits in the row are unset.
+		/// </summary>
+		/// <param name="res">The given byte to spread over the tile.</param>
 		public static ulong Spread (ulong res) {
-			res = (res & 0x01) | ((res & 0x02) << 0x07) | ((res & 0x04) << 0x0e) | ((res & 0x08) << 0x15) | ((res & 0x10) << 0x1c) | ((res & 0x10) << 0x23) | ((res & 0x20) << 0x2a) | ((res & 0x40) << 0x31) | ((res & 0x80) << 0x38);
+			res = (res & 0x01) |
+				((res & 0x02) << 0x07) |
+				((res & 0x04) << 0x0e) |
+				((res & 0x08) << 0x15) |
+				((res & 0x10) << 0x1c) |
+				((res & 0x20) << 0x23) |
+				((res & 0x40) << 0x2a) |
+				((res & 0x80) << 0x31);
 			res |= res << 0x01;
 			res |= res << 0x02;
 			res |= res << 0x04;

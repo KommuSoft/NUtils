@@ -41,6 +41,25 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Generate a new <see cref="ulong"/> value.
+		/// </summary>
+		/// <returns>The randomly generated <see cref="ushort"/>.</returns>
+		public static ulong NextUlong () {
+			ulong val = ((ulong)random.Next ()) << 0x28;
+			val ^= ((ulong)random.Next ()) << 0x14;
+			val ^= (ulong)random.Next ();
+			return val;
+		}
+
+		/// <summary>
+		/// Generate a new <see cref="ushort"/> value.
+		/// </summary>
+		/// <returns>The randomly generated <see cref="ushort"/>.</returns>
+		public static ushort NextUshort () {
+			return ((ushort)random.Next ());
+		}
+
+		/// <summary>
 		/// Returns a nonnegative random number less than the specified maximum.
 		/// </summary>
 		/// <returns>

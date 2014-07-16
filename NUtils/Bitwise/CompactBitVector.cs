@@ -506,16 +506,16 @@ namespace NUtils.Bitwise {
 				xi &= lm;
 			}
 			int mod = lower & 0x3f;
-			int idx = BitUtils.LowestBit (xi >> mod);
+			int idx = BitUtils.LowestBitIndex (xi >> mod);
 			if (idx >= 0x00) {
 				return mod + idx;
 			}
 			block++;
 			while (idx != -0x01 && block < dl1) {
-				idx = BitUtils.LowestBit (data [block++]);
+				idx = BitUtils.LowestBitIndex (data [block++]);
 			}
 			if (block == dl1) {
-				idx = BitUtils.LowestBit (data [block] & lm);
+				idx = BitUtils.LowestBitIndex (data [block] & lm);
 			}
 			return idx;
 		}
