@@ -297,7 +297,6 @@ namespace NUtils.Bitwise {
 			tile = ((tile >> 0x08) & 0x00FF00FF00FF00FFul) + (tile & 0x00FF00FF00FF00FFul);
 			tile += tile >> 0x10;
 			tile += tile >> 0x20;
-			tile += tile >> 0x40;
 			tile &= 0x0fff;
 			return tile;
 		}
