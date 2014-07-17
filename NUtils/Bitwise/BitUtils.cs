@@ -289,7 +289,7 @@ namespace NUtils.Bitwise {
 		/// <param name="tile">The tile for which the rows must be summed.</param>
 		/// <remarks>
 		/// <para>
-		/// Summation is done in 11 basic instructions. This is faster than an ordinary summation
+		/// Summation is done in 9 basic instructions. This is faster than an ordinary summation
 		/// that takes 22 basic instructions.
 		/// </para>
 		/// </remarks>
@@ -299,6 +299,51 @@ namespace NUtils.Bitwise {
 			tile += tile >> 0x20;
 			tile &= 0x0fff;
 			return tile;
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="byte"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (byte data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="ushort"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (ushort data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="uint"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (uint data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="ulong"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (ulong data, int maxIndex = 0x40) {
+			data &= 0xFFFFFFFFFFFFFFFFUL >> (0x40 - maxIndex);
+			for (int i = 0x00; data != 0x00; i++, data >>= 0x01) {
+				if ((data & 0x01) == 0x01) {
+					yield return i;
+				}
+			}
 		}
 
 		/// <summary>
