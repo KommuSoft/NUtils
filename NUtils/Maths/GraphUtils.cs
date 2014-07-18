@@ -53,6 +53,14 @@ namespace NUtils.Maths {
 		/// </summary>
 		public const string KeywordEnvDn = @"}";
 		/// <summary>
+		/// The delimeter in the DOT language to open an optional environment.
+		/// </summary>
+		public const string KeywordOptUp = @"[";
+		/// <summary>
+		/// The delimter in the DOT language to close an optional environment.
+		/// </summary>
+		public const string KeywordOptDn = @"]";
+		/// <summary>
 		/// The indentation part in the DOT language (when an environment is opened).
 		/// </summary>
 		public const string KeywordIdent = "\t";
