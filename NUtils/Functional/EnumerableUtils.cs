@@ -309,7 +309,7 @@ namespace NUtils.Functional {
 		/// <param name="item">The object to locate in the <see cref="T:IEnumerable`1" />.</param>
 		/// <typeparam name="T">The type of the elements of the given <paramref name="source"/>.</typeparam>
 		/// <remarks>
-		/// <para>The method is optimized for <see cref="T:IList`1"/> instances, in the <see cref="IndexOf"/> method
+		/// <para>The method is optimized for <see cref="T:IList`1"/> instances, in the <see cref="M:IList`1.IndexOf"/> method
 		/// is called immediately (since some <see cref="T:IList`1"/> implementations constraint the list
 		/// so searching can be done faster).</para>
 		/// <para>In case the given <paramref name="source"/> is not effective, <c>-1</c> is returned as well.</para>
@@ -325,6 +325,7 @@ namespace NUtils.Functional {
 						if (Object.Equals (source, elem)) {
 							return index;
 						}
+						index++;
 					}
 				}
 			}

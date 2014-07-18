@@ -53,7 +53,7 @@ namespace NUtils.Maths {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (node);
-				writer.Write (KeywordSeparator);
+				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
 				writer.Write (KeywordIdent);
@@ -62,7 +62,7 @@ namespace NUtils.Maths {
 				writer.Write (KeywordEdge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
-				writer.Write (KeywordSeparator);
+				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
 		}
@@ -80,7 +80,7 @@ namespace NUtils.Maths {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (node);
-				writer.Write (KeywordSeparator);
+				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
 				writer.Write (KeywordIdent);
@@ -89,7 +89,7 @@ namespace NUtils.Maths {
 				writer.Write (KeywordDiedge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
-				writer.Write (KeywordSeparator);
+				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
 		}
