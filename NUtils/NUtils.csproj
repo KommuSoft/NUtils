@@ -91,6 +91,7 @@
     <Compile Include="IO\IWriteable.cs" />
     <Compile Include="Maths\IGraph.cs" />
     <Compile Include="Maths\IDigraph.cs" />
+    <Compile Include="Maths\GraphUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
