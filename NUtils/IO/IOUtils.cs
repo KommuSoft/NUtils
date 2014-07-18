@@ -18,16 +18,36 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.IO;
 
-namespace NUtils {
+namespace NUtils.IO {
 	/// <summary>
 	/// A set of utility methods for reading an writing files (mainly used by <see cref="IReadable"/> and <see cref="IWriteable"/> instances).
 	/// </summary>
 	public static class IOUtils {
 		#region IReadable methods
+		/// <summary>
+		/// Reads the data stored in the given stream and modifies the given <see cref="IReadable"/>.
+		/// </summary>
+		/// <param name="readable">The <see cref="IReadable"/> that reads data from the given <see cref="Stream"/>.</param>
+		/// <param name="stream">The given <see cref="Stream"/> that contains the data.</param>
+		public static void ReadFromStream (this IReadable readable, Stream stream) {
+			using (TextReader tr = new StreamReader(stream)) {
+				readable.ReadFromStream (tr);
+			}
+		}
 		#endregion
 		#region IWriteable methods
+		/// <summary>
+		/// Write the data of the given <see cref="IWriteable"/> to the given <see cref="Stream"/>.
+		/// </summary>
+		/// <param name="writeable">The given <see cref="IWriteable"/> that contains the data to write.</param>
+		/// <param name="stream">The given <see cref="Stream"/> to write the data to.</param>
+		public static void WriteToStream (this IWriteable writeable, Stream stream) {
+			using (TextWriter tw = new StreamWriter(stream)) {
+				writeable.WriteToStream (tw);
+			}
+		}
 		#endregion
 	}
 }
