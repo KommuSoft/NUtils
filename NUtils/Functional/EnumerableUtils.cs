@@ -322,7 +322,7 @@ namespace NUtils.Functional {
 				} else {
 					int index = 0x00;
 					foreach (T elem in source) {
-						if (Object.Equals (source, elem)) {
+						if (Object.Equals (item, elem)) {
 							return index;
 						}
 						index++;
