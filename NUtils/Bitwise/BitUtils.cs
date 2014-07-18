@@ -240,16 +240,158 @@ namespace NUtils.Bitwise {
 			return source & (L08ULong << (index << 0x03));
 		}
 
-		public static int LowestBit (ulong low) {
-			if (low != 0x00) {
+		/// <summary>
+		/// Get the index of the lowest set bit of the given value.
+		/// </summary>
+		/// <returns>The index of the lowest bit that is set of the given value.</returns>
+		/// <param name="value">The given value to check for.</param>
+		public static int LowestBitIndex (ulong value) {
+			if (value != 0x00) {
 				int index = 0x00;
-				while ((low&0x01) == 0x00) {
-					low >>= 0x01;
+				while ((value&0x01) == 0x00) {
+					value >>= 0x01;
 					index++;
 				}
 				return index;
 			} else {
 				return -0x01;
+			}
+		}
+
+		/// <summary>
+		/// Return a bitmask where only the lowest bit of the given value is set. If the given value
+		/// is zero (<c>0</c>), zero (<c>0</c> is returned as well).
+		/// </summary>
+		/// <returns>A bit mask where only the lowest set bit of the given <paramref name="value"/> is set.</returns>
+		/// <param name="value">The given value to calculate the mask for.</param>
+		public static ulong LowestBitMask (ulong value) {
+			return (value & ((~value) + 0x01));
+		}
+
+		/// <summary>
+		/// Get the parity of the given bit.
+		/// </summary>
+		/// <returns>One (<c>1</c>) if the number of set bits is odd, otherwise zero (<c>0</c>).</returns>
+		/// <param name="value">The value to check the parity for.</param>
+		public static ulong GetParity (ulong value) {
+			value ^= value >> 0x20;
+			value ^= value >> 0x10;
+			value ^= value >> 0x08;
+			value ^= value >> 0x04;
+			value &= 0x0f;
+			return (0x6996UL >> (int)value) & 0x01;
+		}
+
+		/// <summary>
+		/// Add the eight rows of the tile into a binary value.
+		/// </summary>
+		/// <returns>The sum of the eight rows of the tile as a binary value.</returns>
+		/// <param name="tile">The tile for which the rows must be summed.</param>
+		/// <remarks>
+		/// <para>
+		/// Summation is done in 9 basic instructions. This is faster than an ordinary summation
+		/// that takes 22 basic instructions.
+		/// </para>
+		/// </remarks>
+		public static ulong ParallelTileRowSum (ulong tile) {
+			tile = ((tile >> 0x08) & 0x00FF00FF00FF00FFul) + (tile & 0x00FF00FF00FF00FFul);
+			tile += tile >> 0x10;
+			tile += tile >> 0x20;
+			tile &= 0x0fff;
+			return tile;
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="byte"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (byte data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="ushort"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (ushort data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="uint"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (uint data, int maxIndex = 0x08) {
+			return GetSetIndices ((ulong)data, maxIndex);
+		}
+
+		/// <summary>
+		/// Yield all the indices of bits that are set of the given <see cref="ulong"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of indices of the bits that are set in the given <paramref name="data"/>.</returns>
+		/// <param name="data">The given data to analyze</param>
+		/// <param name="maxIndex">An optional parameter that determines the maximum index to be returned.</param>
+		public static IEnumerable<int> GetSetIndices (ulong data, int maxIndex = 0x40) {
+			data &= 0xFFFFFFFFFFFFFFFFUL >> (0x40 - maxIndex);
+			for (int i = 0x00; data != 0x00; i++, data >>= 0x01) {
+				if ((data & 0x01) == 0x01) {
+					yield return i;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Enumerate the rows of the given tile.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the several rows in the tile.</returns>
+		/// <param name="tile">The tile to get the rows from.</param>
+		/// <remarks>The number of emitted items is always equal to eight (<c>8</c>).</remarks>
+		public static IEnumerable<ulong> GetRows (ulong tile) {
+			for (int i = 0x08; i > 0x00; i--, tile >>= 0x08) {
+				yield return tile & 0xff;
+			}
+		}
+
+		/// <summary>
+		/// Spread the lowest eight bits of the given <paramref name="res"/> value over the different rows of the resulting tile.
+		/// In other words if the <c>i</c>-th bit is one, all bits in the <c>i</c>-th row of the resulting tile will be set,
+		/// if the bit is unset, all bits in the row are unset.
+		/// </summary>
+		/// <param name="res">The given byte to spread over the tile.</param>
+		public static ulong Spread (ulong res) {
+			res = (res & 0x01) |
+				((res & 0x02) << 0x07) |
+				((res & 0x04) << 0x0e) |
+				((res & 0x08) << 0x15) |
+				((res & 0x10) << 0x1c) |
+				((res & 0x20) << 0x23) |
+				((res & 0x40) << 0x2a) |
+				((res & 0x80) << 0x31);
+			res |= res << 0x01;
+			res |= res << 0x02;
+			res |= res << 0x04;
+			return res;
+		}
+		#endregion
+		#region Gray encoding
+		public static ulong GrayIncrement (ulong original, int bits = 0x40) {
+			ulong last = 0x01UL << (bits - 0x01);
+			if (GetParity (original) == 0x00) {
+				return original ^ 0x01UL;
+			} else {
+				ulong lbm = (original & ((~original) + 0x01));
+				if (lbm < last) {
+					original ^= (lbm << 0x01);
+					return original;
+				} else {
+					return 0x00;
+				}
 			}
 		}
 		#endregion

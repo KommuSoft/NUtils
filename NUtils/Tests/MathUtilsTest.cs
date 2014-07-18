@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  MathUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,24 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
 namespace NUtils.Maths {
-	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
-	/// </summary>
-	public interface ITransition : ILength, IDigraph, IEnumerable<int> {
+	[TestFixture()]
+	public class MathUtilsTest {
 
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		
+		[Test()]
+		public void TestGreatestCommonDivider () {
+			Assert.AreEqual (0x02, MathUtils.GreatestCommonDivider (0x04, 0x06));
+		}
+
+		[Test()]
+		public void TestLeastCommonMultiple () {
+			Assert.AreEqual (0x0c, MathUtils.LeastCommonMultiple (0x04, 0x06));
+			Assert.AreEqual (0x1f8, MathUtils.LeastCommonMultiple (0x08, 0x09, 0x15));
+		}
 	}
 }
 

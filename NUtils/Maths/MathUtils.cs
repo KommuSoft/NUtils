@@ -41,6 +41,25 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Generate a new <see cref="ulong"/> value.
+		/// </summary>
+		/// <returns>The randomly generated <see cref="ushort"/>.</returns>
+		public static ulong NextUlong () {
+			ulong val = ((ulong)random.Next ()) << 0x28;
+			val ^= ((ulong)random.Next ()) << 0x14;
+			val ^= (ulong)random.Next ();
+			return val;
+		}
+
+		/// <summary>
+		/// Generate a new <see cref="ushort"/> value.
+		/// </summary>
+		/// <returns>The randomly generated <see cref="ushort"/>.</returns>
+		public static ushort NextUshort () {
+			return ((ushort)random.Next ());
+		}
+
+		/// <summary>
 		/// Returns a nonnegative random number less than the specified maximum.
 		/// </summary>
 		/// <returns>
@@ -91,6 +110,60 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Writes values to the given <see cref="T:IList`1"/> of probabilities. The values are uniformly distributed
+		/// and sum up to one (<c>1</c>).
+		/// </summary>
+		/// <param name="list">The list where item should be written to.</param>
+		public static void NextScaledDistribution (IList<double> list) {
+			double sum = 0.0d;
+			int n = list.Count;
+			for (int i = 0x00; i < n; i++) {
+				double x = random.Next ();
+				sum += x;
+				list [i] = x;
+			}
+			sum = 1.0d / sum;
+			for (int i = 0x00; i < n; i++) {
+				list [i] *= sum;
+			}
+		}
+
+		/// <summary>
+		/// Writes values to the each of the given rows of the given probability matrix.
+		/// The values are uniformly distributed and sum up to one (<c>1</c>) per list.
+		/// </summary>
+		/// <param name="lists">A matrix that must be filled with uniformly distributed positive values
+		/// such that every row sums up to one.</param>
+		public static void NextScaledDistribution (double[,] lists) {
+			double sum = 0.0d;
+			int m = lists.GetLength (0x00);
+			int n = lists.GetLength (0x01);
+			for (int i = 0x00; i < m; i++) {
+				for (int j = 0x00; j < n; j++) {
+					double x = random.Next ();
+					sum += x;
+					lists [i, j] = x;
+				}
+				sum = 1.0d / sum;
+				for (int j = 0x00; j < n; j++) {
+					lists [i, j] *= sum;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Writes values to the each of the given <see cref="T:IList`1"/> of probabilities.
+		/// The values are uniformly distributed and sum up to one (<c>1</c>) per list.
+		/// </summary>
+		/// <param name="lists">A list of lists, each list is filled with scaled values that sum up to one.</param>
+		public static void NextScaledDistribution (IList<IList<double>> lists) {
+			foreach (IList<double> list in lists) {
+				NextScaledDistribution (list);
+			}
+		}
+		#endregion
+		#region Number theory
+		/// <summary>
 		/// Calculate the greatest common divider of the two given numbers.
 		/// </summary>
 		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
@@ -101,12 +174,33 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public static int GreatestCommonDivider (int a, int b) {
 			int c;
-			while (b < 0x01) {
+			while (b > 0x00) {
 				c = a % b;
-				b = a;
-				a = c;
+				a = b;
+				b = c;
 			}
 			return a;
+		}
+
+		/// <summary>
+		/// Calculate the greatest common divider of the two given numbers.
+		/// </summary>
+		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
+		/// <param name="a">The first given number.</param>
+		/// <param name="b">The second given number.</param>
+		/// <remarks>
+		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
+		/// </remarks>
+		public static int GreatestCommonDivider (this IEnumerable<int> values) {
+			int r = 0x00;
+			IEnumerator<int> enr = values.GetEnumerator ();
+			if (enr.MoveNext ()) {
+				r = enr.Current;
+				while (enr.MoveNext ()) {
+					r = GreatestCommonDivider (r, enr.Current);
+				}
+			}
+			return r;
 		}
 
 		/// <summary>
@@ -119,7 +213,7 @@ namespace NUtils.Maths {
 		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
 		/// </remarks>
 		public static int LeastCommonMultiple (int a, int b) {
-			return a * b / GreatestCommonDivider (a, b);
+			return (a * b) / GreatestCommonDivider (a, b);
 		}
 
 		/// <summary>
@@ -152,6 +246,45 @@ namespace NUtils.Maths {
 			return LeastCommonMultiple ((IEnumerable<int>)values);
 		}
 		#endregion
+		#region Sums and products
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> to infinity, or more formally <c>a+a^2+a^3+a^4+...</c>
+		/// with <c>a</c> the given <paramref name="factor"/>.
+		/// </summary>
+		/// <returns>The sum of the power list.</returns>
+		/// <param name="factor">The factor of the power sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor) {
+			return 1.0d / (1.0d - factor);
+		}
+
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> from one (<c>1</c>) to <paramref name="n"/>, or more
+		/// formally <c>a+a^2+a^3+...a^n</c>.
+		/// </summary>
+		/// <returns>The sum of the power list from one to <paramref name="n"/>.</returns>
+		/// <param name="factor">The factor of power sum.</param>
+		/// <param name="n">The length of the power sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor, int n) {
+			return factor * (1.0d - Math.Pow (factor, n)) / (1.0d - factor);
+		}
+
+		/// <summary>
+		/// Calculate the sum of the powers of <c>a</c> from <paramref name="initial"/> to <paramref name="n"/>, or more
+		/// formally <c>a^i+a^(i+1)+a^(i+2)+...a^n</c>.
+		/// </summary>
+		/// <returns>The sum of the power list from <paramref name="initial"/> to <paramref name="n"/>.</returns>
+		/// <param name="factor">The factor of power sum.</param>
+		/// <param name="initial">The offset index of the sum.</param>
+		/// <param name="n">The end index of the sum.</param>
+		/// <remarks><para>The absolute value of the <paramref name="factor"/> must be smaller than one. Otherwise the
+		/// results are invalid.</para></remarks>
+		public static double PowerSum (double factor, int initial, int n) {
+			return (Math.Pow (factor, initial) - Math.Pow (factor, n + 0x01)) / (1.0d - factor);
+		}
+		#endregion
 	}
 }
-

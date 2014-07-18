@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  IReadWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
-namespace NUtils.Maths {
+namespace NUtils.IO {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interface specifying that the instance can both read data from a stream as well as writing
+	/// the data to a stream.
 	/// </summary>
-	public interface ITransition : ILength, IDigraph, IEnumerable<int> {
-
-		/// <summary>
-		/// Gets the index on which the given index maps.
-		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+	/// <remarks>
+	/// <para>This interface is mainly used for convenience only and doesn't add any functional value.</para>
+	/// </remarks>
+	public interface IReadWriteable : IReadable, IWriteable {
 	}
 }
 

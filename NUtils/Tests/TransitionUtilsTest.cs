@@ -24,12 +24,14 @@ using System;
 using System.Collections.Generic;
 
 namespace NUtils.Maths {
-	[TestFixture()]
+	[TestFixture]
 	public class TransitionUtilsTest {
-		[Test()]
+
+		private static readonly ExplicitTransition et0 = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
+
+		[Test]
 		public void TestGetStronglyConnectedGroups () {
-			ExplicitTransition et = new ExplicitTransition (0x04, 0x00, 0x06, 0x02, 0x01, 0x06, 0x05, 0x07);
-			int[][] grps = et.GetStronglyConnectedGroups ().Select (x => x.ToArray ()).ToArray ();
+			int[][] grps = et0.GetStronglyConnectedGroups ().Select (x => x.ToArray ()).ToArray ();
 			Assert.AreEqual (3, grps.Length);
 			Assert.AreEqual (3, grps [0x00].Length);
 			Assert.AreEqual (4, grps [0x00] [0x00]);
@@ -40,6 +42,49 @@ namespace NUtils.Maths {
 			Assert.AreEqual (6, grps [0x01] [0x01]);
 			Assert.AreEqual (1, grps [0x02].Length);
 			Assert.AreEqual (7, grps [0x02] [0x00]);
+		}
+
+		[Test]
+		public void TestGetMaximumStronglyConnectedGroupsDistance () {
+			Assert.AreEqual (0x02, et0.GetMaximumStronglyConnectedGroupsDistance ());
+		}
+
+		[Test]
+		public void GetStronlyConnectedPeriod () {
+			Assert.AreEqual (0x06, et0.GetStronlyConnectedPeriod ());
+		}
+
+		[Test]
+		public void GetStronglyConnectedGroupsDistanceTour () {
+			int[] dst, trs, ini;
+			et0.GetStronglyConnectedGroupsDistanceTour (out dst, out trs, out ini);
+			Assert.AreEqual (0x08, dst.Length);
+			Assert.AreEqual (0x00, dst [0x00]);
+			Assert.AreEqual (0x00, dst [0x01]);
+			Assert.AreEqual (0x01, dst [0x02]);
+			Assert.AreEqual (0x02, dst [0x03]);
+			Assert.AreEqual (0x00, dst [0x04]);
+			Assert.AreEqual (0x00, dst [0x05]);
+			Assert.AreEqual (0x00, dst [0x06]);
+			Assert.AreEqual (0x00, dst [0x07]);
+			Assert.AreEqual (0x08, trs.Length);
+			Assert.AreEqual (0x03, trs [0x00]);
+			Assert.AreEqual (0x03, trs [0x01]);
+			Assert.AreEqual (0x02, trs [0x02]);
+			Assert.AreEqual (0x02, trs [0x03]);
+			Assert.AreEqual (0x03, trs [0x04]);
+			Assert.AreEqual (0x02, trs [0x05]);
+			Assert.AreEqual (0x02, trs [0x06]);
+			Assert.AreEqual (0x01, trs [0x07]);
+			Assert.AreEqual (0x08, ini.Length);
+			Assert.AreEqual (0x00, ini [0x00]);
+			Assert.AreEqual (0x01, ini [0x01]);
+			Assert.AreEqual (0x06, ini [0x02]);
+			Assert.AreEqual (0x06, ini [0x03]);
+			Assert.AreEqual (0x04, ini [0x04]);
+			Assert.AreEqual (0x05, ini [0x05]);
+			Assert.AreEqual (0x06, ini [0x06]);
+			Assert.AreEqual (0x07, ini [0x07]);
 		}
 	}
 }

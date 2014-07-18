@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  IFiniteDistribution.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,26 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using System.Collections.Generic;
 using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// An interfacing specifying a distribution over a finite range of values.
 	/// </summary>
-	public interface ITransition : ILength, IDigraph, IEnumerable<int> {
+	/// <remarks>
+	/// <para>A finite distribution contains only positive values and sum up to one.</para>
+	/// </remarks>
+	public interface IFiniteDistribution : ILength, IValidateable {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Get the distribution of the given <paramref name="index"/>.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <returns>The distribution value of the given <paramref name="index"/>.</returns>
+		/// <param name="index">The given index.</param>
+		/// <remarks>
+		/// <para>The returned value is always positive.</para>
+		/// </remarks>
+		double GetDistributionValue (int index);
 	}
 }
 

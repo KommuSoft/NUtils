@@ -82,6 +82,20 @@
     <Compile Include="Maths\ITransitionSensitive.cs" />
     <Compile Include="Maths\TransitionUtils.cs" />
     <Compile Include="Tests\TransitionUtilsTest.cs" />
+    <Compile Include="ArtificialIntelligence\IHiddenMarkovModel.cs" />
+    <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModel.cs" />
+    <Compile Include="Maths\IFiniteDistribution.cs" />
+    <Compile Include="Bitwise\INumberVector.cs" />
+    <Compile Include="Tests\MathUtilsTest.cs" />
+    <Compile Include="Tests\ExplicitHiddenMarkovModelTest.cs" />
+    <Compile Include="IO\IWriteable.cs" />
+    <Compile Include="Maths\IGraph.cs" />
+    <Compile Include="Maths\IDigraph.cs" />
+    <Compile Include="Maths\GraphUtils.cs" />
+    <Compile Include="Maths\TransitionBase.cs" />
+    <Compile Include="IO\IReadable.cs" />
+    <Compile Include="IO\IReadWriteable.cs" />
+    <Compile Include="IO\IOUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -92,6 +106,8 @@
     <Folder Include="Textual\" />
     <Folder Include="Functional\" />
     <Folder Include="Collections\" />
+    <Folder Include="ArtificialIntelligence\" />
+    <Folder Include="IO\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -102,4 +118,10 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <ProjectReference Include="..\..\mathnet-numerics\src\Numerics\Numerics.csproj">
+      <Project>{B7CAE5F4-A23F-4438-B5BE-41226618B695}</Project>
+      <Name>Numerics</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
