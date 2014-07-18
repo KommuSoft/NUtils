@@ -94,6 +94,8 @@ namespace NUtils.Maths {
 			writer.WriteLine (KeywordEnvDn);
 		}
 		#endregion
+		#region IGraph and IDigraph functionalities
+		#endregion
 	}
 }
 

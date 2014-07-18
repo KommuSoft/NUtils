@@ -1,5 +1,5 @@
 //
-//  IWriteable.cs
+//  IReadable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,17 +20,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.IO;
 
-namespace NUtils.IO {
-	/// <summary>
-	/// An interface specifying that the content of the instance can be written to a stream.
-	/// </summary>
-	public interface IWriteable {
-
+namespace NUtils {
+	namespace NUtils.IO {
 		/// <summary>
-		/// Writes the content of the instance to the the given <see cref="TextWriter"/>.
+		/// An interface specifying that the content of the instance can be read from a stream.
 		/// </summary>
-		/// <param name="tw">The <see cref="TextWriter"/> to write the data to.</param>
-		void WriteToStream (TextWriter tw);
+		public interface IReadable {
+
+			/// <summary>
+			/// Reads the content of the instance from the the given <see cref="TextWriter"/>.
+			/// </summary>
+			/// <param name="tr">The <see cref="TextReader"/> to read the data from.</param>
+			void ReadFromStream (TextReader tr);
+		}
 	}
 }
 

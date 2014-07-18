@@ -20,14 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace NUtils.Maths {
 	/// <summary>
 	/// A basic implementation of the <see cref="ITransition"/> interface that stores the permutation explicitly as
 	/// an array. This is useful for fast item access but takes much memory.
 	/// </summary>
-	public class ExplicitTransition : ITransition {
+	public class ExplicitTransition : TransitionBase, ITransition {
 
 		#region Fields
 		/// <summary>
@@ -40,7 +39,7 @@ namespace NUtils.Maths {
 		/// Gets the number of subelements.
 		/// </summary>
 		/// <value>The length.</value>
-		public int Length {
+		public override int Length {
 			get {
 				return this.Indices.Length;
 			}
@@ -82,7 +81,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
 		/// <param name="index">The given index.</param>
-		public int GetTransitionOfIndex (int index) {
+		public override int GetTransitionOfIndex (int index) {
 			return this.Indices [index];
 		}
 		#endregion
@@ -91,35 +90,10 @@ namespace NUtils.Maths {
 		/// Gets the enumerator that enumerates the target indices contained in this transition function.
 		/// </summary>
 		/// <returns>The enumerator that enumerates the target indices contained in this transition function.</returns>
-		public IEnumerator<int> GetEnumerator () {
+		public override IEnumerator<int> GetEnumerator () {
 			foreach (int i in this.Indices) {
 				yield return i;
 			}
-		}
-		#endregion
-		#region IEnumerable implementation
-		/// <summary>
-		/// Gets the enumerator that enumerates the target indices contained in this transition function.
-		/// </summary>
-		/// <returns>The enumerator that enumerates the target indices contained in this transition function.</returns>
-		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
-			return this.GetEnumerator ();
-		}
-		#endregion
-		#region ToString method
-		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="ExplicitTransition"/>.
-		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ExplicitTransition"/>.</returns>
-		public override string ToString () {
-			StringBuilder sb = new StringBuilder ("{");
-			int[] d = this.Indices;
-			int dl = d.Length;
-			for (int i = 0x00; i < dl; i++) {
-				sb.AppendFormat (" {0}>{1}", i, d [i]);
-			}
-			sb.Append (" }");
-			return sb.ToString ();
 		}
 		#endregion
 	}

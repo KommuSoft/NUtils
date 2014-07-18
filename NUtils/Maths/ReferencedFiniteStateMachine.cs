@@ -36,7 +36,7 @@ namespace NUtils.Maths {
 	/// <typeparam name='TTransition'>
 	/// The type of the stored transition function.
 	/// </typeparam>
-	public class ReferencedFiniteStateMachine<TOutput,TTransition> : IFiniteStateMachine<TOutput>, ITransitionSensitive<TTransition> where TTransition : ITransition {
+	public class ReferencedFiniteStateMachine<TOutput,TTransition> : TransitionBase, IFiniteStateMachine<TOutput>, ITransitionSensitive<TTransition> where TTransition : ITransition {
 
 		#region Fields
 		/// <summary>
@@ -58,7 +58,7 @@ namespace NUtils.Maths {
 		/// Gets the number of states of the finite state machine (the length of the transition function).
 		/// </summary>
 		/// <value>The number of states of the finite state machine.</value>
-		public int Length {
+		public override int Length {
 			get {
 				return this.Transition.Length;
 			}
@@ -95,7 +95,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>The state to which the the given state migrates after a time tick.</returns>
 		/// <param name="index">The initial state of the finite state machine.</param>
-		public int GetTransitionOfIndex (int index) {
+		public override int GetTransitionOfIndex (int index) {
 			return this.Transition.GetTransitionOfIndex (index);
 		}
 		#endregion
@@ -105,7 +105,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>An <see cref="T:IEnumerator`1"/> that emits the transition values of the transition function
 		/// of the finite state machine.</returns>
-		public IEnumerator<int> GetEnumerator () {
+		public override IEnumerator<int> GetEnumerator () {
 			return this.Transition.GetEnumerator ();
 		}
 		#endregion
@@ -117,6 +117,40 @@ namespace NUtils.Maths {
 		/// of the finite state machine.</returns>
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
 			return this.Transition.GetEnumerator ();
+		}
+		#endregion
+		#region IDigraph implementation
+		public override IEnumerable<int> GetConnectedNodes (int node) {
+			throw new System.NotImplementedException ();
+		}
+
+		public override bool IsImmediatelyDirectedConnected (int nodea, int nodeb) {
+			throw new System.NotImplementedException ();
+		}
+
+		public override bool IsDirectedConnected (int nodea, int nodeb) {
+			throw new System.NotImplementedException ();
+		}
+		#endregion
+		#region IGraph implementation
+		public override IEnumerable<System.Tuple<int, int>> GetEdges () {
+			throw new System.NotImplementedException ();
+		}
+
+		public override IEnumerable<int> GetNeighbors (int node) {
+			throw new System.NotImplementedException ();
+		}
+
+		public override bool ContainsLoop (int node) {
+			throw new System.NotImplementedException ();
+		}
+
+		public override bool IsImmediatelyConnected (int nodea, int nodeb) {
+			throw new System.NotImplementedException ();
+		}
+
+		public override bool IsConnected (int nodea, int nodeb) {
+			throw new System.NotImplementedException ();
 		}
 		#endregion
 	}
