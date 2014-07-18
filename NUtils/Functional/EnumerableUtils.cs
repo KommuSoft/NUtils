@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NUtils.Functional {
 	/// <summary>
@@ -270,7 +271,65 @@ namespace NUtils.Functional {
 				}
 			}
 		}
+
+		/// <summary>
+		/// Returns the <paramref name="ith"/> element of the given <paramref name="source"/>, in case
+		/// such element does not exists, the <c>default(T)</c> is returned.
+		/// </summary>
+		/// <returns>The <paramref name="ith"/> elementen of the given <see cref="T:IEnumerable`1"/> if
+		/// that element exists; otherwise <c>default(T)</c>.</returns>.
+		/// <param name="source">The given source to determine the <c>i</c>-th element from.</param>
+		/// <param name="ith">An optional parameter describing the requested index, by default zero (<c>0</c>).</param>
+		/// <typeparam name="T">The type of the elements of the given <paramref name="source"/>.</typeparam>
+		/// <remarks>
+		/// <para>The method is optimized for <see cref="T:IList`1"/> instances, in that case
+		/// the index of the element is accessed directly.</para>
+		/// <para>In case the given <paramref name="source"/> is not effective, or the given
+		/// index is out of range, <c>default(T)</c> is returned.</para>
+		/// </remarks>
+		public static T IthOrDefault<T> (this IEnumerable<T> source, int ith = 0x00) {
+			if (ith >= 0x00 && source != null) {
+				if (source is IList<T>) {
+					IList<T> list = (IList<T>)source;
+					if (ith < list.Count) {
+						return list [ith];
+					}
+				} else {
+					return source.Skip (ith).FirstOrDefault ();
+				}
+			}
+			return default(T);
+		}
+
+		/// <summary>
+		/// Determines the index of a specific item in the given <see cref="T:IEnumerable`1" />.
+		/// </summary>
+		/// <returns>The (first) index of <paramref name="item"/> if found in the list; otherwise, <c>-1</c>.</returns>
+		/// <param name="source">The given <see cref="T:IEnumerable`1"/> to search for the given <paramref name="item"/>.</param>
+		/// <param name="item">The object to locate in the <see cref="T:IEnumerable`1" />.</param>
+		/// <typeparam name="T">The type of the elements of the given <paramref name="source"/>.</typeparam>
+		/// <remarks>
+		/// <para>The method is optimized for <see cref="T:IList`1"/> instances, in the <see cref="IndexOf"/> method
+		/// is called immediately (since some <see cref="T:IList`1"/> implementations constraint the list
+		/// so searching can be done faster).</para>
+		/// <para>In case the given <paramref name="source"/> is not effective, <c>-1</c> is returned as well.</para>
+		/// </remarks>
+		public static int IndexOf<T> (this IEnumerable<T> source, T item) {
+			if (source != null) {
+				if (source is IList<T>) {
+					IList<T> list = (IList<T>)source;
+					return list.IndexOf (item);
+				} else {
+					int index = 0x00;
+					foreach (T elem in source) {
+						if (Object.Equals (source, elem)) {
+							return index;
+						}
+					}
+				}
+			}
+			return -0x01;
+		}
 		#endregion
 	}
 }
-
