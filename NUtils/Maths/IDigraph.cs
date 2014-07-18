@@ -31,7 +31,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>A <see cref="IEnumerable`1"/> of the indices of nodes such that there is a directed edge between the given <paramref name="node"/> and the enumerated node.</returns>
 		/// <param name="node">The node for which the neighbors must be calculated.</param>
-		IEnumerable<int> GetConnectedNodes (int node);
+		IEnumerable<int> GetDirectedConnectedNodes (int node);
 
 		/// <summary>
 		/// Determines whether there is a directed edge from the first given node (<paramref name="nodea"/>) and the second node (<paramref name="nodeb"/>).

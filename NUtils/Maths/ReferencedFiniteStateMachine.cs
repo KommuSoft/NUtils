@@ -120,7 +120,7 @@ namespace NUtils.Maths {
 		}
 		#endregion
 		#region IDigraph implementation
-		public override IEnumerable<int> GetConnectedNodes (int node) {
+		public override IEnumerable<int> GetDirectedConnectedNodes (int node) {
 			throw new System.NotImplementedException ();
 		}
 

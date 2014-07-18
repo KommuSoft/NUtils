@@ -348,10 +348,10 @@ namespace NUtils.ArtificialIntelligence {
 		#endregion
 		#region IWriteable implementation
 		/// <summary>
-		/// Writes the content of the instance to the the given <see cref="StreamWriter"/>.
+		/// Writes the content of the instance to the the given <see cref="TextWriter"/>.
 		/// </summary>
-		/// <param name="sw">The <see cref="StreamWriter"/> to write the data to.</param>
-		public void WriteToStream (StreamWriter sw) {
+		/// <param name="sw">The <see cref="TextWriter"/> to write the data to.</param>
+		public void WriteToStream (TextWriter sw) {
 			throw new NotImplementedException ();
 		}
 		#endregion

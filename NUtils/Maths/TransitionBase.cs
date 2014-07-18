@@ -70,7 +70,12 @@ namespace NUtils.Maths {
 		}
 		#endregion
 		#region IDigraph implementation
-		public virtual IEnumerable<int> GetConnectedNodes (int node) {
+		/// <summary>
+		/// Enumerate the indices of the nodes such that there is a directed edge from the given <paramref name="node"/> to the emited node.
+		/// </summary>
+		/// <returns>A <see cref="IEnumerable`1"/> of the indices of nodes such that there is a directed edge between the given <paramref name="node"/> and the enumerated node.</returns>
+		/// <param name="node">The node for which the neighbors must be calculated.</param>
+		public virtual IEnumerable<int> GetDirectedConnectedNodes (int node) {
 			throw new NotImplementedException ();
 		}
 
@@ -83,22 +88,59 @@ namespace NUtils.Maths {
 		}
 		#endregion
 		#region IGraph implementation
+		/// <summary>
+		/// Enumerate the edges contained in the graph.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerable`1"/> containing the <see cref="T:Tuple`2"/> instances of the edges.</returns>
 		public virtual IEnumerable<Tuple<int, int>> GetEdges () {
-			throw new NotImplementedException ();
+			int ei = 0x00;
+			foreach (int ej in this) {
+				yield return new Tuple<int, int> (ei++, ej);
+			}
 		}
 
+		/// <summary>
+		/// Enumerate the indices of the nodes that have an edge connecting the given <paramref name="node"/> and the returned node.
+		/// </summary>
+		/// <returns>A <see cref="IEnumerable`1"/> of indices that are connected with the given <paramref name="node"/>.</returns>
+		/// <param name="node">The index of the node for which the neighbors must be calculated.</param>
 		public virtual IEnumerable<int> GetNeighbors (int node) {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Determines if there is an edge containing the given <paramref name="node"/> with itself.
+		/// </summary>
+		/// <returns><c>true</c>, if the given <paramref name="node"/> contains a loop; otherwise, <c>false</c>.</returns>
+		/// <param name="node">The given node to check for.</param>
 		public virtual bool ContainsLoop (int node) {
-			throw new NotImplementedException ();
+			return this.GetTransitionOfIndex (node) == node;
 		}
 
+		/// <summary>
+		/// Determines whether there is an edge between the two given nodes.
+		/// </summary>
+		/// <returns><c>true</c> if there is an edge between the two given indices; otherwise, <c>false</c>.</returns>
+		/// <param name="nodea">The first given node.</param>
+		/// <param name="nodeb">The second given node.</param>
+		/// <remarks>
+		/// <para>In case of a directed graph, the direction of the graph doesn't matter.</para>
+		/// <para>A node is only connected with itself if there is no loop edge.</para>
+		/// </remarks>
 		public virtual bool IsImmediatelyConnected (int nodea, int nodeb) {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Determines whether there is a sequence of edges between the two given nodes such that eventually the two given nodes are connected.
+		/// </summary>
+		/// <returns><c>true</c> if a sequence of edges contains the two given nodes; otherwise, <c>false</c>.</returns>
+		/// <param name="nodea">The first given node.</param>
+		/// <param name="nodeb">The second given node.</param>
+		/// <remarks>
+		/// <para>In case of a directed graph, the direction of the graph doesn't matter.</para>
+		/// <para>A node is only connected with itself if there is no loop edge.</para>
+		/// </remarks>
 		public virtual bool IsConnected (int nodea, int nodeb) {
 			throw new NotImplementedException ();
 		}
