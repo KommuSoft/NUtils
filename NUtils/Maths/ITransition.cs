@@ -27,7 +27,7 @@ namespace NUtils.Maths {
 	/// An interface specifying a transition function on indices. Such function is guaranteed to
 	/// be injective but not surjective.
 	/// </summary>
-	public interface ITransition : ILength, IEnumerable<int> {
+	public interface ITransition : ILength, IDigraph, IEnumerable<int> {
 
 		/// <summary>
 		/// Gets the index on which the given index maps.
