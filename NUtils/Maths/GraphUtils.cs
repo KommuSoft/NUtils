@@ -28,15 +28,45 @@ namespace NUtils.Maths {
 	public static class GraphUtils {
 
 		#region Constants
+		/// <summary>
+		/// The keyword to start the description of a graph in the DOT language.
+		/// </summary>
 		public const string KeywordGraph = @"graph";
+		/// <summary>
+		/// The keyword to start the description of a directed in the DOT language.
+		/// </summary>
 		public const string KeywordDigraph = @"digraph";
+		/// <summary>
+		/// The undirected edge operator in the DOT language.
+		/// </summary>
 		public const string KeywordEdge = @"--";
+		/// <summary>
+		/// The directed edge operator in the DOT language.
+		/// </summary>
 		public const string KeywordDiedge = @"->";
+		/// <summary>
+		/// The delimeter in the DOT language to open an environment.
+		/// </summary>
 		public const string KeywordEnvUp = @"{";
+		/// <summary>
+		/// The delimter in the DOT language to close an environment.
+		/// </summary>
 		public const string KeywordEnvDn = @"}";
+		/// <summary>
+		/// The indentation part in the DOT language (when an environment is opened).
+		/// </summary>
 		public const string KeywordIdent = "\t";
+		/// <summary>
+		/// The default separator of items in the DOT language.
+		/// </summary>
 		public const string KeywordSeparator = ";";
+		/// <summary>
+		/// A prefix to generate a node identifier.
+		/// </summary>
 		public const string NodePrefix = "n";
+		/// <summary>
+		/// A prefix to generate an edge identifier.
+		/// </summary>
 		public const string EdgePrefix = "e";
 		#endregion
 		#region Graphviz functions
