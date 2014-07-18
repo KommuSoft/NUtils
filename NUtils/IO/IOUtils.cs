@@ -1,5 +1,5 @@
 //
-//  IReadable.cs
+//  IOUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,18 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
+using System;
 
-namespace NUtils.IO {
+namespace NUtils {
 	/// <summary>
-	/// An interface specifying that the content of the instance can be read from a stream.
+	/// A set of utility methods for reading an writing files (mainly used by <see cref="IReadable"/> and <see cref="IWriteable"/> instances).
 	/// </summary>
-	public interface IReadable {
-
-		/// <summary>
-		/// Reads the content of the instance from the the given <see cref="TextWriter"/>.
-		/// </summary>
-		/// <param name="tr">The <see cref="TextReader"/> to read the data from.</param>
-		void ReadFromStream (TextReader tr);
+	public static class IOUtils {
+		#region IReadable methods
+		#endregion
+		#region IWriteable methods
+		#endregion
 	}
 }
+

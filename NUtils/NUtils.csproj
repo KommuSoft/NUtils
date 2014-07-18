@@ -94,6 +94,8 @@
     <Compile Include="Maths\GraphUtils.cs" />
     <Compile Include="Maths\TransitionBase.cs" />
     <Compile Include="IO\IReadable.cs" />
+    <Compile Include="IO\IReadWriteable.cs" />
+    <Compile Include="IO\IOUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

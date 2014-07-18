@@ -1,5 +1,5 @@
 //
-//  IReadable.cs
+//  IReadWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,18 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
+using System;
 
 namespace NUtils.IO {
 	/// <summary>
-	/// An interface specifying that the content of the instance can be read from a stream.
+	/// An interface specifying that the instance can both read data from a stream as well as writing
+	/// the data to a stream.
 	/// </summary>
-	public interface IReadable {
-
-		/// <summary>
-		/// Reads the content of the instance from the the given <see cref="TextWriter"/>.
-		/// </summary>
-		/// <param name="tr">The <see cref="TextReader"/> to read the data from.</param>
-		void ReadFromStream (TextReader tr);
+	/// <remarks>
+	/// <para>This interface is mainly used for convenience only and doesn't add any functional value.</para>
+	/// </remarks>
+	public interface IReadWriteable : IReadable, IWriteable {
 	}
 }
+
