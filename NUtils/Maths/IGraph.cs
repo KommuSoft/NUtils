@@ -58,7 +58,7 @@ namespace NUtils.Maths {
 		/// <param name="nodea">The first given node.</param>
 		/// <param name="nodeb">The second given node.</param>
 		/// <remarks>
-		/// <para>In case of a directed graph, the direction of the graph doesn't matter</para>
+		/// <para>In case of a directed graph, the direction of the graph doesn't matter.</para>
 		/// <para>A node is only connected with itself if there is no loop edge.</para>
 		/// </remarks>
 		bool IsImmediatelyConnected (int nodea, int nodeb);
@@ -70,7 +70,7 @@ namespace NUtils.Maths {
 		/// <param name="nodea">The first given node.</param>
 		/// <param name="nodeb">The second given node.</param>
 		/// <remarks>
-		/// <para>In case of a directed graph, the direction of the graph doesn't matter</para>
+		/// <para>In case of a directed graph, the direction of the graph doesn't matter.</para>
 		/// <para>A node is only connected with itself if there is no loop edge.</para>
 		/// </remarks>
 		bool IsConnected (int nodea, int nodeb);

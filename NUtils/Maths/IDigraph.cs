@@ -32,6 +32,29 @@ namespace NUtils.Maths {
 		/// <returns>A <see cref="IEnumerable`1"/> of the indices of nodes such that there is a directed edge between the given <paramref name="node"/> and the enumerated node.</returns>
 		/// <param name="node">The node for which the neighbors must be calculated.</param>
 		IEnumerable<int> GetConnectedNodes (int node);
+
+		/// <summary>
+		/// Determines whether there is a directed edge from the first given node (<paramref name="nodea"/>) and the second node (<paramref name="nodeb"/>).
+		/// </summary>
+		/// <returns><c>true</c> if there is a directed edge from <paramref name="nodea"/> to <paramref name="nodeb"/>; otherwise, <c>false</c>.</returns>
+		/// <param name="nodea">The first given node.</param>
+		/// <param name="nodeb">The second given node.</param>
+		/// <remarks>
+		/// <para>A node is only connected with itself if there is no loop edge.</para>
+		/// </remarks>
+		bool IsImmediatelyDirectedConnected (int nodea, int nodeb);
+
+		/// <summary>
+		/// Determines whether there is a sequence of directed edges between the two given nodes such that there is a directed
+		/// path from the given first node (<paramref name="nodea"/>) to the given second node (<paramref name="nodeb"/>).
+		/// </summary>
+		/// <returns><c>true</c> iff there is a directed path from <paramref name="nodea"/> to <paramref name="nodeb"/>; otherwise, <c>false</c>.</returns>
+		/// <param name="nodea">The first given node.</param>
+		/// <param name="nodeb">The second given node.</param>
+		/// <remarks>
+		/// <para>A node is only connected with itself if there is no loop edge.</para>
+		/// </remarks>
+		bool IsDirectedConnected (int nodea, int nodeb);
 	}
 }
 
