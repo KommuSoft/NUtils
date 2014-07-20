@@ -21,6 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using NUtils.Abstract;
+using NUtils.Maths;
 using Microsoft.FSharp.Math;
 
 namespace NUtils.Functional {
@@ -30,28 +33,6 @@ namespace NUtils.Functional {
 	public static class EnumerableUtils {
 
 		#region Extension methods
-		/// <summary>
-		/// Generate an infinite list by repeating the given least infinitely.
-		/// </summary>
-		/// <returns>An infinite <see cref="T:IEnumerable`1"/> that repeats all the elements in the given source.</returns>
-		/// <param name="source">The given list of items.</param>
-		/// <typeparam name="TItem">The type of items that will be enumerated.</typeparam>
-		/// <remarks>
-		/// <para>If the given source is empty, the result is empty as well. The system does not go into an infinite loop.</para>
-		/// </remarks>
-		public static IEnumerable<TItem> Cycle<TItem> (this IEnumerable<TItem> source) {
-			while (true) {
-				bool terminate = true;
-				foreach (TItem item in source) {
-					yield return item;
-					terminate = false;
-				}
-				if (terminate) {
-					yield break;
-				}
-			}
-		}
-
 		/// <summary>
 		/// Repeat the specified source the given number of times.
 		/// </summary>
@@ -113,26 +94,6 @@ namespace NUtils.Functional {
 			while (cache.Count > 0x00) {
 				Tuple<T,double> tup = cache.Dequeue ();
 				yield return new Tuple<T,double> (tup.Item1, sum * tup.Item2);
-			}
-		}
-
-		/// <summary>
-		/// Zip two list of values together in a list of tuples such that the <c>i</c>-th tuple contains the
-		/// <c>i</c>-th element of the first and second given list.
-		/// </summary>
-		/// <param name="sourcea">The first given list.</param>
-		/// <param name="sourceb">The second given list.</param>
-		/// <typeparam name="TA">The type of elements in the first list.</typeparam>
-		/// <typeparam name="TB">The type of elements in the second list.</typeparam>
-		public static IEnumerable<Tuple<TA,TB>> Zip<TA,TB> (this IEnumerable<TA> sourcea, IEnumerable<TB> sourceb) {
-			if (sourcea != null && sourceb != null) {
-				IEnumerator<TA> ea = sourcea.GetEnumerator ();
-				IEnumerator<TB> eb = sourceb.GetEnumerator ();
-				if (ea != null && eb != null) {
-					while (ea.MoveNext () && eb.MoveNext ()) {
-						yield return new Tuple<TA, TB> (ea.Current, eb.Current);
-					}
-				}
 			}
 		}
 
@@ -978,7 +939,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Computes the maximum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
-		/// <see cref="DataList.MaximumBy"/> which allows the programmer to supply their own comparison function.
+		/// <see cref="EnumerableUtils.MaximumBy"/> which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
 		/// The given list of values to calculate the maximum from.
@@ -987,12 +948,12 @@ namespace NUtils.Functional {
 		/// The maximum element of the given list <paramref name="list"/>.
 		/// </returns>
 		public static T Maximum<T> (this IEnumerable<T> list) where T : IComparable<T> {
-			return Foldl1 ((a, b) => Utils.Maximum (a, b), list);
+			return Foldl1 ((a, b) => MathUtils.Maximum (a, b), list);
 		}
 
 		/// <summary>
 		/// Computes the minimum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
-		/// <see cref="DataList.MinimumBy"/> which allows the programmer to supply their own comparison function.
+		/// <see cref="EnumerableUtils.MinimumBy"/> which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
 		/// The given list of values to calculate the minimum from.
@@ -1001,14 +962,14 @@ namespace NUtils.Functional {
 		/// The minimum element of the given list <paramref name="list"/>.
 		/// </returns>
 		public static T Minimum<T> (this IEnumerable<T> list) where T : IComparable<T> {
-			return Foldl1 ((a, b) => Utils.Minimum (a, b), list);
+			return Foldl1 ((a, b) => MathUtils.Minimum (a, b), list);
 		}
 		#endregion
 		#endregion
 		#region BuildingLists
 		#region Scans
 		/// <summary>
-		/// A method similar to <see cref="DataList.Foldl"/> but returns the list of successive reduced values from the left.
+		/// A method similar to <see cref="EnumerableUtils.Foldl"/> but returns the list of successive reduced values from the left.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1020,7 +981,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="DataList.Foldl"/> of the sublist of 0 to <i>i-1</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldl"/> of the sublist of 0 to <i>i-1</i>.
 		/// </returns>
 		/// <remarks>
 		/// Note that <code>DataList.Scanl(f,z,ys).Last()</code> is equal to <code>DataList.Foldl(f,z,ys)</code>
@@ -1035,7 +996,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="DataList.Scanl"/> that has no starting value.
+		/// A variant of <see cref="EnumerableUtils.Scanl"/> that has no starting value.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1044,14 +1005,14 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="DataList.Foldl1"/> on the sublist of 0 to <i>i-1</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldl1"/> on the sublist of 0 to <i>i-1</i>.
 		/// </returns>
 		public static IEnumerable<T> Scanl1<T> (Func<T,T,T> f, IEnumerable<T> xs) {
 			return Scanl (f, xs.Head (), xs.Tail ());
 		}
 
 		/// <summary>
-		/// The right-to-left dual of <see cref="DataList.Scanl"/>.
+		/// The right-to-left dual of <see cref="EnumerableUtils.Scanl"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1063,7 +1024,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="DataList.Foldr"/> of the sublist of <i>i</i> to <i>n</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldr"/> of the sublist of <i>i</i> to <i>n</i>.
 		/// </returns>
 		/// <remarks>
 		/// Note that <code>DataList.Scanr(f,z,ys).Head()</code> is equal to <code>DataList.Foldr(f,z,ys)</code>
@@ -1082,7 +1043,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="DataList.Scanr"/> that has no starting value argument.
+		/// A variant of <see cref="EnumerableUtils.Scanr"/> that has no starting value argument.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1091,7 +1052,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="DataList.Foldr1"/> of the sublist of <i>i</i> to <i>n</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldr1"/> of the sublist of <i>i</i> to <i>n</i>.
 		/// </returns>
 		public static IEnumerable<T> Scanr1<T> (Func<T,T,T> f, IEnumerable<T> xs) {
 			return Scanr (f, xs.Last (), xs.Init ());
@@ -1099,7 +1060,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region AccumulatingMaps
 		/// <summary>
-		/// A method who behaves like a combination of <see cref="DataList.Map"/> and <see cref="DataList.Foldl"/>; it applies a function to
+		/// A method who behaves like a combination of <see cref="EnumerableUtils.Map"/> and <see cref="EnumerableUtils.Foldl"/>; it applies a function to
 		/// each element of a list, passing an accumulating parameter from left to right, and returning the final value of this accumulator together
 		/// with the new list.
 		/// </summary>
@@ -1131,7 +1092,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method who behaves like a combination of <see cref="DataList.Map"/> and <see cref="DataList.Foldr"/>; it applies a function to
+		/// A method who behaves like a combination of <see cref="EnumerableUtils.Map"/> and <see cref="EnumerableUtils.Foldr"/>; it applies a function to
 		/// each element of a list, passing an accumulating parameter from right to left, and returning a final value of this accumulator together
 		/// with the new list.
 		/// </summary>
@@ -1204,7 +1165,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Generate a list of length <paramref name="n"/> with <paramref name="x"/> the value of every element. It is an
-		/// instance of the more general <see cref="DataList.GenericReplicate"/>, in which <paramref name="n"/> may be
+		/// instance of the more general <see cref="EnumerableUtils.GenericReplicate"/>, in which <paramref name="n"/> may be
 		/// of any integral type.
 		/// </summary>
 		/// <param name="n">
@@ -1232,17 +1193,26 @@ namespace NUtils.Functional {
 		/// <returns>
 		/// A lazy generated list who keeps repeating the given list.
 		/// </returns>
-		public static IEnumerable<T> Cycle<T> (IEnumerable<T> list) {
+		/// <typeparam name="TItem">The type of items that will be enumerated.</typeparam>
+		/// <remarks>
+		/// <para>If the given source is empty, the result is empty as well. The system does not go into an infinite loop.</para>
+		/// </remarks>
+		public static IEnumerable<TItem> Cycle<TItem> (this IEnumerable<TItem> source) {
 			while (true) {
-				foreach (T x in list) {
-					yield return x;
+				bool terminate = true;
+				foreach (TItem item in source) {
+					yield return item;
+					terminate = false;
+				}
+				if (terminate) {
+					yield break;
 				}
 			}
 		}
 		#endregion
 		#region Unfolding
 		/// <summary>
-		/// The "dual" method of the <see cref="DataList.Foldr"/>: while <see cref="DataList.Foldr"/> reduces a list to a
+		/// The "dual" method of the <see cref="EnumerableUtils.Foldr"/>: while <see cref="EnumerableUtils.Foldr"/> reduces a list to a
 		/// summary value, unfoldr builds a list from a seed value. The function takes the element and returns Nothing if
 		/// it is done producing the list or returns a <c>Tuple&lt;A,B&gt;(a,b)</c> in which case, a is a prepended to the list and b is
 		/// used in the next element in a recursive call.
@@ -1260,7 +1230,7 @@ namespace NUtils.Functional {
 		/// <para>
 		/// Note that <code>DataList.Unfoldr(x => new Tuple&lt;X,Y&gt;(x,f(x)),offset)</code> is equivalent to <code>DataList.Iterate(f,x)</code>.
 		/// </para><para>
-		/// As the name suggests, in some cases Unfoldr can undo <see cref="DataList.Foldr"/> operations:
+		/// As the name suggests, in some cases Unfoldr can undo <see cref="EnumerableUtils.Foldr"/> operations:
 		/// <code>DataList.Unfoldr(f2,DataList.Foldr(f,z,xs))</code> is then equivalent to <code>xs</code>. This happens when the following constraints hold:
 		/// <list type="bullet">
 		/// <item><code>f2(f(x,y))</code> is equal to <code>new Tuple&lt;X,Y&gt;(x,y)</code></item>
@@ -1372,7 +1342,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Generates the suffix remaining after <see cref="DataList.TakeWhile"/> performed on <paramref name="xs"/> and <paramref name="p"/>.
+		/// Generates the suffix remaining after <see cref="EnumerableUtils.TakeWhile"/> performed on <paramref name="xs"/> and <paramref name="p"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The list of elements to generate the conditional suffix from.
@@ -1502,7 +1472,7 @@ namespace NUtils.Functional {
 		/// The grouping of <code>"Mississippi".Group();</code> is equal to <code>["M","i","ss","i","ss","i","pp","i"]</code>.
 		/// </example>
 		/// <remarks>
-		/// This method is a special case of <see cref="DataList.GroupBy"/> wich allows the programmer to supply their own equality test.
+		/// This method is a special case of <see cref="EnumerableUtils.GroupBy"/> wich allows the programmer to supply their own equality test.
 		/// </remarks>
 		public static IEnumerable<IEnumerable<T>> Group<T> (this IEnumerable<T> xs) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
@@ -1739,7 +1709,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The negation of <see cref="DataList.Elem"/>.
+		/// The negation of <see cref="EnumerableUtils.Elem"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to check membership on.
@@ -1840,7 +1810,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region IndexingLists
 		/// <summary>
-		/// List index (subscript) operator, starting from 0. It is an instance of the more general <see cref="GenericIndex"/> which takes an index of any
+		/// List index (subscript) operator, starting from 0. It is an instance of the more general <see cref="M:GenericIndex`2"/> which takes an index of any
 		/// integral type.
 		/// </summary>
 		/// <param name="xs">
@@ -1892,7 +1862,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// An extension of <see cref="DataList.ElementIndex{T}"/>, by returning the indices of all elements equal to the query element <paramref name="x"/>,
+		/// An extension of <see cref="M:EnumerableUtils.ElementIndex`1"/>, by returning the indices of all elements equal to the query element <paramref name="x"/>,
 		/// in ascending order.
 		/// </summary>
 		/// <param name="xs">
@@ -1940,7 +1910,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// An extension of <see cref="DataList.FindIndex"/>, by returning the indices of all elements satisfying the given predicate <paramref name="p"/>, in
+		/// An extension of <see cref="M:EnumerableUtils.FindIndex`1"/>, by returning the indices of all elements satisfying the given predicate <paramref name="p"/>, in
 		/// ascending order.
 		/// </summary>
 		/// <param name="xs">
@@ -1975,7 +1945,7 @@ namespace NUtils.Functional {
 		/// <returns>
 		/// A lazy generated list of tuples who contains a element of each list.
 		/// </returns>
-		public static IEnumerable<Tuple<S,T>> Zip<S,T> (IEnumerable<S> ss, IEnumerable<T> ts) {
+		public static IEnumerable<Tuple<S,T>> Zip<S,T> (this IEnumerable<S> ss, IEnumerable<T> ts) {
 			IEnumerator<S> ies = ss.GetEnumerator ();
 			IEnumerator<T> iet = ts.GetEnumerator ();
 			while (ies.MoveNext () && iet.MoveNext ()) {
@@ -1984,7 +1954,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking three lists and returns a list of corresponding triples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking three lists and returns a list of corresponding triples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2008,7 +1978,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking four lists and returns a list of corresponding quadruples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking four lists and returns a list of corresponding quadruples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2036,7 +2006,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking five lists and returns a list of corresponding five-tuples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking five lists and returns a list of corresponding five-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2068,7 +2038,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking six lists and returns a list of corresponding six-tuples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking six lists and returns a list of corresponding six-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2104,7 +2074,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking seven lists and returns a list of corresponding seven-tuples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking seven lists and returns a list of corresponding seven-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2144,7 +2114,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking eight lists and returns a list of corresponding eight-tuples, analogues to <see cref="DataList.Zip"/>.
+		/// A method taking eight lists and returns a list of corresponding eight-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2188,7 +2158,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A generaliziation of <see cref="DataList.Zip"/> by zipping with the function <paramref name="f"/> given as the first argument,
+		/// A generaliziation of <see cref="EnumerableUtils.Zip"/> by zipping with the function <paramref name="f"/> given as the first argument,
 		/// instead of a tupling function.
 		/// </summary>
 		/// <param name="f">
@@ -2213,7 +2183,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines three elements, as well as three lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="DataList.ZipWith"/>.
+		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2241,7 +2211,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines four elements, as well as four lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="DataList.ZipWith"/>.
+		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2273,7 +2243,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines five elements, as well as five lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="DataList.ZipWith"/>.
+		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2309,7 +2279,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines six elements, as well as six lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="DataList.ZipWith"/>.
+		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2349,7 +2319,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines seven elements, as well as seven lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="DataList.ZipWith"/>.
+		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2407,7 +2377,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of triples and returns three lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of triples and returns three lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2423,7 +2393,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of quadruples and returns four lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of quadruples and returns four lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2440,7 +2410,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of five-tuples and returns five lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of five-tuples and returns five lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2458,7 +2428,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of six-tuples and returns six lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of six-tuples and returns six lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2477,7 +2447,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of seven-tuples and returns seven lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of seven-tuples and returns seven lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2497,7 +2467,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of eight-tuples and returns eight lists, analoguous to <see cref="DataList.Unzip"/>.
+		/// Transforms a list of eight-tuples and returns eight lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2577,7 +2547,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The inverse operation of <see cref="DataList.Lines"/>. It joins lines, after appending a terminating newline to each.
+		/// The inverse operation of <see cref="EnumerableUtils.Lines"/>. It joins lines, after appending a terminating newline to each.
 		/// </summary>
 		/// <param name="lines">
 		/// The list of strings who must be joint into a string.
@@ -2597,7 +2567,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The inverse operation of <see cref="DataList.Words"/> it joins words with separating spaces.
+		/// The inverse operation of <see cref="EnumerableUtils.Words"/> it joins words with separating spaces.
 		/// </summary>
 		/// <param name="words">
 		/// The list of words to join into the new string.
@@ -2633,7 +2603,7 @@ namespace NUtils.Functional {
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// It is a special case of <see cref="DataList.NubBy"/> which allows the programmer to supply their own equality test.
+		/// It is a special case of <see cref="EnumerableUtils.NubBy"/> which allows the programmer to supply their own equality test.
 		/// </para><para>
 		/// The time complexity of this function is <i>O(n^2)</i> with <i>n</i> the length of the original list.
 		/// </para>
@@ -2703,7 +2673,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// The union function returns the list union of two lists. Duplicates, and elements of the first list, are removed from the second list, but
-		/// if the first list contains duplicates, so will the result. It is a special case of <see cref="DataList.UnionBy"/> which allows the programmer
+		/// if the first list contains duplicates, so will the result. It is a special case of <see cref="EnumerableUtils.UnionBy"/> which allows the programmer
 		/// to supply their own equality test.
 		/// </summary>
 		/// <param name="xs">
@@ -2736,7 +2706,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Takes the list intersection of two lists. If the first list contains duplicates, so will the result. It is a special case of <see cref="DataList.IntersectBy"/>,
+		/// Takes the list intersection of two lists. If the first list contains duplicates, so will the result. It is a special case of <see cref="EnumerableUtils.IntersectBy"/>,
 		/// which allows the programmer to supply their own equality test.
 		/// </summary>
 		/// <param name="xs">
@@ -2779,7 +2749,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// This method implements a stable sorting algorithm. It is a special case of <see cref="DataList.SortBy"/>, which
+		/// This method implements a stable sorting algorithm. It is a special case of <see cref="EnumerableUtils.SortBy"/>, which
 		/// allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
@@ -2829,7 +2799,7 @@ namespace NUtils.Functional {
 		/// <summary>
 		/// The Insert method takes an element <paramref name="x"/> and a list <paramref name="xs"/> and inserts the element into the list at the last position
 		/// where it is still less than or equal to the next element. In particular, if the list is sorted before the call, the result will also be sorted. It is
-		/// a special case of <see cref="DataList.InsertBy"/>, which allows the programmer to supply their own comparison function.
+		/// a special case of <see cref="EnumerableUtils.InsertBy"/>, which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list of items to insert the given element in.
@@ -2861,7 +2831,7 @@ namespace NUtils.Functional {
 		#region TheByOperations
 		#region UserSuppliedEqualityReplacingTheOrdContext
 		/// <summary>
-		/// A method behaving just like <see cref="DataList.Nub"/>, except it uses a user-supplied equality predicate instead of the
+		/// A method behaving just like <see cref="EnumerableUtils.Nub"/>, except it uses a user-supplied equality predicate instead of the
 		/// overloaded <see cref="Object.Equals"/> function.
 		/// </summary>
 		/// <param name="xs">
@@ -2891,7 +2861,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method behaving like <see cref="DataList.Delete"/>, but takes a user-supplied equality predicate.
+		/// A method behaving like <see cref="EnumerableUtils.Delete"/>, but takes a user-supplied equality predicate.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to delete the first occurence of <paramref name="x"/> from.
@@ -2951,7 +2921,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The UnionBy function is the non-overloaded version of <see cref="DataList.Union"/>.
+		/// The UnionBy function is the non-overloaded version of <see cref="EnumerableUtils.Union"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The first list to calculate the union from.
@@ -3039,7 +3009,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The GroupBy function is the non-overloaded version of <see cref="DataList.Group"/>.
+		/// The GroupBy function is the non-overloaded version of <see cref="EnumerableUtils.Group"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to group into equality partitions.
@@ -3068,7 +3038,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region UserSuppliedComparisonReplacingAnOrdContext
 		/// <summary>
-		/// The non-overloaded version of <see cref="DataList.Sort"/>.
+		/// The non-overloaded version of <see cref="EnumerableUtils.Sort"/>.
 		/// </summary>
 		/// <param name="list">
 		/// The list of elements to be sorted.
@@ -3118,7 +3088,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The non-overloaded version of <see cref="DataList.Insert"/>.
+		/// The non-overloaded version of <see cref="EnumerableUtils.Insert"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to insert the item in.
@@ -3202,7 +3172,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region TheGenericOperations
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.Length"/>. In particular, instead of returning an <see cref="int"/>,
+		/// The overloaded version of <see cref="EnumerableUtils.Length"/>. In particular, instead of returning an <see cref="int"/>,
 		/// it returns any type which is an instance of <see cref="INumeric"/>. It is, however, less efficient than length.
 		/// </summary>
 		/// <param name="xs">
@@ -3223,7 +3193,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.Take"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
+		/// The overloaded version of <see cref="EnumerableUtils.Take"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
 		/// of elements to take.
 		/// </summary>
 		/// <param name="xs">
@@ -3244,7 +3214,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.Drop"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
+		/// The overloaded version of <see cref="EnumerableUtils.Drop"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
 		/// of elements to take.
 		/// </summary>
 		/// <param name="xs">
@@ -3267,7 +3237,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.SplitAt"/>, which accepts any <see cref="IIntegral{I}"/> value as the position
+		/// The overloaded version of <see cref="EnumerableUtils.SplitAt"/>, which accepts any <see cref="IIntegral{I}"/> value as the position
 		/// at which to split.
 		/// </summary>
 		/// <param name="xs">
@@ -3284,7 +3254,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.IndexOperator"/>. Which accepts any <see cref="IIntegral{I}"/> value as the position at which to split.
+		/// The overloaded version of <see cref="EnumerableUtils.IndexOperator"/>. Which accepts any <see cref="IIntegral{I}"/> value as the position at which to split.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list of elements to extract the <paramref name="integer"/>-th element from.
@@ -3313,7 +3283,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="DataList.Replicate"/>, which accepts any <see cref="IIntegral{I}"/> value as
+		/// The overloaded version of <see cref="EnumerableUtils.Replicate"/>, which accepts any <see cref="IIntegral{I}"/> value as
 		/// the number of repititions to make.
 		/// </summary>
 		/// <param name="integer">

@@ -34,6 +34,9 @@
     <Reference Include="nunit.framework" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="FSharp.PowerPack">
+      <HintPath>lib\FSharp.PowerPack.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +99,10 @@
     <Compile Include="IO\IReadable.cs" />
     <Compile Include="IO\IReadWriteable.cs" />
     <Compile Include="IO\IOUtils.cs" />
+    <Compile Include="Functional\Maybe.cs" />
+    <Compile Include="Abstract\EqualityFunction.cs" />
+    <Compile Include="Abstract\Ordering.cs" />
+    <Compile Include="Abstract\OrderingFunction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
