@@ -103,6 +103,7 @@
     <Compile Include="Abstract\EqualityFunction.cs" />
     <Compile Include="Abstract\Ordering.cs" />
     <Compile Include="Abstract\OrderingFunction.cs" />
+    <Compile Include="Tests\EnumerableUtilsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

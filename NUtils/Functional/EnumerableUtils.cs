@@ -712,7 +712,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="Foldl"/> that has no starting value argument, and thus must be applied to non-empty lists.
+		/// A variant of <see cref="M:Foldl`2"/> that has no starting value argument, and thus must be applied to non-empty lists.
 		/// </summary>
 		/// <param name="f">
 		/// The binary operator used by the operation.
@@ -996,7 +996,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="EnumerableUtils.Scanl"/> that has no starting value.
+		/// A variant of <see cref="M:Scanl`2"/> that has no starting value.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1005,14 +1005,14 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldl1"/> on the sublist of 0 to <i>i-1</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="M:Foldl1`2"/> on the sublist of 0 to <i>i-1</i>.
 		/// </returns>
 		public static IEnumerable<T> Scanl1<T> (Func<T,T,T> f, IEnumerable<T> xs) {
 			return Scanl (f, xs.Head (), xs.Tail ());
 		}
 
 		/// <summary>
-		/// The right-to-left dual of <see cref="EnumerableUtils.Scanl"/>.
+		/// The right-to-left dual of <see cref="M:Scanl`2"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1024,7 +1024,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldr"/> of the sublist of <i>i</i> to <i>n</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="M:Foldr`2"/> of the sublist of <i>i</i> to <i>n</i>.
 		/// </returns>
 		/// <remarks>
 		/// Note that <code>DataList.Scanr(f,z,ys).Head()</code> is equal to <code>DataList.Foldr(f,z,ys)</code>
@@ -1043,7 +1043,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="EnumerableUtils.Scanr"/> that has no starting value argument.
+		/// A variant of <see cref="M:Scanr`2"/> that has no starting value argument.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -1052,7 +1052,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldr1"/> of the sublist of <i>i</i> to <i>n</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="M:Foldr1`2"/> of the sublist of <i>i</i> to <i>n</i>.
 		/// </returns>
 		public static IEnumerable<T> Scanr1<T> (Func<T,T,T> f, IEnumerable<T> xs) {
 			return Scanr (f, xs.Last (), xs.Init ());
@@ -1060,7 +1060,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region AccumulatingMaps
 		/// <summary>
-		/// A method who behaves like a combination of <see cref="EnumerableUtils.Map"/> and <see cref="EnumerableUtils.Foldl"/>; it applies a function to
+		/// A method who behaves like a combination of <see cref="M:Map`2"/> and <see cref="M:Foldl`2"/>; it applies a function to
 		/// each element of a list, passing an accumulating parameter from left to right, and returning the final value of this accumulator together
 		/// with the new list.
 		/// </summary>
@@ -1092,7 +1092,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method who behaves like a combination of <see cref="EnumerableUtils.Map"/> and <see cref="EnumerableUtils.Foldr"/>; it applies a function to
+		/// A method who behaves like a combination of <see cref="M:Map`2"/> and <see cref="M:Foldr`2"/>; it applies a function to
 		/// each element of a list, passing an accumulating parameter from right to left, and returning a final value of this accumulator together
 		/// with the new list.
 		/// </summary>
