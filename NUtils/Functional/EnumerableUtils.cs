@@ -767,7 +767,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A variant of <see cref="Foldr"/> that has no starting value argument, and thus must be applied to non-empty lists.
+		/// A variant of <see cref="M:Foldr`2"/> that has no starting value argument, and thus must be applied to non-empty lists.
 		/// </summary>
 		/// <param name="f">
 		/// The binary operator used by the operation.
@@ -939,7 +939,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Computes the maximum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
-		/// <see cref="EnumerableUtils.MaximumBy"/> which allows the programmer to supply their own comparison function.
+		/// <see cref="M:EnumerableUtils.MaximumBy`1"/> which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
 		/// The given list of values to calculate the maximum from.
@@ -953,7 +953,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Computes the minimum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
-		/// <see cref="EnumerableUtils.MinimumBy"/> which allows the programmer to supply their own comparison function.
+		/// <see cref="M:EnumerableUtils.MinimumBy`1"/> which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
 		/// The given list of values to calculate the minimum from.
@@ -969,7 +969,7 @@ namespace NUtils.Functional {
 		#region BuildingLists
 		#region Scans
 		/// <summary>
-		/// A method similar to <see cref="EnumerableUtils.Foldl"/> but returns the list of successive reduced values from the left.
+		/// A method similar to <see cref="M:EnumerableUtils.Foldl`2"/> but returns the list of successive reduced values from the left.
 		/// </summary>
 		/// <param name="f">
 		/// The given function to evaluate the following element.
@@ -981,7 +981,7 @@ namespace NUtils.Functional {
 		/// A list of elements to perform the function <paramref name="f"/> on.
 		/// </param>
 		/// <returns>
-		/// A lazy generated list where the <i>i</i>-th element is the <see cref="EnumerableUtils.Foldl"/> of the sublist of 0 to <i>i-1</i>.
+		/// A lazy generated list where the <i>i</i>-th element is the <see cref="M:EnumerableUtils.Foldl`2"/> of the sublist of 0 to <i>i-1</i>.
 		/// </returns>
 		/// <remarks>
 		/// Note that <code>DataList.Scanl(f,z,ys).Last()</code> is equal to <code>DataList.Foldl(f,z,ys)</code>
