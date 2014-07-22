@@ -185,11 +185,10 @@ namespace NUtils.Maths {
 		/// <summary>
 		/// Calculate the greatest common divider of the two given numbers.
 		/// </summary>
-		/// <returns>The greatest common divider of <paramref name="a"/> and <paramref name="b"/>.</returns>
-		/// <param name="a">The first given number.</param>
-		/// <param name="b">The second given number.</param>
+		/// <returns>The greatest common divider of list of given numbers.</returns>
+		/// <param name="values">The list of integer values to calculate the greatest common divider from.</param>
 		/// <remarks>
-		/// <para>Both given numbers must be strictly larger than zero (<c>0</c>).</para>
+		/// <para>All given numbers must be strictly larger than zero (<c>0</c>).</para>
 		/// </remarks>
 		public static int GreatestCommonDivider (this IEnumerable<int> values) {
 			int r = 0x00;
@@ -284,6 +283,47 @@ namespace NUtils.Maths {
 		/// results are invalid.</para></remarks>
 		public static double PowerSum (double factor, int initial, int n) {
 			return (Math.Pow (factor, initial) - Math.Pow (factor, n + 0x01)) / (1.0d - factor);
+		}
+		#endregion
+		#region Min/Max
+		/// <summary>
+		/// Compares the two given items and returns the minimum of the two.
+		/// </summary>
+		/// <param name="x1">
+		/// The first element to compare.
+		/// </param>
+		/// <param name="x2">
+		/// The second element to compare.
+		/// </param>
+		/// <returns>
+		/// The minimum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.
+		/// </returns>
+		public static X Minimum<X> (X x1, X x2) where X : IComparable<X> {
+			if (x1.CompareTo (x2) <= 0x00) {
+				return x1;
+			} else {
+				return x2;
+			}
+		}
+
+		/// <summary>
+		/// Compares the two given items and returns the maximum of the two.
+		/// </summary>
+		/// <param name="x1">
+		/// The first element to compare.
+		/// </param>
+		/// <param name="x2">
+		/// The second element to compare.
+		/// </param>
+		/// <returns>
+		/// The maximum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.
+		/// </returns>
+		public static X Maximum<X> (X x1, X x2) where X : IComparable<X> {
+			if (x1.CompareTo (x2) >= 0x00) {
+				return x1;
+			} else {
+				return x2;
+			}
 		}
 		#endregion
 	}
