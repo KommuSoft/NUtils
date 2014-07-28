@@ -107,6 +107,21 @@ namespace NUtils.Maths {
 				this.Target = target;
 				this.Probability = probability;
 			}
+
+			/// <summary>
+			/// Initializes a new instance of the <see cref="T:SparseProbabilisticTransition+Arrow"/> struct based on
+			/// a <see cref="T:Tuple`2"/> with arrow target and probability.
+			/// </summary>
+			/// <param name="tuple">A tuple containing the target index and the probability.</param>
+			public Arrow (Tuple<int,double> tuple) : this(tuple.Item1,tuple.Item2) {
+			}
+
+			/// <summary>
+			/// Initializes a new instance of the <see cref="NUtils.Maths.SparseProbabilisticTransition+Arrow"/> struct.
+			/// </summary>
+			/// <param name="tuple">Tuple.</param>
+			public Arrow (Tuple<int,int,double> tuple) : this(tuple.Item2,tuple.Item3) {
+			}
 			#endregion
 			#region IComparable implementation
 			/// <Docs>To be added.</Docs>
