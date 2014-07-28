@@ -107,6 +107,7 @@
     <Compile Include="Maths\IProbabilisticTransition.cs" />
     <Compile Include="Maths\SparseProbabilisticTransition.cs" />
     <Compile Include="Collections\EnumerableBase.cs" />
+    <Compile Include="Functional\Predicates.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

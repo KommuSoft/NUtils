@@ -20,7 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUtils.Collections;
+using NUtils.Functional;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -31,14 +33,24 @@ namespace NUtils.Maths {
 	public class SparseProbabilisticTransition : EnumerableBase<Tuple<int,int,double>>, IProbabilisticTransition {
 
 		#region Fields
+		/// <summary>
+		/// The index array providing the locations where the arrows are stored
+		/// </summary>
 		private readonly int[] indices;
+		/// <summary>
+		/// The array of arrows that store the transition values.
+		/// </summary>
 		private readonly Arrow[] arrows;
 		//TODO: use insert blocks
 		#endregion
 		#region ILength implementation
+		/// <summary>
+		/// Gets the number of subelements.
+		/// </summary>
+		/// <value>The number of indices of the transition.</value>
 		public int Length {
 			get {
-				throw new NotImplementedException ();
+				return this.indices.Length;
 			}
 		}
 		#endregion
@@ -55,14 +67,25 @@ namespace NUtils.Maths {
 		/// </para>
 		/// </remarks>
 		public SparseProbabilisticTransition (int nIndex, IEnumerable<Tuple<int,int,double>> transitions) {
-			this.indices = new int[nIndex];
-			foreach (Tuple<int,int,double> t in transitions) {
-
+			int[] idcs = new int[nIndex + 0x01];
+			Predicate<int> pred = PredicateUtils.RangePredicate (0x00, nIndex - 0x01);
+			foreach (Tuple<int,int,double> t in transitions.Where (t => pred (t.Item1) && pred (t.Item2))) {
+				idcs [t.Item1]++;
 			}
+			int na = 0x00, tmp;
+			for (int i = 0x00; i < nIndex; i++) {
+				tmp = idcs [i];
+				idcs [i] = na;
+				na += tmp;
+			}
+			idcs [nIndex] = na;
+			Arrow[] arws = new Arrow[na];
+			this.indices = idcs;
+			this.arrows = arws;
 		}
 		#endregion
 		#region internal structures
-		private struct Arrow {
+		private struct Arrow : IComparable<Arrow> {
 
 			#region Fields
 			/// <summary>
@@ -76,13 +99,27 @@ namespace NUtils.Maths {
 			#endregion
 			#region Constructors
 			/// <summary>
-			/// Initializes a new instance of the <see cref="SparseProbabilisticTransition+Arrow"/> struct.
+			/// Initializes a new instance of the <see cref="T:SparseProbabilisticTransition+Arrow"/> struct.
 			/// </summary>
 			/// <param name="target">The target index of the arrow.</param>
 			/// <param name="probability">The probability of the represented transition.</param>
 			public Arrow (int target, double probability = 0.0d) {
 				this.Target = target;
 				this.Probability = probability;
+			}
+			#endregion
+			#region IComparable implementation
+			/// <Docs>To be added.</Docs>
+			/// <para>Returns the sort order of the current instance compared to the specified object.</para>
+			/// <summary>
+			/// Compares this instance with the given instance.
+			/// </summary>
+			/// <returns>A value less than zero if this instance is ordered before the given instance, a value equal
+			/// to zero if both instances are equal and a value larger than zero if this instance is ordered
+			/// after the given instance.</returns>
+			/// <param name="other">The given object to compare this instance with.</param>
+			public int CompareTo (Arrow other) {
+				return this.Target - other.Target;
 			}
 			#endregion
 		}
