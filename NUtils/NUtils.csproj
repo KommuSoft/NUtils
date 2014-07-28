@@ -105,6 +105,8 @@
     <Compile Include="Abstract\OrderingFunction.cs" />
     <Compile Include="Tests\EnumerableUtilsTest.cs" />
     <Compile Include="Maths\IProbabilisticTransition.cs" />
+    <Compile Include="Maths\SparseProbabilisticTransition.cs" />
+    <Compile Include="Collections\EnumerableBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

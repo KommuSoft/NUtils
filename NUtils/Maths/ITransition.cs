@@ -37,4 +37,3 @@ namespace NUtils.Maths {
 		int GetTransitionOfIndex (int index);
 	}
 }
-
