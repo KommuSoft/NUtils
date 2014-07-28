@@ -89,14 +89,70 @@ namespace NUtils.Maths {
 		/// </summary>
 		public const string EdgePrefix = "e";
 		#endregion
+		#region Default label functions
+		/// <summary>
+		/// The function used by default to label a node for the Graphviz visualizer.
+		/// </summary>
+		/// <returns>The generated label for the node.</returns>
+		/// <param name="node">The index of the given node to label.</param>
+		/// <remarks>
+		/// <para>The label function simply returns <c>"n"</c> followed by the node's index.</para>
+		/// </remarks>
+		public static string DefaultNodeLabelFunction (int node) {
+			return string.Format ("n{0}", node);
+		}
+
+		/// <summary>
+		/// The function used by default to label a edge for the Graphviz visualizer.
+		/// </summary>
+		/// <returns>The generated label for the given edge.</returns>
+		/// <param name="node1">The index of the first node of the given edge to label.</param>
+		/// <param name="node2">The index of the second node of the given edge to label.</param>
+		/// <remarks>
+		/// <para>The label function simply returns an empty string for every edge.</para>
+		/// </remarks>
+		public static string DefaultEdgeLabelFunction (int node1, int node2) {
+			return string.Empty;
+		}
+		#endregion
 		#region Graphviz functions
 		/// <summary>
 		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
 		/// </summary>
 		/// <param name="graph">The given graph to write out.</param>
 		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultNodeLabelFunction"/> is used to label the nodes, the method returns the index
+		/// the node prefixed with <c>"n"</c>.</para>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IGraph graph, TextWriter writer) {
+			WriteDotStream (graph, writer, DefaultNodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="graph">The given graph to write out.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
 		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
 		public static void WriteDotStream (this IGraph graph, TextWriter writer, Func<int,string> nodeLabelFunction) {
+			WriteDotStream (graph, writer, nodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="graph">The given graph to write out.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <param name="edgeLabelFunction">A function that generates the labels for the edges.</param>
+		public static void WriteDotStream (this IGraph graph, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
 			writer.Write (KeywordGraph);
 			writer.WriteLine (KeywordEnvUp);
 			int l = graph.Length;
@@ -120,21 +176,31 @@ namespace NUtils.Maths {
 				writer.Write (KeywordEdge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
+				writer.Write (KeywordOptUp);
+				writer.Write (KeywordLabel);
+				writer.Write (KeywordKeyVal);
+				writer.Write (KeywordString);
+				writer.Write (edgeLabelFunction (edge.Item1, edge.Item2));
+				writer.Write (KeywordString);
+				writer.Write (KeywordOptDn);
 				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
 		}
 
 		/// <summary>
-		/// The function used by default to label a node for the Graphviz visualizer.
+		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
 		/// </summary>
-		/// <returns>The generated label of the node.</returns>
-		/// <param name="node">The index of the given node to label.</param>
+		/// <param name="graph">The given graph to write out.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
 		/// <remarks>
-		/// <para>The label function simply returns <c>"n"</c> followed by the node's index.</para>
+		/// <para>The <see cref="M:DefaultNodeLabelFunction"/> is used to label the nodes, the method returns the index
+		/// the node prefixed with <c>"n"</c>.</para>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
 		/// </remarks>
-		public static string DefaultNodeLabelFunction (int node) {
-			return string.Format ("n{0}", node);
+		public static void WriteDotStream (this IDigraph graph, TextWriter writer) {
+			WriteDotStream (graph, writer, DefaultNodeLabelFunction, DefaultEdgeLabelFunction);
 		}
 
 		/// <summary>
@@ -143,7 +209,22 @@ namespace NUtils.Maths {
 		/// <param name="graph">The given graph to write out.</param>
 		/// <param name="writer">The writer to write the graph structure to.</param>
 		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
 		public static void WriteDotStream (this IDigraph graph, TextWriter writer, Func<int,string> nodeLabelFunction) {
+			WriteDotStream (graph, writer, nodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="graph">The given graph to write out.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <param name="edgeLabelFunction">A function that generates the labels for the edges.</param>
+		public static void WriteDotStream (this IDigraph graph, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
 			writer.Write (KeywordDigraph);
 			writer.WriteLine (KeywordEnvUp);
 			int l = graph.Length;
@@ -167,6 +248,13 @@ namespace NUtils.Maths {
 				writer.Write (KeywordDiedge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
+				writer.Write (KeywordOptUp);
+				writer.Write (KeywordLabel);
+				writer.Write (KeywordKeyVal);
+				writer.Write (KeywordString);
+				writer.Write (edgeLabelFunction (edge.Item1, edge.Item2));
+				writer.Write (KeywordString);
+				writer.Write (KeywordOptDn);
 				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
