@@ -1,5 +1,5 @@
 //
-//  ITransition.cs
+//  Predicates.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using NUtils.Abstract;
 
-namespace NUtils.Maths {
+namespace NUtils.Functional {
 	/// <summary>
-	/// An interface specifying a transition function on indices. Such function is guaranteed to
-	/// be injective but not surjective.
+	/// A utility class to generate predicates.
 	/// </summary>
-	public interface ITransition : ILength, IDigraph, IEnumerable<int> {
+	public static class PredicateUtils {
 
 		/// <summary>
-		/// Gets the index on which the given index maps.
+		/// Generate a predicate that checks for each instance if it withing the specified range. Bounds are inclusive.
 		/// </summary>
-		/// <returns>The target index of the given source <paramref name="index"/>.</returns>
-		/// <param name="index">The given index from which the transition originates.</param>
-		int GetTransitionOfIndex (int index);
+		/// <returns>A <see cref="T:Predicate`1"/> that succeeds if the given value is withing bounds.</returns>
+		/// <param name="frm">The lower bound, inclusive.</param>
+		/// <param name="to">The upper bound, inclusive.</param>
+		/// <typeparam name="T">The type of the objects on which the predicate is applied.</typeparam>
+		public static Predicate<T> RangePredicate<T> (T frm, T to) where T : IComparable<T> {
+			return (x => frm.CompareTo (x) <= 0x00 && to.CompareTo (x) >= 0x00);
+		}
 	}
 }
+

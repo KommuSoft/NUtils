@@ -45,7 +45,6 @@
     <Compile Include="Bitwise\BitUtils.cs" />
     <Compile Include="Bitwise\CompactBitVector.cs" />
     <Compile Include="Bitwise\IBitVector.cs" />
-    <Compile Include="Abstract\FunctionUtils.cs" />
     <Compile Include="Abstract\ILength.cs" />
     <Compile Include="Abstract\ILowerEnumerable.cs" />
     <Compile Include="Abstract\ILowest.cs" />
@@ -104,6 +103,13 @@
     <Compile Include="Abstract\Ordering.cs" />
     <Compile Include="Abstract\OrderingFunction.cs" />
     <Compile Include="Tests\EnumerableUtilsTest.cs" />
+    <Compile Include="Maths\IProbabilisticTransition.cs" />
+    <Compile Include="Maths\SparseProbabilisticTransition.cs" />
+    <Compile Include="Collections\EnumerableBase.cs" />
+    <Compile Include="Functional\PredicateUtils.cs" />
+    <Compile Include="Functional\FunctionUtils.cs" />
+    <Compile Include="Abstract\IExpandComparer.cs" />
+    <Compile Include="Collections\ListUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

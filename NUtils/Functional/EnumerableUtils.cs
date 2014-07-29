@@ -32,6 +32,39 @@ namespace NUtils.Functional {
 	/// </summary>
 	public static class EnumerableUtils {
 
+		#region LINQ extra extensions
+		/// <summary>
+		/// Order the given <paramref name="source"/> list with the given <paramref name="comparer"/> in descending order.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerable`1"/> with the same items as the given <paramref name="source"/> but ordered
+		/// according to the given <paramref name="comparator"/>.</returns>
+		/// <param name="source">The source of items that must be ordered.</param>
+		/// <param name="comparer">The <see cref="T:IComparer`1"/> that describes how the items must be ordered.</param>
+		/// <typeparam name="T">The type of elements that must be ordered.</typeparam>
+		/// <remarks>
+		/// <para>This method is a wrapper for the <see cref="M:Enumerable.OrderBy``2"/> method where
+		/// the identity function is used as key selector.</para>
+		/// </remarks>
+		public static IEnumerable<T> OrderBy<T> (this IEnumerable<T> source, IComparer<T> comparer) {
+			return source.OrderBy (FunctionUtils.Identity<T>, comparer);
+		}
+
+		/// <summary>
+		/// Order the given <paramref name="source"/> list with the given <paramref name="comparer"/>.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerable`1"/> with the same items as the given <paramref name="source"/> but ordered
+		/// according to the given <paramref name="comparator"/>.</returns>
+		/// <param name="source">The source of items that must be ordered.</param>
+		/// <param name="comparer">The <see cref="T:IComparer`1"/> that describes how the items must be ordered.</param>
+		/// <typeparam name="T">The type of elements that must be ordered.</typeparam>
+		/// <remarks>
+		/// <para>This method is a wrapper for the <see cref="M:Enumerable.OrderBy``2"/> method where
+		/// the identity function is used as key selector.</para>
+		/// </remarks>
+		public static IEnumerable<T> OrderByDescending<T> (this IEnumerable<T> source, IComparer<T> comparer) {
+			return source.OrderByDescending (FunctionUtils.Identity<T>, comparer);
+		}
+		#endregion
 		#region Extension methods
 		/// <summary>
 		/// Repeat the specified source the given number of times.

@@ -525,6 +525,12 @@ namespace NUtils.Bitwise {
 		/// Gets the enumerator that iterates over all the indices that are set to <c>true</c>.
 		/// </summary>
 		/// <returns>A <see cref="T:IEnumerator`1"/> that emits the indices of the bits that are set to <c>true</c>.</returns>
+		/// <remarks>
+		/// <para>The behavior of the enumeration of set indices of a bitvector that is modified concurrently
+		/// is unpredictable. Indices set before the currently enumerated index will not be enumerated
+		/// as well as indices in the same block of the currently enumerated indices. Indices
+		/// in future blocks however are somtimes enumerated.</para>
+		/// </remarks>
 		public IEnumerator<int> GetEnumerator () {
 			ulong[] dc = this.data;
 			int dl = dc.Length, dl1 = dl - 0x01, idx;
@@ -713,7 +719,7 @@ namespace NUtils.Bitwise {
 		/// <para>The items are ordered in ascending order.</para>
 		/// </remarks>
 		public IEnumerator<int> GetEnumeratorLower (int lower = 0x00) {
-			yield break;
+			yield break;//TODO
 		}
 		#endregion
 		#region Static constructors
