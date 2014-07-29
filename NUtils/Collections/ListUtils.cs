@@ -29,6 +29,18 @@ namespace NUtils.Collections {
 	public static class ListUtils {
 
 		#region Search methods
+		/// <summary>
+		/// Search an object in the given ordered <paramref name="list"/> based on the given <paramref name="key"/> and
+		/// the <see cref="comparer"/> that also determined the order of the given <paramref name="list"/>.
+		/// </summary>
+		/// <returns>The index of the found object, or the bitwise negation of the index at which an object
+		/// that maps on the given <paramref name="key"/> can be inserted.</returns>
+		/// <param name="list">The given ordered list on which the binary search takes place.</param>
+		/// <param name="key">The given key that determines which object is searched for.</param>
+		/// <param name="comparer">The given <see cref="IExpandComparer`2"/> that determines how the objects
+		/// in the given <paramref name="list"/> are ordered and guides the search.</param>
+		/// <typeparam name="TKey">The type of <paramref name="key"/> that is used for the search.</typeparam>
+		/// <typeparam name="TTarget">The type of objects in the given <paramref name="list"/>.</typeparam>
 		public static int BinarySearch<TKey,TTarget> (this IList<TTarget> list, TKey key, IExpandComparer<TKey,TTarget> comparer) {
 			int i0 = 0x00, i2 = list.Count - 0x01, i1, res;
 			do {
@@ -41,8 +53,8 @@ namespace NUtils.Collections {
 				} else {
 					return i1;
 				}
-			} while(i0 <= i1);
-			return -0x01;
+			} while(i0 <= i2);
+			return ~i0;
 		}
 		#endregion
 	}
