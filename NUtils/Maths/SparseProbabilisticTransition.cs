@@ -24,6 +24,7 @@ using System.Linq;
 using NUtils.Collections;
 using NUtils.Functional;
 using Microsoft.FSharp.Math;
+using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -88,6 +89,40 @@ namespace NUtils.Maths {
 			this.arrows = arws;
 		}
 		#endregion
+		#region Target expand comparer
+		private class TargetExpandComparer : IExpandComparer<int,Arrow> {
+			#region Static fields
+			/// <summary>
+			/// The one instance of the comparer generated, used to compare the target with the arrow.
+			/// </summary>
+			public static readonly TargetExpandComparer Instance = new TargetExpandComparer ();
+			#endregion
+			#region Constructors
+			/// <summary>
+			/// Initializes a new instance of the <see cref="T:SparseProbabilisticTransition+TargetExpandComparer"/> class.
+			/// </summary>
+			/// <remarks>
+			/// <para>The constructor is protected such that only one instance is generated.</para>
+			/// </remarks>
+			private TargetExpandComparer () {
+			}
+			#endregion
+			#region IExpandComparer implementation
+			/// <summary>
+			/// Compares the given key with the given target.
+			/// </summary>
+			/// <returns>A value larger than zero if the given <paramref name="key"/> is larger than the
+			/// given <paramref name="target"/>. Zero if the given <paramref name="key"/> is equal to the given
+			/// <paramref name="target"/>. A value less than zero if the given <paramref name="key"/> is smaller
+			/// than the given <paramref name="target"/>.</returns>
+			/// <param name="key">The given key to compare.</param>
+			/// <param name="target">The given target to compare.</param>
+			public int Compare (int key, Arrow target) {
+				return key.CompareTo (target.Target);
+			}
+			#endregion
+		}
+		#endregion
 		#region Transition comparator
 		private class TransitionComparator : IComparer<Tuple<int,int,double>> {
 			#region Static fields
@@ -98,7 +133,7 @@ namespace NUtils.Maths {
 			#endregion
 			#region Constructors
 			/// <summary>
-			/// Initializes a new instance of the <see cref="SparseProbabilisticTransition+TransitionComparator"/> class.
+			/// Initializes a new instance of the <see cref="T:SparseProbabilisticTransition+TransitionComparator"/> class.
 			/// </summary>
 			/// <remarks>
 			/// <para>The constructor is protected such that only one instance is generated.</para>
@@ -228,7 +263,18 @@ namespace NUtils.Maths {
 		/// </para>
 		/// </remarks>
 		public double GetTransitionProbability (int frm, int to) {
-			return 0.0d;
+			int[] idcs = this.indices;
+			Arrow[] arws = this.arrows;
+			int j = 0x00, bnd = idcs [frm] - 0x01;
+			if (frm > 0x00) {
+				j = idcs [frm - 0x01];
+			}
+			j = arrows.BinarySearch (to, TargetExpandComparer.Instance, j, bnd);
+			if (j >= 0x00) {
+				return arws [j].Probability;
+			} else {
+				return 0.0d;
+			}
 		}
 		#endregion
 		#region implemented abstract members of EnumerableBase
