@@ -71,16 +71,19 @@ namespace NUtils.Maths {
 		/// </para>
 		/// </remarks>
 		public SparseProbabilisticTransition (int nIndex, IEnumerable<Tuple<int,int,double>> transitions) {
-			int[] idcs = new int[nIndex + 0x01];
+			int[] idcs = new int[nIndex];
 			Predicate<int> pred = PredicateUtils.RangePredicate (0x00, nIndex - 0x01);
-			List<Tuple<int,int,double>> ts = transitions.Where (t => pred (t.Item1) && pred (t.Item2)).OrderBy (TransitionComparator.Instance).ToList ();
-			int i = 0x00, j = 0x00, na = ts.Count;
-			Arrow[] arws = new Arrow[na];
+			List<Tuple<int,int,double>> ts = transitions.Where (t => t.Item3 > 0.0d && pred (t.Item1) && pred (t.Item2)).OrderBy (TransitionComparator.Instance).ToList ();
+			int i = 0x00, j = 0x00, k = ts.Count;
+			Arrow[] arws = new Arrow[k];
+			idcs [nIndex - 0x01] = k;
 			foreach (Tuple<int,int,double> t in ts) {
+				k = t.Item1;
 				arws [i++] = new Arrow (t);
-				idcs [t.Item1]++;
+				while (j < k) {
+					idcs [j++] = i;
+				}
 			}
-			idcs [nIndex] = na;
 			this.indices = idcs;
 			this.arrows = arws;
 		}
@@ -183,12 +186,39 @@ namespace NUtils.Maths {
 		}
 		#endregion
 		#region IProbabilisticTransition implementation
+		/// <summary>
+		/// Gets the target indices of transitions from the given <paramref name="index"/> annotated
+		/// with the probability of the transition.
+		/// </summary>
+		/// <returns>A list of tuples containing the target index and the probability of a transition
+		/// from the given <paramref name="index"/> to the target index. Transitions with a probability
+		/// of zero can be left out.
+		/// </returns>
+		/// <remarks>
+		/// <para>
+		/// All returned probabilities for a given index are larger than or equal to zero and sum
+		/// up to one.
+		/// </para>
+		/// </remarks>
 		public IEnumerable<Tuple<int, double>> GetTransitionOfIndex (int index) {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Gets the probability of the transition from the given index <paramref name="frm"/> to the
+		/// given index <paramref name="to"/>
+		/// </summary>
+		/// <returns>The transition probability from <paramref name="frm"/> to <paramref name="to"/>.</returns>
+		/// <param name="frm">The intial index of the transition.</param>
+		/// <param name="to">The final index of the transition.</param>
+		/// <remarks>
+		/// <para>
+		/// If no transition exists from the given index <paramref name="frm"/> to the given index
+		/// <paramref name="to"/>, zero (<c>0.0</c>) is returned.
+		/// </para>
+		/// </remarks>
 		public double GetTransitionProbability (int frm, int to) {
-			throw new NotImplementedException ();
+			return 0.0d;
 		}
 		#endregion
 		#region implemented abstract members of EnumerableBase
@@ -200,7 +230,18 @@ namespace NUtils.Maths {
 		/// <returns>A <see cref="T:IEnumerator`1"/> containing the probabilistic transitions
 		/// stored in this <see cref="SparseProbabilisticTransition"/>.</returns>
 		public override IEnumerator<Tuple<int, int, double>> GetEnumerator () {
-			throw new NotImplementedException ();
+			int[] idcs = this.indices;
+			Arrow[] arws = this.arrows;
+			int ni = idcs.Length;
+			int j = 0x00, bnd;
+			Arrow a;
+			for (int i = 0x00; i < ni; i++) {
+				bnd = idcs [i];
+				for (; j < bnd; j++) {
+					a = arws [j];
+					yield return new Tuple<int,int,double> (i, a.Target, a.Probability);
+				}
+			}
 		}
 		#endregion
 	}

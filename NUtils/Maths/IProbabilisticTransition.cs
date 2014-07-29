@@ -42,7 +42,8 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <returns>A list of tuples containing the target index and the probability of a transition
 		/// from the given <paramref name="index"/> to the target index. Transitions with a probability
-		/// of zero can be left out.</param>
+		/// of zero can be left out.
+		/// </returns>
 		/// <remarks>
 		/// <para>
 		/// All returned probabilities for a given index are larger than or equal to zero and sum
