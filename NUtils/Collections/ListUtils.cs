@@ -41,9 +41,57 @@ namespace NUtils.Collections {
 		/// in the given <paramref name="list"/> are ordered and guides the search.</param>
 		/// <typeparam name="TKey">The type of <paramref name="key"/> that is used for the search.</typeparam>
 		/// <typeparam name="TTarget">The type of objects in the given <paramref name="list"/>.</typeparam>
+		/// <remarks>
+		/// <para>The search ranges over the entire list.</para>
+		/// </remarks>
 		public static int BinarySearch<TKey,TTarget> (this IList<TTarget> list, TKey key, IExpandComparer<TKey,TTarget> comparer) {
-			int i0 = 0x00, i2 = list.Count - 0x01, i1, res;
-			do {
+			return BinarySearch (list, key, comparer, 0x00, list.Count - 0x01);
+		}
+
+		/// <summary>
+		/// Search an object in the given ordered <paramref name="list"/> based on the given <paramref name="key"/> and
+		/// the <see cref="comparer"/> that also determined the order of the given <paramref name="list"/>.
+		/// </summary>
+		/// <returns>The index of the found object, or the bitwise negation of the index at which an object
+		/// that maps on the given <paramref name="key"/> can be inserted.</returns>
+		/// <param name="list">The given ordered list on which the binary search takes place.</param>
+		/// <param name="key">The given key that determines which object is searched for.</param>
+		/// <param name="comparer">The given <see cref="IExpandComparer`2"/> that determines how the objects
+		/// in the given <paramref name="list"/> are ordered and guides the search.</param>
+		/// <param name="fromIndex">The begin index of the range, inclusive</param>
+		/// <typeparam name="TKey">The type of <paramref name="key"/> that is used for the search.</typeparam>
+		/// <typeparam name="TTarget">The type of objects in the given <paramref name="list"/>.</typeparam>
+		/// <remarks>
+		/// <para>Only the specified range is required to be ordered.</para>
+		/// <para>No bounds outside the range are searched. In case the given <paramref name="key"/> is smaller
+		/// than any value in the range, the bitwise negation of the <paramref name="fromIndex"/> is returned.</para>
+		/// </remarks>
+		public static int BinarySearch<TKey,TTarget> (this IList<TTarget> list, TKey key, IExpandComparer<TKey,TTarget> comparer, int fromIndex) {
+			return BinarySearch (list, key, comparer, fromIndex, list.Count - 0x01);
+		}
+
+		/// <summary>
+		/// Search an object in the given ordered <paramref name="list"/> based on the given <paramref name="key"/> and
+		/// the <see cref="comparer"/> that also determined the order of the given <paramref name="list"/>.
+		/// </summary>
+		/// <returns>The index of the found object, or the bitwise negation of the index at which an object
+		/// that maps on the given <paramref name="key"/> can be inserted.</returns>
+		/// <param name="list">The given ordered list on which the binary search takes place.</param>
+		/// <param name="key">The given key that determines which object is searched for.</param>
+		/// <param name="comparer">The given <see cref="IExpandComparer`2"/> that determines how the objects
+		/// <param name="fromIndex">The begin index of the range, inclusive</param>
+		/// <param name="toIndex">The end index of the range, inclusive</param>
+		/// in the given <paramref name="list"/> are ordered and guides the search.</param>
+		/// <typeparam name="TKey">The type of <paramref name="key"/> that is used for the search.</typeparam>
+		/// <typeparam name="TTarget">The type of objects in the given <paramref name="list"/>.</typeparam>
+		/// <remarks>
+		/// <para>Only the specified range is required to be ordered.</para>
+		/// <para>No bounds outside the range are searched. In case the given <paramref name="key"/> is smaller
+		/// than any value in the range, the bitwise negation of the <paramref name="fromIndex"/> is returned.</para>
+		/// </remarks>
+		public static int BinarySearch<TKey,TTarget> (this IList<TTarget> list, TKey key, IExpandComparer<TKey,TTarget> comparer, int fromIndex, int toIndex) {
+			int i0 = fromIndex, i2 = toIndex, i1, res;
+			while (i0 <= i2) {
 				i1 = (i0 + i2) >> 0x01;
 				res = comparer.Compare (key, list [i1]);
 				if (res < 0x00) {
@@ -53,7 +101,7 @@ namespace NUtils.Collections {
 				} else {
 					return i1;
 				}
-			} while(i0 <= i2);
+			}
 			return ~i0;
 		}
 		#endregion
