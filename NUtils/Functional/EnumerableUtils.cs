@@ -32,6 +32,11 @@ namespace NUtils.Functional {
 	/// </summary>
 	public static class EnumerableUtils {
 
+		#region LINQ extra extensions
+		public static IEnumerable<T> OrderBy<T> (this IEnumerable<T> source, IComparator<T> icomparable) {
+			return source.Order
+		}
+		#endregion
 		#region Extension methods
 		/// <summary>
 		/// Repeat the specified source the given number of times.

@@ -20,12 +20,22 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.Abstract {
+namespace NUtils.Functional {
 	/// <summary>
-	/// A utility class that is used to manipulate functions to enrich functionality. For instance the
-	/// introduction of useless parameters.
+	/// A set of utility functions used to generate and combine functions.
 	/// </summary>
 	public static class FunctionUtils {
+
+		/// <summary>
+		/// The identity function, used to returns the same element. Sometimes useful when a function is
+		/// required, but not useful.
+		/// </summary>
+		/// <param name="x">The parameter, that must be returned.</param>
+		/// <returns>The same element as the given one.</returns>
+		/// <typeparam name="T">The type of elements handled by the identity function.</typeparam>
+		public static T Identity<T> (this T x) {
+			return x;
+		}
 
 		/// <summary>
 		/// Modifies the original given <paramref name="function"/> by adding a parameter to the

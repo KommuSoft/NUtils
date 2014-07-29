@@ -65,11 +65,15 @@ namespace NUtils.Maths {
 		/// Transitions from and to indices larger than or eqaul to <paramref name="nIndex"/> will be ignored
 		/// as well as transitions with indices less than zero.
 		/// </para>
+		/// <para>
+		/// The given <paramref name="transitions"/> are not required to be ordered.
+		/// </para>
 		/// </remarks>
 		public SparseProbabilisticTransition (int nIndex, IEnumerable<Tuple<int,int,double>> transitions) {
 			int[] idcs = new int[nIndex + 0x01];
 			Predicate<int> pred = PredicateUtils.RangePredicate (0x00, nIndex - 0x01);
-			foreach (Tuple<int,int,double> t in transitions.Where (t => pred (t.Item1) && pred (t.Item2))) {
+			List<Tuple<int,int,double>> ts = transitions.Where (t => pred (t.Item1) && pred (t.Item2)).OrderBy (FunctionUtils.Identity<Tuple<int,int,double>>).ToList ();
+			foreach (Tuple<int,int,double> t in ts) {
 				idcs [t.Item1]++;
 			}
 			int na = 0x00, tmp;
@@ -80,6 +84,10 @@ namespace NUtils.Maths {
 			}
 			idcs [nIndex] = na;
 			Arrow[] arws = new Arrow[na];
+			//TODO inject arrows
+			/*foreach() {
+
+			}*/
 			this.indices = idcs;
 			this.arrows = arws;
 		}
@@ -117,9 +125,13 @@ namespace NUtils.Maths {
 			}
 
 			/// <summary>
-			/// Initializes a new instance of the <see cref="NUtils.Maths.SparseProbabilisticTransition+Arrow"/> struct.
+			/// Initializes a new instance of the <see cref="T:SparseProbabilisticTransition+Arrow"/> struct based
+			/// on a <see cref="T:Tuple`3"/> with arrow target and probability.
 			/// </summary>
-			/// <param name="tuple">Tuple.</param>
+			/// <param name="tuple">A tuple containing the source, target and probability index.</param>
+			/// <remarks>
+			/// <para>The source index is ignored.</para>
+			/// </remarks>
 			public Arrow (Tuple<int,int,double> tuple) : this(tuple.Item2,tuple.Item3) {
 			}
 			#endregion
