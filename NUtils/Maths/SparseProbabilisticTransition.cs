@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUtils.Collections;
 using NUtils.Functional;
+using Microsoft.FSharp.Math;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -72,24 +73,54 @@ namespace NUtils.Maths {
 		public SparseProbabilisticTransition (int nIndex, IEnumerable<Tuple<int,int,double>> transitions) {
 			int[] idcs = new int[nIndex + 0x01];
 			Predicate<int> pred = PredicateUtils.RangePredicate (0x00, nIndex - 0x01);
-			List<Tuple<int,int,double>> ts = transitions.Where (t => pred (t.Item1) && pred (t.Item2)).OrderBy (FunctionUtils.Identity<Tuple<int,int,double>>).ToList ();
+			List<Tuple<int,int,double>> ts = transitions.Where (t => pred (t.Item1) && pred (t.Item2)).OrderBy (TransitionComparator.Instance).ToList ();
+			int i = 0x00, j = 0x00, na = ts.Count;
+			Arrow[] arws = new Arrow[na];
 			foreach (Tuple<int,int,double> t in ts) {
+				arws [i++] = new Arrow (t);
 				idcs [t.Item1]++;
 			}
-			int na = 0x00, tmp;
-			for (int i = 0x00; i < nIndex; i++) {
-				tmp = idcs [i];
-				idcs [i] = na;
-				na += tmp;
-			}
 			idcs [nIndex] = na;
-			Arrow[] arws = new Arrow[na];
-			//TODO inject arrows
-			/*foreach() {
-
-			}*/
 			this.indices = idcs;
 			this.arrows = arws;
+		}
+		#endregion
+		#region Transition comparator
+		private class TransitionComparator : IComparer<Tuple<int,int,double>> {
+			#region Static fields
+			/// <summary>
+			/// The one instance of the comparer generated, used to compare the transitions.
+			/// </summary>
+			public static readonly TransitionComparator Instance = new TransitionComparator ();
+			#endregion
+			#region Constructors
+			/// <summary>
+			/// Initializes a new instance of the <see cref="SparseProbabilisticTransition+TransitionComparator"/> class.
+			/// </summary>
+			/// <remarks>
+			/// <para>The constructor is protected such that only one instance is generated.</para>
+			/// </remarks>
+			private TransitionComparator () {
+			}
+			#endregion
+			#region IComparer implementation
+			/// <summary>
+			/// Compare the two given transitions.
+			/// </summary>
+			/// <returns>A value larger than zero if the first element is larger than the second one, zero
+			/// if both values are equal and a value less zero if the first element is smaller than the second one.</returns>
+			/// <param name="t1">The first transition to compare.</param>
+			/// <param name="t2">The second transition to compare.</param>
+			public int Compare (Tuple<int, int, double> t1, Tuple<int, int, double> t2) {
+				int ia = t1.Item1;
+				int ib = t2.Item1;
+				if (ia != ib) {
+					return ia - ib;
+				} else {
+					return t1.Item2 - t2.Item2;
+				}
+			}
+			#endregion
 		}
 		#endregion
 		#region internal structures
