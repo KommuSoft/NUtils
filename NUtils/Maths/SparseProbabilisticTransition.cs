@@ -201,7 +201,17 @@ namespace NUtils.Maths {
 		/// </para>
 		/// </remarks>
 		public IEnumerable<Tuple<int, double>> GetTransitionOfIndex (int index) {
-			throw new NotImplementedException ();
+			int[] idcs = this.indices;
+			Arrow[] arws = this.arrows;
+			int j = 0x00, bnd = idcs [index];
+			if (index > 0x00) {
+				j = idcs [index - 0x01];
+			}
+			Arrow a;
+			for (; j < bnd; j++) {
+				a = arws [j];
+				yield return new Tuple<int,double> (a.Target, a.Probability);
+			}
 		}
 
 		/// <summary>

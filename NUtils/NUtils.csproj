@@ -108,6 +108,8 @@
     <Compile Include="Collections\EnumerableBase.cs" />
     <Compile Include="Functional\PredicateUtils.cs" />
     <Compile Include="Functional\FunctionUtils.cs" />
+    <Compile Include="Abstract\IExpandComparer.cs" />
+    <Compile Include="Collections\ListUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
