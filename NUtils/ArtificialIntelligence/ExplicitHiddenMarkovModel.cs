@@ -30,7 +30,7 @@ namespace NUtils.ArtificialIntelligence {
 	/// An implementation of the <see cref="IHiddenMarkovModel"/> interface
 	/// where the probabilities are stored as 
 	/// </summary>
-	public class ExplicitHiddenMarkovModel : IHiddenMarkovModel, IWriteable {
+	public class ExplicitHiddenMarkovModel : FiniteDistribution<int>, IHiddenMarkovModel, IWriteable {
 
 		#region Fields
 		/// <summary>
@@ -121,7 +121,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <remarks>
 		/// <para>The returned value is always positive.</para>
 		/// </remarks>
-		public double GetDistributionValue (int index) {
+		public override double GetDistributionValue (int index) {
 			return this.p [index];
 		}
 		#endregion
