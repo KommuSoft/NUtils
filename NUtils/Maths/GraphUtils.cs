@@ -274,12 +274,45 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
-		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultNodeLabelFunction"/> is used to label the nodes, the method returns the index
+		/// the node prefixed with <c>"n"</c>.</para>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer) {
+			WriteDotStream (edges, writer, DefaultNodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction) {
+			WriteDotStream (edges, writer, nodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
 		/// </summary>
 		/// <param name="edges">The list of tuples representing the edges.</param>
 		/// <param name="writer">The writer to write the graph structure to.</param>
 		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
 		/// <param name="edgeLabelFunction">A function that generates the labels for the edges.</param>
+		/// <remarks>
+		/// <para>All the nodes up to (and including) the maximum enumerated index are nodes. Even if
+		/// a node is not named explicitly.</para>
+		/// </remarks>
 		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
 			writer.Write (KeywordDigraph);
 			writer.WriteLine (KeywordEnvUp);
