@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -251,6 +252,55 @@ namespace NUtils.Maths {
 				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
+				writer.Write (KeywordIdent);
+				writer.Write (NodePrefix);
+				writer.Write (edge.Item1);
+				writer.Write (KeywordDiedge);
+				writer.Write (NodePrefix);
+				writer.Write (edge.Item2);
+				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
+				if (elabel != null && elabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (elabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
+				writer.WriteLine (KeywordSeparator);
+			}
+			writer.WriteLine (KeywordEnvDn);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given <paramref name="graph"/> to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <param name="edgeLabelFunction">A function that generates the labels for the edges.</param>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
+			writer.Write (KeywordDigraph);
+			writer.WriteLine (KeywordEnvUp);
+			int l = 0x00;
+			for (int node = 0x00; node < l; node++) {
+				writer.Write (KeywordIdent);
+				writer.Write (NodePrefix);
+				writer.Write (node);
+				string nlabel = nodeLabelFunction (node);
+				if (nlabel != null && nlabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (nlabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
+				writer.WriteLine (KeywordSeparator);
+			}
+			foreach (Tuple<int,int> edge in edges) {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item1);
