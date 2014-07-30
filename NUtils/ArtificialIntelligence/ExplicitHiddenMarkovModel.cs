@@ -24,13 +24,14 @@ using System.IO;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
 using NUtils.IO;
+using NUtils.Collections;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
 	/// An implementation of the <see cref="IHiddenMarkovModel"/> interface
 	/// where the probabilities are stored as 
 	/// </summary>
-	public class ExplicitHiddenMarkovModel : IHiddenMarkovModel, IWriteable {
+	public class ExplicitHiddenMarkovModel : FiniteDistribution<int>, IHiddenMarkovModel, IWriteable {
 
 		#region Fields
 		/// <summary>
@@ -121,7 +122,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <remarks>
 		/// <para>The returned value is always positive.</para>
 		/// </remarks>
-		public double GetDistributionValue (int index) {
+		public override double GetDistributionValue (int index) {
 			return this.p [index];
 		}
 		#endregion
@@ -344,6 +345,15 @@ namespace NUtils.ArtificialIntelligence {
 			}
 			#endregion
 			return sprob / stok;
+		}
+		#endregion
+		#region implemented abstract members of FiniteDistribution
+		/// <summary>
+		/// Enumerates the possible values of the domain of this instance/variable.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing all the possible values of the domain.</returns>
+		public override IEnumerable<int> EnumerateDomain () {
+			return EnumerableCollection.RangeEnumerable (this.Length);
 		}
 		#endregion
 		#region IWriteable implementation

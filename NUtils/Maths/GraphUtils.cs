@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
@@ -160,13 +161,16 @@ namespace NUtils.Maths {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (node);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (nodeLabelFunction (node));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string nlabel = nodeLabelFunction (node);
+				if (nlabel != null && nlabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (nlabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
@@ -176,13 +180,16 @@ namespace NUtils.Maths {
 				writer.Write (KeywordEdge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (edgeLabelFunction (edge.Item1, edge.Item2));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
+				if (elabel != null && elabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (elabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
@@ -232,13 +239,16 @@ namespace NUtils.Maths {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (node);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (nodeLabelFunction (node));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string nlabel = nodeLabelFunction (node);
+				if (nlabel != null && nlabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (nlabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
@@ -248,13 +258,100 @@ namespace NUtils.Maths {
 				writer.Write (KeywordDiedge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (edgeLabelFunction (edge.Item1, edge.Item2));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
+				if (elabel != null && elabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (elabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
+				writer.WriteLine (KeywordSeparator);
+			}
+			writer.WriteLine (KeywordEnvDn);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultNodeLabelFunction"/> is used to label the nodes, the method returns the index
+		/// the node prefixed with <c>"n"</c>.</para>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer) {
+			WriteDotStream (edges, writer, DefaultNodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <remarks>
+		/// <para>The <see cref="M:DefaultEdgeLabelFunction"/> is used to label the edges, the method returns the empty
+		/// string for each edge.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction) {
+			WriteDotStream (edges, writer, nodeLabelFunction, DefaultEdgeLabelFunction);
+		}
+
+		/// <summary>
+		/// Writes a dot-notation of the given list of edges to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="edges">The list of tuples representing the edges.</param>
+		/// <param name="writer">The writer to write the graph structure to.</param>
+		/// <param name="nodeLabelFunction">A function that generates the labels for the nodes.</param>
+		/// <param name="edgeLabelFunction">A function that generates the labels for the edges.</param>
+		/// <remarks>
+		/// <para>All the nodes up to (and including) the maximum enumerated index are nodes. Even if
+		/// a node is not named explicitly.</para>
+		/// </remarks>
+		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
+			writer.Write (KeywordDigraph);
+			writer.WriteLine (KeywordEnvUp);
+			int lowN = -0x01;
+			foreach (Tuple<int,int> e in edges) {
+				int e1 = e.Item1, e2 = e.Item2, em = Math.Max (e1, e2);
+				for (; lowN < em;) {
+					lowN++;
+					writer.Write (KeywordIdent);
+					writer.Write (NodePrefix);
+					writer.Write (lowN);
+					string nlabel = nodeLabelFunction (lowN);
+					if (nlabel != null && nlabel != string.Empty) {
+						writer.Write (KeywordOptUp);
+						writer.Write (KeywordLabel);
+						writer.Write (KeywordKeyVal);
+						writer.Write (KeywordString);
+						writer.Write (nlabel);
+						writer.Write (KeywordString);
+						writer.Write (KeywordOptDn);
+					}
+					writer.WriteLine (KeywordSeparator);
+				}
+				writer.Write (KeywordIdent);
+				writer.Write (NodePrefix);
+				writer.Write (e1);
+				writer.Write (KeywordDiedge);
+				writer.Write (NodePrefix);
+				writer.Write (e2);
+				string elabel = edgeLabelFunction (e1, e2);
+				if (elabel != null && elabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (elabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);

@@ -18,25 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using System.Collections.Generic;
 using NUtils.Abstract;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// An interface specifying a distribution over a finite type (such as an integer range).
+	/// An interfacing specifying a distribution over a finite range of values.
 	/// </summary>
-	/// <typeparam name='TItem'>The type of items over which the distribution is defined. The type
-	/// must only allow a finite number of values.</typeparam>
-	public interface IFiniteDistribution<TItem> : IDistribution<TItem>, IFinite<TItem> {
-
-		/// <summary>
-		/// Enumerates a list of <see cref="T:Tuple`2"/> instances where a value is associated with the probability
-		/// of that item.
-		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="T:Tuple`2"/> instances containing a value-probability
-		/// couple.</returns>
-		IEnumerable<Tuple<TItem,double>> GetDistributionValues ();
+	/// <remarks>
+	/// <para>A finite distribution contains only positive values and sum up to one.</para>
+	/// </remarks>
+	public interface IFiniteIndexDistribution : ILength, IFiniteDistribution<int>, IValidateable {
 	}
 }
-

@@ -25,7 +25,7 @@ namespace NUtils.ArtificialIntelligence {
 	/// <summary>
 	/// An interface specifying a hidden Markov model.
 	/// </summary>
-	public interface IHiddenMarkovModel : IFiniteDistribution {
+	public interface IHiddenMarkovModel : IFiniteIndexDistribution {
 
 		/// <summary>
 		/// Get the number of output characters of the hidden Markov model.

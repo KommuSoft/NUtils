@@ -1,5 +1,5 @@
 //
-//  IFiniteDistribution.cs
+//  IFinite.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,23 +20,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
-using NUtils.Abstract;
 
-namespace NUtils.Maths {
+namespace NUtils.Abstract {
 	/// <summary>
-	/// An interface specifying a distribution over a finite type (such as an integer range).
+	/// An interface specifying that this instance is part of a finite domain or the specified variable has a finite
+	/// domain.
 	/// </summary>
-	/// <typeparam name='TItem'>The type of items over which the distribution is defined. The type
-	/// must only allow a finite number of values.</typeparam>
-	public interface IFiniteDistribution<TItem> : IDistribution<TItem>, IFinite<TItem> {
+	/// <typeparam name='TElement'>The type of elements in the domain.</typeparam>
+	public interface IFinite<TElement> {
 
 		/// <summary>
-		/// Enumerates a list of <see cref="T:Tuple`2"/> instances where a value is associated with the probability
-		/// of that item.
+		/// Enumerates the possible values of the domain of this instance/variable.
 		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="T:Tuple`2"/> instances containing a value-probability
-		/// couple.</returns>
-		IEnumerable<Tuple<TItem,double>> GetDistributionValues ();
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing all the possible values of the domain.</returns>
+		IEnumerable<TElement> EnumerateDomain ();
 	}
 }
 
