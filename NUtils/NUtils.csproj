@@ -110,12 +110,12 @@
     <Compile Include="Abstract\IExpandComparer.cs" />
     <Compile Include="Collections\ListUtils.cs" />
     <Compile Include="Maths\ProbabilisticTransitionUtils.cs" />
-    <Compile Include="Functional\IEnumerables.cs" />
     <Compile Include="Maths\IDistribution.cs" />
     <Compile Include="Abstract\IFinite.cs" />
     <Compile Include="Maths\IFiniteIndexDistribution.cs" />
     <Compile Include="Maths\IFiniteDistribution.cs" />
     <Compile Include="Maths\FiniteDistribution.cs" />
+    <Compile Include="Collections\IEnumerables.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
