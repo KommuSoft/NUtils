@@ -160,13 +160,16 @@ namespace NUtils.Maths {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
 				writer.Write (node);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (nodeLabelFunction (node));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string nlabel = nodeLabelFunction (node);
+				if (nlabel != null && nlabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (nlabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			foreach (Tuple<int,int> edge in graph.GetEdges ()) {
@@ -176,13 +179,16 @@ namespace NUtils.Maths {
 				writer.Write (KeywordEdge);
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
-				writer.Write (KeywordOptUp);
-				writer.Write (KeywordLabel);
-				writer.Write (KeywordKeyVal);
-				writer.Write (KeywordString);
-				writer.Write (edgeLabelFunction (edge.Item1, edge.Item2));
-				writer.Write (KeywordString);
-				writer.Write (KeywordOptDn);
+				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
+				if (elabel != null && elabel != string.Empty) {
+					writer.Write (KeywordOptUp);
+					writer.Write (KeywordLabel);
+					writer.Write (KeywordKeyVal);
+					writer.Write (KeywordString);
+					writer.Write (elabel);
+					writer.Write (KeywordString);
+					writer.Write (KeywordOptDn);
+				}
 				writer.WriteLine (KeywordSeparator);
 			}
 			writer.WriteLine (KeywordEnvDn);
@@ -252,7 +258,7 @@ namespace NUtils.Maths {
 				writer.Write (NodePrefix);
 				writer.Write (edge.Item2);
 				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
-				if (nlabel != null && nlabel != string.Empty) {
+				if (elabel != null && elabel != string.Empty) {
 					writer.Write (KeywordOptUp);
 					writer.Write (KeywordLabel);
 					writer.Write (KeywordKeyVal);
