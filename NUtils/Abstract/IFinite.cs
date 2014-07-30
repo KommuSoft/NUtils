@@ -1,5 +1,5 @@
 //
-//  IFiniteDistribution.cs
+//  IFinite.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,16 +18,22 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using NUtils.Abstract;
+using System;
+using System.Collections.Generic;
 
-namespace NUtils.Maths {
+namespace NUtils.Abstract {
 	/// <summary>
-	/// An interfacing specifying a distribution over a finite range of values.
+	/// An interface specifying that this instance is part of a finite domain or the specified variable has a finite
+	/// domain.
 	/// </summary>
-	/// <remarks>
-	/// <para>A finite distribution contains only positive values and sum up to one.</para>
-	/// </remarks>
-	public interface IFiniteDistribution : ILength, IDistribution<int>, IValidateable {
+	/// <typeparam name='TElement'>The type of elements in the domain.</typeparam>
+	public interface IFinite<TElement> {
+
+		/// <summary>
+		/// Enumerates the possible values of the domain of this instance/variable.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing all the possible values of the domain.</returns>
+		IEnumerable<TElement> EnumerateDomain ();
 	}
 }
 

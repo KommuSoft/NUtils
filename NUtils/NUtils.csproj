@@ -112,6 +112,8 @@
     <Compile Include="Collections\ListUtils.cs" />
     <Compile Include="Maths\ProbabilisticTransitionUtils.cs" />
     <Compile Include="Functional\IEnumerables.cs" />
+    <Compile Include="Maths\IDistribution.cs" />
+    <Compile Include="Abstract\IFinite.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
