@@ -289,16 +289,11 @@ namespace NUtils.Maths {
 		/// <summary>
 		/// Compares the two given items and returns the minimum of the two.
 		/// </summary>
-		/// <param name="x1">
-		/// The first element to compare.
-		/// </param>
-		/// <param name="x2">
-		/// The second element to compare.
-		/// </param>
-		/// <returns>
-		/// The minimum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.
-		/// </returns>
-		public static X Minimum<X> (X x1, X x2) where X : IComparable<X> {
+		/// <returns>The minimum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.</returns>
+		/// <param name="x1">The first element to compare.</param>
+		/// <param name="x2">The second element to compare.</param>
+		/// <typeparam name='T'>The type of elements to calculate the minimum from.</typeparam>
+		public static T Minimum<T> (T x1, T x2) where T : IComparable<T> {
 			if (x1.CompareTo (x2) <= 0x00) {
 				return x1;
 			} else {
@@ -307,17 +302,44 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Compares the two given <see cref="T:Tuple`2"/> instance and returns a <see cref="T:Tuple`2"/> with the element-wise minimum of the given ones.
+		/// </summary>
+		/// <returns>A <see cref="T:Tuple`2"/> where the elements are the minimums of the given ones according to their built-in comparison function.</returns>
+		/// <param name="t1">The first tuple to compare.</param>
+		/// <param name="t2">The second tuple to compare.</param>
+		/// <typeparam name='T1'>The type of the first element of the tuples to calculate the minimum from.</typeparam>
+		/// <typeparam name='T2'>The type of the second element of the tuples to calculate the minimum from.</typeparam>
+		public static Tuple<T1,T2> Minimum<T1,T2> (Tuple<T1,T2> t1, Tuple<T1,T2> t2)
+				where T1 : IComparable<T1>
+				where T2 : IComparable<T2> {
+			return new Tuple<T1,T2> (Minimum (t1.Item1, t2.Item1),
+			                         Minimum (t1.Item2, t2.Item2));
+		}
+
+		/// <summary>
+		/// Compares the two given <see cref="T:Tuple`3"/> instance and returns a <see cref="T:Tuple`3"/> with the element-wise minimum of the given ones.
+		/// </summary>
+		/// <returns>A <see cref="T:Tuple`3"/> where the elements are the minimums of the given ones according to their built-in comparison function.</returns>
+		/// <param name="t1">The first tuple to compare.</param>
+		/// <param name="t2">The second tuple to compare.</param>
+		/// <typeparam name='T1'>The type of the first element of the tuples to calculate the minimum from.</typeparam>
+		/// <typeparam name='T2'>The type of the second element of the tuples to calculate the minimum from.</typeparam>
+		/// <typeparam name='T3'>The type of the third element of the tuples to calculate the minimum from.</typeparam>
+		public static Tuple<T1,T2,T3> Minimum<T1,T2,T3> (Tuple<T1,T2,T3> t1, Tuple<T1,T2,T3> t2)
+			where T1 : IComparable<T1>
+			where T2 : IComparable<T2>
+			where T3 : IComparable<T3> {
+			return new Tuple<T1,T2,T3> (Minimum (t1.Item1, t2.Item1),
+			                            Minimum (t1.Item2, t2.Item2),
+			                            Minimum (t1.Item3, t2.Item3));
+		}
+
+		/// <summary>
 		/// Compares the two given items and returns the maximum of the two.
 		/// </summary>
-		/// <param name="x1">
-		/// The first element to compare.
-		/// </param>
-		/// <param name="x2">
-		/// The second element to compare.
-		/// </param>
-		/// <returns>
-		/// The maximum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.
-		/// </returns>
+		/// <returns>The maximum of the two given elements (<paramref name="x1"/> and <paramref name="x2"/>) according to their built-in comparison function.</returns>
+		/// <param name="x1">The first element to compare.</param>
+		/// <param name="x2">The second element to compare.</param>
 		public static X Maximum<X> (X x1, X x2) where X : IComparable<X> {
 			if (x1.CompareTo (x2) >= 0x00) {
 				return x1;

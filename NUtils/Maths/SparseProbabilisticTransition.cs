@@ -43,7 +43,6 @@ namespace NUtils.Maths {
 		/// The array of arrows that store the transition values.
 		/// </summary>
 		private readonly Arrow[] arrows;
-		//TODO: use insert blocks
 		#endregion
 		#region ILength implementation
 		/// <summary>
@@ -57,6 +56,17 @@ namespace NUtils.Maths {
 		}
 		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NUtils.Maths.SparseProbabilisticTransition"/> class.
+		/// </summary>
+		/// <param name="transitions">The given list of transactions to store in the <see cref="SparseProbabilisticTransition"/>.</param>
+		/// <remarks>
+		/// <para>Transitions from and to indices less than zero will be ignored.</para>
+		/// <para>The given <paramref name="transitions"/> are not required to be ordered.</para>
+		/// </remarks>
+		public SparseProbabilisticTransition (IEnumerable<Tuple<int,int,double>> transitions) : this(Math.Max (transitions.Max(x => x.Item1),transitions.Max(x => x.Item2))+0x01,transitions) {
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SparseProbabilisticTransition"/> class.
 		/// </summary>

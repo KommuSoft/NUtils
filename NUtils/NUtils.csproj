@@ -110,6 +110,7 @@
     <Compile Include="Functional\FunctionUtils.cs" />
     <Compile Include="Abstract\IExpandComparer.cs" />
     <Compile Include="Collections\ListUtils.cs" />
+    <Compile Include="Maths\ProbabilisticTransitionUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
