@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 
 namespace NUtils.Collections {
+	#region Tuple Enumerables
 	/// <summary>
 	/// A "marker interface" used to mark a <see cref="T:IEnumerable`1"/> instances that
 	/// enumerates <see cref="T:Tuple`2"/> instaces.
@@ -105,5 +106,6 @@ namespace NUtils.Collections {
 	/// <typeparam name='T8'>The type of the eighth element of the tuples.</typeparam>
 	public interface IEnumerable<T1,T2,T3,T4,T5,T6,T7,T8> : IEnumerable<Tuple<T1,T2,T3,T4,T5,T6,T7,T8>> {
 	}
+	#endregion
 }
 
