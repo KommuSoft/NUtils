@@ -283,31 +283,33 @@ namespace NUtils.Maths {
 		public static void WriteDotStream (this IEnumerable<Tuple<int,int>> edges, TextWriter writer, Func<int,string> nodeLabelFunction, Func<int,int,string> edgeLabelFunction) {
 			writer.Write (KeywordDigraph);
 			writer.WriteLine (KeywordEnvUp);
-			int l = 0x00;
-			for (int node = 0x00; node < l; node++) {
-				writer.Write (KeywordIdent);
-				writer.Write (NodePrefix);
-				writer.Write (node);
-				string nlabel = nodeLabelFunction (node);
-				if (nlabel != null && nlabel != string.Empty) {
-					writer.Write (KeywordOptUp);
-					writer.Write (KeywordLabel);
-					writer.Write (KeywordKeyVal);
-					writer.Write (KeywordString);
-					writer.Write (nlabel);
-					writer.Write (KeywordString);
-					writer.Write (KeywordOptDn);
+			int lowN = -0x01;
+			foreach (Tuple<int,int> e in edges) {
+				int e1 = e.Item1, e2 = e.Item2, em = Math.Max (e1, e2);
+				for (; lowN < em;) {
+					lowN++;
+					writer.Write (KeywordIdent);
+					writer.Write (NodePrefix);
+					writer.Write (lowN);
+					string nlabel = nodeLabelFunction (lowN);
+					if (nlabel != null && nlabel != string.Empty) {
+						writer.Write (KeywordOptUp);
+						writer.Write (KeywordLabel);
+						writer.Write (KeywordKeyVal);
+						writer.Write (KeywordString);
+						writer.Write (nlabel);
+						writer.Write (KeywordString);
+						writer.Write (KeywordOptDn);
+					}
+					writer.WriteLine (KeywordSeparator);
 				}
-				writer.WriteLine (KeywordSeparator);
-			}
-			foreach (Tuple<int,int> edge in edges) {
 				writer.Write (KeywordIdent);
 				writer.Write (NodePrefix);
-				writer.Write (edge.Item1);
+				writer.Write (e1);
 				writer.Write (KeywordDiedge);
 				writer.Write (NodePrefix);
-				writer.Write (edge.Item2);
-				string elabel = edgeLabelFunction (edge.Item1, edge.Item2);
+				writer.Write (e2);
+				string elabel = edgeLabelFunction (e1, e2);
 				if (elabel != null && elabel != string.Empty) {
 					writer.Write (KeywordOptUp);
 					writer.Write (KeywordLabel);
