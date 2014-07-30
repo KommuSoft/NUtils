@@ -116,6 +116,7 @@
     <Compile Include="Maths\IFiniteDistribution.cs" />
     <Compile Include="Maths\FiniteDistribution.cs" />
     <Compile Include="Collections\IEnumerables.cs" />
+    <Compile Include="Collections\EnumerableCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

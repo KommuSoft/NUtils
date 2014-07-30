@@ -24,6 +24,7 @@ using System.IO;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
 using NUtils.IO;
+using NUtils.Collections;
 
 namespace NUtils.ArtificialIntelligence {
 	/// <summary>
@@ -344,6 +345,15 @@ namespace NUtils.ArtificialIntelligence {
 			}
 			#endregion
 			return sprob / stok;
+		}
+		#endregion
+		#region implemented abstract members of FiniteDistribution
+		/// <summary>
+		/// Enumerates the possible values of the domain of this instance/variable.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing all the possible values of the domain.</returns>
+		public override IEnumerable<int> EnumerateDomain () {
+			return EnumerableCollection.RangeEnumerable (this.Length);
 		}
 		#endregion
 		#region IWriteable implementation
