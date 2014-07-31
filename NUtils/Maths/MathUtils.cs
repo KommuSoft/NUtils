@@ -348,5 +348,18 @@ namespace NUtils.Maths {
 			}
 		}
 		#endregion
+		#region Tests
+		/// <summary>
+		/// Checks if the two given values <paramref name="a"/> and <paramref name="b"/> are equal with a maximum
+		/// difference of <paramref name="epsilon"/>.
+		/// </summary>
+		/// <returns><c>true</c>, if the two given values are aproximately equal, <c>false</c> otherwise.</returns>
+		/// <param name="a">The first value to check.</param>
+		/// <param name="b">The second value to check.</param>
+		/// <param name="epsilon">The maximum allowed difference, optional, by default <c>1e-6</c>.</param>
+		public static bool EqualEpsilon (double a, double b, double epsilon = 1e-6) {
+			return (Math.Abs (a - b) <= epsilon);
+		}
+		#endregion
 	}
 }

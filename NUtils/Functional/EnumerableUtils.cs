@@ -341,21 +341,6 @@ namespace NUtils.Functional {
 				}
 			}
 		}
-
-		/// <summary>
-		/// Enumerate the cross-product of the two given <see cref="IEnumerable`1"/> instances.
-		/// </summary>
-		/// <param name="source1">The first given list of instances.</param>
-		/// <param name="source2">The second given list of instances.</param>
-		/// <typeparam name="T1">The type of elements emitted by the first list.</typeparam>
-		/// <typeparam name="T2">The type of elements emitted by the second list.</typeparam>
-		public static IEnumerable<Tuple<T1,T2>> Cross<T1,T2> (this IEnumerable<T1> source1, IEnumerable<T2> source2) {
-			foreach (T1 t1 in source1) {
-				foreach (T2 t2 in source2) {
-					yield return new Tuple<T1,T2> (t1, t2);
-				}
-			}
-		}
 		#endregion
 		#region Data.List (Haskell)
 		/// <summary>
