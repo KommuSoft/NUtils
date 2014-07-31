@@ -30,7 +30,10 @@ namespace NUtils.Maths {
 	public class FiniteIndexDistribution : FiniteDistribution<int>, IFiniteIndexDistribution {
 
 		#region Fields
-		private readonly double[] probabilities;
+		/// <summary>
+		/// The stored list of the probability values, used in this <see cref="FiniteIndexDistribution"/>.
+		/// </summary>
+		protected readonly double[] Probabilities;
 		#endregion
 		#region IValidateable implementation
 		/// <summary>
@@ -43,9 +46,9 @@ namespace NUtils.Maths {
 		/// and sum up to one.
 		/// </para>
 		/// </remarks>
-		public bool IsValid {
+		public virtual bool IsValid {
 			get {
-				double[] val = this.probabilities;
+				double[] val = this.Probabilities;
 				int n = val.Length;
 				double tmp, sum = 0.0d;
 				for (int i = 0x00; i < n; i++) {
@@ -66,7 +69,7 @@ namespace NUtils.Maths {
 		/// <value>The number of elements over which the distribtion is defined.</value>
 		public int Length {
 			get {
-				return this.probabilities.Length;
+				return this.Probabilities.Length;
 			}
 		}
 		#endregion
@@ -76,7 +79,12 @@ namespace NUtils.Maths {
 		/// of initial probability values.
 		/// </summary>
 		/// <param name="probabilities">The given list of initial probability values.</param>
-		public FiniteIndexDistribution (params double[] probabilities) : this((IEnumerable<double>) probabilities) {
+		/// <remarks>
+		/// <para>The given list of values is used: modifications to the given list of values can have
+		/// impact on this instance.</para>
+		/// </remarks>
+		public FiniteIndexDistribution (double[] probabilities) {
+			this.Probabilities = probabilities;
 		}
 
 		/// <summary>
@@ -85,7 +93,7 @@ namespace NUtils.Maths {
 		/// </summary>
 		/// <param name="probabilities">The given list of initial probability values.</param>
 		public FiniteIndexDistribution (IEnumerable<double> probabilities) {
-			this.probabilities = probabilities.ToArray ();
+			this.Probabilities = probabilities.ToArray ();
 		}
 		#endregion
 		#region IFinite implementation
@@ -109,7 +117,7 @@ namespace NUtils.Maths {
 		/// <para>Over all possible values, the sum/integral is equal to one.</para>
 		/// </remarks>
 		public override double GetDistributionValue (int item) {
-			return this.probabilities [item];
+			return this.Probabilities [item];
 		}
 		#endregion
 	}
