@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
 using NUtils.IO;
@@ -31,13 +32,9 @@ namespace NUtils.ArtificialIntelligence {
 	/// An implementation of the <see cref="IHiddenMarkovModel"/> interface
 	/// where the probabilities are stored as 
 	/// </summary>
-	public class ExplicitHiddenMarkovModel : FiniteDistribution<int>, IHiddenMarkovModel, IWriteable {
+	public class ExplicitHiddenMarkovModel : FiniteIndexDistribution, IHiddenMarkovModel, IWriteable {
 
 		#region Fields
-		/// <summary>
-		/// The initial state probability distribution.
-		/// </summary>
-		private readonly double[] p;
 		/// <summary>
 		/// The transition distribution matrix.
 		/// </summary>
@@ -52,9 +49,9 @@ namespace NUtils.ArtificialIntelligence {
 		/// Gets a value indicating whether this instance is valid.
 		/// </summary>
 		/// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
-		public bool IsValid {
+		public override bool IsValid {
 			get {
-				throw new NotImplementedException ();
+				return base.IsValid && this.a.All (ProbabilityUtils.IsValidDistribution) && this.b.All (ProbabilityUtils.IsValidDistribution);
 			}
 		}
 		#endregion
@@ -65,7 +62,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <value>The number of hidden states of the hidden Markov model.</value>
 		public int Length {
 			get {
-				return this.p.Length;
+				return this.Probabilities.Length;
 			}
 		}
 		#endregion
@@ -92,8 +89,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <para>The values are not copied: modifying the given values after construction
 		/// will have an impact on the hidden Markov model.</para>
 		/// </remarks>
-		public ExplicitHiddenMarkovModel (double[] p, double[,] a, double[,] b) {
-			this.p = p;
+		public ExplicitHiddenMarkovModel (double[] p, double[,] a, double[,] b) : base(p) {
 			this.a = a;
 			this.b = b;
 		}
@@ -104,11 +100,10 @@ namespace NUtils.ArtificialIntelligence {
 		/// </summary>
 		/// <param name="nHiddenStates">The number of hidden states of the Hidden Markov Model.</param>
 		/// <param name="nOutputs">The number of output characters of the Hidden Markov Model.</param>
-		public ExplicitHiddenMarkovModel (int nHiddenStates, int nOutputs) {
-			this.p = new double[nHiddenStates];
+		public ExplicitHiddenMarkovModel (int nHiddenStates, int nOutputs) : base(new double[nHiddenStates]) {
 			this.a = new double[nHiddenStates, nHiddenStates];
 			this.b = new double[nHiddenStates, nOutputs];
-			MathUtils.NextScaledDistribution (this.p);
+			MathUtils.NextScaledDistribution (this.Probabilities);
 			MathUtils.NextScaledDistribution (this.a);
 			MathUtils.NextScaledDistribution (this.b);
 		}
@@ -123,7 +118,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <para>The returned value is always positive.</para>
 		/// </remarks>
 		public override double GetDistributionValue (int index) {
-			return this.p [index];
+			return this.Probabilities [index];
 		}
 		#endregion
 		#region IHiddenMarkovModel implementation
@@ -219,7 +214,7 @@ namespace NUtils.ArtificialIntelligence {
 			int O = this.OutputSize;
 			int T = sampleLength;
 			int T1 = T - 0x01;
-			double[] p = this.p;
+			double[] p = this.Probabilities;
 			double[,] a = this.a, b = this.b;
 			double[,] alpha = new double[T, S], beta = new double[T, S], gamma = new double[T, S], bhat = new double[S, O], ahat = new double[S, S];
 			double[,,] epsilon = new double[T, S, S];
