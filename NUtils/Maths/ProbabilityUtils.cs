@@ -25,20 +25,34 @@ namespace NUtils.Maths {
 	/// <summary>
 	/// A set of utility functions related to probabilistic concepts and instances related to distributions,...
 	/// </summary>
-	public static class ProbabilisticUtils {
+	public static class ProbabilityUtils {
 
 		#region Tests
 		/// <summary>
 		/// Determines if the given list of probabilities is a valid distribution given the <paramref name="epsilon"/> value.
 		/// </summary>
 		/// <returns><c>true</c> if all probabilistic values are larger than or equal to zero and sum up to one
+		/// (given a certain tolerance); otherwise, <c>false</c>.</returns>
+		/// <param name="probabilities">The given list of probabilistic values to check.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="probabilities"/> is not effective, the condition returns <c>false</c>.</para>
+		/// <para>The epsilon value is set on <c>1e-6d</c>.</para>
+		/// </remarks>
+		public static bool IsValidDistribution (this IEnumerable<double> probabilities) {
+			return IsValidDistribution (probabilities, 1e-6d);
+		}
+
+		/// <summary>
+		/// Determines if the given list of probabilities is a valid distribution given the <paramref name="epsilon"/> value.
+		/// </summary>
+		/// <returns><c>true</c> if all probabilistic values are larger than or equal to zero and sum up to one
 		/// (given the <paramref name="epsilon"/> maximum difference); otherwise, <c>false</c>.</returns>
 		/// <param name="probabilities">The given list of probabilistic values to check.</param>
-		/// <param name="epsilon">The maximum difference of the sum to one, optional, by default equal to <c>1e-6d</c>.</param>
+		/// <param name="epsilon">The maximum difference of the sum to one.</param>
 		/// <remarks>
 		/// <para>If the given <paramref name="probabilities"/> is not effective, the condition returns <c>false</c>.</para>
 		/// </remarks>
-		public static bool IsValidDistribution (this IEnumerable<double> probabilities, double epsilon = 1e-6d) {
+		public static bool IsValidDistribution (this IEnumerable<double> probabilities, double epsilon) {
 			if (probabilities != null) {
 				double sum = 0.0d;
 				foreach (double p in probabilities) {

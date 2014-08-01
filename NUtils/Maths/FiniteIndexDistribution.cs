@@ -48,7 +48,7 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public virtual bool IsValid {
 			get {
-				return ProbabilisticUtils.IsValidDistribution (this.Probabilities);
+				return ProbabilityUtils.IsValidDistribution (this.Probabilities);
 			}
 		}
 		#endregion

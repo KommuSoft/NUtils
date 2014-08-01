@@ -117,7 +117,9 @@
     <Compile Include="Collections\IEnumerables.cs" />
     <Compile Include="Collections\EnumerableCollection.cs" />
     <Compile Include="Maths\FiniteIndexDistribution.cs" />
-    <Compile Include="Maths\ProbabilisticUtils.cs" />
+    <Compile Include="Maths\ProbabilityUtils.cs" />
+    <Compile Include="Collections\ArrayWrapper.cs" />
+    <Compile Include="Collections\ArrayUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

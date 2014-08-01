@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NUtils.Maths;
 using MathNet.Numerics.LinearAlgebra.Double;
 using NUtils.IO;
@@ -50,7 +51,7 @@ namespace NUtils.ArtificialIntelligence {
 		/// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
 		public override bool IsValid {
 			get {
-				throw new NotImplementedException ();//TODO
+				return base.IsValid && this.a.All (ProbabilityUtils.IsValidDistribution) && this.b.All (ProbabilityUtils.IsValidDistribution);
 			}
 		}
 		#endregion
