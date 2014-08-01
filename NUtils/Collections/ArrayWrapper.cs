@@ -26,7 +26,7 @@ namespace NUtils.Collections {
 	/// A wrapper that wraps a twodimensional array to a <see cref="T:IList`1"/> of <see cref="T:IList`1"/> instances.
 	/// </summary>
 	/// <typeparam name='T'>The type of elements over which the array is defined.</typeparam>
-	public class Array2Wrapper<T> : CollectionBase<IList<T>>,IMultiList2<T> {
+	public class Array2Wrapper<T> : ListBase<IList<T>>,IMultiList2<T> {
 
 		#region Fields
 		/// <summary>
@@ -43,7 +43,7 @@ namespace NUtils.Collections {
 		/// <exception cref="T:ArgumentOutOfRangeException"><paramref name="index" /> is not a valid index
 		/// in the <see cref="T:IList`1" />.</exception>
 		/// <exception cref="T:NotSupportedException">Always thrown, if the property is set.</exception>
-		public IList<T> this [int index] {
+		public override IList<T> this [int index] {
 			get {
 				return new Row (this.data, index);
 			}
@@ -87,25 +87,42 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region IList implementation
-		public int IndexOf (IList<T> item) {
-			throw new NotImplementedException ();//TODO
+		/// <summary>
+		/// Inserts an element into the <see cref="T:IList`1"/> at the specified index.
+		/// </summary>
+		/// <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+		/// <param name="item">The item to insert.</param>
+		/// <exception cref="T:NotSupportedException">Always, since the collection is read-only.</exception>
+		public override void Insert (int index, IList<T> item) {
+			throw new NotSupportedException ();
 		}
 
-		public void Insert (int index, IList<T> item) {
-			throw new InvalidOperationException ();
-		}
-
-		public void RemoveAt (int index) {
-			throw new InvalidOperationException ();
+		/// <summary>
+		/// Removes the given item in this <see cref="T:IList`1"/> at the given <paramref name="index"/>.
+		/// </summary>
+		/// <param name="index">The index of the element to remove.</param>
+		/// <exception cref="T:NotSupportedException">Always, since the collection is read-only.</exception>
+		public override void RemoveAt (int index) {
+			throw new NotSupportedException ();
 		}
 		#endregion
 		#region ICollection implementation
+		/// <summary>
+		/// Adds an object to the end of the <see cref="T:ICollection`1"/>.
+		/// </summary>
+		/// <returns>The <see cref="T:ICollection`1"/> index at which the <paramref name="value"/> has been added.</returns>
+		/// <param name="item">The <see cref="T:System.Object" /> to be added to the end of the <see cref="T:ICollection`1" />.</param>
+		/// <exception cref="T:NotSupportedException">Always, since the collection is read-only.</exception>
 		public override void Add (IList<T> item) {
-			throw new InvalidOperationException ();
+			throw new NotSupportedException ();
 		}
 
+		/// <summary>
+		/// Removes all items from the <see cref="T:System.Collections.IList" />. This implementation always throws <see cref="T:System.NotSupportedException" />.
+		/// </summary>
+		/// <exception cref="T:NotSupportedException">Always, since the collection is read-only.</exception>
 		public override void Clear () {
-			throw new InvalidOperationException ();
+			throw new NotSupportedException ();
 		}
 
 		/// <summary>
@@ -114,10 +131,10 @@ namespace NUtils.Collections {
 		/// <param name="item">The object to remove from the <see cref="T:IList`1" />.</param>
 		/// <exception cref="ArgumentException"><paramref name="item" /> is of a type that is not
 		/// assignable to the <see cref="T:IList`1" />.</exception>
-		/// <exception cref="InvalidOperationException">Always thrown.</exception>
+		/// <exception cref="NotSupportedException">Always thrown.</exception>
 		/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
 		public override bool Remove (IList<T> item) {
-			throw new InvalidOperationException ();
+			throw new NotSupportedException ();
 		}
 		#endregion
 		#region IEnumerable implementation
@@ -135,7 +152,7 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region Inner class
-		private class Row : CollectionBase<T>, IList<T> {
+		private class Row : ListBase<T>, IList<T> {
 
 			#region Fields
 			/// <summary>
@@ -155,7 +172,7 @@ namespace NUtils.Collections {
 			/// <param name="index">The zero-based index of the element to get.</param>
 			/// <exception cref="T:ArgumentOutOfRangeException"><paramref name="index" /> is not a valid index
 			/// in the <see cref="T:IList`1" />.</exception>
-			public T this [int index] {
+			public override T this [int index] {
 				get {
 					return this.data [row, index];
 				}
@@ -188,25 +205,42 @@ namespace NUtils.Collections {
 			}
 			#endregion
 			#region IList implementation
-			public int IndexOf (T item) {
-				throw new NotImplementedException ();//TODO
+			/// <summary>
+			/// Inserts an element into the <see cref="T:IList`1"/> at the specified index.
+			/// </summary>
+			/// <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+			/// <param name="item">The item to insert.</param>
+			/// <exception cref="T:NotSupportedException">Always, since the collection is fixed-size.</exception>
+			public override void Insert (int index, T item) {
+				throw new NotSupportedException ();
 			}
 
-			public void Insert (int index, T item) {
-				throw new InvalidOperationException ();
-			}
-
-			public void RemoveAt (int index) {
-				throw new InvalidOperationException ();
+			/// <summary>
+			/// Removes the given item in this <see cref="T:IList`1"/> at the given <paramref name="index"/>.
+			/// </summary>
+			/// <param name="index">The index of the element to remove.</param>
+			/// <exception cref="T:NotSupportedException">Always, since the collection is fixed-size.</exception>
+			public override void RemoveAt (int index) {
+				throw new NotSupportedException ();
 			}
 			#endregion
 			#region ICollection implementation
+			/// <summary>
+			/// Adds an object to the end of the <see cref="T:ICollection`1"/>.
+			/// </summary>
+			/// <returns>The <see cref="T:ICollection`1"/> index at which the <paramref name="value"/> has been added.</returns>
+			/// <param name="item">The <see cref="T:System.Object" /> to be added to the end of the <see cref="T:ICollection`1" />.</param>
+			/// <exception cref="T:NotSupportedException">Always, since the collection is fixed-size.</exception>
 			public override void Add (T item) {
-				throw new InvalidOperationException ();
+				throw new NotSupportedException ();
 			}
 
+			/// <summary>
+			/// Removes all items from the <see cref="T:System.Collections.IList" />. This implementation always throws <see cref="T:System.NotSupportedException" />.
+			/// </summary>
+			/// <exception cref="T:NotSupportedException">Always, since the collection is fixed-size.</exception>
 			public override void Clear () {
-				throw new InvalidOperationException ();
+				throw new NotSupportedException ();
 			}
 
 			/// <summary>
@@ -215,10 +249,10 @@ namespace NUtils.Collections {
 			/// <param name="item">The object to remove from the <see cref="T:IList`1" />.</param>
 			/// <exception cref="ArgumentException"><paramref name="item" /> is of a type that is not
 			/// assignable to the <see cref="T:IList`1" />.</exception>
-			/// <exception cref="InvalidOperationException">Always thrown.</exception>
+			/// <exception cref="T:NotSupportedException">Always, since the collection is fixed-size.</exception>
 			/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
 			public override bool Remove (T item) {
-				throw new InvalidOperationException ();
+				throw new NotSupportedException ();
 			}
 			#endregion
 			#region IEnumerable implementation
