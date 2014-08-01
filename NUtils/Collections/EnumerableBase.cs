@@ -25,6 +25,9 @@ namespace NUtils.Collections {
 	/// A basic implementation of <see cref="T:IEnumerable`1"/> where the <see cref="M:System.Collections.IEnumerable.GetEnumerator"/>
 	/// is implemented in function of <see cref="M:IEnumerable`1.GetEnumerator"/>.
 	/// </summary>
+	/// <typeparam name='TElement'>
+	/// The type of elements emitted by the <see cref="T:IEnumerable`1"/>.
+	/// </typeparam>
 	public abstract class EnumerableBase<TElement> : IEnumerable<TElement> {
 
 		#region Constructors

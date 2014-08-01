@@ -26,7 +26,7 @@ namespace NUtils.Collections {
 	/// A wrapper that wraps a twodimensional array to a <see cref="T:IList`1"/> of <see cref="T:IList`1"/> instances.
 	/// </summary>
 	/// <typeparam name='T'>The type of elements over which the array is defined.</typeparam>
-	public class Array2Wrapper<T> : EnumerableBase<IList<T>>,IMultiList2<T> {
+	public class Array2Wrapper<T> : CollectionBase<IList<T>>,IMultiList2<T> {
 
 		#region Fields
 		/// <summary>
@@ -57,7 +57,7 @@ namespace NUtils.Collections {
 		/// Gets the number of elements contained in the <see cref="T:ICollection`1" />.
 		/// </summary>
 		/// <value>The number of elements contained in the <see cref="T:ICollection`1" />.</value>
-		public int Count {
+		public override int Count {
 			get {
 				return this.data.GetLength (0x00);
 			}
@@ -71,7 +71,7 @@ namespace NUtils.Collections {
 		/// <remarks>
 		/// <para>The elements on this level are readonly, the value is always <c>true</c>.</para>
 		/// </remarks>
-		public bool IsReadOnly {
+		public override bool IsReadOnly {
 			get {
 				return true;
 			}
@@ -100,20 +100,12 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region ICollection implementation
-		public void Add (IList<T> item) {
+		public override void Add (IList<T> item) {
 			throw new InvalidOperationException ();
 		}
 
-		public void Clear () {
+		public override void Clear () {
 			throw new InvalidOperationException ();
-		}
-
-		public bool Contains (IList<T> item) {
-			throw new NotImplementedException ();//TODO
-		}
-
-		public void CopyTo (IList<T>[] array, int arrayIndex) {
-			throw new NotImplementedException ();//TODO
 		}
 
 		/// <summary>
@@ -124,7 +116,7 @@ namespace NUtils.Collections {
 		/// assignable to the <see cref="T:IList`1" />.</exception>
 		/// <exception cref="InvalidOperationException">Always thrown.</exception>
 		/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
-		public bool Remove (IList<T> item) {
+		public override bool Remove (IList<T> item) {
 			throw new InvalidOperationException ();
 		}
 		#endregion
@@ -143,7 +135,7 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region Inner class
-		private class Row : EnumerableBase<T>, IList<T> {
+		private class Row : CollectionBase<T>, IList<T> {
 
 			#region Fields
 			/// <summary>
@@ -177,20 +169,9 @@ namespace NUtils.Collections {
 			/// Gets the number of elements contained in the <see cref="T:ICollection`1" />.
 			/// </summary>
 			/// <value>The number of elements contained in the <see cref="T:ICollection`1" />.</value>
-			public int Count {
+			public override int Count {
 				get {
 					return this.data.GetLength (0x01);
-				}
-			}
-
-			/// <summary>
-			/// Gets a value indicating whether the <see cref="T:ICollection`1" /> is read-only.
-			/// </summary>
-			/// <value><c>true</c> if the <see cref="T:ICollection`1" /> is read-only;
-			/// otherwise, <c>false</c>.</value>
-			public bool IsReadOnly {
-				get {
-					return false;
 				}
 			}
 			#endregion
@@ -220,20 +201,12 @@ namespace NUtils.Collections {
 			}
 			#endregion
 			#region ICollection implementation
-			public void Add (T item) {
+			public override void Add (T item) {
 				throw new InvalidOperationException ();
 			}
 
-			public void Clear () {
+			public override void Clear () {
 				throw new InvalidOperationException ();
-			}
-
-			public bool Contains (T item) {
-				throw new NotImplementedException ();//TODO
-			}
-
-			public void CopyTo (T[] array, int arrayIndex) {
-				throw new NotImplementedException ();//TODO
 			}
 
 			/// <summary>
@@ -244,7 +217,7 @@ namespace NUtils.Collections {
 			/// assignable to the <see cref="T:IList`1" />.</exception>
 			/// <exception cref="InvalidOperationException">Always thrown.</exception>
 			/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
-			public bool Remove (T item) {
+			public override bool Remove (T item) {
 				throw new InvalidOperationException ();
 			}
 			#endregion
