@@ -26,7 +26,7 @@ namespace NUtils.Collections {
 	/// A wrapper that wraps a twodimensional array to a <see cref="T:IList`1"/> of <see cref="T:IList`1"/> instances.
 	/// </summary>
 	/// <typeparam name='T'>The type of elements over which the array is defined.</typeparam>
-	public class Array2Wrapper<T> : IList<IList<T>> {
+	public class Array2Wrapper<T> : EnumerableBase<IList<T>>,IMultiList2<T> {
 
 		#region Fields
 		/// <summary>
@@ -34,13 +34,112 @@ namespace NUtils.Collections {
 		/// </summary>
 		private readonly T[,] data;
 		#endregion
+		#region IList implementation
+		/// <summary>
+		/// Gets or sets the element at the specified index.
+		/// </summary>
+		/// <value>The element at the specified index.</value>
+		/// <param name="index">The zero-based index of the element to get.</param>
+		/// <exception cref="T:ArgumentOutOfRangeException"><paramref name="index" /> is not a valid index
+		/// in the <see cref="T:IList`1" />.</exception>
+		/// <exception cref="T:NotSupportedException">Always thrown, if the property is set.</exception>
+		public IList<T> this [int index] {
+			get {
+				return new Row (this.data, index);
+			}
+			set {
+				throw new NotSupportedException ();
+			}
+		}
+		#endregion
+		#region ICollection implementation
+		/// <summary>
+		/// Gets the number of elements contained in the <see cref="T:ICollection`1" />.
+		/// </summary>
+		/// <value>The number of elements contained in the <see cref="T:ICollection`1" />.</value>
+		public int Count {
+			get {
+				return this.data.GetLength (0x00);
+			}
+		}
+
+		/// <summary>
+		/// Gets a value indicating whether the <see cref="T:ICollection`1" /> is read-only.
+		/// </summary>
+		/// <value><c>true</c> if the <see cref="T:ICollection`1" /> is read-only;
+		/// otherwise, <c>false</c>.</value>
+		/// <remarks>
+		/// <para>The elements on this level are readonly, the value is always <c>true</c>.</para>
+		/// </remarks>
+		public bool IsReadOnly {
+			get {
+				return true;
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Array2Wrapper`1"/> class with the given <paramref name="data"/>.
+		/// Initializes a new instance of the <see cref="T:Array2Wrapper`1"/> class with the given <paramref name="data"/>.
 		/// </summary>
 		/// <param name="data">The given data over which the wrapper is defined.</param>
 		public Array2Wrapper (T[,] data) {
 			this.data = data;
+		}
+		#endregion
+		#region IList implementation
+		public int IndexOf (IList<T> item) {
+			throw new NotImplementedException ();//TODO
+		}
+
+		public void Insert (int index, IList<T> item) {
+			throw new InvalidOperationException ();
+		}
+
+		public void RemoveAt (int index) {
+			throw new InvalidOperationException ();
+		}
+		#endregion
+		#region ICollection implementation
+		public void Add (IList<T> item) {
+			throw new InvalidOperationException ();
+		}
+
+		public void Clear () {
+			throw new InvalidOperationException ();
+		}
+
+		public bool Contains (IList<T> item) {
+			throw new NotImplementedException ();//TODO
+		}
+
+		public void CopyTo (IList<T>[] array, int arrayIndex) {
+			throw new NotImplementedException ();//TODO
+		}
+
+		/// <summary>
+		/// Removes the first occurrence of a specific object from the <see cref="T:IList`1" />.
+		/// </summary>
+		/// <param name="item">The object to remove from the <see cref="T:IList`1" />.</param>
+		/// <exception cref="ArgumentException"><paramref name="item" /> is of a type that is not
+		/// assignable to the <see cref="T:IList`1" />.</exception>
+		/// <exception cref="InvalidOperationException">Always thrown.</exception>
+		/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
+		public bool Remove (IList<T> item) {
+			throw new InvalidOperationException ();
+		}
+		#endregion
+		#region IEnumerable implementation
+		/// <summary>
+		/// Get the <see cref="T:IEnumerator`1"/> that enumerates all the items stored in this <see cref="T:IEumerable`1"/>
+		/// instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerator`1"/> emmitting all items stored in this instance.</returns>
+		public override IEnumerator<IList<T>> GetEnumerator () {
+			T[,] data = this.data;
+			int n = data.GetLength (0x00);
+			for (int i = 0x00; i < n; i++) {
+				yield return new Row (this.data, i);
+			}
 		}
 		#endregion
 		#region Inner class
@@ -96,6 +195,12 @@ namespace NUtils.Collections {
 			}
 			#endregion
 			#region Constructors
+			/// <summary>
+			/// Initializes a new instance of the <see cref="T:Array2Wrapper`1+Row"/> class with a given reference
+			/// to the array and a given index of the <paramref name="row"/>.
+			/// </summary>
+			/// <param name="data">The given array to wrap.</param>
+			/// <param name="row">The index of the row to wrap.</param>
 			public Row (T[,] data, int row) {
 				this.data = data;
 				this.row = row;
@@ -131,6 +236,14 @@ namespace NUtils.Collections {
 				throw new NotImplementedException ();//TODO
 			}
 
+			/// <summary>
+			/// Removes the first occurrence of a specific object from the <see cref="T:IList`1" />.
+			/// </summary>
+			/// <param name="item">The object to remove from the <see cref="T:IList`1" />.</param>
+			/// <exception cref="ArgumentException"><paramref name="item" /> is of a type that is not
+			/// assignable to the <see cref="T:IList`1" />.</exception>
+			/// <exception cref="InvalidOperationException">Always thrown.</exception>
+			/// <remarks>Since the collection has a fixed size, no elements can be removed.</remarks>
 			public bool Remove (T item) {
 				throw new InvalidOperationException ();
 			}

@@ -120,6 +120,7 @@
     <Compile Include="Maths\ProbabilityUtils.cs" />
     <Compile Include="Collections\ArrayWrapper.cs" />
     <Compile Include="Collections\ArrayUtils.cs" />
+    <Compile Include="Collections\MultiLists.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
