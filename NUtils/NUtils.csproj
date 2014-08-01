@@ -109,7 +109,6 @@
     <Compile Include="Functional\FunctionUtils.cs" />
     <Compile Include="Abstract\IExpandComparer.cs" />
     <Compile Include="Collections\ListUtils.cs" />
-    <Compile Include="Maths\ProbabilisticTransitionUtils.cs" />
     <Compile Include="Maths\IDistribution.cs" />
     <Compile Include="Abstract\IFinite.cs" />
     <Compile Include="Maths\IFiniteIndexDistribution.cs" />
@@ -118,6 +117,7 @@
     <Compile Include="Collections\IEnumerables.cs" />
     <Compile Include="Collections\EnumerableCollection.cs" />
     <Compile Include="Maths\FiniteIndexDistribution.cs" />
+    <Compile Include="Maths\ProbabilisticUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

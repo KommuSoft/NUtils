@@ -23,10 +23,32 @@ using System.Collections.Generic;
 
 namespace NUtils.Maths {
 	/// <summary>
-	/// A set of utility functions for <see cref="IProbabilisticTransition"/> instances.
+	/// A set of utility functions related to probabilistic concepts and instances related to distributions,...
 	/// </summary>
-	public static class ProbabilisticTransitionUtils {
+	public static class ProbabilisticUtils {
 
+		#region Tests
+		/// <summary>
+		/// Determines if the given list of probabilities is a valid distribution given the <paramref name="epsilon"/> value.
+		/// </summary>
+		/// <returns><c>true</c> if all probabilistic values are larger than or equal to zero and sum up to one
+		/// (given the <paramref name="epsilon"/> maximum difference); otherwise, <c>false</c>.</returns>
+		/// <param name="probabilities">The given list of probabilistic values to check.</param>
+		/// <param name="epsilon">The maximum difference of the sum to one, optional, by default equal to <c>1e-6d</c>.</param>
+		public static bool IsValidDistribution (this IEnumerable<double> probabilities, double epsilon = 1e-6d) {
+			if (probabilities) {
+				double sum = 0.0d;
+				foreach (double p in probabilities) {
+					if (p < 0.0d) {
+						return false;
+					}
+					sum += p;
+				}
+				return MathUtils.EqualEpsilon (1.0d, sum, epsilon);
+			}
+		}
+		#endregion
+		#region Caching
 		/// <summary>
 		/// Converts the given <see cref="T:IEnumerable`1"/> of probabilistic transitions into a <see cref="SparseProbabilisticTransition"/>
 		/// instance.
@@ -40,6 +62,7 @@ namespace NUtils.Maths {
 		public static SparseProbabilisticTransition ToSparseProbabilisticTransition (this IEnumerable<Tuple<int,int,double>> transitions) {
 			return new SparseProbabilisticTransition (transitions);
 		}
+		#endregion
 	}
 }
 
