@@ -48,17 +48,7 @@ namespace NUtils.Maths {
 		/// </remarks>
 		public virtual bool IsValid {
 			get {
-				double[] val = this.Probabilities;
-				int n = val.Length;
-				double tmp, sum = 0.0d;
-				for (int i = 0x00; i < n; i++) {
-					tmp = val [i];
-					if (tmp < 0.0d) {
-						return false;
-					}
-					sum += tmp;
-				}
-				return MathUtils.EqualEpsilon (sum, 1.0d);
+				return ProbabilisticUtils.IsValidDistribution (this.Probabilities);
 			}
 		}
 		#endregion
