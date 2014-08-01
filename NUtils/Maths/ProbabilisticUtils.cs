@@ -35,8 +35,11 @@ namespace NUtils.Maths {
 		/// (given the <paramref name="epsilon"/> maximum difference); otherwise, <c>false</c>.</returns>
 		/// <param name="probabilities">The given list of probabilistic values to check.</param>
 		/// <param name="epsilon">The maximum difference of the sum to one, optional, by default equal to <c>1e-6d</c>.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="probabilities"/> is not effective, the condition returns <c>false</c>.</para>
+		/// </remarks>
 		public static bool IsValidDistribution (this IEnumerable<double> probabilities, double epsilon = 1e-6d) {
-			if (probabilities) {
+			if (probabilities != null) {
 				double sum = 0.0d;
 				foreach (double p in probabilities) {
 					if (p < 0.0d) {
@@ -45,6 +48,8 @@ namespace NUtils.Maths {
 					sum += p;
 				}
 				return MathUtils.EqualEpsilon (1.0d, sum, epsilon);
+			} else {
+				return false;
 			}
 		}
 		#endregion
