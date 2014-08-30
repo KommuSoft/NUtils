@@ -145,10 +145,4 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
-  <ItemGroup>
-    <ProjectReference Include="..\..\mathnet-numerics\src\Numerics\Numerics.csproj">
-      <Project>{B7CAE5F4-A23F-4438-B5BE-41226618B695}</Project>
-      <Name>Numerics</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

@@ -23,11 +23,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUtils.Maths;
-using MathNet.Numerics.LinearAlgebra.Double;
 using NUtils.IO;
 using NUtils.Collections;
 
 namespace NUtils.ArtificialIntelligence {
+
 	/// <summary>
 	/// An implementation of the <see cref="IHiddenMarkovModel"/> interface
 	/// where the probabilities are stored as 
@@ -194,8 +194,6 @@ namespace NUtils.ArtificialIntelligence {
 					trans [i] = ch2 [j];
 				}
 			}
-			DenseMatrix m = new DenseMatrix (s, s, trans);
-			MathNet.Numerics.LinearAlgebra.Matrix<double> eigen = m.Evd ().EigenVectors;
 		}
 
 		/// <summary>
