@@ -1,5 +1,5 @@
 //
-//  Ordering.cs
+//  IOrd.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,23 +20,29 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.Abstract {
+namespace NUtils.Functional {
+
 	/// <summary>
-	/// An enumeration representing the three possible results of a comparison test: Less Than, Equal or Greather Than.
+	/// An interface representing an ordering relation between two different types of items.
 	/// </summary>
-	public enum Ordering : int {
+	public interface IOrd<in TA,in TB> {
+
 		/// <summary>
-		/// A value of the <see cref="T:Ordering"/> saying the first element was less than the second element.
+		/// Compare the two given items and returns a <see cref="Ordering"/> containing the result of
+		/// the ordering.
 		/// </summary>
-		LT = -0x01,
-		/// <summary>
-		/// A value of the <see cref="T:Ordering"/> saying the first element was equal to the second element.
-		/// </summary>
-		EQ = 0x00,
-		/// <summary>
-		/// A value of the <see cref="T:Ordering"/> saying the first element was greater than the second element.
-		/// </summary>
-		GT = 0x01
+		/// <param name="a">The first item to compare.</param>
+		/// <param name="b">The second item to compare.</param>
+		Ordering Compare (TA a, TB b);
+
+		Func<TB,Ordering> Compare (TA a);
+	}
+
+	/// <summary>
+	/// An interface representing an ordering relation bwetween items of the same type.
+	/// </summary>
+	public interface IOrd <in T> : IOrd<T,T> {
+
 	}
 }
 
