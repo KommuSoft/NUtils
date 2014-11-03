@@ -99,8 +99,6 @@
     <Compile Include="IO\IOUtils.cs" />
     <Compile Include="Functional\Maybe.cs" />
     <Compile Include="Abstract\EqualityFunction.cs" />
-    <Compile Include="Abstract\Ordering.cs" />
-    <Compile Include="Abstract\OrderingFunction.cs" />
     <Compile Include="Tests\EnumerableUtilsTest.cs" />
     <Compile Include="Maths\IProbabilisticTransition.cs" />
     <Compile Include="Maths\SparseProbabilisticTransition.cs" />
@@ -123,6 +121,11 @@
     <Compile Include="Collections\MultiLists.cs" />
     <Compile Include="Collections\CollectionBase.cs" />
     <Compile Include="Collections\ListBase.cs" />
+    <Compile Include="Functional\Ordering.cs" />
+    <Compile Include="Functional\IOrd.cs" />
+    <Compile Include="Functional\OrdBase.cs" />
+    <Compile Include="Functional\LexicographicalOrd.cs" />
+    <Compile Include="Functional\ComparatorOrd.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

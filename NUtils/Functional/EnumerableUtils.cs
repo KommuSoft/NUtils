@@ -27,6 +27,7 @@ using NUtils.Maths;
 using Microsoft.FSharp.Math;
 
 namespace NUtils.Functional {
+
 	/// <summary>
 	/// A utility funcation for <see cref="T:IEnumerable`1"/> lists.
 	/// </summary>
@@ -3099,7 +3100,7 @@ namespace NUtils.Functional {
 		/// A list containing all the elements of the given list <paramref name="list"/> but the elements are ordered according
 		/// to the given comparison function <paramref name="ord"/>. If two objects are equal, they remain in the same order.
 		/// </returns>
-		public static IEnumerable<T> SortBy<T> (this IEnumerable<T> list, OrderingFunction<T> ord) where T : IComparable<T> {
+		public static IEnumerable<T> SortBy<T> (this IEnumerable<T> list, IOrd<T> ord) where T : IComparable<T> {
 			List<T> la = new List<T> (list);
 			List<T> lb = new List<T> (list);
 			int n = la.Count;
@@ -3107,14 +3108,14 @@ namespace NUtils.Functional {
 			return lb;
 		}
 
-		private static void innerMergeSortBy<T> (OrderingFunction<T> ord, List<T> read, List<T> write, int frm, int to) where T : IComparable<T> {
+		private static void innerMergeSortBy<T> (IOrd<T> ord, List<T> read, List<T> write, int frm, int to) where T : IComparable<T> {
 			if (to - frm > 0x02) {
 				int mid = (to + frm) >> 0x01;
 				innerMergeSort (write, read, frm, mid);
 				innerMergeSort (write, read, mid, to);
 				int i = frm, j = mid, k = frm;
 				for (; i < mid && j < to;) {
-					if (ord (read [i], read [j]) == Ordering.GT) {
+					if (ord.Compare (read [i], read [j]) == Ordering.GT) {
 						write [k++] = read [j++];
 					} else {
 						write [k++] = read [i++];
@@ -3128,7 +3129,7 @@ namespace NUtils.Functional {
 				}
 
 			} else if (to - frm >= 0x01) {
-				if (ord (read [frm], read [to - 1]) == Ordering.GT) {
+				if (ord.Compare (read [frm], read [to - 1]) == Ordering.GT) {
 					write [frm] = read [to - 1];
 					write [to - 1] = read [frm];
 				}
@@ -3152,10 +3153,10 @@ namespace NUtils.Functional {
 		/// A lazy generated list containing all the elements from <paramref name="xs"/> with the given item <paramref name="x"/> at the right
 		/// place according to <paramref name="ord"/>.
 		/// </returns>
-		public static IEnumerable<T> InsertBy<T> (this IEnumerable<T> xs, OrderingFunction<T> ord, T x) {
+		public static IEnumerable<T> InsertBy<T> (this IEnumerable<T> xs, IOrd<T> ord, T x) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
 			bool nxt = ie.MoveNext ();
-			while (nxt && ord (ie.Current, x) != Ordering.LT) {
+			while (nxt && ord.Compare (ie.Current, x) != Ordering.LT) {
 				yield return ie.Current;
 				nxt = ie.MoveNext ();
 			}
@@ -3180,12 +3181,12 @@ namespace NUtils.Functional {
 		/// <returns>
 		/// The maximum element of the given list <paramref name="xs"/> by the given ordering function <paramref name="ord"/>.
 		/// </returns>
-		public static T MaximumBy<T> (this IEnumerable<T> xs, OrderingFunction<T> ord) {
+		public static T MaximumBy<T> (this IEnumerable<T> xs, IOrd<T> ord) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
 			ie.MoveNext ();
 			T x = ie.Current;
 			while (ie.MoveNext ()) {
-				if (ord (ie.Current, x) == Ordering.GT) {
+				if (ord.Compare (ie.Current, x) == Ordering.GT) {
 					x = ie.Current;
 				}
 			}
@@ -3205,12 +3206,12 @@ namespace NUtils.Functional {
 		/// <returns>
 		/// The minimum element of the given list <paramref name="xs"/> by the given ordering function <paramref name="ord"/>.
 		/// </returns>
-		public static T MinimumBy<T> (this IEnumerable<T> xs, OrderingFunction<T> ord) {
+		public static T MinimumBy<T> (this IEnumerable<T> xs, IOrd<T> ord) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
 			ie.MoveNext ();
 			T x = ie.Current;
 			while (ie.MoveNext ()) {
-				if (ord (ie.Current, x) == Ordering.LT) {
+				if (ord.Compare (ie.Current, x) == Ordering.LT) {
 					x = ie.Current;
 				}
 			}
