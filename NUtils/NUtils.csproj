@@ -125,7 +125,8 @@
     <Compile Include="Functional\IOrd.cs" />
     <Compile Include="Functional\OrdBase.cs" />
     <Compile Include="Functional\LexicographicalOrd.cs" />
-    <Compile Include="Functional\ComparatorOrd.cs" />
+    <Compile Include="Functional\ComparerOrd.cs" />
+    <Compile Include="Functional\ComparerOrds.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

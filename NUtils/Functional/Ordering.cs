@@ -34,15 +34,15 @@ namespace NUtils.Functional {
 		/// <summary>
 		/// The outcome of the ordering is that the two items are equal.
 		/// </summary>
-		EQ = 0x01,
+		EQ = 0x02,
 		/// <summary>
 		/// The outcome of the ordering is that the first item is greater than the second item.
 		/// </summary>
-		GT = 0x02,
+		GT = 0x04,
 		/// <summary>
 		/// The outcome of the ordering is that the first item is less than the second item.
 		/// </summary>
-		LT = 0x04,
+		LT = 0x01,
 		/// <summary>
 		/// The outcome of the ordering is that the first item is greater than or equal to the second item.
 		/// </summary>

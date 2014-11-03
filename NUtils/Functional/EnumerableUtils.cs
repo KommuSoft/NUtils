@@ -969,6 +969,19 @@ namespace NUtils.Functional {
 		/// <returns>
 		/// The sum of the elements of the given list <paramref name="list"/>.
 		/// </returns>
+		public static int Sum (this IEnumerable<int> list) {
+			return Foldl1 ((a, b) => a + b, list);
+		}
+
+		/// <summary>
+		/// Computes the sum of a finite list of numbers.
+		/// </summary>
+		/// <param name="list">
+		/// The list to compute the sum from.
+		/// </param>
+		/// <returns>
+		/// The sum of the elements of the given list <paramref name="list"/>.
+		/// </returns>
 		public static T Sum<T> (this IEnumerable<T> list) where T : INumeric<T> {
 			return Foldl1 ((a, b) => a.Add (a, b), list);
 		}

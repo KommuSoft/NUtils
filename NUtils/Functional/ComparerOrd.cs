@@ -23,28 +23,48 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 
 namespace NUtils.Functional {
-
 	/// <summary>
 	/// A class that generates a <see cref="T:IOrd`1"/> given a <see cref="T:IComparer`1"/> that mimics its
 	/// behavior.
 	/// </summary>
-	public class ComparatorOrd<TA> : OrdBase<TA> {
+	public class ComparerOrd<TA> : OrdBase<TA> {
 
 		#region private fields
-		private readonly IComparer<TA> comparer;
+		/// <summary>
+		/// The internal comparer to mimic.
+		/// </summary>
+		private readonly Func<TA,TA,int> comparer;
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ComparatorOrd`1"/> class with a given <see cref="T:IComparer`1"/>.
+		/// Initializes a new instance of the <see cref="T:ComparerOrd`1"/> class with a given <see cref="T:IComparer`1"/>.
 		/// </summary>
 		/// <param name="comparer">The given comparer that describes the ordering relation, must be effective.</param>
 		/// <exception cref="ArgumentNullException">If the given comparer is not effective.</exception>
-		public ComparatorOrd (IComparer<TA> comparer) {
+		public ComparerOrd (IComparer<TA> comparer) {
 			if (comparer == null) {
 				throw new ArgumentNullException ("comparer");
 			}
+			Func<TA,TA,int> comparerFunction = comparer.Compare;
+			if (comparerFunction == null) {
+				throw new ArgumentNullException ("comparer");
+			}
 			Contract.EndContractBlock ();
-			this.comparer = comparer;
+			this.comparer = comparer.Compare;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ComparerOrd`1"/> class with a given <see cref="T:Func`3"/> that
+		/// transforms two items into the comparison function.
+		/// </summary>
+		/// <param name="comparerFunction">The given comparer that describes the ordering relation, must be effective.</param>
+		/// <exception cref="ArgumentNullException">If the given comparer is not effective.</exception>
+		public ComparerOrd (Func<TA,TA,int> comparerFunction) {
+			if (comparerFunction == null) {
+				throw new ArgumentNullException ("comparer");
+			}
+			Contract.EndContractBlock ();
+			this.comparer = comparerFunction;
 		}
 		#endregion
 		#region implemented abstract members of OrdBase
@@ -55,7 +75,7 @@ namespace NUtils.Functional {
 		/// <param name="a">The first item to compare.</param>
 		/// <param name="b">The second item to compare.</param>
 		protected override Ordering CompareEffective (TA a, TA b) {
-			int c = this.comparer.Compare (a, b);
+			int c = this.comparer (a, b);
 			if (c < 0x00) {
 				return Ordering.LT;
 			} else if (c > 0x00) {
