@@ -1,5 +1,5 @@
 //
-//  IPath.cs
+//  INondeterministicFiniteAutomaton.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.IPath {
+namespace NUtils {
 
 	/// <summary>
-	/// A path 
+	/// An interface representing a nondeterministic finite automaton.
 	/// </summary>
-	public interface IPath {
-
-		void Evaluate ();
+	public interface INondeterministicFiniteAutomaton {
 	}
 }
-

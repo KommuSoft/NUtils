@@ -65,6 +65,31 @@ namespace NUtils.Functional {
 		public static IEnumerable<T> OrderByDescending<T> (this IEnumerable<T> source, IComparer<T> comparer) {
 			return source.OrderByDescending (FunctionUtils.Identity<T>, comparer);
 		}
+
+		/// <summary>
+		/// Converts the given <see cref="T:IEnumerable`1"/> to a new constructed <see cref="T:LinkedList`1"/>
+		/// </summary>
+		/// <returns>A <see cref="T:LinkedList`1"/> that contains all the elements of the given <paramref name="source"/>
+		/// in the same order.</returns>
+		/// <param name="source">The list of items to convert to a <see cref="T:LinkedList`1"/>.</param>
+		/// <typeparam name="T">The type of items that will be enumerated.</typeparam>
+		/// <remarks>
+		/// <para>
+		/// The given <see cref="T:IEnumerable`1"/> must be finite.
+		/// </para><para>
+		/// If the given <paramref name="source"/> is not effective, the result will not be effective as well.
+		/// </para>
+		/// </remarks>
+		public static LinkedList<T> ToLinkedList<T> (this IEnumerable<T> source) {
+			LinkedList<T> result = null;
+			if (source != null) {
+				result = new LinkedList<T> ();
+				foreach (T si in source) {
+					result.AddLast (si);
+				}
+			}
+			return result;
+		}
 		#endregion
 		#region Basic Extension methods
 		/// <summary>
@@ -329,7 +354,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Enumerate the cross-product of the two given <see cref="IEnumerable`1"/> instances.
+		/// Enumerate the cross-product of the two given <see cref="T:IEnumerable`1"/> instances.
 		/// </summary>
 		/// <param name="source1">The first given list of instances.</param>
 		/// <param name="source2">The second given list of instances.</param>
@@ -341,6 +366,26 @@ namespace NUtils.Functional {
 					yield return new Tuple<T1,T2> (t1, t2);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Checks if the given <paramref name="source"/> contains at least one element (this element can be non-effective).
+		/// </summary>
+		/// <param name="source">The given list to check for.</param>
+		/// <typeparam name="T">The type of the elements in the given list.</typeparam>
+		/// <returns><c>true</c> if the given <paramref name="source"/> contains at least one element; otherwise <c>false</c>.</returns>
+		/// <remarks>
+		/// <para>If the <paramref name="source"/> is not effective, or the corresponding <see cref="T:IEnumerator`1"/>, <c>false</c> is returned.</para>
+		/// <para>If the <see cref="M:IEnumerator`1.MoveNext"/> method throws an error, the error is thrown as well.</para>
+		/// </remarks>
+		public static bool Contains<T> (this IEnumerable<T> source) {
+			if (source != null) {
+				IEnumerator<T> enu = source.GetEnumerator ();
+				if (enu != null) {
+					return enu.MoveNext ();
+				}
+			}
+			return false;
 		}
 		#endregion
 		#region Data.List (Haskell)
