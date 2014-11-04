@@ -22,6 +22,7 @@ using System;
 using System.Linq;
 using System.Diagnostics.Contracts;
 using System.Collections.Generic;
+using NUtils.Functional;
 
 namespace NUtils.Abstract {
 

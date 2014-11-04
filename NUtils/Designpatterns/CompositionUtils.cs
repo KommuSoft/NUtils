@@ -20,10 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using System;
-using ZincOxide.Utils.Abstract;
-using ZincOxide.Exceptions;
 using System.Diagnostics.Contracts;
-using ZincOxide.Utils.Collections;
+using NUtils.Abstract;
+using NUtils.Collections;
 
 namespace NUtils.Designpatterns {
 
