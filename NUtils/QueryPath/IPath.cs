@@ -36,6 +36,16 @@ namespace NUtils.QueryPath {
 		/// <returns>A <see cref="T:IEnumerable`1"/> that contains all possible nodes in the tree that match
 		/// the path specifications. This will in many cases be evaluated lazily.</returns>
 		IEnumerable<T> Evaluate (T tree);
+
+		/// <summary>
+		/// Compiles this <see cref="T:IPath`1"/> instance into an NFA to evaluate trees.
+		/// </summary>
+		/// <remarks>
+		/// <para>In case this method has not been called before the <see cref="M:Evaluate"/> method
+		/// has been called, the method will be called automatically.</para>
+		/// <para>After compilation, the path cannot be modified any further.</para>
+		/// </remarks>
+		void Compile ();
 	}
 }
 

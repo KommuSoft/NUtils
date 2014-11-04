@@ -1,10 +1,10 @@
 //
-//  INondeterministicFiniteAutomaton.cs
+//  INameId.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2014 Willem Van Onsem
+//  Copyright (c) 2013 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,16 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace NUtils {
+namespace ZincOxide.Utils.Abstract {
 
 	/// <summary>
-	/// An interface representing a nondeterministic finite automaton.
+	/// An interface that describes that the instance contains both a name (<see cref="IName.Name"/>) and an
+	/// identifier (<see cref="IId.Id"/>).
 	/// </summary>
-	public interface INondeterministicFiniteAutomaton {
-
-		private class Node
-
+	public interface INameId : IName, IId {
 	}
+
 }
+

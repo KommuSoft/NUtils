@@ -146,6 +146,17 @@
     <Compile Include="Abstract\QueryUtils.cs" />
     <Compile Include="QueryPath\PathNodeBase.cs" />
     <Compile Include="QueryPath\DeepPath.cs" />
+    <Compile Include="QueryPath\PathBase.cs" />
+    <Compile Include="Abstract\ITag.cs" />
+    <Compile Include="Abstract\IdBase.cs" />
+    <Compile Include="Abstract\IId.cs" />
+    <Compile Include="Abstract\IName.cs" />
+    <Compile Include="Abstract\INameId.cs" />
+    <Compile Include="Abstract\NameBase.cs" />
+    <Compile Include="Abstract\NameContract.cs" />
+    <Compile Include="Abstract\NameIdBase.cs" />
+    <Compile Include="Abstract\NameShadow.cs" />
+    <Compile Include="Abstract\TagBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

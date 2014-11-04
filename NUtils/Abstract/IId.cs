@@ -1,10 +1,10 @@
 //
-//  INondeterministicFiniteAutomaton.cs
+//  IID.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2014 Willem Van Onsem
+//  Copyright (c) 2013 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,16 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace NUtils {
+namespace ZincOxide.Utils.Abstract {
 
 	/// <summary>
-	/// An interface representing a nondeterministic finite automaton.
+	/// An interface that specifies that this instance contains an identifier: an <see cref="uint"/> that
+	/// acts as a number indicating whether two instances are the same or not.
 	/// </summary>
-	public interface INondeterministicFiniteAutomaton {
+	public interface IId {
 
-		private class Node
+		/// <summary>
+		/// Gets the identifier of this instance.
+		/// </summary>
+		/// <value>
+		/// The identifier of this instance.
+		/// </value>
+		uint Id {
+			get;
+		}
 
 	}
+
 }

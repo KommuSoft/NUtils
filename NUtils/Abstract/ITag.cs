@@ -1,8 +1,8 @@
 //
-//  INondeterministicFiniteAutomaton.cs
+//  ITag.cs
 //
 //  Author:
-//       Willem Van Onsem <vanonsem.willem@gmail.com>
+//       Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
 //
 //  Copyright (c) 2014 Willem Van Onsem
 //
@@ -18,16 +18,20 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-
-namespace NUtils {
+namespace NUtils.Abstract {
 
 	/// <summary>
-	/// An interface representing a nondeterministic finite automaton.
+	/// An interface that describes that this instance contains a tag object.
 	/// </summary>
-	public interface INondeterministicFiniteAutomaton {
+	/// <typeparam name='TTag'>The type of the tag object.</typeparam>
+	public interface ITag<TTag> {
 
-		private class Node
-
+		/// <summary>
+		/// Gets the tag of the object.
+		/// </summary>
+		/// <value>The tag of the object.</value>
+		TTag Tag {
+			get;
+		}
 	}
 }
