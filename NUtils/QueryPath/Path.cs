@@ -40,6 +40,17 @@ namespace NUtils.QueryPath {
 		public Path () {
 		}
 		#endregion
+		#region IPath implementation
+		/// <summary>
+		/// Evaluate the specified tree using this <see cref="T:IPath`1"/> instance and return all possible matches.
+		/// </summary>
+		/// <param name="tree">The given tree to evaluate.</param>
+		/// <returns>A <see cref="T:IEnumerable`1"/> that contains all possible nodes in the tree that match
+		/// the path specifications. This will in many cases be evaluated lazily.</returns>
+		public IEnumerable<T> Evaluate (T tree) {
+			throw new NotImplementedException ();
+		}
+		#endregion
 	}
 }
 
