@@ -21,6 +21,7 @@
 using System;
 
 namespace NUtils.Functional {
+
 	/// <summary>
 	/// A set of utility functions used to generate and combine functions.
 	/// </summary>
@@ -77,6 +78,15 @@ namespace NUtils.Functional {
 		/// <typeparam name="TF">The resulting type of applying the given original and resulting function.</typeparam>
 		public static Func<TX1,TX2,TX3,TF> ShiftRightParameter<TX1,TX2,TX3,TF> (this Func<TX1,TX2,TF> originalFunction) {
 			return (x1,x2,x3) => originalFunction (x1, x2);
+		}
+
+		/// <summary>
+		/// Generate an <see cref="T:Action`1"/> instance where a virtual parameter is introduced.
+		/// </summary>
+		/// <param name="initial">The initial action without parameter that must be parameterized.</param>
+		/// <typeparam name="T">The type of the virtual parameter that must be added.</typeparam>
+		public static Action<T> Parameterize<T> (this Action initial) {
+			return x => initial ();
 		}
 	}
 }

@@ -127,6 +127,13 @@
     <Compile Include="Functional\LexicographicalOrd.cs" />
     <Compile Include="Functional\ComparerOrd.cs" />
     <Compile Include="Functional\ComparerOrds.cs" />
+    <Compile Include="IPath\IPath.cs" />
+    <Compile Include="Designpatterns\CompositionUtils.cs" />
+    <Compile Include="Designpatterns\IComposition.cs" />
+    <Compile Include="Collections\HeadTail.cs" />
+    <Compile Include="Collections\TupleStacks.cs" />
+    <Compile Include="Abstract\NullSafe.cs" />
+    <Compile Include="Functional\StandardFunctions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -139,6 +146,7 @@
     <Folder Include="Collections\" />
     <Folder Include="ArtificialIntelligence\" />
     <Folder Include="IO\" />
+    <Folder Include="IPath\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
