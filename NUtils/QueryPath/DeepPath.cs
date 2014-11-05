@@ -23,10 +23,42 @@ using NUtils.Designpatterns;
 
 namespace NUtils.QueryPath {
 
-	public class DeepPath<T> : IPath<T> where T : IComposition<T> {
+	/// <summary>
+	/// A path element that describes zero or more additional path random path elements deep. Denoted in
+	/// XPath as <c>..</c>.
+	/// </summary>
+	public class DeepPath<T> : PathBase<T> where T : IComposition<T> {
 
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:DeepPath`1"/> class.
+		/// </summary>
 		public DeepPath () {
+		}
+		#endregion
+		#region implemented abstract members of PathBase
+		/// <summary>
+		/// Evaluate the specified tree.
+		/// </summary>
+		/// <param name="tree">Tree.</param>
+		public override System.Collections.Generic.IEnumerable<T> Evaluate (T tree) {
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Generates the NF.
+		/// </summary>
+		/// <returns>The NF.</returns>
+		protected override NondeterministicFiniteAutomaton<int,int> GenerateNFA () {
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Returns a <see cref="string"/> that represents the current <see cref="T:DeepPath`1"/>.
+		/// </summary>
+		/// <returns>A <see cref="string"/> that represents the current <see cref="T:DeepPath`1"/>.</returns>
+		public override string ToString () {
+			return "..";
 		}
 		#endregion
 	}

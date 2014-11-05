@@ -31,12 +31,15 @@ namespace NUtils.QueryPath {
 	/// <see cref="T:IPathNode`1"/> instance that form a path. One can use Kleene stars, deep paths
 	/// and disjunctions as well.
 	/// </summary>
-	public class Path<T> : IPath<T> where T : IComposition<T> {
+	public class Path<T> : PathBase<T> where T : IComposition<T> {
 
 		#region Fields
 		private readonly ICollection<IPath<T>> pathElements;
 		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Path`1"/> class.
+		/// </summary>
 		public Path () {
 		}
 		#endregion
@@ -47,7 +50,24 @@ namespace NUtils.QueryPath {
 		/// <param name="tree">The given tree to evaluate.</param>
 		/// <returns>A <see cref="T:IEnumerable`1"/> that contains all possible nodes in the tree that match
 		/// the path specifications. This will in many cases be evaluated lazily.</returns>
-		public IEnumerable<T> Evaluate (T tree) {
+		public override IEnumerable<T> Evaluate (T tree) {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region implemented abstract members of PathBase
+		/// <summary>
+		/// Generates the NF.
+		/// </summary>
+		/// <returns>The NF.</returns>
+		protected override NondeterministicFiniteAutomaton<int,int> GenerateNFA () {
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Returns a <see cref="string"/> that represents the current <see cref="T:Path`1"/>.
+		/// </summary>
+		/// <returns>A <see cref="string"/> that represents the current <see cref="T:Path`1"/>.</returns>
+		public override string ToString () {
 			throw new NotImplementedException ();
 		}
 		#endregion

@@ -24,7 +24,7 @@ namespace NUtils.Abstract {
 	/// An interface that describes that this instance contains a tag object.
 	/// </summary>
 	/// <typeparam name='TTag'>The type of the tag object.</typeparam>
-	public interface ITag<TTag> {
+	public interface ITag<out TTag> {
 
 		/// <summary>
 		/// Gets the tag of the object.

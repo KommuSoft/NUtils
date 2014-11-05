@@ -157,6 +157,8 @@
     <Compile Include="Abstract\NameIdBase.cs" />
     <Compile Include="Abstract\NameShadow.cs" />
     <Compile Include="Abstract\TagBase.cs" />
+    <Compile Include="Automata\IState.cs" />
+    <Compile Include="Automata\IEdge.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

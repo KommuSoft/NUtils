@@ -33,7 +33,7 @@ namespace NUtils.QueryPath {
 		/// <summary>
 		/// An internal NFA that processes the XPath queries.
 		/// </summary>
-		protected NondeterministicFiniteAutomaton InnerNfa = null;
+		protected NondeterministicFiniteAutomaton<int,int> InnerNfa = null;
 		#endregion
 		#region Constructors
 		/// <summary>
@@ -76,7 +76,7 @@ namespace NUtils.QueryPath {
 		/// <para>The result must guaranteed to be effective.</para>
 		/// <para>This method is only called once.</para>
 		/// </remarks>
-		protected abstract NondeterministicFiniteAutomaton GenerateNFA ();
+		protected abstract NondeterministicFiniteAutomaton<int,int> GenerateNFA ();
 		#endregion
 		#region ToString method
 		/// <summary>

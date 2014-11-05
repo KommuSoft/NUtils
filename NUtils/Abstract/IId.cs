@@ -19,7 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace ZincOxide.Utils.Abstract {
+namespace NUtils.Abstract {
 
 	/// <summary>
 	/// An interface that specifies that this instance contains an identifier: an <see cref="uint"/> that

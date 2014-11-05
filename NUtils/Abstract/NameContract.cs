@@ -21,7 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Utils.Abstract {
+namespace NUtils.Abstract {
 
 	/// <summary>
 	/// A contract class of a <see cref="IName"/> instance.

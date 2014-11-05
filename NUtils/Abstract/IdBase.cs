@@ -18,8 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-namespace ZincOxide.Utils.Abstract {
+namespace NUtils.Abstract {
 
 	/// <summary>
 	/// An implementation of the <see cref="IId"/> interface that automatically assigns a read-only identifer
@@ -28,10 +27,8 @@ namespace ZincOxide.Utils.Abstract {
 	public abstract class IdBase : IId {
 
 		private static uint idDispatcher = 0x00;
-
 		private readonly uint id;
-
-        #region IId implementation
+		#region IId implementation
 		/// <summary>
 		///  Gets the identifier of this instance. 
 		/// </summary>
@@ -43,8 +40,7 @@ namespace ZincOxide.Utils.Abstract {
 				return this.id;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.IdBase"/> class.
@@ -57,7 +53,5 @@ namespace ZincOxide.Utils.Abstract {
 			this.id = idDispatcher++;
 		}
 		#endregion
-
 	}
-
 }

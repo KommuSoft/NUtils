@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Utils.Abstract {
+namespace NUtils.Abstract {
 
 	/// <summary>
 	/// A shadow implementation of the <see cref="IName"/> interface: only very default methods are implemented.

@@ -21,6 +21,7 @@
 using System;
 using NUtils.QueryPath;
 using System.Collections.Generic;
+using NUtils.Designpatterns;
 
 namespace NUtils {
 
@@ -28,7 +29,7 @@ namespace NUtils {
 	/// A basic implementation of the <see cref="T:IPathNode`1"/> interface, for programmer convenience.
 	/// </summary>
 	/// <typeparam name='T'>The type of the nodes on which this <see cref="T:IPathNode`1"/> operates.</typeparam>
-	public abstract class PathNodeBase<T>  : IPathNode<T> {
+	public abstract class PathNodeBase<T>  : IPathNode<T> where T : IComposition<T> {
 
 		#region Constructors
 		/// <summary>
@@ -56,6 +57,19 @@ namespace NUtils {
 			if (Validate (tree)) {
 				yield return tree;
 			}
+		}
+
+		/// <summary>
+		/// Compiles this <see cref="T:IPath`1"/> instance into an NFA to evaluate trees.
+		/// </summary>
+		/// <remarks>
+		/// <para>In case this method has not been called before the <see cref="M:Evaluate"/> method
+		/// has been called, the method will be called automatically.</para>
+		/// <para>After compilation, the path cannot be modified any further.</para>
+		/// <para>Some instances don't compile first: for instance <see cref="T:IPathNode`1"/> instances. In that
+		/// case the compile method does nothing.</para>
+		/// </remarks>
+		public virtual void Compile () {
 		}
 		#endregion
 		#region ToString method

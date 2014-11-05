@@ -1,5 +1,5 @@
 //
-//  DeterministicFiniteAutomaton.cs
+//  IState.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,9 +19,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
 namespace NUtils.Automata {
 
-	public interface IDeterministicFiniteAutomaton {
+	/// <summary>
+	/// An interface describing a state in several kinds of automata.
+	/// </summary>
+	/// <typeparam name='TStateTag'>The type of the tag associated with the state.</typeparam>
+	/// <typeparam name='TEdgeTag'>The type of the tag associated with the edge.</typeparam>
+	/// <remarks>
+	/// <para>The states are not inherently accepting or initial since states can be "reused" by another
+	/// automata that provides a different purpose for this states.</para>
+	/// </remarks>
+	public interface IState<out TStateTag,out TEdgeTag> : ITag<TStateTag> {
 	}
 }
+

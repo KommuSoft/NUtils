@@ -44,6 +44,8 @@ namespace NUtils.QueryPath {
 		/// <para>In case this method has not been called before the <see cref="M:Evaluate"/> method
 		/// has been called, the method will be called automatically.</para>
 		/// <para>After compilation, the path cannot be modified any further.</para>
+		/// <para>Some instances don't compile first: for instance <see cref="T:IPathNode`1"/> instances. In that
+		/// case the compile method does nothing.</para>
 		/// </remarks>
 		void Compile ();
 	}

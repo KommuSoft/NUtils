@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
 namespace NUtils {
 
@@ -26,7 +27,19 @@ namespace NUtils {
 	/// An implementation of the <see cref="INondeterministicFiniteAutomaton"/> interface that uses a number
 	/// of nodes that are linked together.
 	/// </summary>
-	public class NondeterministicFiniteAutomaton {
+	/// <typeparam name='TNodeTag'>The type of the tags that are assigned to the nodes.</typeparam>
+	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
+	public class NondeterministicFiniteAutomaton<TNodeTag,TEdgeTag> {
+
+		#region Inner classes
+		private class Node : TagBase<TNodeTag> {
+
+		}
+
+		private class Edge : TagBase<TEdgeTag> {
+
+		}
+		#endregion
 		#region Constructors
 		public NondeterministicFiniteAutomaton () {
 		}
