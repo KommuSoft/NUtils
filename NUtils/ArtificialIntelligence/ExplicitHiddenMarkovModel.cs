@@ -55,17 +55,6 @@ namespace NUtils.ArtificialIntelligence {
 			}
 		}
 		#endregion
-		#region ILength implementation
-		/// <summary>
-		/// Gets the number of hidden states of the hidden Markov model.
-		/// </summary>
-		/// <value>The number of hidden states of the hidden Markov model.</value>
-		public int Length {
-			get {
-				return this.Probabilities.Length;
-			}
-		}
-		#endregion
 		#region IHiddenMarkovModel implementation
 		/// <summary>
 		/// Get the number of output characters of the hidden Markov model.

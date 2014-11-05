@@ -1272,7 +1272,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Generate a list of length <paramref name="n"/> with <paramref name="x"/> the value of every element. It is an
-		/// instance of the more general <see cref="EnumerableUtils.GenericReplicate"/>, in which <paramref name="n"/> may be
+		/// instance of the more general <see cref="M:EnumerableUtils.GenericReplicate"/>, in which <paramref name="n"/> may be
 		/// of any integral type.
 		/// </summary>
 		/// <param name="n">

@@ -35,6 +35,37 @@ namespace NUtils {
 
 		#region Fields
 		#endregion
+		#region INondeterministicFiniteAutomaton implementation
+		/// <summary>
+		/// Get the number of states in the nondeterminstic finite state automaton.
+		/// </summary>
+		/// <value>The number of nodes in the nondeterminstic finite state automaton.</value>
+		public int NumberOfStates {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		/// <summary>
+		/// Get the number of edges in the nondeterministic finite state automaton.
+		/// </summary>
+		/// <value>The number of edges in the nondeterministic finite state automaton.</value>
+		public int NumberOfEdges {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		/// <summary>
+		/// Gets the tag of the initial state of this nondeterministic finite state automaton.
+		/// </summary>
+		/// <value>The tag corresponding with the initial state of this nondeterministic finite state automaton.</value>
+		public TStateTag InitialStateTag {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`2"/> class.
@@ -43,38 +74,42 @@ namespace NUtils {
 		}
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
+		/// <summary>
+		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</returns>
+		/// <remarks>
+		/// <para>If two states share the same tag, duplicates will be enumerated.</para>
+		/// </remarks>
 		public IEnumerable<TStateTag> StateTags () {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</returns>
 		public IEnumerable<TStateTag> AcceptingStateTags () {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Enumerate all the tags of the associated edges originating form the state(s) with the given <paramref name="statetag"/>
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> that contains the tags of all edges originating from the state(s) associated with the given state tag.</returns>
+		/// <param name="statetag">The given state tag.</param>
 		public IEnumerable<TEdgeTag> GetEdgeTags (TStateTag statetag) {
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Checks if there exists at least one state in this nondeterministic finite state automaton that corresponds with
+		/// the given state tag that is accepting.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is accepting the specified statetag; otherwise, <c>false</c>.</returns>
+		/// <param name="statetag">Statetag.</param>
 		public bool IsAccepting (TStateTag statetag) {
 			throw new NotImplementedException ();
-		}
-
-		public int NumberOfStates {
-			get {
-				throw new NotImplementedException ();
-			}
-		}
-
-		public int NumberOfEdges {
-			get {
-				throw new NotImplementedException ();
-			}
-		}
-
-		public TStateTag InitialStateTag {
-			get {
-				throw new NotImplementedException ();
-			}
 		}
 		#endregion
 	}

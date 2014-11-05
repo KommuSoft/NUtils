@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using NUtils.Collections;
 
 namespace NUtils.Maths {
+
 	/// <summary>
 	/// A basic implementation of the <see cref="IFiniteIndexDistribution"/> interface. A distribution over some
 	/// integers ranging from zero up to a number.
@@ -57,7 +58,7 @@ namespace NUtils.Maths {
 		/// Get the number of elements over which the <see cref="FiniteIndexDistribution"/> is defined.
 		/// </summary>
 		/// <value>The number of elements over which the distribtion is defined.</value>
-		public int Length {
+		public virtual int Length {
 			get {
 				return this.Probabilities.Length;
 			}
