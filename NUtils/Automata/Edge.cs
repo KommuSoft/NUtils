@@ -37,7 +37,7 @@ namespace NUtils.Automata {
 	public class Edge<TStateTag,TEdgeTag> : TagBase<TEdgeTag>, IEdge<TStateTag,TEdgeTag> {
 
 		#region Fields
-		private readonly List<IState<TStateTag, TEdgeTag>> resultingStates;
+		private readonly List<IState<TStateTag, TEdgeTag>> resultingStates = new List<IState<TStateTag, TEdgeTag>> ();
 		#endregion
 		#region IEdge implementation
 		/// <summary>
@@ -60,6 +60,25 @@ namespace NUtils.Automata {
 		/// Initializes a new instance of the <see cref="T:Edge`2"/> class.
 		/// </summary>
 		public Edge () {
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Edge`2"/> class with a give initial list
+		/// of states to which this edge points.
+		/// </summary>
+		/// <param name="resultingStates">An <see cref="T:IEnumerable`1"/> containing <see cref="T:IState`2"/> instances
+		/// representing the states to which this edge points.</param>
+		public Edge (IEnumerable<IState<TStateTag,TEdgeTag>> resultingStates) {
+			this.resultingStates.AddRange (resultingStates);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Edge`2"/> class with a give initial list
+		/// of states to which this edge points.
+		/// </summary>
+		/// <param name="resultingStates">An array containing <see cref="T:IState`2"/> instances
+		/// representing the states to which this edge points.</param>
+		public Edge (params IState<TStateTag,TEdgeTag>[] resultingStates) : this((IEnumerable<IState<TStateTag,TEdgeTag>>) resultingStates) {
 		}
 		#endregion
 	}

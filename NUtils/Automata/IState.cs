@@ -42,7 +42,7 @@ namespace NUtils.Automata {
 		/// state.</value>
 		/// <remarks>
 		/// <para>Edges can be reused by several states: the same edge can occur in the list of edges
-		/// of many <see cref="IState"/> instances.</para>
+		/// of many <see cref="T:IState`2"/> instances.</para>
 		/// </remarks>
 		IEnumerable<IEdge<TStateTag,TEdgeTag>> Edges {
 			get;
