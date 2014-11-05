@@ -1,0 +1,1212 @@
+<html>
+  <head>
+    <title>NUtils.Maths.GraphUtils</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Maths Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:NUtils.Maths.GraphUtils">Overview</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.GraphUtils:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.GraphUtils:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.GraphUtils:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:NUtils.Maths.GraphUtils">GraphUtils  Class</h1>
+    <p class="Summary" id="T:NUtils.Maths.GraphUtils:Summary">
+            A collection of utility methods for graphs and graph-like structures.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:NUtils.Maths.GraphUtils:Signature">public static class  <b>GraphUtils</b></div>
+    </div>
+    <div class="Remarks" id="T:NUtils.Maths.GraphUtils:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:NUtils.Maths.GraphUtils:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:NUtils.Maths.GraphUtils:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.EdgePrefix">EdgePrefix</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            A prefix to generate an edge identifier.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordDiedge">KeywordDiedge</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The directed edge operator in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordDigraph">KeywordDigraph</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The keyword to start the description of a directed in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordEdge">KeywordEdge</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The undirected edge operator in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordEnvDn">KeywordEnvDn</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimter in the DOT language to close an environment.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordEnvUp">KeywordEnvUp</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimeter in the DOT language to open an environment.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordGraph">KeywordGraph</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The keyword to start the description of a graph in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordIdent">KeywordIdent</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The indentation part in the DOT language (when an environment is opened).
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordKeyVal">KeywordKeyVal</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimeter in the DOT language to associate a key with a value.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordLabel">KeywordLabel</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The keyword to label a node or edge in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordOptDn">KeywordOptDn</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimter in the DOT language to close an optional environment.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordOptUp">KeywordOptUp</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimeter in the DOT language to open an optional environment.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordSeparator">KeywordSeparator</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The default separator of items in the DOT language.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.KeywordString">KeywordString</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The delimeter in the DOT language to begin and end a string.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.GraphUtils.NodePrefix">NodePrefix</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            A prefix to generate a node identifier.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32)">DefaultEdgeLabelFunction</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
+            The function used by default to label a edge for the Graphviz visualizer.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32)">DefaultNodeLabelFunction</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
+            The function used by default to label a node for the Graphviz visualizer.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter)">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter)">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter)">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>)<blockquote>
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a>)<blockquote>
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:NUtils.Maths.GraphUtils:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32)">DefaultEdgeLabelFunction Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32):member">
+          <p class="Summary">
+            The function used by default to label a edge for the Graphviz visualizer.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>DefaultEdgeLabelFunction</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> node1, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> node2)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>node1</i>
+              </dt>
+              <dd>The index of the first node of the given edge to label.</dd>
+              <dt>
+                <i>node2</i>
+              </dt>
+              <dd>The index of the second node of the given edge to label.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32):Returns">The generated label for the given edge.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32):Remarks">The label function simply returns an empty string for every edge.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.DefaultEdgeLabelFunction(System.Int32,System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32)">DefaultNodeLabelFunction Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32):member">
+          <p class="Summary">
+            The function used by default to label a node for the Graphviz visualizer.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>DefaultNodeLabelFunction</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> node)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>node</i>
+              </dt>
+              <dd>The index of the given node to label.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32):Returns">The generated label for the node.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32):Remarks">The label function simply returns <tt>"n"</tt> followed by the node's index.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.DefaultNodeLabelFunction(System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.EdgePrefix">EdgePrefix Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.EdgePrefix:member">
+          <p class="Summary">
+            A prefix to generate an edge identifier.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>EdgePrefix</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.EdgePrefix:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.EdgePrefix:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordDiedge">KeywordDiedge Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordDiedge:member">
+          <p class="Summary">
+            The directed edge operator in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordDiedge</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordDiedge:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordDiedge:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordDigraph">KeywordDigraph Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordDigraph:member">
+          <p class="Summary">
+            The keyword to start the description of a directed in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordDigraph</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordDigraph:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordDigraph:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordEdge">KeywordEdge Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordEdge:member">
+          <p class="Summary">
+            The undirected edge operator in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordEdge</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEdge:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEdge:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordEnvDn">KeywordEnvDn Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordEnvDn:member">
+          <p class="Summary">
+            The delimter in the DOT language to close an environment.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordEnvDn</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEnvDn:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEnvDn:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordEnvUp">KeywordEnvUp Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordEnvUp:member">
+          <p class="Summary">
+            The delimeter in the DOT language to open an environment.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordEnvUp</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEnvUp:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordEnvUp:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordGraph">KeywordGraph Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordGraph:member">
+          <p class="Summary">
+            The keyword to start the description of a graph in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordGraph</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordGraph:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordGraph:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordIdent">KeywordIdent Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordIdent:member">
+          <p class="Summary">
+            The indentation part in the DOT language (when an environment is opened).
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordIdent</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordIdent:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordIdent:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordKeyVal">KeywordKeyVal Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordKeyVal:member">
+          <p class="Summary">
+            The delimeter in the DOT language to associate a key with a value.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordKeyVal</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordKeyVal:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordKeyVal:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordLabel">KeywordLabel Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordLabel:member">
+          <p class="Summary">
+            The keyword to label a node or edge in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordLabel</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordLabel:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordLabel:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordOptDn">KeywordOptDn Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordOptDn:member">
+          <p class="Summary">
+            The delimter in the DOT language to close an optional environment.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordOptDn</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordOptDn:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordOptDn:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordOptUp">KeywordOptUp Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordOptUp:member">
+          <p class="Summary">
+            The delimeter in the DOT language to open an optional environment.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordOptUp</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordOptUp:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordOptUp:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordSeparator">KeywordSeparator Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordSeparator:member">
+          <p class="Summary">
+            The default separator of items in the DOT language.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordSeparator</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordSeparator:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordSeparator:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.KeywordString">KeywordString Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.KeywordString:member">
+          <p class="Summary">
+            The delimeter in the DOT language to begin and end a string.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>KeywordString</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordString:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.KeywordString:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.GraphUtils.NodePrefix">NodePrefix Field</h3>
+        <blockquote id="F:NUtils.Maths.GraphUtils.NodePrefix:member">
+          <p class="Summary">
+            A prefix to generate a node identifier.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>NodePrefix</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.NodePrefix:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.GraphUtils.NodePrefix:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter)">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter):Remarks">
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the nodes, the method returns the index
+            the node prefixed with <tt>"n"</tt>.</p>
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter)">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter):Remarks">
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the nodes, the method returns the index
+            the node prefixed with <tt>"n"</tt>.</p>
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter)">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter):member">
+          <p class="Summary">
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a> edges, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter):Parameters">
+            <dl>
+              <dt>
+                <i>edges</i>
+              </dt>
+              <dd>The list of tuples representing the edges.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter):Remarks">
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the nodes, the method returns the index
+            the node prefixed with <tt>"n"</tt>.</p>
+            <p>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a> edges, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>edges</i>
+              </dt>
+              <dd>The list of tuples representing the edges.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> is used to label the edges, the method returns the empty
+            string for each edge.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IDigraph.html">IDigraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a> edgeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+              <dt>
+                <i>edgeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the edges.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IDigraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given <i>graph</i> to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="../NUtils.Maths/IGraph.html">IGraph</a> graph, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a> edgeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>graph</i>
+              </dt>
+              <dd>The given graph to write out.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+              <dt>
+                <i>edgeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the edges.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(NUtils.Maths.IGraph,System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String})">WriteDotStream Method</h3>
+        <blockquote id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):member">
+          <p class="Summary">
+            Writes a dot-notation of the given list of edges to the given <i>writer</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>WriteDotStream</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a> edges, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a> writer, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;int, string&gt;</a> nodeLabelFunction, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;int, int, string&gt;</a> edgeLabelFunction)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Parameters">
+            <dl>
+              <dt>
+                <i>edges</i>
+              </dt>
+              <dd>The list of tuples representing the edges.</dd>
+              <dt>
+                <i>writer</i>
+              </dt>
+              <dd>The writer to write the graph structure to.</dd>
+              <dt>
+                <i>nodeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the nodes.</dd>
+              <dt>
+                <i>edgeLabelFunction</i>
+              </dt>
+              <dd>A function that generates the labels for the edges.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Remarks">All the nodes up to (and including) the maximum enumerated index are nodes. Even if
+            a node is not named explicitly.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.GraphUtils.WriteDotStream(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32}},System.IO.TextWriter,System.Func{System.Int32,System.String},System.Func{System.Int32,System.Int32,System.String}):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

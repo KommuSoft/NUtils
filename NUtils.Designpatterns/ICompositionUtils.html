@@ -1,0 +1,587 @@
+<html>
+  <head>
+    <title>NUtils.Designpatterns.ICompositionUtils</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Designpatterns Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:NUtils.Designpatterns.ICompositionUtils">Overview</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Designpatterns.ICompositionUtils:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Designpatterns.ICompositionUtils:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Designpatterns.ICompositionUtils:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:NUtils.Designpatterns.ICompositionUtils">ICompositionUtils  Class</h1>
+    <p class="Summary" id="T:NUtils.Designpatterns.ICompositionUtils:Summary">
+            A set of utility methods related to the composite pattern.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:NUtils.Designpatterns.ICompositionUtils:Signature">public static class  <b>ICompositionUtils</b></div>
+    </div>
+    <div class="Remarks" id="T:NUtils.Designpatterns.ICompositionUtils:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:NUtils.Designpatterns.ICompositionUtils:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:NUtils.Designpatterns.ICompositionUtils:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0})">Blanket&lt;TChildren&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a></nobr><blockquote>
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>predicate</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0})">Blanket&lt;TChildren&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a></nobr><blockquote>
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>enumerate</i> predicate,
+            but nodes are only expanded if the given <i>expand</i> predicate.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0)">Descendants&lt;TChildren&gt;</a>
+                  </b>(<i>this</i> <i title="The type of the children and descendants of the .">TChildren</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a></nobr><blockquote>
+            Enumerate all the descendants of the given <i>root</i> item of the composite pattern.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0})">DoubleBlanket&lt;TEnv,TChild&gt;</a>
+                  </b>(<i>this</i> <i title="The type of the elements to be enumerated.">TChild</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChild&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChild&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TEnv&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TEnv, TChild&gt;&gt;</a></nobr><blockquote>
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>enumerate</i> predicate,
+            but nodes are only expanded if the given <i>expand</i> predicate. Descendants are enumerated with an "environment":
+            the closest descendant of type <i>TEnv</i> that satisfies the <i>environment</i> predicate.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0)">TypeBlanket&lt;TChildren,TType&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TType&gt;</a></nobr><blockquote>
+            Enumerate the closests descendants of <i>root</i> that are of the given <i>TType</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0)">UniqueDescendants&lt;TChildren&gt;</a>
+                  </b>(<i>this</i> <i title="The type of the children and descendants of the .">TChildren</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a></nobr><blockquote>
+            Enumerate all the unique descendants of the given <i>root</i> item of the composite pattern.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:NUtils.Designpatterns.ICompositionUtils:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0})">Blanket&lt;TChildren&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):member">
+          <p class="Summary">
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>predicate</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a> <b>Blanket&lt;TChildren&gt;</b> (<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i> root, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a> predicate)<br /> where TChildren : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChildren&gt;</a></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):Type Parameters">
+            <dl>
+              <dt>
+                <i>TChildren</i>
+              </dt>
+              <dd>The type of elements over which the composite pattern enumerates.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The given root that provides the descendants.</dd>
+              <dt>
+                <i>predicate</i>
+              </dt>
+              <dd>The predicate that should be satisfied in order to return a descendant.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0}):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0})">Blanket&lt;TChildren&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):member">
+          <p class="Summary">
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>enumerate</i> predicate,
+            but nodes are only expanded if the given <i>expand</i> predicate.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a> <b>Blanket&lt;TChildren&gt;</b> (<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i> root, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a> expand, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChildren&gt;</a> enumerate)<br /> where TChildren : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChildren&gt;</a></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):Type Parameters">
+            <dl>
+              <dt>
+                <i>TChildren</i>
+              </dt>
+              <dd>The type of elements over which the composite pattern enumerates.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The given root that provides the descendants.</dd>
+              <dt>
+                <i>expand</i>
+              </dt>
+              <dd>A predicate thet determines whether a node will be expanded in the search of descendants.</dd>
+              <dt>
+                <i>enumerate</i>
+              </dt>
+              <dd>A predicate that determines whether a node wukk be ebumerates (given it is searched for).</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Blanket``1(``0,System.Predicate{``0},System.Predicate{``0}):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0)">Descendants&lt;TChildren&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):member">
+          <p class="Summary">
+            Enumerate all the descendants of the given <i>root</i> item of the composite pattern.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a> <b>Descendants&lt;TChildren&gt;</b> (<i>this</i> <i title="The type of the children and descendants of the .">TChildren</i> root)<br /> where TChildren : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChildren&gt;</a></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):Type Parameters">
+            <dl>
+              <dt>
+                <i>TChildren</i>
+              </dt>
+              <dd>The type of the children and descendants of the <i>root</i>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The given root to generate the decendants from.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):Remarks">
+            <p>One is not considered to be a descendant from oneself. The given <i>root</i> is not enumerated.</p>
+            <p>Descendants are enumerated left-to-right and top-to-bottom: a child is generated before the enumeration
+            of its children.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.Descendants``1(``0):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0})">DoubleBlanket&lt;TEnv,TChild&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):member">
+          <p class="Summary">
+            Enumerate the closests descendants of <i>root</i> that match the the given <i>enumerate</i> predicate,
+            but nodes are only expanded if the given <i>expand</i> predicate. Descendants are enumerated with an "environment":
+            the closest descendant of type <i>TEnv</i> that satisfies the <i>environment</i> predicate.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TEnv, TChild&gt;&gt;</a> <b>DoubleBlanket&lt;TEnv, TChild&gt;</b> (<i>this</i> <i title="The type of the elements to be enumerated.">TChild</i> root, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChild&gt;</a> expand, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TChild&gt;</a> enumerate, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TEnv&gt;</a> environment)<br /> where TEnv : class<br /> where TChild : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChild&gt;</a></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):Type Parameters">
+            <dl>
+              <dt>
+                <i>TEnv</i>
+              </dt>
+              <dd>The type of the environment, used to determine the environment "inodes".</dd>
+              <dt>
+                <i>TChild</i>
+              </dt>
+              <dd>The type of the elements to be enumerated.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The root from which the double blanket is calculated.</dd>
+              <dt>
+                <i>expand</i>
+              </dt>
+              <dd>A predicate that determines which node must be expanded.</dd>
+              <dt>
+                <i>enumerate</i>
+              </dt>
+              <dd>A predicate that determines which nodes must be enumerated.</dd>
+              <dt>
+                <i>environment</i>
+              </dt>
+              <dd>A predicate that determines whether an inode is selected as the closest environment.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):Returns">A list of tuples of the environment instance and the associated descendant to be enumerated.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):Remarks">
+            <p>The default value of <i>TEnv</i> is used for items where no environment is yet defined.</p>
+            <p>The root is tested first as a potential environment.</p>
+            <p>It is possible that an element is enumerated with an environment that is equal to itself.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.DoubleBlanket``2(``1,System.Predicate{``1},System.Predicate{``1},System.Predicate{``0}):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0)">TypeBlanket&lt;TChildren,TType&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):member">
+          <p class="Summary">
+            Enumerate the closests descendants of <i>root</i> that are of the given <i>TType</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TType&gt;</a> <b>TypeBlanket&lt;TChildren, TType&gt;</b> (<i>this</i> <i title="The type of elements over which the composite pattern enumerates.">TChildren</i> root)<br /> where TChildren : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChildren&gt;</a><br /> where TType : <i title="The type of elements over which the composite pattern enumerates.">TChildren</i></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):Type Parameters">
+            <dl>
+              <dt>
+                <i>TChildren</i>
+              </dt>
+              <dd>The type of elements over which the composite pattern enumerates.</dd>
+              <dt>
+                <i>TType</i>
+              </dt>
+              <dd>The type of elements that should be returned, specifies the type predicate.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The given root that provides the descendants.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.TypeBlanket``2(``0):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0)">UniqueDescendants&lt;TChildren&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):member">
+          <p class="Summary">
+            Enumerate all the unique descendants of the given <i>root</i> item of the composite pattern.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TChildren&gt;</a> <b>UniqueDescendants&lt;TChildren&gt;</b> (<i>this</i> <i title="The type of the children and descendants of the .">TChildren</i> root)<br /> where TChildren : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;TChildren&gt;</a></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):Type Parameters">
+            <dl>
+              <dt>
+                <i>TChildren</i>
+              </dt>
+              <dd>The type of the children and descendants of the <i>root</i>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):Parameters">
+            <dl>
+              <dt>
+                <i>root</i>
+              </dt>
+              <dd>The given root to generate the decendants from.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):Remarks">
+            <p>One is not considered to be a descendant from oneself. The given <i>root</i> is not enumerated.</p>
+            <p>Descendants are enumerated left-to-right and top-to-bottom: a child is generated before the enumeration
+            of its children.</p>
+            <p>All items are enumerated at their first occurence.</p>
+            <p>This method provides additional speedup because already enumerated items are not expanded anymore.
+            This method is thus more efficient than putting a unique constraint on the output of <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a></p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Designpatterns.ICompositionUtils.UniqueDescendants``1(``0):Version Information">
+            <b>Namespace: </b>NUtils.Designpatterns<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

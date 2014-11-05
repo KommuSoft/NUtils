@@ -1,3 +1,0 @@
-[submodule "mathnet-numerics"]
-	path = mathnet-numerics
-	url = git@github.com:KommuSoft/mathnet-numerics.git

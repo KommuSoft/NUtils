@@ -1,6 +1,0 @@
-#All
-*
-#Exception .gitignore
-!.gitignore
-#and html pages
-!*.htm*

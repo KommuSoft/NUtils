@@ -1,0 +1,478 @@
+<html>
+  <head>
+    <title>NUtils.Maths.TransitionUtils</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Maths Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:NUtils.Maths.TransitionUtils">Overview</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.TransitionUtils:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.TransitionUtils:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Maths.TransitionUtils:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:NUtils.Maths.TransitionUtils">TransitionUtils  Class</h1>
+    <p class="Summary" id="T:NUtils.Maths.TransitionUtils:Summary">
+            A utility class used for functions and methods on <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITransition</a> instances.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:NUtils.Maths.TransitionUtils:Signature">public static class  <b>TransitionUtils</b></div>
+    </div>
+    <div class="Remarks" id="T:NUtils.Maths.TransitionUtils:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:NUtils.Maths.TransitionUtils:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:NUtils.Maths.TransitionUtils:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition)">GetMaximumStronglyConnectedGroupsDistance</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Get the maximim walking distance from any index of the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to
+            its corresonding strongly connected group.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition)">GetStronglyConnectedGroups</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEnumerable&lt;int&gt;&gt;</a></nobr><blockquote>
+            Enumerate the sets of strongly connected groups: indices that form a cycle.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@)">GetStronglyConnectedGroupsDistanceTour</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a>, <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[], <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[], <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[])<blockquote>
+            Calculate for each index of the transition the distance towards its strongly connected group and the
+            tour size of that group.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition)">GetStronlyConnectedPeriod</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Get the maximim walking distance from any index of the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to
+            its corresonding strongly connected group.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition)">ToExplicitTransition</a>
+                  </b>(<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a>)<nobr> : <a href="../NUtils.Maths/ExplicitTransition.html">ExplicitTransition</a></nobr><blockquote>
+            Converts the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to a <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a>. The values
+            are copied.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:NUtils.Maths.TransitionUtils:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition)">GetMaximumStronglyConnectedGroupsDistance Method</h3>
+        <blockquote id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):member">
+          <p class="Summary">
+            Get the maximim walking distance from any index of the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to
+            its corresonding strongly connected group.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>GetMaximumStronglyConnectedGroupsDistance</b> (<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a> transition)</div>
+          <h4 class="Subsection">See Also</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):See Also">
+            <div>
+              <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>
+            </div>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):Parameters">
+            <dl>
+              <dt>
+                <i>transition</i>
+              </dt>
+              <dd>The given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> for which this distance is calculated.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):Returns">The maximum walking distance from any index to a strongly connected group.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetMaximumStronglyConnectedGroupsDistance(NUtils.Maths.ITransition):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition)">GetStronglyConnectedGroups Method</h3>
+        <blockquote id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition):member">
+          <p class="Summary">
+            Enumerate the sets of strongly connected groups: indices that form a cycle.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEnumerable&lt;int&gt;&gt;</a> <b>GetStronglyConnectedGroups</b> (<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a> transition)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition):Parameters">
+            <dl>
+              <dt>
+                <i>transition</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> that contains the indices of strongly connected groups.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition):Remarks">
+            <p>The strongly connected groups are generated lazily: on demand the next group is generated.</p>
+            <p>There is no guarantee on the order of the generated groups, nor on the first element of
+            every group.</p>
+            <p>Singleton groups are generated as well: indices that have a transition to themselves.</p>
+            <p>The algorithm is a special case of Tarjans algorithm especially optimized for the transition
+            functions.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroups(NUtils.Maths.ITransition):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@)">GetStronglyConnectedGroupsDistanceTour Method</h3>
+        <blockquote id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@):member">
+          <p class="Summary">
+            Calculate for each index of the transition the distance towards its strongly connected group and the
+            tour size of that group.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GetStronglyConnectedGroupsDistanceTour</b> (<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a> transition, <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[] distances, <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[] tourLengths, <i>out</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[] initialTours)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@):Parameters">
+            <dl>
+              <dt>
+                <i>transition</i>
+              </dt>
+              <dd>The transition to calculate these values for.</dd>
+              <dt>
+                <i>distances</i>
+              </dt>
+              <dd>An array containing the distances to the corresponding strongly connected groups.</dd>
+              <dt>
+                <i>tourLengths</i>
+              </dt>
+              <dd>An array containing the tour lengths of the corresponding strongly connected groups.</dd>
+              <dt>
+                <i>initialTours</i>
+              </dt>
+              <dd>An array containing the first index of the strongly connected group.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`2</a> containing two arrays. The first array contains the distance
+            to a strongly connected group for the index of the transition. The second index contains
+            the tour size the strongly connected group of the index of the transition.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronglyConnectedGroupsDistanceTour(NUtils.Maths.ITransition,System.Int32[]@,System.Int32[]@,System.Int32[]@):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition)">GetStronlyConnectedPeriod Method</h3>
+        <blockquote id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):member">
+          <p class="Summary">
+            Get the maximim walking distance from any index of the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to
+            its corresonding strongly connected group.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>GetStronlyConnectedPeriod</b> (<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a> transition)</div>
+          <h4 class="Subsection">See Also</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):See Also">
+            <div>
+              <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>
+            </div>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):Parameters">
+            <dl>
+              <dt>
+                <i>transition</i>
+              </dt>
+              <dd>The given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> for which this distance is calculated.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):Returns">The maximum walking distance from any index to a strongly connected group.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.GetStronlyConnectedPeriod(NUtils.Maths.ITransition):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition)">ToExplicitTransition Method</h3>
+        <blockquote id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition):member">
+          <p class="Summary">
+            Converts the given <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> to a <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a>. The values
+            are copied.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="../NUtils.Maths/ExplicitTransition.html">ExplicitTransition</a> <b>ToExplicitTransition</b> (<i>this</i> <a href="../NUtils.Maths/ITransition.html">ITransition</a> transition)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition):Parameters">
+            <dl>
+              <dt>
+                <i>transition</i>
+              </dt>
+              <dd>The transition to convert to an <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition):Returns">An <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> instance that is equivalent to the given transition,
+            but the values are copied.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition):Remarks">This method is mainly used to cache results of implicitly generated transitions.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.TransitionUtils.ToExplicitTransition(NUtils.Maths.ITransition):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>
