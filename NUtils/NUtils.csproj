@@ -164,6 +164,10 @@
     <Compile Include="Collections\IListDictionary.cs" />
     <Compile Include="Functional\EnumeratorUtils.cs" />
     <Compile Include="Automata\Edge.cs" />
+    <Compile Include="Collections\IConcatCollectionView.cs" />
+    <Compile Include="Collections\ConcatCollectionView.cs" />
+    <Compile Include="Collections\IMulticollectionView.cs" />
+    <Compile Include="Collections\MulticollectionViewBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

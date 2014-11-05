@@ -40,6 +40,18 @@ namespace NUtils.Collections {
 		/// <param name="key">The given key to query the dictionary with.</param>
 		/// <exception cref="ArgumentNullException">If the given key is not effective.</exception>
 		IEnumerable<TValue> GetValues (TKey key);
+
+		/// <summary>
+		/// Add all the given <paramref name="values"/> to the dictionary.
+		/// </summary>
+		/// <param name="values">A <see cref="T:IEnumerable`1"/> of <see cref="T:KeyValuePair`2"/> instances that are added to this <see cref="T:IListDictionary`2"/>.</param>
+		/// <exception cref="T:ArgumentNullException"><paramref name="values" /> is null.</exception>
+		/// <remarks>
+		/// <para><see cref="T:KeyValuePair`2"/> instances with a key that is not effective are ignored.</para>
+		/// <para>If the key already exists, the value is added to the list associated with the key. If the value already exists, the value is
+		/// added a second time.</para>
+		/// </remarks>
+		void AddAll (IEnumerable<KeyValuePair<TKey,TValue>> values);
 	}
 }
 

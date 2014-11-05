@@ -85,7 +85,7 @@ namespace NUtils.Collections {
 		/// <value>An <see cref="T:ICollection`1"/> object containing the values in the <see cref="T:ListDictionary`3" /> object.</value>
 		public ICollection<TValue> Values {
 			get {
-				throw new NotImplementedException ();
+				return new ConcatCollectionView<TValue> (this.innerDictionary.Values);
 			}
 		}
 		#endregion

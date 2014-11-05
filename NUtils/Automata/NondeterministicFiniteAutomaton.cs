@@ -19,20 +19,62 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 using NUtils.Abstract;
+using NUtils.Automata;
 
 namespace NUtils {
 
 	/// <summary>
-	/// An implementation of the <see cref="INondeterministicFiniteAutomaton"/> interface that uses a number
+	/// An implementation of the <see cref="T:INondeterministicFiniteAutomaton`2"/> interface that uses a number
 	/// of nodes that are linked together.
 	/// </summary>
-	/// <typeparam name='TNodeTag'>The type of the tags that are assigned to the nodes.</typeparam>
+	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
-	public class NondeterministicFiniteAutomaton<TNodeTag,TEdgeTag> {
+	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
 
+		#region Fields
+		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`2"/> class.
+		/// </summary>
 		public NondeterministicFiniteAutomaton () {
+		}
+		#endregion
+		#region INondeterministicFiniteAutomaton implementation
+		public IEnumerable<TStateTag> StateTags () {
+			throw new NotImplementedException ();
+		}
+
+		public IEnumerable<TStateTag> AcceptingStateTags () {
+			throw new NotImplementedException ();
+		}
+
+		public IEnumerable<TEdgeTag> GetEdgeTags (TStateTag statetag) {
+			throw new NotImplementedException ();
+		}
+
+		public bool IsAccepting (TStateTag statetag) {
+			throw new NotImplementedException ();
+		}
+
+		public int NumberOfStates {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public int NumberOfEdges {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public TStateTag InitialStateTag {
+			get {
+				throw new NotImplementedException ();
+			}
 		}
 		#endregion
 	}

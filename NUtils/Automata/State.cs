@@ -65,6 +65,15 @@ namespace NUtils.Automata {
 		/// <param name="tag">The given tag to associate with this state.</param>
 		public State (TStateTag tag) : base(tag) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:State`2"/> class with a given tag.
+		/// </summary>
+		/// <param name="tag">The given tag to associate with this state.</param>
+		/// <param name="edges">An <see cref="T:IEnumerable`1"/> containing the initial edges stored in this <see cref="T:State`2"/>.</param>
+		public State (TStateTag tag, IEnumerable<IEdge<TStateTag,TEdgeTag>> edges) : this(tag) {
+			//this.edgeMap.
+		}
 		#endregion
 		#region IState implementation
 		/// <summary>
