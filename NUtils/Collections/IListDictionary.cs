@@ -28,8 +28,7 @@ namespace NUtils.Collections {
 	/// </summary>
 	/// <typeparam name='TKey'>The type of the keys of the dictionary.</typeparam>
 	/// <typeparam name='TValue'>The type of the values of the dictionary.</typeparam>
-	public interface IListDictionary<TKey,TValue,TCollection> : IDictionary<TKey,TValue>
-	    where TCollection : ICollection<TValue>, new() {
+	public interface IListDictionary<TKey,TValue> : IDictionary<TKey,TValue> {
 
 		/// <summary>
 		/// Get the list of values associated with the given <paramref name="key"/>.

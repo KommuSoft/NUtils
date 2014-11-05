@@ -34,8 +34,8 @@ namespace NUtils.Collections {
 	/// <typeparam name='TValue'>The type of the values of the dictionary.</typeparam>
 	/// <typeparam name='TCollection'>The type of collections that store entries in the dictionary (necessary if more
 	/// than one value is added).</typeparam>
-	public class ListDictionary<TKey,TValue,TCollection> : IListDictionary<TKey,TValue,TCollection>
-	where TCollection : ICollection<TValue>, new() {
+	public class ListDictionary<TKey,TValue,TCollection> : IListDictionary<TKey,TValue>
+	    where TCollection : ICollection<TValue>, new() {
 
 		#region Fields
 		/// <summary>
@@ -314,6 +314,25 @@ namespace NUtils.Collections {
 		/// describing all keys and associative values.</returns>
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
 			return this.GetEnumerator ();
+		}
+		#endregion
+	}
+
+	/// <summary>
+	/// An implementation of the <see cref="T:IListDictionary`2"/> interface where the type of collection
+	/// used to store values is <see cref="T:List`1"/>, this to make the collection type parameter of
+	/// <see cref="T:ListDictionary`3"/> optional. This datastructures allows to associate
+	/// multiple <typeparamref name="TValue"/> with the same <typeparamref name="TKey"/>.
+	/// </summary>
+	/// <typeparam name='TKey'>The type of the keys of the dictionary.</typeparam>
+	/// <typeparam name='TValue'>The type of the values of the dictionary.</typeparam>
+	public class ListDictionary<TKey,TValue> : ListDictionary<TKey,TValue,List<TValue>> {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ListDictionary`2"/> class.
+		/// </summary>
+		public ListDictionary () {
 		}
 		#endregion
 	}

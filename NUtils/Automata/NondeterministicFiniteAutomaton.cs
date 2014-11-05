@@ -20,8 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUtils.Abstract;
 using NUtils.Automata;
+using NUtils.Collections;
 
 namespace NUtils {
 
@@ -34,6 +36,9 @@ namespace NUtils {
 	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
 
 		#region Fields
+		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> stateDictionary;
+		private readonly IState<TStateTag,TEdgeTag> initialState;
+		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> acceptingStateDictionary;
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
@@ -42,7 +47,7 @@ namespace NUtils {
 		/// <value>The number of nodes in the nondeterminstic finite state automaton.</value>
 		public int NumberOfStates {
 			get {
-				throw new NotImplementedException ();
+				return this.stateDictionary.Count;
 			}
 		}
 
@@ -52,7 +57,7 @@ namespace NUtils {
 		/// <value>The number of edges in the nondeterministic finite state automaton.</value>
 		public int NumberOfEdges {
 			get {
-				throw new NotImplementedException ();
+				return this.stateDictionary.Values.Sum (x => x.Edges);
 			}
 		}
 
@@ -62,7 +67,7 @@ namespace NUtils {
 		/// <value>The tag corresponding with the initial state of this nondeterministic finite state automaton.</value>
 		public TStateTag InitialStateTag {
 			get {
-				throw new NotImplementedException ();
+				return this.initialState.Tag;
 			}
 		}
 		#endregion
@@ -82,7 +87,7 @@ namespace NUtils {
 		/// <para>If two states share the same tag, duplicates will be enumerated.</para>
 		/// </remarks>
 		public IEnumerable<TStateTag> StateTags () {
-			throw new NotImplementedException ();
+			return this.stateDictionary.Values.Select (x => x.Tag);
 		}
 
 		/// <summary>
@@ -90,7 +95,7 @@ namespace NUtils {
 		/// </summary>
 		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</returns>
 		public IEnumerable<TStateTag> AcceptingStateTags () {
-			throw new NotImplementedException ();
+			return this.acceptingStateDictionary.Values.Select (x => x.Tag);
 		}
 
 		/// <summary>
@@ -99,7 +104,7 @@ namespace NUtils {
 		/// <returns>A <see cref="T:IEnumerable`1"/> that contains the tags of all edges originating from the state(s) associated with the given state tag.</returns>
 		/// <param name="statetag">The given state tag.</param>
 		public IEnumerable<TEdgeTag> GetEdgeTags (TStateTag statetag) {
-			throw new NotImplementedException ();
+			return this.stateDictionary.Values.SelectMany (x => x.Edges).Select (x => x.Tag);
 		}
 
 		/// <summary>
@@ -109,7 +114,7 @@ namespace NUtils {
 		/// <returns><c>true</c> if this instance is accepting the specified statetag; otherwise, <c>false</c>.</returns>
 		/// <param name="statetag">Statetag.</param>
 		public bool IsAccepting (TStateTag statetag) {
-			throw new NotImplementedException ();
+			acceptingStateDictionary.ContainsKey (statetag);
 		}
 		#endregion
 	}
