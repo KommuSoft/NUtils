@@ -57,7 +57,7 @@ namespace NUtils {
 		/// <value>The number of edges in the nondeterministic finite state automaton.</value>
 		public int NumberOfEdges {
 			get {
-				return this.stateDictionary.Values.Sum (x => x.Edges);
+				return this.stateDictionary.Values.Sum (x => x.NumberOfEdges);
 			}
 		}
 
@@ -114,7 +114,7 @@ namespace NUtils {
 		/// <returns><c>true</c> if this instance is accepting the specified statetag; otherwise, <c>false</c>.</returns>
 		/// <param name="statetag">Statetag.</param>
 		public bool IsAccepting (TStateTag statetag) {
-			acceptingStateDictionary.ContainsKey (statetag);
+			return acceptingStateDictionary.ContainsKey (statetag);
 		}
 		#endregion
 	}

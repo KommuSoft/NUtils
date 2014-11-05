@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Linq;
 using NUtils.Abstract;
 using System.Collections.Generic;
 using NUtils.Collections;
@@ -40,7 +41,7 @@ namespace NUtils.Automata {
 		/// <summary>
 		/// The inner <see cref="T:ListDictionary`3"/> that stores the edges based on a tag.
 		/// </summary>
-		private readonly ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>,LinkedList<IEdge<TStateTag,TEdgeTag>>> edgeMap = new ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>,LinkedList<IEdge<TStateTag,TEdgeTag>>> ();
+		private readonly ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> edgeMap = new ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> ();
 		#endregion
 		#region IState implementation
 		/// <summary>
@@ -55,6 +56,16 @@ namespace NUtils.Automata {
 		public IEnumerable<IEdge<TStateTag, TEdgeTag>> Edges {
 			get {
 				return this.edgeMap.Values;
+			}
+		}
+
+		/// <summary>
+		/// Get the number of edges that originate from this state.
+		/// </summary>
+		/// <value>The number of edges that originate from this state.</value>
+		public int NumberOfEdges {
+			get {
+				return this.edgeMap.Count;
 			}
 		}
 		#endregion
@@ -72,7 +83,7 @@ namespace NUtils.Automata {
 		/// <param name="tag">The given tag to associate with this state.</param>
 		/// <param name="edges">An <see cref="T:IEnumerable`1"/> containing the initial edges stored in this <see cref="T:State`2"/>.</param>
 		public State (TStateTag tag, IEnumerable<IEdge<TStateTag,TEdgeTag>> edges) : this(tag) {
-			//this.edgeMap.
+			this.edgeMap.AddAll (edges.Select (x => new KeyValuePair<TEdgeTag,IEdge<TStateTag,TEdgeTag>> (x.Tag, x)));
 		}
 		#endregion
 		#region IState implementation

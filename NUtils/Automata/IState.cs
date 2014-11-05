@@ -49,6 +49,14 @@ namespace NUtils.Automata {
 		}
 
 		/// <summary>
+		/// Get the number of edges that originate from this state.
+		/// </summary>
+		/// <value>The number of edges that originate from this state.</value>
+		int NumberOfEdges {
+			get;
+		}
+
+		/// <summary>
 		/// Get all edges that are associated with the given edge tag.
 		/// </summary>
 		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdge`1"/> instances that are all
