@@ -163,6 +163,7 @@
     <Compile Include="Collections\ListDictionary.cs" />
     <Compile Include="Collections\IListDictionary.cs" />
     <Compile Include="Functional\EnumeratorUtils.cs" />
+    <Compile Include="Automata\Edge.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
