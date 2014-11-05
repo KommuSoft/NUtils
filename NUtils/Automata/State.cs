@@ -1,5 +1,5 @@
 //
-//  IEdge.cs
+//  State.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -25,28 +25,38 @@ using System.Collections.Generic;
 namespace NUtils.Automata {
 
 	/// <summary>
-	/// An interface describing an edge in several kinds of automata.
+	/// A basic implementation of the <see cref="T:IState`2"/> interface.
 	/// </summary>
 	/// <typeparam name='TStateTag'>The type of the tag associated with the state.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tag associated with the edge.</typeparam>
 	/// <remarks>
-	/// <para>The edges have no original state such that they can be "reused" by different
-	/// <see cref="T:IState`2"/> instances in order to reduce memory usage.</para>
+	/// <para>The states are not inherently accepting or initial since states can be "reused" by another
+	/// automata that provides a different purpose for this states.</para>
 	/// </remarks>
-	public interface IEdge<out TStateTag,TEdgeTag> : ITag<TEdgeTag> {
+	public class State<TStateTag,TEdgeTag> : TagBase<TStateTag>, IState<TStateTag,TEdgeTag> {
 
+		#region Fields
+		private readonly IDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> edgeMap = new Dictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> ();
+		#endregion
+		#region Constructors
 		/// <summary>
-		/// Get the list of resulting state(s) after applying the edge.
+		/// Initializes a new instance of the <see cref="T:State`2"/> class with a given tag.
 		/// </summary>
-		/// <value>A <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances to which this
-		/// <see cref="T:IEdge`2"/> refers to.</value>
-		/// <remarks>
-		/// <para>In case of a deterministic finite state automaton, there is exactly one resulting state,
-		/// this can be enforced by deriving from this interface.</para>
-		/// </remarks>
-		IEnumerable<IState<TStateTag,TEdgeTag>> ResultingStates {
-			get;
+		/// <param name="tag">The given tag to associate with this state.</param>
+		public State (TStateTag tag) : base(tag) {
 		}
+		#endregion
+		#region IState implementation
+		public IEnumerable<IEdge<TStateTag, TEdgeTag>> TaggedEdges (TEdgeTag edgetag) {
+			throw new NotImplementedException ();
+		}
+
+		public IEnumerable<IEdge<TStateTag, TEdgeTag>> Edges {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		#endregion
 	}
 }
 

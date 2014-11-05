@@ -159,6 +159,9 @@
     <Compile Include="Abstract\TagBase.cs" />
     <Compile Include="Automata\IState.cs" />
     <Compile Include="Automata\IEdge.cs" />
+    <Compile Include="Automata\State.cs" />
+    <Compile Include="Collections\ListDictionary.cs" />
+    <Compile Include="Collections\IListDictionary.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -1,5 +1,5 @@
 //
-//  NondeterministicFiniteAutomaton.cs
+//  IListDictionary.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Abstract;
+using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Collections {
 
 	/// <summary>
-	/// An implementation of the <see cref="INondeterministicFiniteAutomaton"/> interface that uses a number
-	/// of nodes that are linked together.
+	/// An interface describing a dictionary, but where multiple values can be associated with the same key.
 	/// </summary>
-	/// <typeparam name='TNodeTag'>The type of the tags that are assigned to the nodes.</typeparam>
-	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
-	public class NondeterministicFiniteAutomaton<TNodeTag,TEdgeTag> {
-
-		#region Constructors
-		public NondeterministicFiniteAutomaton () {
-		}
-		#endregion
+	/// <typeparam name='TKey'>The type of the keys of the dictionary.</typeparam>
+	/// <typeparam name='TKey'>The type of the values of the dictionary.</typeparam>
+	public interface IListDictionary<TKey,TValue,TCollection> : IDictionary<TKey,TValue>
+	    where TCollection : ICollection<TValue>, new() {
 	}
 }
 

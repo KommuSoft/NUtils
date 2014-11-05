@@ -1,5 +1,5 @@
 //
-//  NondeterministicFiniteAutomaton.cs
+//  ListDictionary.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Abstract;
 
-namespace NUtils {
+namespace NUtils.Collections {
 
 	/// <summary>
-	/// An implementation of the <see cref="INondeterministicFiniteAutomaton"/> interface that uses a number
-	/// of nodes that are linked together.
+	/// A 
 	/// </summary>
-	/// <typeparam name='TNodeTag'>The type of the tags that are assigned to the nodes.</typeparam>
-	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
-	public class NondeterministicFiniteAutomaton<TNodeTag,TEdgeTag> {
-
-		#region Constructors
-		public NondeterministicFiniteAutomaton () {
+	public class ListDictionary<TKey,TValue> {
+		public ListDictionary () {
 		}
-		#endregion
 	}
 }
 
