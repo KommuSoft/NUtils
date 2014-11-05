@@ -162,6 +162,7 @@
     <Compile Include="Automata\State.cs" />
     <Compile Include="Collections\ListDictionary.cs" />
     <Compile Include="Collections\IListDictionary.cs" />
+    <Compile Include="Functional\EnumeratorUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
