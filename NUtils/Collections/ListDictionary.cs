@@ -19,8 +19,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using NUtils.Functional;
+using System.Data;
 
 namespace NUtils.Collections {
 
@@ -87,11 +89,75 @@ namespace NUtils.Collections {
 			}
 		}
 		#endregion
+		#region IDictionary implementation
+		/// <summary>
+		/// Gets the first value <see cref="T:ListDictionary`3"/> with the specified <paramref name="key"/>.
+		/// </summary>
+		/// <param name="key">The key of the value to get. If the key does not correspond with
+		/// any value, <c>default(TValue)</c> is returned.</param>
+		/// <remarks>
+		/// <para>The first value associated with the <paramref name="key"/> according to the <typeparamref name="TCollection"/>
+		/// is returned.</para>
+		/// <para>The value cannot be set, since there are many potential candidates.</para>
+		/// </remarks>
+		/// <exception cref="ReadOnlyException">If an attempt is made to set the value.</exception>
+		/// <exception cref="T:System.ArgumentNullException"><paramref name="key" /> is null.</exception>
+		public TValue this [TKey key] {
+			get {
+				TCollection col;
+				if (this.innerDictionary.TryGetValue (key, out col)) {
+					return col.FirstOrDefault ();
+				} else {
+					return default(TValue);
+				}
+			}
+			set {
+				throw new ReadOnlyException ();
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:ListDictionary`3"/> class.
 		/// </summary>
 		public ListDictionary () {
+		}
+		#endregion
+		#region IListDictionary implementation
+		/// <summary>
+		/// Get the list of values associated with the given <paramref name="key"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> that lists all the values associated
+		/// with the given <paramref name="key"/>. If no value is associated with the key,
+		/// the <see cref="T:IEnumerable`1"/> is empty.</returns>
+		/// <param name="key">The given key to query the dictionary with.</param>
+		/// <exception cref="ArgumentNullException">If the given key is not effective.</exception>
+		public IEnumerable<TValue> GetValues (TKey key) {
+			TCollection col;
+			if (this.innerDictionary.TryGetValue (key, out col)) {
+				foreach (TValue val in col) {
+					yield return val;
+				}
+			}
+		}
+		#endregion
+		#region IDictionary implementation
+		/// <summary>
+		/// Gets the value associated with the specified key.
+		/// </summary>
+		/// <returns><c>true</c> if the <see cref="T:ListDictionary`3" /> contains an element with the specified key; otherwise, <c>false</c>.</returns>
+		/// <param name="key">The key of the value to get.</param>
+		/// <param name="value">When this method returns <c>true</c>, contains the value associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value" /> parameter. This parameter is passed uninitialized.</param>
+		/// <exception cref="T:System.ArgumentNullException"><paramref name="key" /> is null.</exception>
+		public bool TryGetValue (TKey key, out TValue value) {
+			TCollection col;
+			if (this.innerDictionary.TryGetValue (key, out col)) {
+				value = col.First ();
+				return true;
+			} else {
+				value = default(TValue);
+				return false;
+			}
 		}
 		#endregion
 		#region IDictionary implementation
@@ -147,7 +213,7 @@ namespace NUtils.Collections {
 		/// <summary>
 		/// Adds an object to the end of the <see cref="T:System.Collections.ArrayList" />.
 		/// </summary>
-		/// <param name="value">The <see cref="T:KeyValuePair`2"/> to be added to the <see cref="T:ListDictionary`3" />.</param>
+		/// <param name="item">The <see cref="T:KeyValuePair`2"/> to be added to the <see cref="T:ListDictionary`3" />.</param>
 		public void Add (KeyValuePair<TKey, TValue> item) {
 			this.Add (item.Key, item.Value);
 		}
@@ -186,10 +252,19 @@ namespace NUtils.Collections {
 			this.GetEnumerator ().CopyTo (array, index);
 		}
 
+		/// <summary>
+		/// Remove the given key value pair from this <see cref="T:ListDictionary`3"/>.
+		/// </summary>
+		/// <param name="item">The given <see cref="T:KeyValuePair`2"/> to remove.</param>
+		/// <returns><c>true</c> if the method removed something, <c>false</c> otherwise.</returns>
 		public bool Remove (KeyValuePair<TKey, TValue> item) {
+			TKey key = item.Key;
 			TCollection col;
-			if (this.innerDictionary.TryGetValue (item.Key, out col)) {
+			if (this.innerDictionary.TryGetValue (key, out col)) {
 				if (col.Remove (item.Value)) {
+					if (!col.Contains ()) {
+						this.innerDictionary.Remove (key);
+					}
 					this.count--;
 					return true;
 				}

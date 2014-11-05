@@ -38,6 +38,7 @@ namespace NUtils.Collections {
 		/// with the given <paramref name="key"/>. If no value is associated with the key,
 		/// the <see cref="T:IEnumerable`1"/> is empty.</returns>
 		/// <param name="key">The given key to query the dictionary with.</param>
+		/// <exception cref="ArgumentNullException">If the given key is not effective.</exception>
 		IEnumerable<TValue> GetValues (TKey key);
 	}
 }
