@@ -85,7 +85,7 @@ namespace NUtils.Collections {
 		/// <value>An <see cref="T:ICollection`1"/> object containing the values in the <see cref="T:ListDictionary`3" /> object.</value>
 		public ICollection<TValue> Values {
 			get {
-				return new ConcatCollectionView<TValue> (this.innerDictionary.Values);
+				return new ConcatCollectionView<TValue> (this.innerDictionary.Values.Cast<ICollection<TValue>> ());
 			}
 		}
 		#endregion
@@ -137,6 +137,24 @@ namespace NUtils.Collections {
 			if (this.innerDictionary.TryGetValue (key, out col)) {
 				foreach (TValue val in col) {
 					yield return val;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Add all the given <paramref name="values"/> to the dictionary.
+		/// </summary>
+		/// <param name="values">A <see cref="T:IEnumerable`1"/> of <see cref="T:KeyValuePair`2"/> instances that are added to this <see cref="T:IListDictionary`2"/>.</param>
+		/// <exception cref="T:ArgumentNullException"><paramref name="values" /> is null.</exception>
+		/// <remarks>
+		/// <para><see cref="T:KeyValuePair`2"/> instances with a key that is not effective are ignored.</para>
+		/// <para>If the key already exists, the value is added to the list associated with the key. If the value already exists, the value is
+		/// added a second time.</para>
+		/// </remarks>
+		public void AddAll (IEnumerable<KeyValuePair<TKey, TValue>> values) {
+			foreach (KeyValuePair<TKey, TValue> kvp in values) {
+				if (kvp.Key != null) {
+					this.Add (kvp);
 				}
 			}
 		}

@@ -53,21 +53,21 @@ namespace NUtils.Collections {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:MulticollectionViewBase`1"/> class.
 		/// </summary>
-		protected ConcatCollectionView () {
+		public ConcatCollectionView () {
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:MulticollectionViewBase`1"/> class.
 		/// </summary>
 		/// <param name="viewCollections">An <see cref="T:IEnumerable`1"/> of initial <see cref="T:ICollection`1"/> instances on which this view is based.</param>
-		protected ConcatCollectionView (IEnumerable<ICollection<TElement>> viewCollections) : base(viewCollections) {
+		public ConcatCollectionView (IEnumerable<ICollection<TElement>> viewCollections) : base(viewCollections) {
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:MulticollectionViewBase`1"/> class.
 		/// </summary>
 		/// <param name="viewCollections">An array of initial <see cref="T:ICollection`1"/> instances on which this view is based.</param>
-		protected ConcatCollectionView (params ICollection<TElement>[] viewCollections) : base(viewCollections) {
+		public ConcatCollectionView (params ICollection<TElement>[] viewCollections) : base(viewCollections) {
 		}
 		#endregion
 		#region implemented abstract members of EnumerableBase
