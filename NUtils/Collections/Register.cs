@@ -57,10 +57,20 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region ICollection implementation
+		/// <summary>
+		/// Register the given <paramref name="item"/> in this <see cref="T:Register`3"/>.
+		/// </summary>
+		/// <param name="item">The given item to register in the register.</param>
+		/// <exception cref="T:ArgumentNullException"><paramref name="item" /> is null.</exception>
 		public void Add (TValue item) {
 			this.Add (this.KeyGenerator (item), item);
 		}
 
+		/// <summary>
+		/// Determines whether the current <see cref="T:Register`3"/> contains a specific <paramref name="item"/>.
+		/// </summary>
+		/// <param name="item">The given value to check.</param>
+		/// <returns><c>true</c> if the register contains the given item; otherwise <c>false</c>.</returns>
 		public bool Contains (TValue item) {
 			return this.Contains (this.KeyGenerator (item), item);
 		}
