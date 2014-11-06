@@ -46,15 +46,17 @@ namespace NUtils.Automata {
 		/// <para>The order of the blanken is unique depth-first.</para>
 		/// </remarks>
 		public static IEnumerable<IState<TStateTag,TEdgeTag>> GetBlanket<TStateTag,TEdgeTag> (this IState<TStateTag,TEdgeTag> state, TEdgeTag blankettag) {
+			yield return state;
 			IState<TStateTag,TEdgeTag> current;
 			Queue<IState<TStateTag,TEdgeTag>> todo = new Queue<IState<TStateTag, TEdgeTag>> ();
 			HashSet<IState<TStateTag,TEdgeTag>> seen = new HashSet<IState<TStateTag, TEdgeTag>> ();
+			seen.Add (state);
 			todo.Enqueue (state);
 			while (todo.Count > 0x00) {
 				current = todo.Dequeue ();
-				yield return current;
 				foreach (IState<TStateTag,TEdgeTag> target in current.TaggedEdges(blankettag).SelectMany ((x => x.ResultingStates))) {
 					if (seen.Add (target)) {
+						yield return target;
 						todo.Enqueue (target);
 					}
 				}
