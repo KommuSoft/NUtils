@@ -31,7 +31,7 @@ namespace NUtils.Collections {
 	/// <remarks>
 	/// <para>This class is sealed to increase performance.</para>
 	/// </remarks>
-	public sealed class HeadTail<TElement> : EnumerableBase<TElement>, IHeadTail<TElement>, IEnumerable<TElement> {
+	public sealed class HeadTail<TElement> : EnumerableBase<TElement>, IHeadTail<TElement> {
 
 		#region Fields
 		/// <summary>
