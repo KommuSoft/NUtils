@@ -232,7 +232,7 @@
             automata that provides a different purpose for this states.</div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Automata.State`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -258,6 +258,21 @@
             Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">State`2</a> class with a given tag.
             </td>
               </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}})">State</a>
+                    </b>(<i title="The type of the tag associated with the state.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">State`2</a> class with a given tag.
+            </td>
+              </tr>
             </table>
           </div>
         </div>
@@ -275,7 +290,23 @@
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. 
+            Get the list of edges that originate from this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a>.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.State`2.NumberOfEdges">NumberOfEdges</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            Get the number of edges that originate from this state.
+            </td>
               </tr>
               <tr valign="top">
                 <td>
@@ -309,7 +340,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Automata.State`2.TaggedEdges(`1)">TaggedEdges</a>
-                  </b>(<i title="The type of the tag associated with the edge.">TEdgeTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<i title="The type of the tag associated with the edge.">TEdgeTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote>
+            Get all edges that are associated with the given edge tag.
+            </blockquote></td>
               </tr>
             </table>
           </div>
@@ -318,6 +351,17 @@
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/StateUtils.html#M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1)">GetBlanket&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TEdgeTag</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote>
+            Calculate the blanket of the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> for the given <i>blankettag</i>.
+            </blockquote></td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>static </div>
@@ -433,34 +477,79 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Automata.State`2(`0):Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}})">State Constructor</h3>
+        <blockquote id="C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">State`2</a> class with a given tag.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>State</b> (<i title="The type of the tag associated with the state.">TStateTag</i> tag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a> edges)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}}):Parameters">
+            <dl>
+              <dt>
+                <i>tag</i>
+              </dt>
+              <dd>The given tag to associate with this state.</dd>
+              <dt>
+                <i>edges</i>
+              </dt>
+              <dd>An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing the initial edges stored in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">State`2</a>.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.State`2(`0,System.Collections.Generic.IEnumerable{NUtils.Automata.IEdge{`0,`1}}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Automata.State`2.Edges">Edges Property</h3>
         <blockquote id="P:NUtils.Automata.State`2.Edges:member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Get the list of edges that originate from this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a>.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a> <b>Edges</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Automata.State`2.Edges:Value">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.State`2.Edges:Value">An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEdge`2</a> instance that originate from this
+            state.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.State`2.Edges:Remarks">
+          <div class="SectionBox" id="P:NUtils.Automata.State`2.Edges:Remarks">Edges can be reused by several states: the same edge can occur in the list of edges
+            of many <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.State`2.Edges:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.State`2.NumberOfEdges">NumberOfEdges Property</h3>
+        <blockquote id="P:NUtils.Automata.State`2.NumberOfEdges:member">
+          <p class="Summary">
+            Get the number of edges that originate from this state.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>NumberOfEdges</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.State`2.NumberOfEdges:Value">The number of edges that originate from this state.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.State`2.NumberOfEdges:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.State`2.Edges:Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <div class="SectionBox" id="P:NUtils.Automata.State`2.NumberOfEdges:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Automata.State`2.TaggedEdges(`1)">TaggedEdges Method</h3>
         <blockquote id="M:NUtils.Automata.State`2.TaggedEdges(`1):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Get all edges that are associated with the given edge tag.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdge&lt;TStateTag, TEdgeTag&gt;&gt;</a> <b>TaggedEdges</b> (<i title="The type of the tag associated with the edge.">TEdgeTag</i> edgetag)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -469,22 +558,19 @@
               <dt>
                 <i>edgetag</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The given tag to match.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.State`2.TaggedEdges(`1):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.State`2.TaggedEdges(`1):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEdge`1</a> instances that are all
+            associated with the given <i>edgetag</i>.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Automata.State`2.TaggedEdges(`1):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Automata.State`2.TaggedEdges(`1):Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
       </div>

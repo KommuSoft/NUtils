@@ -232,7 +232,7 @@
             <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in order to reduce memory usage.</div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Automata.Edge`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -251,11 +251,43 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Automata.Edge`2()">Edge</a>
-                    </b>()</div>
+                      <a href="#C:NUtils.Automata.Edge`2(`1)">Edge</a>
+                    </b>(<i title="The type of the tag associated with the edge.">TEdgeTag</i>)</div>
                 </td>
                 <td>
             Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[])">Edge</a>
+                    </b>(<i title="The type of the tag associated with the edge.">TEdgeTag</i>, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[])</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class with a give initial list
+            of states to which this edge points.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}})">Edge</a>
+                    </b>(<i title="The type of the tag associated with the edge.">TEdgeTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class with a give initial list
+            of states to which this edge points.
             </td>
               </tr>
             </table>
@@ -396,20 +428,91 @@
     <div class="Members" id="T:NUtils.Automata.Edge`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Automata.Edge`2()">Edge Constructor</h3>
-        <blockquote id="C:NUtils.Automata.Edge`2():member">
+        <h3 id="C:NUtils.Automata.Edge`2(`1)">Edge Constructor</h3>
+        <blockquote id="C:NUtils.Automata.Edge`2(`1):member">
           <p class="Summary">
             Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>Edge</b> ()</div>
+          <div class="Signature">public  <b>Edge</b> (<i title="The type of the tag associated with the edge.">TEdgeTag</i> tag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.Edge`2(`1):Parameters">
+            <dl>
+              <dt>
+                <i>tag</i>
+              </dt>
+              <dd>The tag associated with this constructed edge.</dd>
+            </dl>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.Edge`2():Remarks">
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.Edge`2():Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[])">Edge Constructor</h3>
+        <blockquote id="C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[]):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class with a give initial list
+            of states to which this edge points.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>Edge</b> (<i title="The type of the tag associated with the edge.">TEdgeTag</i> tag, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[] resultingStates)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[]):Parameters">
+            <dl>
+              <dt>
+                <i>tag</i>
+              </dt>
+              <dd>The tag associated with this constructed edge.</dd>
+              <dt>
+                <i>resultingStates</i>
+              </dt>
+              <dd>An array containing <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances
+            representing the states to which this edge points.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1,NUtils.Automata.IState{`0,`1}[]):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}})">Edge Constructor</h3>
+        <blockquote id="C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Edge`2</a> class with a give initial list
+            of states to which this edge points.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>Edge</b> (<i title="The type of the tag associated with the edge.">TEdgeTag</i> tag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> resultingStates)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}}):Parameters">
+            <dl>
+              <dt>
+                <i>tag</i>
+              </dt>
+              <dd>The tag associated with this constructed edge.</dd>
+              <dt>
+                <i>resultingStates</i>
+              </dt>
+              <dd>An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances
+            representing the states to which this edge points.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.Automata.Edge`2(`1,System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Automata.Edge`2.ResultingStates">ResultingStates Property</h3>
@@ -427,7 +530,7 @@
             this can be enforced by deriving from this interface.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Automata.Edge`2.ResultingStates:Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
       </div>

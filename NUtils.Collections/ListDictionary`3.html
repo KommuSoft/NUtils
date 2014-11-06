@@ -212,7 +212,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Collections.ListDictionary`3:Signature">public class  <b>ListDictionary&lt;TKey, TValue, TCollection&gt;</b> : <a href="../NUtils.Collections/IListDictionary`3.html">IListDictionary&lt;TKey, TValue, TCollection&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IDictionary`2">IDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TValue&gt;</a>, new()</div>
+      <div class="Signature" id="T:NUtils.Collections.ListDictionary`3:Signature">public class  <b>ListDictionary&lt;TKey, TValue, TCollection&gt;</b> : <a href="../NUtils.Collections/IListDictionary`2.html">IListDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IDictionary`2">IDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TValue&gt;</a>, new()</div>
     </div>
     <div class="Remarks" id="T:NUtils.Collections.ListDictionary`3:Docs">
       <h4 class="Subsection">Type Parameters</h4>
@@ -239,7 +239,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Collections.ListDictionary`3:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -376,6 +376,18 @@
                     <a href="#M:NUtils.Collections.ListDictionary`3.Add(`0,`1)">Add</a>
                   </b>(<i title="The type of the keys of the dictionary.">TKey</i>, <i title="The type of the values of the dictionary.">TValue</i>)<blockquote>
             Adds an element with the provided key and value to the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">AddAll</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>)<blockquote>
+            Add all the given <i>values</i> to the dictionary.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -1769,7 +1781,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Collections.ListDictionary`3():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Add(System.Collections.Generic.KeyValuePair{`0,`1})">Add Method</h3>
@@ -1794,7 +1806,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Add(System.Collections.Generic.KeyValuePair{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Add(`0,`1)">Add Method</h3>
@@ -1839,7 +1851,51 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Add(`0,`1):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">AddAll Method</h3>
+        <blockquote id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}):member">
+          <p class="Summary">
+            Add all the given <i>values</i> to the dictionary.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddAll</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a> values)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}):Parameters">
+            <dl>
+              <dt>
+                <i>values</i>
+              </dt>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of <a href="javascript:alert(&quot;Documentation not found.&quot;)">KeyValuePair`2</a> instances that are added to this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IListDictionary`2</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="javascript:alert(&quot;Documentation not found.&quot;)">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>values</i> is null.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}):Remarks">
+            <p>
+              <a href="javascript:alert(&quot;Documentation not found.&quot;)">KeyValuePair`2</a> instances with a key that is not effective are ignored.</p>
+            <p>If the key already exists, the value is added to the list associated with the key. If the value already exists, the value is
+            added a second time.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.AddAll(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}):Version Information">
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Clear()">Clear Method</h3>
@@ -1855,7 +1911,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Clear():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">Contains Method</h3>
@@ -1883,7 +1939,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Contains(System.Collections.Generic.KeyValuePair{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.ContainsKey(`0)">ContainsKey Method</h3>
@@ -1927,7 +1983,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.ContainsKey(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">CopyTo Method</h3>
@@ -1985,7 +2041,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.ListDictionary`3.Count">Count Property</h3>
@@ -2003,7 +2059,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.ListDictionary`3.Count:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.GetEnumerator()">GetEnumerator Method</h3>
@@ -2022,7 +2078,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.GetValues(`0)">GetValues Method</h3>
@@ -2066,7 +2122,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.GetValues(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.ListDictionary`3.IsReadOnly">IsReadOnly Property</h3>
@@ -2085,7 +2141,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.ListDictionary`3.IsReadOnly:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.ListDictionary`3.Item(`0)">Item Property</h3>
@@ -2142,7 +2198,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.ListDictionary`3.Item(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.ListDictionary`3.Keys">Keys Property</h3>
@@ -2160,7 +2216,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.ListDictionary`3.Keys:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">Remove Method</h3>
@@ -2188,7 +2244,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Remove(System.Collections.Generic.KeyValuePair{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.Remove(`0)">Remove Method</h3>
@@ -2233,7 +2289,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.Remove(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.System#Collections#IEnumerable#GetEnumerator()">System.Collections.IEnumerable.GetEnumerator Method</h3>
@@ -2254,7 +2310,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.System#Collections#IEnumerable#GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.ListDictionary`3.TryGetValue(`0,`1@)">TryGetValue Method</h3>
@@ -2302,7 +2358,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.ListDictionary`3.TryGetValue(`0,`1@):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.ListDictionary`3.Values">Values Property</h3>
@@ -2320,7 +2376,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.ListDictionary`3.Values:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5422.30299, 0.1.5422.30374</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
           <hr size="1" />
         </blockquote>
       </div>
