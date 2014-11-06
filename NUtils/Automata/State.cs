@@ -35,7 +35,7 @@ namespace NUtils.Automata {
 	/// <para>The states are not inherently accepting or initial since states can be "reused" by another
 	/// automata that provides a different purpose for this states.</para>
 	/// </remarks>
-	public class State<TStateTag,TEdgeTag> : TagBase<TStateTag>, IState<TStateTag,TEdgeTag> {
+	public class State<TStateTag,TEdgeTag> : TagHashBase<TStateTag>, IState<TStateTag,TEdgeTag> {
 
 		#region Fields
 		/// <summary>

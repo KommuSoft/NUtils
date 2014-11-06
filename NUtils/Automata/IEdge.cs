@@ -33,7 +33,7 @@ namespace NUtils.Automata {
 	/// <para>The edges have no original state such that they can be "reused" by different
 	/// <see cref="T:IState`2"/> instances in order to reduce memory usage.</para>
 	/// </remarks>
-	public interface IEdge<out TStateTag,TEdgeTag> : ITag<TEdgeTag> {
+	public interface IEdge<TStateTag,TEdgeTag> : ITag<TEdgeTag>, ICollection<IState<TStateTag,TEdgeTag>> {
 
 		/// <summary>
 		/// Get the list of resulting state(s) after applying the edge.

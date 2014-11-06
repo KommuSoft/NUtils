@@ -33,7 +33,7 @@ namespace NUtils.Automata {
 	/// <para>The states are not inherently accepting or initial since states can be "reused" by another
 	/// automata that provides a different purpose for this states.</para>
 	/// </remarks>
-	public interface IState<out TStateTag,TEdgeTag> : ITag<TStateTag> {
+	public interface IState<TStateTag,TEdgeTag> : ITag<TStateTag> {
 
 		/// <summary>
 		/// Get the list of edges that originate from this <see cref="T:IState`2"/>.

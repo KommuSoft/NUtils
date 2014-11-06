@@ -36,8 +36,17 @@ namespace NUtils {
 	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
 
 		#region Fields
+		/// <summary>
+		/// A <see cref="T:ListDictionary`2"/> that maps the <typeparamref name="TStateTag"/> instances on the <see cref="T:IState`2"/> instances.
+		/// </summary>
 		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> stateDictionary;
+		/// <summary>
+		/// The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.
+		/// </summary>
 		private readonly IState<TStateTag,TEdgeTag> initialState;
+		/// <summary>
+		/// A <see cref="T:ListDictionary`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
+		/// </summary>
 		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> acceptingStateDictionary;
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
@@ -68,6 +77,16 @@ namespace NUtils {
 		public TStateTag InitialStateTag {
 			get {
 				return this.initialState.Tag;
+			}
+		}
+
+		/// <summary>
+		/// Get the initial state of the non-deterministic finite automaton.
+		/// </summary>
+		/// <value>The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.</value>
+		public IState<TStateTag, TEdgeTag> InitalState {
+			get {
+				return this.initialState;
 			}
 		}
 		#endregion
@@ -115,6 +134,24 @@ namespace NUtils {
 		/// <param name="statetag">Statetag.</param>
 		public bool IsAccepting (TStateTag statetag) {
 			return acceptingStateDictionary.ContainsKey (statetag);
+		}
+
+		/// <summary>
+		/// Check if the given <see cref="T:IState`2"/> is accepted by this non-deterministic finite automaton.
+		/// </summary>
+		/// <returns><c>true</c> if the given <see cref="T:IState`2"/> instance is accepting; otherwise, <c>false</c>.</returns>
+		/// <param name="state">The given state to check for.</param>
+		public bool IsAccepting (IState<TStateTag, TEdgeTag> state) {
+			return (state != null && this.acceptingStateDictionary.Contains (new KeyValuePair<TStateTag,IState<TStateTag,TEdgeTag>> (state.Tag, state)));
+		}
+
+		/// <summary>
+		/// Checks if this non-deterministic finite automaton contains the given <see cref="T:IState`2"/> instance.
+		/// </summary>
+		/// <returns><c>true</c>, if the given <paramref name="state"/> is part of this non-deterministic finite automaton, <c>false</c> otherwise.</returns>
+		/// <param name="state">The given <see cref="T:IState`2"/> to check for.</param>
+		public bool ContainsState (IState<TStateTag, TEdgeTag> state) {
+			return (state != null && this.stateDictionary.Contains (new KeyValuePair<TStateTag,IState<TStateTag,TEdgeTag>> (state.Tag, state)));
 		}
 		#endregion
 	}

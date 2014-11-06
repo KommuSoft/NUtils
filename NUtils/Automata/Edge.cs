@@ -34,9 +34,12 @@ namespace NUtils.Automata {
 	/// <para>The edges have no original state such that they can be "reused" by different
 	/// <see cref="T:IState`2"/> instances in order to reduce memory usage.</para>
 	/// </remarks>
-	public class Edge<TStateTag,TEdgeTag> : TagBase<TEdgeTag>, IEdge<TStateTag,TEdgeTag> {
+	public class Edge<TStateTag,TEdgeTag> : TagHashBase<TEdgeTag>, IEdge<TStateTag,TEdgeTag> {
 
 		#region Fields
+		/// <summary>
+		/// A list of the states to which this edge map.
+		/// </summary>
 		private readonly List<IState<TStateTag, TEdgeTag>> resultingStates = new List<IState<TStateTag, TEdgeTag>> ();
 		#endregion
 		#region IEdge implementation
@@ -82,6 +85,56 @@ namespace NUtils.Automata {
 		/// <param name="resultingStates">An array containing <see cref="T:IState`2"/> instances
 		/// representing the states to which this edge points.</param>
 		public Edge (TEdgeTag tag, params IState<TStateTag,TEdgeTag>[] resultingStates) : this(tag,(IEnumerable<IState<TStateTag,TEdgeTag>>) resultingStates) {
+		}
+		#endregion
+		#region ICollection implementation
+		public void Add (IState<TStateTag, TEdgeTag> item) {
+			throw new NotImplementedException ();
+		}
+
+		public void Clear () {
+			throw new NotImplementedException ();
+		}
+
+		public bool Contains (IState<TStateTag, TEdgeTag> item) {
+			throw new NotImplementedException ();
+		}
+
+		public void CopyTo (IState<TStateTag, TEdgeTag>[] array, int arrayIndex) {
+			throw new NotImplementedException ();
+		}
+
+		public bool Remove (IState<TStateTag, TEdgeTag> item) {
+			throw new NotImplementedException ();
+		}
+
+		public int Count {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public bool IsReadOnly {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		#endregion
+		#region IEnumerable implementation
+		public IEnumerator<IState<TStateTag, TEdgeTag>> GetEnumerator () {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region IEnumerable implementation
+		IEnumerator IEnumerable.GetEnumerator () {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region ITag implementation
+		TEdgeTag ITag<TEdgeTag>.Tag {
+			get {
+				throw new NotImplementedException ();
+			}
 		}
 		#endregion
 	}

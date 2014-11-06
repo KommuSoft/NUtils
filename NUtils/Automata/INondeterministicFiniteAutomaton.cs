@@ -60,6 +60,14 @@ namespace NUtils.Automata {
 		}
 
 		/// <summary>
+		/// Get the initial state of the non-deterministic finite automaton.
+		/// </summary>
+		/// <value>The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.</value>
+		IState<TStateTag,TEdgeTag> InitalState {
+			get;
+		}
+
+		/// <summary>
 		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
 		/// </summary>
 		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</returns>
@@ -82,11 +90,25 @@ namespace NUtils.Automata {
 		IEnumerable<TEdgeTag> GetEdgeTags (TStateTag statetag);
 
 		/// <summary>
+		/// Checks if this non-deterministic finite automaton contains the given <see cref="T:IState`2"/> instance.
+		/// </summary>
+		/// <returns><c>true</c>, if the given <paramref name="state"/> is part of this non-deterministic finite automaton, <c>false</c> otherwise.</returns>
+		/// <param name="state">The given <see cref="T:IState`2"/> to check for.</param>
+		bool ContainsState (IState<TStateTag,TEdgeTag> state);
+
+		/// <summary>
 		/// Checks if there exists at least one state in this nondeterministic finite state automaton that corresponds with
 		/// the given state tag that is accepting.
 		/// </summary>
 		/// <returns><c>true</c> if this instance is accepting the specified statetag; otherwise, <c>false</c>.</returns>
 		/// <param name="statetag">Statetag.</param>
 		bool IsAccepting (TStateTag statetag);
+
+		/// <summary>
+		/// Check if the given <see cref="T:IState`2"/> is accepted by this non-deterministic finite automaton.
+		/// </summary>
+		/// <returns><c>true</c> if the given <see cref="T:IState`2"/> instance is accepting; otherwise, <c>false</c>.</returns>
+		/// <param name="state">The given state to check for.</param>
+		bool IsAccepting (IState<TStateTag,TEdgeTag> state);
 	}
 }

@@ -172,6 +172,10 @@
     <Compile Include="Abstract\ICloneable.cs" />
     <Compile Include="Abstract\CloneBase.cs" />
     <Compile Include="Collections\QueueUtils.cs" />
+    <Compile Include="Abstract\TagHashBase.cs" />
+    <Compile Include="Collections\IRegister.cs" />
+    <Compile Include="Collections\Register.cs" />
+    <Compile Include="Collections\DictionaryUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
