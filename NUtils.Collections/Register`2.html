@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Collections.ListDictionary&lt;TKey,TValue&gt;</title>
+    <title>NUtils.Collections.Register&lt;TKey,TValue&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,58 +190,56 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Collections.ListDictionary`2">Overview</a>
+        <a href="#T:NUtils.Collections.Register`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.ListDictionary`2:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.Register`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.ListDictionary`2:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.Register`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.ListDictionary`2:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.Register`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Collections.ListDictionary`2">ListDictionary&lt;TKey,TValue&gt; Generic Class</h1>
-    <p class="Summary" id="T:NUtils.Collections.ListDictionary`2:Summary">
-            An implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IListDictionary`2</a> interface where the type of collection
-            used to store values is <a href="javascript:alert(&quot;Documentation not found.&quot;)">List`1</a>, this to make the collection type parameter of
-            <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a> optional. This datastructures allows to associate
-            multiple <i>TValue</i> with the same <i>TKey</i>.
+    <h1 class="PageTitle" id="T:NUtils.Collections.Register`2">Register&lt;TKey,TValue&gt; Generic Class</h1>
+    <p class="Summary" id="T:NUtils.Collections.Register`2:Summary">
+            A basic implementation of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a> where the collection is by default <a href="javascript:alert(&quot;Documentation not found.&quot;)">List`1</a>.
+            A register is a datastructure that stores items based on a <i>TKey</i> for fast lookups.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Collections.ListDictionary`2:Signature">public class  <b>ListDictionary&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a></div>
+      <div class="Signature" id="T:NUtils.Collections.Register`2:Signature">public class  <b>Register&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Collections.ListDictionary`2:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.Register`2:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.Collections.ListDictionary`2:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Collections.Register`2:Docs:Type Parameters">
         <dl>
           <dt>
             <i>TKey</i>
           </dt>
-          <dd>The type of the keys of the dictionary.</dd>
+          <dd>The key on which the given items are stored.</dd>
           <dt>
             <i>TValue</i>
           </dt>
-          <dd>The type of the values of the dictionary.</dd>
+          <dd>The items to store in the register.</dd>
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.ListDictionary`2:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.Register`2:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.ListDictionary`2:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Collections.Register`2:Docs:Version Information">
         <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a>.
+								<a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a>.
 							</p>
         <h2 class="Section">Public Constructors</h2>
         <div class="SectionBox" id="Public Constructors">
@@ -255,11 +253,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Collections.ListDictionary`2()">ListDictionary</a>
-                    </b>()</div>
+                      <a href="#C:NUtils.Collections.Register`2(System.Func{`1,`0})">Register</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a>)</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`2</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`3</a> class with a given key generator.
             </td>
               </tr>
             </table>
@@ -308,13 +306,30 @@
                 <td>
                   <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#P:NUtils.Collections.ListDictionary`3.Item(`0)">Item</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>)</td>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>)</td>
                 <td>
                   <i>
-                    <i title="The type of the values of the dictionary.">TValue</i>
+                    <i title="The items to store in the register.">TValue</i>
                   </i>. 
             Gets the first value <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a> with the specified <i>key</i>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="../NUtils.Collections/Register`3.html#P:NUtils.Collections.Register`3.KeyGenerator">KeyGenerator</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a>
+                  </i>. 
+            A function that generates keys given a <i>TValue</i>.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
@@ -370,8 +385,20 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.Add(`1)">Add</a>
+                  </b>(<i title="The items to store in the register.">TValue</i>)<blockquote>
+            Register the given <i>item</i> in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`3</a>.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.Add(`0,`1)">Add</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>, <i title="The type of the values of the dictionary.">TValue</i>)<blockquote>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>, <i title="The items to store in the register.">TValue</i>)<blockquote>
             Adds an element with the provided key and value to the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -418,8 +445,20 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.Contains(`1)">Contains</a>
+                  </b>(<i title="The items to store in the register.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`3</a> contains a specific <i>item</i>.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.ContainsKey(`0)">ContainsKey</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Determines whether the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a> contains an element with the specified <i>key</i>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -442,6 +481,18 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.CopyTo(`1[],System.Int32)">CopyTo</a>
+                  </b>(<i title="The items to store in the register.">TValue</i>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote>
+            Copies the values of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a> to a compatible one-dimensional array, starting at the specified index of the target array.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.GetEnumerator()">GetEnumerator</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerator`1">IEnumerator&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a></nobr><blockquote>
             Enumerate all pairs of a key and its associative values.
@@ -455,7 +506,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.GetValues(`0)">GetValues</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TValue&gt;</a></nobr><blockquote>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TValue&gt;</a></nobr><blockquote>
             Get the list of values associated with the given <i>key</i>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -479,7 +530,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.Remove(`0)">Remove</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Removes the element with the specified <i>key</i> from the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -490,8 +541,20 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.Remove(`1)">Remove</a>
+                  </b>(<i title="The items to store in the register.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Removes the given <i>value</i> from the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a>.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Collections/ListDictionary`3.html#M:NUtils.Collections.ListDictionary`3.TryGetValue(`0,`1@)">TryGetValue</a>
-                  </b>(<i title="The type of the keys of the dictionary.">TKey</i>, <i>out</i> <i title="The type of the values of the dictionary.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i title="The key on which the given items are stored.">TKey</i>, <i>out</i> <i title="The items to store in the register.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Gets the value associated with the specified key.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -502,6 +565,59 @@
         <div class="SectionBox" id="Explicitly Implemented Interface Members">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#Clear()">
+                    <b>ICollection&lt;TValue&gt;.Clear</b>
+                  </a>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_Count()">
+                    <b>ICollection&lt;TValue&gt;.get_Count</b>
+                  </a>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_IsReadOnly()">
+                    <b>ICollection&lt;TValue&gt;.get_IsReadOnly</b>
+                  </a>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/Register`3.html#M:NUtils.Collections.Register`3.System#Collections#Generic#IEnumerable{TValue}#GetEnumerator()">
+                    <b>IEnumerable&lt;TValue&gt;.GetEnumerator</b>
+                  </a>
+                </td>
+                <td>
+            Enumerate all values in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a>.
+             (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>
@@ -614,22 +730,31 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Collections.ListDictionary`2:Members">
+    <div class="Members" id="T:NUtils.Collections.Register`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Collections.ListDictionary`2()">ListDictionary Constructor</h3>
-        <blockquote id="C:NUtils.Collections.ListDictionary`2():member">
+        <h3 id="C:NUtils.Collections.Register`2(System.Func{`1,`0})">Register Constructor</h3>
+        <blockquote id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`2</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`3</a> class with a given key generator.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>ListDictionary</b> ()</div>
+          <div class="Signature">public  <b>Register</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a> keyGenerator)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Parameters">
+            <dl>
+              <dt>
+                <i>keyGenerator</i>
+              </dt>
+              <dd>The key generator associated with this register.</dd>
+            </dl>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.ListDictionary`2():Remarks">
+          <div class="SectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.ListDictionary`2():Version Information">
+          <div class="SectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Version Information">
             <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>

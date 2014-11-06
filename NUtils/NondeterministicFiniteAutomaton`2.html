@@ -234,7 +234,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.NondeterministicFiniteAutomaton`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -267,6 +267,20 @@
         <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.NondeterministicFiniteAutomaton`2.InitalState">InitalState</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a>
+                  </i>. 
+            Get the initial state of the non-deterministic finite automaton.
+            </td>
+              </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
                 <td>
@@ -335,9 +349,33 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="#M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1})">ContainsState</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if this non-deterministic finite automaton contains the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="#M:NUtils.NondeterministicFiniteAutomaton`2.GetEdgeTags(`0)">GetEdgeTags</a>
                   </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TEdgeTag&gt;</a></nobr><blockquote>
             Enumerate all the tags of the associated edges originating form the state(s) with the given <i>statetag</i></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1})">IsAccepting</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Check if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> is accepted by this non-deterministic finite automaton.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -477,7 +515,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2():Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.AcceptingStateTags()">AcceptingStateTags Method</h3>
@@ -495,7 +533,35 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.AcceptingStateTags():Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1})">ContainsState Method</h3>
+        <blockquote id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Checks if this non-deterministic finite automaton contains the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>ContainsState</b> (<a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> to check for.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Returns">
+            <tt>true</tt>, if the given <i>state</i> is part of this non-deterministic finite automaton, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.GetEdgeTags(`0)">GetEdgeTags Method</h3>
@@ -521,7 +587,25 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.GetEdgeTags(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.NondeterministicFiniteAutomaton`2.InitalState">InitalState Property</h3>
+        <blockquote id="P:NUtils.NondeterministicFiniteAutomaton`2.InitalState:member">
+          <p class="Summary">
+            Get the initial state of the non-deterministic finite automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a> <b>InitalState</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.InitalState:Value">The initial <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> of this non-deterministic finite automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.InitalState:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.InitalState:Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`2.InitialStateTag">InitialStateTag Property</h3>
@@ -539,7 +623,35 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.InitialStateTag:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1})">IsAccepting Method</h3>
+        <blockquote id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Check if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> is accepted by this non-deterministic finite automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsAccepting</b> (<a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given state to check for.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Returns">
+            <tt>true</tt> if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance is accepting; otherwise, <tt>false</tt>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(`0)">IsAccepting Method</h3>
@@ -568,7 +680,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.IsAccepting(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`2.NumberOfEdges">NumberOfEdges Property</h3>
@@ -586,7 +698,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.NumberOfEdges:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`2.NumberOfStates">NumberOfStates Property</h3>
@@ -604,7 +716,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`2.NumberOfStates:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`2.StateTags()">StateTags Method</h3>
@@ -620,7 +732,7 @@
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.StateTags():Remarks">If two states share the same tag, duplicates will be enumerated.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`2.StateTags():Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.21074</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
       </div>

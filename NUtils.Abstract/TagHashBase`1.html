@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Abstract.NameIdBase</title>
+    <title>NUtils.Abstract.TagHashBase&lt;TTag&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,42 +190,52 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Abstract Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Abstract.NameIdBase">Overview</a>
+        <a href="#T:NUtils.Abstract.TagHashBase`1">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Abstract.NameIdBase:Signature">Signature</a>
+        <a href="#T:NUtils.Abstract.TagHashBase`1:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Abstract.NameIdBase:Docs">Remarks</a>
+        <a href="#T:NUtils.Abstract.TagHashBase`1:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Abstract.NameIdBase:Members">Member Details</a>
+        <a href="#T:NUtils.Abstract.TagHashBase`1:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Abstract.NameIdBase">NameIdBase  Class</h1>
-    <p class="Summary" id="T:NUtils.Abstract.NameIdBase:Summary">
-            An implementation of the <a href="../NUtils.Abstract/INameId.html">NUtils.Abstract.INameId</a> interface.
+    <h1 class="PageTitle" id="T:NUtils.Abstract.TagHashBase`1">TagHashBase&lt;TTag&gt; Generic Class</h1>
+    <p class="Summary" id="T:NUtils.Abstract.TagHashBase`1:Summary">
+            A basic implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITag`1</a> interface where the hash code is determined by
+            the tag.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Abstract.NameIdBase:Signature">public abstract class  <b>NameIdBase</b> : <a href="../NUtils.Abstract/NameBase.html">NameBase</a>,	<a href="../NUtils.Abstract/INameId.html">INameId</a></div>
+      <div class="Signature" id="T:NUtils.Abstract.TagHashBase`1:Signature">public class  <b>TagHashBase&lt;TTag&gt;</b> : <a href="../NUtils.Abstract/TagBase`1.html">TagBase&lt;TTag&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Abstract.NameIdBase:Docs">
+    <div class="Remarks" id="T:NUtils.Abstract.TagHashBase`1:Docs">
+      <h4 class="Subsection">Type Parameters</h4>
+      <blockquote class="SubsectionBox" id="T:NUtils.Abstract.TagHashBase`1:Docs:Type Parameters">
+        <dl>
+          <dt>
+            <i>TTag</i>
+          </dt>
+          <dd>The type of the tag object of this instance.</dd>
+        </dl>
+      </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Abstract.NameIdBase:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Abstract.TagHashBase`1:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Abstract.NameIdBase:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Abstract.TagHashBase`1:Docs:Version Information">
         <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../NUtils.Abstract/NameBase.html">NameBase</a>.
+								<a href="../NUtils.Abstract/TagBase`1.html">TagBase&lt;TTag&gt;</a>.
 							</p>
         <h2 class="Section">Protected Constructors</h2>
         <div class="SectionBox" id="Protected Constructors">
@@ -239,11 +249,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Abstract.NameIdBase(System.String)">NameIdBase</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)</div>
+                      <a href="#C:NUtils.Abstract.TagHashBase`1(`0)">TagHashBase</a>
+                    </b>(<i title="The type of the tag object of this instance.">TTag</i>)</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="../NUtils.Abstract/NameIdBase.html">NUtils.Abstract.NameIdBase</a> class with a given initial name.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagHashBase`1</a> class.
             </td>
               </tr>
             </table>
@@ -254,46 +264,21 @@
           <div class="SubsectionBox">
             <table class="TypeMembers">
               <tr valign="top">
-                <td>[read-only]<div></div></td>
+                <td>
+                  <div>
+                  </div>
+                </td>
                 <td>
                   <b>
-                    <a href="#P:NUtils.Abstract.NameIdBase.Id">Id</a>
+                    <a href="../NUtils.Abstract/TagBase`1.html#P:NUtils.Abstract.TagBase`1.Tag">Tag</a>
                   </b>
                 </td>
                 <td>
                   <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.UInt32">uint</a>
+                    <i title="The type of the tag object of this instance.">TTag</i>
                   </i>. 
-            Gets the identifier of this instance.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div>override </div></td>
-                <td>
-                  <b>
-                    <a href="../NUtils.Abstract/NameBase.html#P:NUtils.Abstract.NameBase.Name">Name</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            Gets the name of this instance.
-             (<i>Inherited from <a href="../NUtils.Abstract/NameBase.html">NameBase</a>.</i>)</td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div>abstract </div></td>
-                <td>
-                  <b>
-                    <a href="../NUtils.Abstract/NameShadow.html#P:NUtils.Abstract.NameShadow.Name">Name</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
-                  </i>. 
-            Gets the name of this instance.
-             (<i>Inherited from <a href="../NUtils.Abstract/NameShadow.html">NameShadow</a>.</i>)</td>
+            Gets the tag of the object.
+             (<i>Inherited from <a href="../NUtils.Abstract/TagBase`1.html">TagBase&lt;TTag&gt;</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -304,45 +289,14 @@
             <table class="TypeMembers">
               <tr valign="top">
                 <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Abstract/NameShadow.html#M:NUtils.Abstract.NameShadow.EqualName(NUtils.Abstract.IName)">EqualName</a>
-                  </b>(<a href="../NUtils.Abstract/IName.html">IName</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Check if the given <a href="../NUtils.Abstract/IName.html">NUtils.Abstract.IName</a> instance has the same <a href="../NUtils.Abstract/NameShadow.html#P:NUtils.Abstract.NameShadow.Name">NameShadow.Name</a> as this instance.
-             (<i>Inherited from <a href="../NUtils.Abstract/NameShadow.html">NameShadow</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
                   <div>override </div>
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils.Abstract/NameBase.html#M:NUtils.Abstract.NameBase.ToString()">ToString</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
-            Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">ZincOxide.Utils.Abstract.NameBase</a>.
-             (<i>Inherited from <a href="../NUtils.Abstract/NameBase.html">NameBase</a>.</i>)</blockquote></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Protected Methods</h2>
-        <div class="SectionBox" id="Protected Methods">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Abstract/NameBase.html#M:NUtils.Abstract.NameBase.SetName(System.String)">SetName</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<blockquote>
-            Sets the stored name in this <a href="../NUtils.Abstract/NameBase.html">NUtils.Abstract.NameBase</a> instance.
-             (<i>Inherited from <a href="../NUtils.Abstract/NameBase.html">NameBase</a>.</i>)</blockquote></td>
+                    <a href="#M:NUtils.Abstract.TagHashBase`1.GetHashCode()">GetHashCode</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Serves as a hash function for a <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagHashBase`1</a> object.
+            </blockquote></td>
               </tr>
             </table>
           </div>
@@ -441,55 +395,49 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Abstract.NameIdBase:Members">
+    <div class="Members" id="T:NUtils.Abstract.TagHashBase`1:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Abstract.NameIdBase(System.String)">NameIdBase Constructor</h3>
-        <blockquote id="C:NUtils.Abstract.NameIdBase(System.String):member">
+        <h3 id="C:NUtils.Abstract.TagHashBase`1(`0)">TagHashBase Constructor</h3>
+        <blockquote id="C:NUtils.Abstract.TagHashBase`1(`0):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="../NUtils.Abstract/NameIdBase.html">NUtils.Abstract.NameIdBase</a> class with a given initial name.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagHashBase`1</a> class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">protected  <b>NameIdBase</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name)</div>
+          <div class="Signature">protected  <b>TagHashBase</b> (<i title="The type of the tag object of this instance.">TTag</i> tag)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Abstract.NameIdBase(System.String):Parameters">
+          <blockquote class="SubsectionBox" id="C:NUtils.Abstract.TagHashBase`1(`0):Parameters">
             <dl>
               <dt>
-                <i>name</i>
+                <i>tag</i>
               </dt>
-              <dd>
-            The given initial name.
-            </dd>
+              <dd>The initial tag of the object.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Abstract.NameIdBase(System.String):Remarks">
-            <p>If no name is given; <tt>null</tt> is used.</p>
-            <p>An identifier is assigned to the instance automatically in a round robin fashion. Therefore
-            the chance that two instances have the same identifier is almost zero.</p>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Abstract.NameIdBase(System.String):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="P:NUtils.Abstract.NameIdBase.Id">Id Property</h3>
-        <blockquote id="P:NUtils.Abstract.NameIdBase.Id:member">
-          <p class="Summary">
-            Gets the identifier of this instance.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.UInt32">uint</a> <b>Id</b>  { get; }</div>
-          <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Abstract.NameIdBase.Id:Value">
-            The identifier of this instance.
-            </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Abstract.NameIdBase.Id:Remarks">
+          <div class="SectionBox" id="C:NUtils.Abstract.TagHashBase`1(`0):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Abstract.NameIdBase.Id:Version Information">
+          <div class="SectionBox" id="C:NUtils.Abstract.TagHashBase`1(`0):Version Information">
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Abstract.TagHashBase`1.GetHashCode()">GetHashCode Method</h3>
+        <blockquote id="M:NUtils.Abstract.TagHashBase`1.GetHashCode():member">
+          <p class="Summary">
+            Serves as a hash function for a <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagHashBase`1</a> object.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>GetHashCode</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.TagHashBase`1.GetHashCode():Returns">A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Abstract.TagHashBase`1.GetHashCode():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Abstract.TagHashBase`1.GetHashCode():Version Information">
             <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>

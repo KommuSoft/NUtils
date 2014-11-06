@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Collections.CollectionBase&lt;TElement&gt;</title>
+    <title>NUtils.Collections.IRegister&lt;TKey,TValue&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,204 +190,70 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Collections.CollectionBase`1">Overview</a>
+        <a href="#T:NUtils.Collections.IRegister`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.CollectionBase`1:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.IRegister`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.CollectionBase`1:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.IRegister`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.CollectionBase`1:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.IRegister`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Collections.CollectionBase`1">CollectionBase&lt;TElement&gt; Generic Class</h1>
-    <p class="Summary" id="T:NUtils.Collections.CollectionBase`1:Summary">
-            A basic implementation of <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> interface.
+    <h1 class="PageTitle" id="T:NUtils.Collections.IRegister`2">IRegister&lt;TKey,TValue&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Collections.IRegister`2:Summary">
+            A register is a datastructure that stores items based on a <i>TKey</i> for
+            fast lookups.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Collections.CollectionBase`1:Signature">public abstract class  <b>CollectionBase&lt;TElement&gt;</b> : <a href="../NUtils.Collections/EnumerableBase`1.html">EnumerableBase&lt;TElement&gt;</a>,	<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TElement&gt;</a></div>
+      <div class="Signature" id="T:NUtils.Collections.IRegister`2:Signature">public interface  <b>IRegister&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Collections/IListDictionary`2.html">IListDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IDictionary`2">IDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TValue&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Collections.CollectionBase`1:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.IRegister`2:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.Collections.CollectionBase`1:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Collections.IRegister`2:Docs:Type Parameters">
         <dl>
           <dt>
-            <i>TElement</i>
+            <i>TKey</i>
           </dt>
-          <dd>
-            The type of elements stored in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </dd>
+          <dd>The key on which the given items are stored.</dd>
+          <dt>
+            <i>TValue</i>
+          </dt>
+          <dd>The items to store in the register</dd>
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.CollectionBase`1:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.IRegister`2:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.CollectionBase`1:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Collections.IRegister`2:Docs:Version Information">
         <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
-        <p>
-								See Also: Inherited members from
-								<a href="../NUtils.Collections/EnumerableBase`1.html">EnumerableBase&lt;TElement&gt;</a>.
-							</p>
-        <h2 class="Section">Protected Constructors</h2>
-        <div class="SectionBox" id="Protected Constructors">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.Collections.CollectionBase`1()">CollectionBase</a>
-                    </b>()</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">CollectionBase`1</a> class.
-            </td>
-              </tr>
-            </table>
-          </div>
-        </div>
         <h2 class="Section">Public Properties</h2>
         <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
             <table class="TypeMembers">
               <tr valign="top">
-                <td>[read-only]<div>abstract </div></td>
-                <td>
-                  <b>
-                    <a href="#P:NUtils.Collections.CollectionBase`1.Count">Count</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
-                  </i>. 
-            Gets the number of elements contained in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </td>
-              </tr>
-              <tr valign="top">
                 <td>[read-only]<div></div></td>
                 <td>
                   <b>
-                    <a href="#P:NUtils.Collections.CollectionBase`1.IsReadOnly">IsReadOnly</a>
+                    <a href="#P:NUtils.Collections.IRegister`2.KeyGenerator">KeyGenerator</a>
                   </b>
                 </td>
                 <td>
                   <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a>
                   </i>. 
-            Gets a value indicating whether the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only.
+            A function that generates keys given a <i>TValue</i>.
             </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Public Methods</h2>
-        <div class="SectionBox" id="Public Methods">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Collections.CollectionBase`1.Add(`0)">Add</a>
-                  </b>(<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i>)<blockquote>
-            Adds an object to the end of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Collections.CollectionBase`1.Clear()">Clear</a>
-                  </b>()<blockquote>
-            Removes all items from the <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.IList">IList</a>. This implementation always throws <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.NotSupportedException">NotSupportedException</a>.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Collections.CollectionBase`1.Contains(`0)">Contains</a>
-                  </b>(<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Determines whether an element is in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32)">CopyTo</a>
-                  </b>(<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote>
-            Copies the elements of the collection to a compatible one-dimensional array, starting at the specified index of the target array.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Collections/EnumerableBase`1.html#M:NUtils.Collections.EnumerableBase`1.GetEnumerator()">GetEnumerator</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerator`1">IEnumerator&lt;TElement&gt;</a></nobr><blockquote>
-            Get the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerator`1</a> that enumerates all the items stored in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEumerable`1</a>
-            instance.
-             (<i>Inherited from <a href="../NUtils.Collections/EnumerableBase`1.html">EnumerableBase&lt;TElement&gt;</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Collections.CollectionBase`1.Remove(`0)">Remove</a>
-                  </b>(<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Removes the first occurrence of an item from the current collection.
-            </blockquote></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Explicitly Implemented Interface Members</h2>
-        <div class="SectionBox" id="Explicitly Implemented Interface Members">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <a href="../NUtils.Collections/EnumerableBase`1.html#M:NUtils.Collections.EnumerableBase`1.System#Collections#IEnumerable#GetEnumerator()">
-                    <b>IEnumerable.GetEnumerator</b>
-                  </a>
-                </td>
-                <td>
-            Enumerate all the items, accessed through the <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.IEnumerable">IEnumerable</a> interface.
-             (<i>Inherited from <a href="../NUtils.Collections/EnumerableBase`1.html">EnumerableBase&lt;TElement&gt;</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -482,7 +348,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Collections/DictionaryUtils.html#M:NUtils.Collections.DictionaryUtils.Contains``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">Contains&lt;TKey,TValue&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <i title="The type of the keys in the dictionary.">TKey</i>, <i title="The type of the values in the dictionary.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TKey</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TValue</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Determines whether the given <i>value</i> is associated with the given <i>key</i> in the given <i>dictionary</i>.
             </blockquote></td>
               </tr>
@@ -1264,7 +1130,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Collections/DictionaryUtils.html#M:NUtils.Collections.DictionaryUtils.Remove``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">Remove&lt;TKey,TValue&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <i title="To be added.">TKey</i>, <i title="To be added.">TValue</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TKey</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TValue</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Removes the given <i>key</i> and <i>value</i> association from the <i>dictionary</i>.
             </blockquote></td>
               </tr>
@@ -1656,252 +1522,24 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Collections.CollectionBase`1:Members">
+    <div class="Members" id="T:NUtils.Collections.IRegister`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Collections.CollectionBase`1()">CollectionBase Constructor</h3>
-        <blockquote id="C:NUtils.Collections.CollectionBase`1():member">
+        <h3 id="P:NUtils.Collections.IRegister`2.KeyGenerator">KeyGenerator Property</h3>
+        <blockquote id="P:NUtils.Collections.IRegister`2.KeyGenerator:member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">CollectionBase`1</a> class.
+            A function that generates keys given a <i>TValue</i>.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">protected  <b>CollectionBase</b> ()</div>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.CollectionBase`1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.CollectionBase`1():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Collections.CollectionBase`1.Add(`0)">Add Method</h3>
-        <blockquote id="M:NUtils.Collections.CollectionBase`1.Add(`0):member">
-          <p class="Summary">
-            Adds an object to the end of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Add</b> (<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i> item)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Add(`0):Parameters">
-            <dl>
-              <dt>
-                <i>item</i>
-              </dt>
-              <dd>The <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a> to be added to the end of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Add(`0):Returns">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> index at which the <i>value</i> has been added.</blockquote>
-          <h4 class="Subsection">Exceptions</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Add(`0):Exceptions">
-            <table class="TypeDocumentation">
-              <tr>
-                <th>Type</th>
-                <th>Reason</th>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.NotSupportedException">NotSupportedException</a>
-                </td>
-                <td> The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only.</td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="javascript:alert(&quot;Documentation not found.&quot;)">NotSupportedException</a>
-                </td>
-                <td>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> has a fixed size.</td>
-              </tr>
-            </table>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Add(`0):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Add(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Collections.CollectionBase`1.Clear()">Clear Method</h3>
-        <blockquote id="M:NUtils.Collections.CollectionBase`1.Clear():member">
-          <p class="Summary">
-            Removes all items from the <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.IList">IList</a>. This implementation always throws <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.NotSupportedException">NotSupportedException</a>.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Clear</b> ()</div>
-          <h4 class="Subsection">Exceptions</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Clear():Exceptions">
-            <table class="TypeDocumentation">
-              <tr>
-                <th>Type</th>
-                <th>Reason</th>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.NotSupportedException">NotSupportedException</a>
-                </td>
-                <td> The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only.</td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="javascript:alert(&quot;Documentation not found.&quot;)">NotSupportedException</a>
-                </td>
-                <td>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> has a fixed size.</td>
-              </tr>
-            </table>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Clear():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Clear():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Collections.CollectionBase`1.Contains(`0)">Contains Method</h3>
-        <blockquote id="M:NUtils.Collections.CollectionBase`1.Contains(`0):member">
-          <p class="Summary">
-            Determines whether an element is in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public virtual <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Contains</b> (<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i> item)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Contains(`0):Parameters">
-            <dl>
-              <dt>
-                <i>item</i>
-              </dt>
-              <dd>The object to locate in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>. The element to locate can
-            be null for reference types.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Contains(`0):Returns">true if <i>item</i> is found in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>; otherwise,
-            false.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Contains(`0):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Contains(`0):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32)">CopyTo Method</h3>
-        <blockquote id="M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32):member">
-          <p class="Summary">
-            Copies the elements of the collection to a compatible one-dimensional array, starting at the specified index of the target array.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public virtual <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>CopyTo</b> (<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i>[] array, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> arrayIndex)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32):Parameters">
-            <dl>
-              <dt>
-                <i>array</i>
-              </dt>
-              <dd>The one-dimensional array that is the destination of the elements copied from the current collection.</dd>
-              <dt>
-                <i>arrayIndex</i>
-              </dt>
-              <dd>The index in <i>array</i> at which copying begins, optional, by default <tt>0</tt>. </dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32):Remarks">
-            <p>If the array is not long enough, copying will stop at the end of the array.</p>
-            <p>If the index is less than one, copying will begin at the first element of the array.</p>
-            <p>If the given <i>array</i> is not effective, nothing happens.</p>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.CopyTo(`0[],System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="P:NUtils.Collections.CollectionBase`1.Count">Count Property</h3>
-        <blockquote id="P:NUtils.Collections.CollectionBase`1.Count:member">
-          <p class="Summary">
-            Gets the number of elements contained in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>Count</b>  { get; }</div>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a> <b>KeyGenerator</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Collections.CollectionBase`1.Count:Value">The number of elements contained in the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.</blockquote>
+          <blockquote class="SubsectionBox" id="P:NUtils.Collections.IRegister`2.KeyGenerator:Value">The generator of keys for this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a>.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Collections.CollectionBase`1.Count:Remarks">
+          <div class="SectionBox" id="P:NUtils.Collections.IRegister`2.KeyGenerator:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Collections.CollectionBase`1.Count:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="P:NUtils.Collections.CollectionBase`1.IsReadOnly">IsReadOnly Property</h3>
-        <blockquote id="P:NUtils.Collections.CollectionBase`1.IsReadOnly:member">
-          <p class="Summary">
-            Gets a value indicating whether the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public virtual <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsReadOnly</b>  { get; }</div>
-          <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Collections.CollectionBase`1.IsReadOnly:Value">
-            <tt>true</tt> if the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only;
-            otherwise, <tt>false</tt>.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Collections.CollectionBase`1.IsReadOnly:Remarks">By default, this value is <tt>false</tt>.</div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Collections.CollectionBase`1.IsReadOnly:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Collections.CollectionBase`1.Remove(`0)">Remove Method</h3>
-        <blockquote id="M:NUtils.Collections.CollectionBase`1.Remove(`0):member">
-          <p class="Summary">
-            Removes the first occurrence of an item from the current collection.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Remove</b> (<i title="&#xA;            The type of elements stored in the .&#xA;            ">TElement</i> item)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Remove(`0):Parameters">
-            <dl>
-              <dt>
-                <i>item</i>
-              </dt>
-              <dd>The object to remove from the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Remove(`0):Returns">
-            <tt>true</tt> if an object was removed from the <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a>; otherwise <tt>false</tt>.</blockquote>
-          <h4 class="Subsection">Exceptions</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Collections.CollectionBase`1.Remove(`0):Exceptions">
-            <table class="TypeDocumentation">
-              <tr>
-                <th>Type</th>
-                <th>Reason</th>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.NotSupportedException">NotSupportedException</a>
-                </td>
-                <td> The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> is read-only.</td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="javascript:alert(&quot;Documentation not found.&quot;)">NotSupportedException</a>
-                </td>
-                <td>The <a href="javascript:alert(&quot;Documentation not found.&quot;)">ICollection`1</a> has a fixed size.</td>
-              </tr>
-            </table>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Remove(`0):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Collections.CollectionBase`1.Remove(`0):Version Information">
+          <div class="SectionBox" id="P:NUtils.Collections.IRegister`2.KeyGenerator:Version Information">
             <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5423.25906</div>
           <hr size="1" />
         </blockquote>
