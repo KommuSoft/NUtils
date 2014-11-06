@@ -168,6 +168,9 @@
     <Compile Include="Collections\ConcatCollectionView.cs" />
     <Compile Include="Collections\IMulticollectionView.cs" />
     <Compile Include="Collections\MulticollectionViewBase.cs" />
+    <Compile Include="Automata\StateUtils.cs" />
+    <Compile Include="Abstract\ICloneable.cs" />
+    <Compile Include="Abstract\CloneBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
