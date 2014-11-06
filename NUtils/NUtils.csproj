@@ -171,6 +171,7 @@
     <Compile Include="Automata\StateUtils.cs" />
     <Compile Include="Abstract\ICloneable.cs" />
     <Compile Include="Abstract\CloneBase.cs" />
+    <Compile Include="Collections\QueueUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
