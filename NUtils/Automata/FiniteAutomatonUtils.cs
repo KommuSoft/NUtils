@@ -33,6 +33,7 @@ namespace NUtils.Automata {
 		/// Register the list of edges with a list of tuples containing the tags of the initial and final state
 		/// as well as the tag for the edge to create.
 		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
 		/// <param name="edges">A <see cref="T:IEnumerable`1"/> of <see cref="T:Tuple`3"/> instance containing
 		/// the tag of the initial state, the tag of the edge to create and the tag of the final state.</param>
 		/// <remarks>
@@ -41,6 +42,8 @@ namespace NUtils.Automata {
 		/// <para>If there already exists an edge between the two given states with the given tag, no additional
 		/// edge is registered.</para>
 		/// <para>If the given list of <paramref name="edges"/> or the <paramref name="nfa"/> is not effective, nothing happens.</para>
+		/// <para>This operation is not completely specific to the given automaton: if the state is shared with another
+		/// automaton, the edge will be added to all the automata.</para>
 		/// </remarks>
 		public static void RegisterEdges<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges) {
 			if (edges != null && nfa != null) {
@@ -54,6 +57,7 @@ namespace NUtils.Automata {
 		/// Register the array of edges with a list of tuples containing the tags of the initial and final state
 		/// as well as the tag for the edge to create.
 		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
 		/// <param name="edges">An array of <see cref="T:Tuple`3"/> instance containing
 		/// the tag of the initial state, the tag of the edge to create and the tag of the final state.</param>
 		/// <remarks>
@@ -62,9 +66,39 @@ namespace NUtils.Automata {
 		/// <para>If there already exists an edge between the two given states with the given tag, no additional
 		/// edge is registered.</para>
 		/// <para>If the given list of <paramref name="edges"/> or the <paramref name="nfa"/> is not effective, nothing happens.</para>
+		/// <para>This operation is not completely specific to the given automaton: if the state is shared with another
+		/// automaton, the edge will be added to all the automata.</para>
 		/// </remarks>
 		public static void RegisterEdges<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params Tuple<TStateTag,TEdgeTag,TStateTag>[] edges) {
 			RegisterEdges<TStateTag,TEdgeTag> (nfa, (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>>)edges);
+		}
+
+		/// <summary>
+		/// Register the list of given <paramref name="states"/> including any edges.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="states">A <see cref="IEnumerable`1"/> of <see cref="T:IState`2"/> instances that must be added.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// </remarks>
+		public static void RegisterStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, IEnumerable<IState<TStateTag,TEdgeTag>> states) {
+			if (nfa != null && states != null) {
+				foreach (IState<TStateTag,TEdgeTag> state in states) {
+					nfa.RegisterState (state);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Register the array of given <paramref name="states"/> including any edges.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="states">An array of <see cref="T:IState`2"/> instances that must be added.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// </remarks>
+		public static void RegisterStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params IState<TStateTag,TEdgeTag>[] states) {
+			RegisterStates<TStateTag,TEdgeTag> (nfa, (IEnumerable<IState<TStateTag,TEdgeTag>>)states);
 		}
 		#endregion
 	}

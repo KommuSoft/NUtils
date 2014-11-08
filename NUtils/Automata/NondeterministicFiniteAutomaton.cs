@@ -105,7 +105,8 @@ namespace NUtils {
 		/// 
 		/// </remarks>
 		public NondeterministicFiniteAutomaton (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
-			this.constructNFA (states, edges, initialStateTag, acceptingStateTags);
+			this.RegisterStates (states);
+			this.RegisterEdges (edges);
 		}
 		#endregion
 		#region private methods, for programming convenience
@@ -118,9 +119,7 @@ namespace NUtils {
 		/// <param name="acceptingStateTags">Accepting state tags.</param>
 		private void constructNFA (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialStateTags, IEnumerable<TStateTag> acceptingStateTags) {
 			this.stateDictionary.AddAll (states);
-			foreach (Tuple<TStateTag,TEdgeTag,TStateTag> edge in edges) {
-				RegisterEdge (edge.Item1, edge.Item2, edge.Item3);
-			}
+			this.RegisterEdges (edges);
 			this.initialState = this.RegisterState (initialStateTags);
 			this.acceptingStateDictionary.AddAll (acceptingStateTags.Select (this.RegisterState));
 		}
@@ -140,6 +139,8 @@ namespace NUtils {
 		/// states are registered (using the <see cref="M:RegisterState"/> method) for these tags.</para>
 		/// <para>If there already exists an edge between the two given states with the given tag, no additional
 		/// edge is registered.</para>
+		/// <para>This operation is not completely specific to the given automaton: if the state is shared with another
+		/// automaton, the edge will be added to all the automata.</para>
 		/// </remarks>
 		public IEdge<TStateTag,TEdgeTag> RegisterEdge (TStateTag fromStateTag, TEdgeTag edgeTag, TStateTag toStateTag) {
 			IState<TStateTag,TEdgeTag> frm = this.RegisterState (fromStateTag);
@@ -152,6 +153,39 @@ namespace NUtils {
 			Edge<TStateTag,TEdgeTag> cedge = new Edge<TStateTag,TEdgeTag> (edgeTag, tos);
 			frm.AddEdge (cedge);
 			return cedge;
+		}
+
+		/// <summary>
+		/// Register the given <paramref name="state"/> including any edges.
+		/// </summary>
+		/// <param name="state">The given <see cref="T:IState`2"/> that must be added.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="state"/> is not effective, nothing happens.</para>
+		/// </remarks>
+		public void RegisterState (IState<TStateTag,TEdgeTag> state) {
+			if (state != null) {
+				this.stateDictionary.Add (state);
+			}
+		}
+
+		/// <summary>
+		/// Register the given <paramref name="state"/> including any edges as an accepting state.
+		/// </summary>
+		/// <param name="state">The given <see cref="T:IState`2"/> that must be registered as an accepting state.</param>
+		/// <returns><c>true</c> if the given <paramref name="state"/> is already registered as a state and the state
+		/// is thus accepted as an accepting state; otherwise <c>false</c>.</returns>
+		/// <remarks>
+		/// <para>If the given <paramref name="state"/> is not effective, nothing happens.</para>
+		/// <para>If the given <paramref name="state"/> is not registered as a state of this
+		/// finite automaton, nothing happens and <c>false</c> is returned.</para>
+		/// </remarks>
+		public bool RegisterAcceptingState (IState<TStateTag,TEdgeTag> state) {
+			if (state != null && this.stateDictionary.Contains (state)) {
+				this.acceptingStateDictionary.Add (state);
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		/// <summary>
