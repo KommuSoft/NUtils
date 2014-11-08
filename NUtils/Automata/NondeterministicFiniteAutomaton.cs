@@ -95,34 +95,23 @@ namespace NUtils {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class with a given list of <paramref name="states"/>, <paramref name="edges"/>, the tag of the initial state (<paramref name="initialStateTag"/>) and a list of accepting states (<paramref name="acceptingStateTags"/>).
+		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class based on tags with a given list of <paramref name="states"/>, <paramref name="edges"/>, the tag of the initial state (<paramref name="initialStateTag"/>) and a list of accepting states (<paramref name="acceptingStateTags"/>).
 		/// </summary>
-		/// <param name="states">The list of states to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
-		/// <param name="edges">The list of edges to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
-		/// <param name="initialStateTag">The tag of the initial state.</param>
-		/// <param name="acceptingStateTags">The list of tags of the accepting states.</param>
+		/// <param name="states">The list of <see cref="T:IState`2"/> instances to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
+		/// <param name="edges">The list of <see cref="T:Tuple`3"/> instances representing edges to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
+		/// <param name="initialStateTag">The tag of the state that is the initial state.</param>
+		/// <param name="acceptingStateTags">The list of tags representing the accepting states.</param>
 		/// <remarks>
-		/// 
+		/// <para>Non-effective <paramref name="states"/> will not be added to the list of states.</para>
+		/// <para>Edges with tags that are not associated with any state will result in the creation of new <see cref="T:IState`2"/> instances in this <see cref="T:NondeterministicFiniteAutomaton`3"/>.</para>
+		/// <para>If the given <paramref name="initialStateTag"/> does not correspond with any registered state, a <see cref="T:IState`2"/> instance will be created.</para>
+		/// <para>For each tag in the list of <paramref name="acceptingStateTags"/>, the "first" <see cref="T:IState`2"/> that matches the tag will be picked, if no <see cref="T:IState`2"/> instance matches the given tag, the tag is ignored.</para>
 		/// </remarks>
 		public NondeterministicFiniteAutomaton (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
 			this.RegisterStates (states);
 			this.RegisterEdges (edges);
+			this.RegisterAcceptingStates (acceptingStateTags);
 			this.initialState = this.RegisterState (initialStateTag);
-		}
-		#endregion
-		#region private methods, for programming convenience
-		/// <summary>
-		/// Constructs the NF.
-		/// </summary>
-		/// <param name="states">States.</param>
-		/// <param name="edges">Edges.</param>
-		/// <param name="initialStateTags">Initial state tags.</param>
-		/// <param name="acceptingStateTags">Accepting state tags.</param>
-		private void constructNFA (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialStateTags, IEnumerable<TStateTag> acceptingStateTags) {
-			this.stateDictionary.AddAll (states);
-			this.RegisterEdges (edges);
-			this.initialState = this.RegisterState (initialStateTags);
-			this.acceptingStateDictionary.AddAll (acceptingStateTags.Select (this.RegisterState));
 		}
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
@@ -182,6 +171,26 @@ namespace NUtils {
 		/// </remarks>
 		public bool RegisterAcceptingState (IState<TStateTag,TEdgeTag> state) {
 			if (state != null && this.stateDictionary.Contains (state)) {
+				this.acceptingStateDictionary.Add (state);
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Register the first matching registered state with the given <paramref name="stateTag"/> including any edges as an accepting state.
+		/// </summary>
+		/// <param name="stateTag">The given tag of the state that must be registered as an accepting state.</param>
+		/// <returns><c>true</c> if there is a state already registered with the given <paramref name="stateTag"/> as a
+		/// state and the state is thus accepted as an accepting state; otherwise <c>false</c>.</returns>
+		/// <remarks>
+		/// <para>If no state is registered with the given <paramref name="stateTag"/> as a state of this finite automaton,
+		/// nothing happens and <c>false</c> is returned.</para>
+		/// </remarks>
+		public bool RegisterAcceptingState (TStateTag stateTag) {
+			IState<TStateTag,TEdgeTag> state;
+			if (stateTag != null && this.stateDictionary.TryGetValue (stateTag, out state)) {
 				this.acceptingStateDictionary.Add (state);
 				return true;
 			} else {
@@ -275,7 +284,20 @@ namespace NUtils {
 	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,List<IState<TStateTag,TEdgeTag>>> {
 
 		#region Constructors
-		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) : base(edges, initialState, acceptingStates) {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`2"/> class based on tags with a given list of <paramref name="states"/>, <paramref name="edges"/>, the tag of the initial state (<paramref name="initialStateTag"/>) and a list of accepting states (<paramref name="acceptingStateTags"/>).
+		/// </summary>
+		/// <param name="states">The list of <see cref="T:IState`2"/> instances to be added to the new <see cref="T:NondeterministicFiniteAutomaton`2"/>.</param>
+		/// <param name="edges">The list of <see cref="T:Tuple`3"/> instances representing edges to be added to the new <see cref="T:NondeterministicFiniteAutomaton`2"/>.</param>
+		/// <param name="initialStateTag">The tag of the state that is the initial state.</param>
+		/// <param name="acceptingStateTags">The list of tags representing the accepting states.</param>
+		/// <remarks>
+		/// <para>Non-effective <paramref name="states"/> will not be added to the list of states.</para>
+		/// <para>Edges with tags that are not associated with any state will result in the creation of new <see cref="T:IState`2"/> instances in this <see cref="T:NondeterministicFiniteAutomaton`2"/>.</para>
+		/// <para>If the given <paramref name="initialStateTag"/> does not correspond with any registered state, a <see cref="T:IState`2"/> instance will be created.</para>
+		/// <para>For each tag in the list of <paramref name="acceptingStateTags"/>, the "first" <see cref="T:IState`2"/> that matches the tag will be picked, if no <see cref="T:IState`2"/> instance matches the given tag, the tag is ignored.</para>
+		/// </remarks>
+		public NondeterministicFiniteAutomaton (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) : base(states,edges, initialStateTag, acceptingStateTags) {
 		}
 		#endregion
 	}

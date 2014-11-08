@@ -131,6 +131,40 @@ namespace NUtils.Automata {
 		public static void RegisterAcceptingStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params IState<TStateTag,TEdgeTag>[] states) {
 			RegisterAcceptingStates<TStateTag,TEdgeTag> (nfa, (IEnumerable<IState<TStateTag,TEdgeTag>>)states);
 		}
+
+		/// <summary>
+		/// Register the list of given <paramref name="statesTags"/> including any edges as accepting states.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="stateTags">A <see cref="T:IEnumerable`1"/> of tags that represent states that must be registered
+		/// as accepting states.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// <para>Only if there is at least one state in the <paramref name="nfa"/> with the given tag, that state is registered, otherwise
+		/// the tag is ignored.</para>
+		/// </remarks>
+		public static void RegisterAcceptingStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, IEnumerable<TStateTag> stateTags) {
+			if (nfa != null && stateTags != null) {
+				foreach (TStateTag stateTag in stateTags) {
+					nfa.RegisterAcceptingState (stateTag);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Register the array of given <paramref name="statesTags"/> including any edges as accepting states.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="stateTags">An array of tags corresponding to <see cref="T:IState`2"/> instances that must be registered as as accepting states.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// <para>Only <see cref="T:IState`2"/> instances that were registered as states first, are registered as accepting states.</para>
+		/// <para>Only if there is at least one state in the <paramref name="nfa"/> with the given tag, that state is registered, otherwise
+		/// the tag is ignored.</para>
+		/// </remarks>
+		public static void RegisterAcceptingStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params TStateTag[] stateTags) {
+			RegisterAcceptingStates<TStateTag,TEdgeTag> (nfa, (IEnumerable<TStateTag>)stateTags);
+		}
 		#endregion
 	}
 }

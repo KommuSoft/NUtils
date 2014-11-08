@@ -134,6 +134,18 @@ namespace NUtils.Automata {
 		bool RegisterAcceptingState (IState<TStateTag,TEdgeTag> state);
 
 		/// <summary>
+		/// Register the first matching registered state with the given <paramref name="stateTag"/> including any edges as an accepting state.
+		/// </summary>
+		/// <param name="stateTag">The given tag of the state that must be registered as an accepting state.</param>
+		/// <returns><c>true</c> if there is a state already registered with the given <paramref name="stateTag"/> as a
+		/// state and the state is thus accepted as an accepting state; otherwise <c>false</c>.</returns>
+		/// <remarks>
+		/// <para>If no state is registered with the given <paramref name="stateTag"/> as a state of this finite automaton,
+		/// nothing happens and <c>false</c> is returned.</para>
+		/// </remarks>
+		bool RegisterAcceptingState (TStateTag stateTag);
+
+		/// <summary>
 		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
 		/// edges.
 		/// </summary>
