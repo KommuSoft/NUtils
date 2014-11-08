@@ -1,5 +1,5 @@
 //
-//  DotVisual.cs
+//  DotVisualUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -25,7 +25,7 @@ namespace NUtils.Visual {
 	/// <summary>
 	/// A set of constants describing the GraphViz DOT Graph notation.
 	/// </summary>
-	public static class DotVisual {
+	public static class DotVisualUtils {
 
 		#region Constants
 		/// <summary>

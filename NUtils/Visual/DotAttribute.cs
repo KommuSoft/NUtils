@@ -1,5 +1,5 @@
 //
-//  IDotTextWriter.cs
+//  DotAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,24 @@ using System;
 namespace NUtils.Visual {
 
 	/// <summary>
-	/// An interface describing a <see cref="T:TextWriter"/> that supports the generation
-	/// of GraphViz DOT Graph files.
+	/// The possible attribute to give to items in the GraphViz DOT Graph notation.
 	/// </summary>
-	public interface IDotTextWriter {
-
+	public enum DotAttribute {
 		/// <summary>
-		/// Add a graph to the file with a given name.
+		/// The label of a node or edge.
 		/// </summary>
-		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
-		/// <param name="name">The name of the graph, optional, by default not effective.</param>
-		void AddGraph (DotGraphType type = DotGraphType.DirectedGraph, string name = null);
+		Label,
+		/// <summary>
+		/// The shape of a node or edge.
+		/// </summary>
+		Shape,
+		Height,
+		Width,
+		Dir,
+		Style,
+		FontName,
+		FillColor,
+		Color
 	}
 }
 

@@ -1,5 +1,5 @@
 //
-//  IDotTextWriter.cs
+//  DotShape.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,29 @@ using System;
 namespace NUtils.Visual {
 
 	/// <summary>
-	/// An interface describing a <see cref="T:TextWriter"/> that supports the generation
-	/// of GraphViz DOT Graph files.
+	/// The set of shapes supported by the GraphViz DOT Graph package.
 	/// </summary>
-	public interface IDotTextWriter {
-
+	public enum DotShape {
 		/// <summary>
-		/// Add a graph to the file with a given name.
+		/// The node is painted as plain text: no shape surrounds the text.
 		/// </summary>
-		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
-		/// <param name="name">The name of the graph, optional, by default not effective.</param>
-		void AddGraph (DotGraphType type = DotGraphType.DirectedGraph, string name = null);
+		PlainText,
+		/// <summary>
+		/// The node is painted as a circle.
+		/// </summary>
+		Circle,
+		/// <summary>
+		/// The node is painted as a double circle.
+		/// </summary>
+		DoubleCircle,
+		/// <summary>
+		/// The node is painted as a record.
+		/// </summary>
+		Record,
+		/// <summary>
+		/// The node is painted as a box.
+		/// </summary>
+		Box
 	}
 }
 

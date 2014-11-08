@@ -182,10 +182,12 @@
     <Compile Include="Collections\CollectionUtils.cs" />
     <Compile Include="Automata\FiniteAutomatonUtils.cs" />
     <Compile Include="Visual\IDotVisual.cs" />
-    <Compile Include="Visual\DotVisual.cs" />
     <Compile Include="Visual\IDotTextWriter.cs" />
     <Compile Include="Visual\DotTextWriter.cs" />
-    <Compile Include="Visual\DotAttributes.cs" />
+    <Compile Include="Visual\DotShape.cs" />
+    <Compile Include="Visual\DotAttribute.cs" />
+    <Compile Include="Visual\DotGraphType.cs" />
+    <Compile Include="Visual\DotVisualUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

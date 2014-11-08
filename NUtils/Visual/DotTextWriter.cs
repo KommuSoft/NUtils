@@ -19,6 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.CodeDom.Compiler;
+using System.IO;
 
 namespace NUtils.Visual {
 
@@ -26,13 +28,33 @@ namespace NUtils.Visual {
 	/// An implementation of the <see cref="T:IDotTextWriter"/> interface. A <see cref="T:TextWriter"/> that supports the generation
 	/// of GraphViz DOT Graph files.
 	/// </summary>
-	public class DotTextWriter {
+	public class DotTextWriter : IndentedTextWriter, IDotTextWriter {
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:DotTextWriter"/> class.
+		/// Initializes a new instance of the <see cref="T:DotTextWriter"/> class with a given <see cref="T:TextWriter"/>
+		/// to write to.
 		/// </summary>
-		public DotTextWriter () {
+		/// <param name="writer">The <see cref="T:TextWriter"/> to write data to.</param>
+		public DotTextWriter (TextWriter writer) : base(writer) {
+		}
+		#endregion
+		#region IDotTextWriter implementation
+		/// <summary>
+		/// Add a graph to the file with a given name.
+		/// </summary>
+		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
+		/// <param name="name">The name of the graph, optional, by default not effective.</param>
+		public void AddGraph (DotGraphType type = (DotGraphType)1, string name = null) {
+			//TODO: cleanup
+			switch (type) {
+			case DotGraphType.DirectedGraph:
+				this.Write (DotVisual.DirectedGraphKeyword);
+				break;
+			case DotGraphType.Graph:
+				this.Write (DotVisual.GraphKeyword);
+				break;
+			}
 		}
 		#endregion
 	}

@@ -1,5 +1,5 @@
 //
-//  DotAttributes.cs
+//  DotGraphType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,24 +23,18 @@ using System;
 namespace NUtils.Visual {
 
 	/// <summary>
-	/// The possible attribute to give to items in the GraphViz DOT Graph notation.
+	/// An enumeration of the different types of graphs supported by the GraphViz DOT graph notation.
 	/// </summary>
-	public enum DotAttributes {
+	public enum DotGraphType {
+
 		/// <summary>
-		/// The label of a node or edge.
+		/// A undirected graph.
 		/// </summary>
-		Label,
+		Graph,
 		/// <summary>
-		/// The shape of a node or edge.
+		/// A directed graph.
 		/// </summary>
-		Shape,
-		Height,
-		Width,
-		Dir,
-		Style,
-		FontName,
-		FillColor,
-		Color
+		DirectedGraph,
 	}
 }
 
