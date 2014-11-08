@@ -177,6 +177,8 @@
     <Compile Include="Collections\Register.cs" />
     <Compile Include="Collections\DictionaryUtils.cs" />
     <Compile Include="Collections\IHeadTail.cs" />
+    <Compile Include="Collections\SingletonCollection.cs" />
+    <Compile Include="Collections\ISingletonCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

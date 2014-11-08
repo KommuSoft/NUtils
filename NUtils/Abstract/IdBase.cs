@@ -26,8 +26,18 @@ namespace NUtils.Abstract {
 	/// </summary>
 	public abstract class IdBase : IId {
 
+		#region Static fields
+		/// <summary>
+		/// A field that stores the current id to dispatch to a new instance.
+		/// </summary>
 		private static uint idDispatcher = 0x00;
+		#endregion
+		#region Fields
+		/// <summary>
+		/// The state of this instance.
+		/// </summary>
 		private readonly uint id;
+		#endregion
 		#region IId implementation
 		/// <summary>
 		///  Gets the identifier of this instance. 
@@ -43,7 +53,7 @@ namespace NUtils.Abstract {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.IdBase"/> class.
+		/// Initializes a new instance of the <see cref="IdBase"/> class.
 		/// </summary>
 		/// <remarks>
 		/// <para>An identifier is assigned to the instance automatically in a round robin fashion. Therefore

@@ -19,13 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 namespace NUtils.Abstract {
+
 	/// <summary>
 	/// A function who has the proper signature for an equality test function.
 	/// </summary>
-	/// <remarks>
 	/// <typeparam name='TX'>The type on which the equality function is defined.</typeparam>
-	/// All equality functions (not all functions with the same signature are equality functions of course) must be
-	/// reflexive, symmetric and transitive.
+	/// <remarks>
+	/// <para>All equality functions (not all functions with the same signature are equality functions of course) must be
+	/// reflexive, symmetric and transitive.</para>
 	/// </remarks>
 	public delegate bool EqualityFunction<TX> (TX x1, TX x2);
 }

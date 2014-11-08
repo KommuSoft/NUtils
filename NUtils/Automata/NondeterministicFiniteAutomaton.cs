@@ -33,21 +33,23 @@ namespace NUtils {
 	/// </summary>
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
-	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
+	/// <typeparam name='TCollection'>The type of collection used to store different states given they share the same tag.</typeparam>
+	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>
+	    where TCollection : ICollection<IState<TStateTag,TEdgeTag>>, new() {
 
 		#region Fields
 		/// <summary>
-		/// A <see cref="T:ListDictionary`2"/> that maps the <typeparamref name="TStateTag"/> instances on the <see cref="T:IState`2"/> instances.
+		/// A <see cref="T:Register`2"/> that maps the <typeparamref name="TStateTag"/> instances on the <see cref="T:IState`2"/> instances.
 		/// </summary>
-		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> stateDictionary;
+		private readonly Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> stateDictionary = new Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> (x => x.Tag);
 		/// <summary>
 		/// The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.
 		/// </summary>
 		private readonly IState<TStateTag,TEdgeTag> initialState;
 		/// <summary>
-		/// A <see cref="T:ListDictionary`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
+		/// A <see cref="T:Register`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
 		/// </summary>
-		private readonly ListDictionary<TStateTag,IState<TStateTag,TEdgeTag>> acceptingStateDictionary;
+		private readonly Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> acceptingStateDictionary = new Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> (x => x.Tag);
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
@@ -92,11 +94,40 @@ namespace NUtils {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`2"/> class.
+		/// Initializes a new instance of the <see cref="T:INondeterministicFiniteAutomaton`3"/> class.
 		/// </summary>
-		public NondeterministicFiniteAutomaton () {
+		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) {
+			this.constructNFA (edges, initialState, acceptingStates);
 		}
 		#endregion
+		#region private methods, for programming convenience
+		private void constructNFA (IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) {
+			IState<TStateTag,TEdgeTag> sf, st;
+			foreach (Tuple<TStateTag,TEdgeTag,TStateTag> edge in edges) {
+				sf = RegisterState (edge.Item1);
+				st = RegisterState (edge.Item3);
+
+			}
+		}
+		#endregion
+		/// <summary>
+		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
+		/// edges.
+		/// </summary>
+		/// <param name="stateTag">The tag of the new state to create.</param>
+		/// <returns>A <see cref="T:IState`2"/> instance that is either an already registered
+		/// state with the given <paramref name="stateTag"/> or a new state created.</returns>
+		/// <remarks>
+		/// <para>If there exists already a state for the given <paramref name="tag"/>, no new state is initialized.</para>
+		/// </remarks>
+		public IState<TStateTag,TEdgeTag> RegisterState (TStateTag stateTag) {
+			IState<TStateTag,TEdgeTag> state;
+			if (!this.stateDictionary.TryGetValue (stateTag, out state)) {
+				state = new State<TStateTag,TEdgeTag> (stateTag);
+				this.stateDictionary.Add (state);
+			}
+			return state;
+		}
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
 		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
@@ -152,6 +183,23 @@ namespace NUtils {
 		/// <param name="state">The given <see cref="T:IState`2"/> to check for.</param>
 		public bool ContainsState (IState<TStateTag, TEdgeTag> state) {
 			return (state != null && this.stateDictionary.Contains (new KeyValuePair<TStateTag,IState<TStateTag,TEdgeTag>> (state.Tag, state)));
+		}
+		#endregion
+	}
+
+	/// <summary>
+	/// A variant of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class, but with
+	/// a default type for the type of collection to hold multiple states for the same tag.
+	/// </summary>
+	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
+	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
+	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,List<IState<TStateTag,TEdgeTag>>> {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:INondeterministicFiniteAutomaton`3"/> class.
+		/// </summary>
+		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) : base(edges, initialState, acceptingStates) {
 		}
 		#endregion
 	}

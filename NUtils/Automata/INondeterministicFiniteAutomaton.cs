@@ -110,5 +110,17 @@ namespace NUtils.Automata {
 		/// <returns><c>true</c> if the given <see cref="T:IState`2"/> instance is accepting; otherwise, <c>false</c>.</returns>
 		/// <param name="state">The given state to check for.</param>
 		bool IsAccepting (IState<TStateTag,TEdgeTag> state);
+
+		/// <summary>
+		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
+		/// edges.
+		/// </summary>
+		/// <param name="stateTag">The tag of the new state to create.</param>
+		/// <returns>A <see cref="T:IState`2"/> instance that is either an already registered
+		/// state with the given <paramref name="stateTag"/> or a new state created.</returns>
+		/// <remarks>
+		/// <para>If there exists already a state for the given <paramref name="tag"/>, no new state is initialized.</para>
+		/// </remarks>
+		IState<TStateTag,TEdgeTag> RegisterState (TStateTag stateTag);
 	}
 }
