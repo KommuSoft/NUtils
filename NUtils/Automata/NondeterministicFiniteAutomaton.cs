@@ -94,12 +94,30 @@ namespace NUtils {
 		}
 		#endregion
 		#region Constructors
-		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
-			this.constructNFA (edges, initialStateTag, acceptingStateTags);
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class with a given list of <paramref name="states"/>, <paramref name="edges"/>, the tag of the initial state (<paramref name="initialStateTag"/>) and a list of accepting states (<paramref name="acceptingStateTags"/>).
+		/// </summary>
+		/// <param name="states">The list of states to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
+		/// <param name="edges">The list of edges to be added to the new <see cref="T:NondeterministicFiniteAutomaton`3"/>.</param>
+		/// <param name="initialStateTag">The tag of the initial state.</param>
+		/// <param name="acceptingStateTags">The list of tags of the accepting states.</param>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		public NondeterministicFiniteAutomaton (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
+			this.constructNFA (states, edges, initialStateTag, acceptingStateTags);
 		}
 		#endregion
 		#region private methods, for programming convenience
-		private void constructNFA (IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialStateTags, IEnumerable<TStateTag> acceptingStateTags) {
+		/// <summary>
+		/// Constructs the NF.
+		/// </summary>
+		/// <param name="states">States.</param>
+		/// <param name="edges">Edges.</param>
+		/// <param name="initialStateTags">Initial state tags.</param>
+		/// <param name="acceptingStateTags">Accepting state tags.</param>
+		private void constructNFA (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialStateTags, IEnumerable<TStateTag> acceptingStateTags) {
+			this.stateDictionary.AddAll (states);
 			foreach (Tuple<TStateTag,TEdgeTag,TStateTag> edge in edges) {
 				RegisterEdge (edge.Item1, edge.Item2, edge.Item3);
 			}
@@ -222,9 +240,6 @@ namespace NUtils {
 	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,List<IState<TStateTag,TEdgeTag>>> {
 
 		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:INondeterministicFiniteAutomaton`3"/> class.
-		/// </summary>
 		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) : base(edges, initialState, acceptingStates) {
 		}
 		#endregion
