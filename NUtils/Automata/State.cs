@@ -39,9 +39,9 @@ namespace NUtils.Automata {
 
 		#region Fields
 		/// <summary>
-		/// The inner <see cref="T:ListDictionary`3"/> that stores the edges based on a tag.
+		/// The inner <see cref="T:Register`3"/> that stores the edges based on a tag.
 		/// </summary>
-		private readonly ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> edgeMap = new ListDictionary<TEdgeTag,IEdge<TStateTag,TEdgeTag>> ();
+		private readonly Register<TEdgeTag,IEdge<TStateTag,TEdgeTag>> edgeMap = new Register<TEdgeTag,IEdge<TStateTag,TEdgeTag>> (x => x.Tag);
 		#endregion
 		#region IState implementation
 		/// <summary>
@@ -83,7 +83,7 @@ namespace NUtils.Automata {
 		/// <param name="tag">The given tag to associate with this state.</param>
 		/// <param name="edges">An <see cref="T:IEnumerable`1"/> containing the initial edges stored in this <see cref="T:State`2"/>.</param>
 		public State (TStateTag tag, IEnumerable<IEdge<TStateTag,TEdgeTag>> edges) : this(tag) {
-			this.edgeMap.AddAll (edges.Select (x => new KeyValuePair<TEdgeTag,IEdge<TStateTag,TEdgeTag>> (x.Tag, x)));
+			this.edgeMap.AddAll (edges);
 		}
 		#endregion
 		#region IState implementation

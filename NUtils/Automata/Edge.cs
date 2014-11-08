@@ -19,9 +19,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Abstract;
 using System.Collections.Generic;
-using System.Collections;
+using System.Linq;
+using NUtils.Abstract;
+using NUtils.Collections;
 
 namespace NUtils.Automata {
 
@@ -40,7 +41,7 @@ namespace NUtils.Automata {
 		/// <summary>
 		/// A list of the states to which this edge map.
 		/// </summary>
-		private readonly List<IState<TStateTag, TEdgeTag>> resultingStates = new List<IState<TStateTag, TEdgeTag>> ();
+		private readonly HashSet<IState<TStateTag, TEdgeTag>> resultingStates = new HashSet<IState<TStateTag, TEdgeTag>> ();
 		#endregion
 		#region IEdge implementation
 		/// <summary>
@@ -54,7 +55,20 @@ namespace NUtils.Automata {
 		/// </remarks>
 		public IEnumerable<IState<TStateTag, TEdgeTag>> ResultingStates {
 			get {
-				return this.resultingStates.AsReadOnly ();
+				return this.resultingStates.AsEnumerable ();
+			}
+		}
+		#endregion
+		#region ICollection implementation
+		public int Count {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+
+		public bool IsReadOnly {
+			get {
+				throw new NotImplementedException ();
 			}
 		}
 		#endregion
@@ -74,7 +88,7 @@ namespace NUtils.Automata {
 		/// <param name="resultingStates">An <see cref="T:IEnumerable`1"/> containing <see cref="T:IState`2"/> instances
 		/// representing the states to which this edge points.</param>
 		public Edge (TEdgeTag tag, IEnumerable<IState<TStateTag,TEdgeTag>> resultingStates) : this(tag) {
-			this.resultingStates.AddRange (resultingStates);
+			this.resultingStates.AddAll (resultingStates);
 		}
 
 		/// <summary>
@@ -107,18 +121,6 @@ namespace NUtils.Automata {
 		public bool Remove (IState<TStateTag, TEdgeTag> item) {
 			throw new NotImplementedException ();
 		}
-
-		public int Count {
-			get {
-				throw new NotImplementedException ();
-			}
-		}
-
-		public bool IsReadOnly {
-			get {
-				throw new NotImplementedException ();
-			}
-		}
 		#endregion
 		#region IEnumerable implementation
 		public IEnumerator<IState<TStateTag, TEdgeTag>> GetEnumerator () {
@@ -126,8 +128,8 @@ namespace NUtils.Automata {
 		}
 		#endregion
 		#region IEnumerable implementation
-		IEnumerator IEnumerable.GetEnumerator () {
-			throw new NotImplementedException ();
+		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
+			return this.GetEnumerator ();
 		}
 		#endregion
 		#region ITag implementation

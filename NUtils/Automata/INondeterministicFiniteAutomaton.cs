@@ -122,5 +122,20 @@ namespace NUtils.Automata {
 		/// <para>If there exists already a state for the given <paramref name="tag"/>, no new state is initialized.</para>
 		/// </remarks>
 		IState<TStateTag,TEdgeTag> RegisterState (TStateTag stateTag);
+
+		/// <summary>
+		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
+		/// edges.
+		/// </summary>
+		/// <param name="stateTag">The tag of the new state to create.</param>
+		/// <returns>A <see cref="T:IEdge`2"/> instance that is either an already registered
+		/// state with the given <paramref name="stateTag"/> or a new state created.</returns>
+		/// <remarks>
+		/// <para>If there is no state associated with the <paramref name="fromStateTag"/> or <paramref name="toStateTag"/>,
+		/// states are registered (using the <see cref="M:RegisterState"/> method) for these tags.</para>
+		/// <para>If there already exists an edge between the two given states with the given tag, no additional
+		/// edge is registered.</para>
+		/// </remarks>
+		IEdge<TStateTag,TEdgeTag> RegisterEdge (TStateTag fromStateTag, TEdgeTag edgeTag, TStateTag toStateTag);
 	}
 }
