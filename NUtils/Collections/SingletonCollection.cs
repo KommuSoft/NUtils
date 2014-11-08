@@ -124,12 +124,15 @@ namespace NUtils.Collections {
 		}
 
 		/// <summary>
-		/// Determines whether the current collection contains a specific value.
+		/// Determines whether the current collection contains the given value.
 		/// </summary>
 		/// <param name="item">The given item to check.</param>
-		/// <returns><c>true</c> if the dictionary associates the given value with the given key; otherwise <c>false</c>.</returns>
+		/// <returns><c>true</c> if the element in the singleton contains the given element; otherwise <c>false</c>.</returns>
+		/// <remarks>
+		/// <para>A <see cref="T:SingletonCollection`1"/> can never contain the default value for the <typeparamref name="TElement"/>.</para>
+		/// </remarks>
 		public bool Contains (TElement item) {
-			return Object.Equals (this.element, item);
+			return Object.Equals (this.element, item) && !Object.Equals (default(TElement), item);
 		}
 
 		/// <summary>
@@ -161,9 +164,12 @@ namespace NUtils.Collections {
 		#endregion
 		#region implemented abstract members of EnumerableBase
 		/// <summary>
-		/// Gets the enumerator.
+		/// Gets the enumerator that emits all the given elements this <see cref="T:SingletonCollection`1"/> instance.
 		/// </summary>
-		/// <returns>The enumerator.</returns>
+		/// <returns>A <see cref="T:Enumerator`1"/> that emits all the elements in this singleton.</returns>
+		/// <remarks>
+		/// <para>The resulting <see cref="T:IEnumerator`1"/> instance emits at most one item.</para>
+		/// </remarks>
 		public override IEnumerator<TElement> GetEnumerator () {
 			if (!Object.Equals (default(TElement), this.element)) {
 				yield return this.element;
