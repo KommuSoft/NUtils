@@ -181,13 +181,15 @@
     <Compile Include="Collections\ISingletonCollection.cs" />
     <Compile Include="Collections\CollectionUtils.cs" />
     <Compile Include="Automata\FiniteAutomatonUtils.cs" />
-    <Compile Include="Visual\IDotVisual.cs" />
-    <Compile Include="Visual\IDotTextWriter.cs" />
-    <Compile Include="Visual\DotTextWriter.cs" />
-    <Compile Include="Visual\DotShape.cs" />
-    <Compile Include="Visual\DotAttribute.cs" />
-    <Compile Include="Visual\DotGraphType.cs" />
-    <Compile Include="Visual\DotVisualUtils.cs" />
+    <Compile Include="Visual\GraphViz\DotGraphType.cs" />
+    <Compile Include="Visual\GraphViz\DotTextWriter.cs" />
+    <Compile Include="Visual\GraphViz\DotVisualUtils.cs" />
+    <Compile Include="Visual\GraphViz\IDotTextWriter.cs" />
+    <Compile Include="Visual\GraphViz\IDotVisual.cs" />
+    <Compile Include="Visual\GraphViz\ILabelDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\IDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\IShapeDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\IDotShape.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -203,6 +205,7 @@
     <Folder Include="QueryPath\" />
     <Folder Include="Automata\" />
     <Folder Include="Visual\" />
+    <Folder Include="Visual\GraphViz\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

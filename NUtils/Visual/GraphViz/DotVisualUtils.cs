@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.Visual {
+namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
 	/// A set of constants describing the GraphViz DOT Graph notation.

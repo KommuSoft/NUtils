@@ -1,5 +1,5 @@
 //
-//  DotGraphType.cs
+//  IDotVisual.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 
-namespace NUtils.Visual {
+namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An enumeration of the different types of graphs supported by the GraphViz DOT graph notation.
+	/// An interface specifying that the object can be visualized using a <c>.dot</c> file (GraphViz DOT Graph).
 	/// </summary>
-	public enum DotGraphType {
+	public interface IDotVisual {
 
 		/// <summary>
-		/// A undirected graph.
+		/// Write a GraphViz DOT Graph stream to the given <paramref name="textWriter"/> visualizing this instance.
 		/// </summary>
-		Graph,
-		/// <summary>
-		/// A directed graph.
-		/// </summary>
-		DirectedGraph,
+		/// <param name="textWriter">The <see cref="T:TextWriter"/> to write this instance to.</param>
+		void WriteDotText (TextWriter textWriter);
 	}
 }
 

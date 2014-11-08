@@ -1,5 +1,5 @@
 //
-//  IDotVisual.cs
+//  IDotAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.IO;
 
-namespace NUtils.Visual {
+namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An interface specifying that the object can be visualized using a <c>.dot</c> file (GraphViz DOT Graph).
+	/// An interface describing a attribute that is attached to a GraphViz element (graph, node, edge, ...).
 	/// </summary>
-	public interface IDotVisual {
-
-		/// <summary>
-		/// Write a GraphViz DOT Graph stream to the given <paramref name="textWriter"/> visualizing this instance.
-		/// </summary>
-		/// <param name="textWriter">The <see cref="T:TextWriter"/> to write this instance to.</param>
-		void WriteDotText (TextWriter textWriter);
+	public interface IDotAttribute {
 	}
 }
 

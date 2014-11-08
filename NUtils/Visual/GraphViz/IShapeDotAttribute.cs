@@ -1,5 +1,5 @@
 //
-//  DotAttribute.cs
+//  IShapeDotAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,27 +20,12 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.Visual {
+namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// The possible attribute to give to items in the GraphViz DOT Graph notation.
+	/// An <see cref="T:IDotAttribute"/> that describes the shape of a node.
 	/// </summary>
-	public enum DotAttribute {
-		/// <summary>
-		/// The label of a node or edge.
-		/// </summary>
-		Label,
-		/// <summary>
-		/// The shape of a node or edge.
-		/// </summary>
-		Shape,
-		Height,
-		Width,
-		Dir,
-		Style,
-		FontName,
-		FillColor,
-		Color
+	public interface IShapeDotAttribute {
 	}
 }
 

@@ -1,5 +1,5 @@
 //
-//  IDotTextWriter.cs
+//  DotGraphType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,20 +20,21 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils.Visual {
+namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An interface describing a <see cref="T:TextWriter"/> that supports the generation
-	/// of GraphViz DOT Graph files.
+	/// An enumeration of the different types of graphs supported by the GraphViz DOT graph notation.
 	/// </summary>
-	public interface IDotTextWriter {
+	public enum DotGraphType {
 
 		/// <summary>
-		/// Add a graph to the file with a given name.
+		/// A undirected graph.
 		/// </summary>
-		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
-		/// <param name="name">The name of the graph, optional, by default not effective.</param>
-		void AddGraph (DotGraphType type = DotGraphType.DirectedGraph, string name = null);
+		Graph,
+		/// <summary>
+		/// A directed graph.
+		/// </summary>
+		DirectedGraph,
 	}
 }
 
