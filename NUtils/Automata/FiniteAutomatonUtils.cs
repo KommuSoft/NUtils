@@ -77,7 +77,7 @@ namespace NUtils.Automata {
 		/// Register the list of given <paramref name="states"/> including any edges.
 		/// </summary>
 		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
-		/// <param name="states">A <see cref="IEnumerable`1"/> of <see cref="T:IState`2"/> instances that must be added.</param>
+		/// <param name="states">A <see cref="T:IEnumerable`1"/> of <see cref="T:IState`2"/> instances that must be added.</param>
 		/// <remarks>
 		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
 		/// </remarks>
@@ -99,6 +99,37 @@ namespace NUtils.Automata {
 		/// </remarks>
 		public static void RegisterStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params IState<TStateTag,TEdgeTag>[] states) {
 			RegisterStates<TStateTag,TEdgeTag> (nfa, (IEnumerable<IState<TStateTag,TEdgeTag>>)states);
+		}
+
+		/// <summary>
+		/// Register the list of given <paramref name="states"/> including any edges as accepting states.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="states">A <see cref="T:IEnumerable`1"/> of <see cref="T:IState`2"/> instances that must be registered
+		/// as accepting states.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// <para>Only <see cref="T:IState`2"/> instances that were registered as states first, are registered as accepting states.</para>
+		/// </remarks>
+		public static void RegisterAcceptingStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, IEnumerable<IState<TStateTag,TEdgeTag>> states) {
+			if (nfa != null && states != null) {
+				foreach (IState<TStateTag,TEdgeTag> state in states) {
+					nfa.RegisterAcceptingState (state);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Register the array of given <paramref name="states"/> including any edges as accepting states.
+		/// </summary>
+		/// <param name="nfa">The finite state automaton to which the edges must be added.</param>
+		/// <param name="states">An array of <see cref="T:IState`2"/> instances that must be registered as as accepting states.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nfa"/> or <paramref name="states"/> are not effective, nothing happens.</para>
+		/// <para>Only <see cref="T:IState`2"/> instances that were registered as states first, are registered as accepting states.</para>
+		/// </remarks>
+		public static void RegisterAcceptingStates<TStateTag,TEdgeTag> (this INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> nfa, params IState<TStateTag,TEdgeTag>[] states) {
+			RegisterAcceptingStates<TStateTag,TEdgeTag> (nfa, (IEnumerable<IState<TStateTag,TEdgeTag>>)states);
 		}
 		#endregion
 	}

@@ -107,6 +107,7 @@ namespace NUtils {
 		public NondeterministicFiniteAutomaton (IEnumerable<IState<TStateTag,TEdgeTag>> states, IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
 			this.RegisterStates (states);
 			this.RegisterEdges (edges);
+			this.initialState = this.RegisterState (initialStateTag);
 		}
 		#endregion
 		#region private methods, for programming convenience
