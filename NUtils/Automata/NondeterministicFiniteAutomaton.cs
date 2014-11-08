@@ -25,6 +25,9 @@ using NUtils.Abstract;
 using NUtils.Automata;
 using NUtils.Collections;
 using NUtils.Functional;
+using NUtils.Visual;
+using System.IO;
+using System.CodeDom.Compiler;
 
 namespace NUtils {
 
@@ -35,7 +38,7 @@ namespace NUtils {
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
 	/// <typeparam name='TCollection'>The type of collection used to store different states given they share the same tag.</typeparam>
-	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>
+	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, IDotVisual
 	    where TCollection : ICollection<IState<TStateTag,TEdgeTag>>, new() {
 
 		#region Fields
@@ -271,6 +274,16 @@ namespace NUtils {
 		/// <param name="state">The given <see cref="T:IState`2"/> to check for.</param>
 		public bool ContainsState (IState<TStateTag, TEdgeTag> state) {
 			return (state != null && this.stateDictionary.Contains (new KeyValuePair<TStateTag,IState<TStateTag,TEdgeTag>> (state.Tag, state)));
+		}
+		#endregion
+		#region IDotVisual implementation
+		/// <summary>
+		/// Write a GraphViz DOT Graph stream to the given <paramref name="textWriter"/> visualizing this instance.
+		/// </summary>
+		/// <param name="textWriter">The <see cref="T:TextWriter"/> to write this instance to.</param>
+		public void WriteDotText (TextWriter textWriter) {
+			IndentedTextWriter itw = new IndentedTextWriter (textWriter);
+			throw new NotImplementedException ();//TODO
 		}
 		#endregion
 	}

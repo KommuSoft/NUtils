@@ -181,6 +181,11 @@
     <Compile Include="Collections\ISingletonCollection.cs" />
     <Compile Include="Collections\CollectionUtils.cs" />
     <Compile Include="Automata\FiniteAutomatonUtils.cs" />
+    <Compile Include="Visual\IDotVisual.cs" />
+    <Compile Include="Visual\DotVisual.cs" />
+    <Compile Include="Visual\IDotTextWriter.cs" />
+    <Compile Include="Visual\DotTextWriter.cs" />
+    <Compile Include="Visual\DotAttributes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -195,6 +200,7 @@
     <Folder Include="IO\" />
     <Folder Include="QueryPath\" />
     <Folder Include="Automata\" />
+    <Folder Include="Visual\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
