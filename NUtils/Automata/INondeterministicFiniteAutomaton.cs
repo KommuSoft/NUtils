@@ -127,7 +127,9 @@ namespace NUtils.Automata {
 		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
 		/// edges.
 		/// </summary>
-		/// <param name="stateTag">The tag of the new state to create.</param>
+		/// <param name="fromStateTag">The tag of the state from which the edge originates.</param>
+		/// <param name="edgeTag">The tag of the edge that is registered.</param>
+		/// <param name="toStateTag">The tag of the state to which the edge maps.</param>
 		/// <returns>A <see cref="T:IEdge`2"/> instance that is either an already registered
 		/// state with the given <paramref name="stateTag"/> or a new state created.</returns>
 		/// <remarks>

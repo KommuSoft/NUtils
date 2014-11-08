@@ -63,6 +63,12 @@ namespace NUtils.Automata {
 		/// associated with the given <paramref name="edgetag"/>.</returns>
 		/// <param name="edgetag">The given tag to match.</param>
 		IEnumerable<IEdge<TStateTag,TEdgeTag>> TaggedEdges (TEdgeTag edgetag);
+
+		/// <summary>
+		/// Add a new edge to this <see cref="T:IState`2"/> such that the edge originates from this state.
+		/// </summary>
+		/// <param name="edge">The edge to add to this <see cref="T:IState`2"/>.</param>
+		void AddEdge (IEdge<TStateTag,TEdgeTag> edge);
 	}
 }
 

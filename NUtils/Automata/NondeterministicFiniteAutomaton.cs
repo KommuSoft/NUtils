@@ -24,6 +24,7 @@ using System.Linq;
 using NUtils.Abstract;
 using NUtils.Automata;
 using NUtils.Collections;
+using NUtils.Functional;
 
 namespace NUtils {
 
@@ -45,7 +46,7 @@ namespace NUtils {
 		/// <summary>
 		/// The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.
 		/// </summary>
-		private readonly IState<TStateTag,TEdgeTag> initialState;
+		private IState<TStateTag,TEdgeTag> initialState;
 		/// <summary>
 		/// A <see cref="T:Register`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
 		/// </summary>
@@ -93,23 +94,48 @@ namespace NUtils {
 		}
 		#endregion
 		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:INondeterministicFiniteAutomaton`3"/> class.
-		/// </summary>
-		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) {
-			this.constructNFA (edges, initialState, acceptingStates);
+		public NondeterministicFiniteAutomaton (IEnumerable<Tuple<TStateTag,TEdgeTag,TStateTag>> edges, TStateTag initialStateTag, IEnumerable<TStateTag> acceptingStateTags) {
+			this.constructNFA (edges, initialStateTag, acceptingStateTags);
 		}
 		#endregion
 		#region private methods, for programming convenience
-		private void constructNFA (IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialState, IEnumerable<TStateTag> acceptingStates) {
-			IState<TStateTag,TEdgeTag> sf, st;
+		private void constructNFA (IEnumerable<Tuple<TStateTag, TEdgeTag, TStateTag>> edges, TStateTag initialStateTags, IEnumerable<TStateTag> acceptingStateTags) {
 			foreach (Tuple<TStateTag,TEdgeTag,TStateTag> edge in edges) {
-				sf = RegisterState (edge.Item1);
-				st = RegisterState (edge.Item3);
-
+				RegisterEdge (edge.Item1, edge.Item2, edge.Item3);
 			}
+			this.initialState = this.RegisterState (initialStateTags);
+			this.acceptingStateDictionary.AddAll (acceptingStateTags.Select (this.RegisterState));
 		}
 		#endregion
+		#region INondeterministicFiniteAutomaton implementation
+		/// <summary>
+		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
+		/// edges.
+		/// </summary>
+		/// <param name="fromStateTag">The tag of the state from which the edge originates.</param>
+		/// <param name="edgeTag">The tag of the edge that is registered.</param>
+		/// <param name="toStateTag">The tag of the state to which the edge maps.</param>
+		/// <returns>A <see cref="T:IEdge`2"/> instance that is either an already registered
+		/// state with the given <paramref name="stateTag"/> or a new state created.</returns>
+		/// <remarks>
+		/// <para>If there is no state associated with the <paramref name="fromStateTag"/> or <paramref name="toStateTag"/>,
+		/// states are registered (using the <see cref="M:RegisterState"/> method) for these tags.</para>
+		/// <para>If there already exists an edge between the two given states with the given tag, no additional
+		/// edge is registered.</para>
+		/// </remarks>
+		public IEdge<TStateTag,TEdgeTag> RegisterEdge (TStateTag fromStateTag, TEdgeTag edgeTag, TStateTag toStateTag) {
+			IState<TStateTag,TEdgeTag> frm = this.RegisterState (fromStateTag);
+			IState<TStateTag,TEdgeTag> tos = this.RegisterState (toStateTag);
+			foreach (IEdge<TStateTag,TEdgeTag> edge in frm.TaggedEdges (edgeTag)) {
+				if (edge.Contains (tos)) {
+					return edge;
+				}
+			}
+			Edge<TStateTag,TEdgeTag> cedge = new Edge<TStateTag,TEdgeTag> (edgeTag, tos);
+			frm.AddEdge (cedge);
+			return cedge;
+		}
+
 		/// <summary>
 		/// Register a state for the given <paramref name="sateTag"/>. The new state doesn't contain any
 		/// edges.
@@ -128,7 +154,7 @@ namespace NUtils {
 			}
 			return state;
 		}
-		#region INondeterministicFiniteAutomaton implementation
+
 		/// <summary>
 		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
 		/// </summary>

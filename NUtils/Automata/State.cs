@@ -96,6 +96,14 @@ namespace NUtils.Automata {
 		public IEnumerable<IEdge<TStateTag, TEdgeTag>> TaggedEdges (TEdgeTag edgetag) {
 			return this.edgeMap.GetValues (edgetag);
 		}
+
+		/// <summary>
+		/// Add a new edge to this <see cref="T:IState`2"/> such that the edge originates from this state.
+		/// </summary>
+		/// <param name="edge">The edge to add to this <see cref="T:IState`2"/>.</param>
+		public void AddEdge (IEdge<TStateTag, TEdgeTag> edge) {
+			this.edgeMap.Add (edge);
+		}
 		#endregion
 	}
 }
