@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System;
-using NUtils.Bitwise;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
+
 	[TestFixture()]
 	public class BitUtilsTest {
 

@@ -59,8 +59,21 @@ namespace NUtils.Visual.GraphViz {
 				this.Write (DotVisualUtils.GraphKeyword);
 				break;
 			}
-			this.Write (' ');
-			this.Write (DotVisualUtils.ScopeOpen);
+			this.Write (DotVisualUtils.TokenSeparator);
+			this.WriteLine (DotVisualUtils.ScopeOpen);
+			this.Indent++;
+		}
+		#endregion
+		#region private method, for programmers convenience
+		/// <summary>
+		/// Write the given list of attributes, if the list is effective and contains at least one element.
+		/// </summary>
+		/// <param name="dotAttributes">An <see cref="T:IEnumerable`1"/> of <see cref="T:IDotAttribute"/> instances
+		/// that specify how a certain element should be drawn.</param>
+		private void WriteAttributeList (IEnumerable<IDotAttribute> dotAttributes) {
+			if (dotAttributes != null && dotAttributes.Contains ()) {
+				this.Write (string.Format ("{0}{1}{2}", DotVisualUtils.AttributeOpen, string.Join (DotVisualUtils.AttributeSeparator, dotAttributes), DotVisualUtils.AttributeClose));
+			}
 		}
 		#endregion
 		#region IDotTextWriter implementation
@@ -77,9 +90,7 @@ namespace NUtils.Visual.GraphViz {
 		public void AddNode (string identifier, IEnumerable<INodeDotAttribute> dotAttributes) {
 			if (identifier != null) {
 				this.Write (identifier);
-				if (dotAttributes != null && dotAttributes.Contains ()) {
-					this.Write (string.Format ("{0}{1}{2}", DotVisualUtils.AttributeOpen, string.Join (DotVisualUtils.AttributeSeparator, dotAttributes), DotVisualUtils.AttributeClose));
-				}
+				this.WriteAttributeList (dotAttributes);
 				this.WriteLine (DotVisualUtils.ScopeSeparator);
 			}
 		}
@@ -93,11 +104,19 @@ namespace NUtils.Visual.GraphViz {
 		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
+		/// <para>If one of the identifiers (<paramref name="fromIdentifier"/> or <paramref name="toIdentifier"/>), the edge is not added.</para>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
 		/// this is the behavior of GraphViz DOT graphs.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
 		public void AddEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes) {
+			if (fromIdentifier != null && toIdentifier != null) {
+				this.Write (fromIdentifier);
+				this.Write (DotVisualUtils.UndirectedEdgeToken);
+				this.Write (toIdentifier);
+				this.WriteAttributeList (dotAttributes);
+				this.WriteLine (DotVisualUtils.ScopeSeparator);
+			}
 		}
 
 		/// <summary>
@@ -109,12 +128,19 @@ namespace NUtils.Visual.GraphViz {
 		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
+		/// <para>If one of the identifiers (<paramref name="fromIdentifier"/> or <paramref name="toIdentifier"/>), the edge is not added.</para>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
 		/// this is the behavior of GraphViz DOT graphs.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
 		public void AddDirectedEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes) {
-
+			if (fromIdentifier != null && toIdentifier != null) {
+				this.Write (fromIdentifier);
+				this.Write (DotVisualUtils.DirectedEdgeToken);
+				this.Write (toIdentifier);
+				this.WriteAttributeList (dotAttributes);
+				this.WriteLine (DotVisualUtils.ScopeSeparator);
+			}
 		}
 		#endregion
 		#region Close override method
@@ -126,7 +152,8 @@ namespace NUtils.Visual.GraphViz {
 		/// </remarks>
 		public override void Close () {
 			int n = this.Indent;
-			for (; n > 0x00; n--) {
+			for (; n > 0x00;) {
+				this.Indent = --n;
 				this.WriteLine (DotVisualUtils.ScopeClose);
 			}
 			base.Close ();

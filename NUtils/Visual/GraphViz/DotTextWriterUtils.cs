@@ -56,6 +56,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <param name="dotAttributes">An array of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
+		/// <para>If one of the identifiers (<paramref name="fromIdentifier"/> or <paramref name="toIdentifier"/>), the edge is not added.</para>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
 		/// this is the behavior of GraphViz DOT graphs.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
@@ -77,6 +78,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <param name="dotAttributes">An array of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
+		/// <para>If one of the identifiers (<paramref name="fromIdentifier"/> or <paramref name="toIdentifier"/>), the edge is not added.</para>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
 		/// this is the behavior of GraphViz DOT graphs.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>

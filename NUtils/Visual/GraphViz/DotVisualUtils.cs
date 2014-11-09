@@ -29,6 +29,10 @@ namespace NUtils.Visual.GraphViz {
 
 		#region Constants
 		/// <summary>
+		/// A sequence of characters necessary to separate two tokens.
+		/// </summary>
+		public const string TokenSeparator = " ";
+		/// <summary>
 		/// The graph keyword, a keyword used to declare a graph that is not directed.
 		/// </summary>
 		public const string GraphKeyword = "graph";
@@ -47,7 +51,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <summary>
 		/// The character used to close the current scope (i.e. a graph environment).
 		/// </summary>
-		public const string ScopeClose = "{";
+		public const string ScopeClose = "}";
 		/// <summary>
 		/// The character used to open an attribute array (i.e. describe how to draw a node or edge).
 		/// </summary>
@@ -72,6 +76,14 @@ namespace NUtils.Visual.GraphViz {
 		/// The token that separates attributes from each other.
 		/// </summary>
 		public const string AttributeSeparator = ",";
+		/// <summary>
+		/// The token that specifies that the edge is undirected.
+		/// </summary>
+		public const string UndirectedEdgeToken = " - ";
+		/// <summary>
+		/// The token that specifies that the edge is directed.
+		/// </summary>
+		public const string DirectedEdgeToken = " -> ";
 		#endregion
 		#region Utility methods
 		#endregion

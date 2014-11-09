@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\BitUtilsTest.cs" />
     <Compile Include="Tests\CompactBitVectorTest.cs" />
     <Compile Include="Bitwise\BitUtils.cs" />
     <Compile Include="Bitwise\CompactBitVector.cs" />
@@ -201,6 +200,10 @@
     <Compile Include="Visual\GraphViz\ShapeDotAttribute.cs" />
     <Compile Include="Visual\GraphViz\INodeDotAttribute.cs" />
     <Compile Include="Visual\GraphViz\IEdgeDotAttribute.cs" />
+    <Compile Include="Bitwise\BitUtilsTest.cs" />
+    <Compile Include="Automata\NondeterministicFiniteAutomatonTest.cs" />
+    <Compile Include="Collections\IEmptyCollection.cs" />
+    <Compile Include="Collections\EmptyCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
