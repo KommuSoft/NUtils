@@ -50,9 +50,10 @@ namespace NUtils.Visual.GraphViz {
 		/// Add an undirected edge from a node with the given <paramref name="fromIdentifier"/> to a node
 		/// with the given <paramref name="toIdentifier"/>.
 		/// </summary>
+		/// <param name="writer">The writer to which the edge is added.</param>
 		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
 		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
-		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// <param name="dotAttributes">An array of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
@@ -60,15 +61,20 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// <para>If the given <paramref name="writer"/> is not effective, nothing happens.</para>
 		/// </remarks>
-		public static void AddEdge (this IDotTextWriter writer, string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes);
+		public static void AddEdge (this IDotTextWriter writer, string fromIdentifier, string toIdentifier, params IEdgeDotAttribute[] dotAttributes) {
+			if (writer != null) {
+				writer.AddEdge (fromIdentifier, toIdentifier, (IEnumerable<IEdgeDotAttribute>)dotAttributes);
+			}
+		}
 
 		/// <summary>
 		/// Add an directed edge from a node with the given <paramref name="fromIdentifier"/> to a node
 		/// with the given <paramref name="toIdentifier"/>.
 		/// </summary>
+		/// <param name="writer">The writer to which the edge is added.</param>
 		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
 		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
-		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// <param name="dotAttributes">An array of <see cref="T:IEdgeDotAttribute"/> instances
 		/// that alter the way the edge is displayed.</param>
 		/// <remarks>
 		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
@@ -76,7 +82,11 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// <para>If the given <paramref name="writer"/> is not effective, nothing happens.</para>
 		/// </remarks>
-		public static void AddDirectedEdge (this IDotTextWriter writer, string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes);
+		public static void AddDirectedEdge (this IDotTextWriter writer, string fromIdentifier, string toIdentifier, params IEdgeDotAttribute[] dotAttributes) {
+			if (writer != null) {
+				writer.AddDirectedEdge (fromIdentifier, toIdentifier, (IEnumerable<IEdgeDotAttribute>)dotAttributes);
+			}
+		}
 		#endregion
 	}
 }
