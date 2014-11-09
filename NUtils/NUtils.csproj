@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\CompactBitVectorTest.cs" />
     <Compile Include="Bitwise\BitUtils.cs" />
     <Compile Include="Bitwise\CompactBitVector.cs" />
     <Compile Include="Bitwise\IBitVector.cs" />
@@ -82,12 +81,9 @@
     <Compile Include="Maths\ReferencedFiniteStateMachine.cs" />
     <Compile Include="Maths\ITransitionSensitive.cs" />
     <Compile Include="Maths\TransitionUtils.cs" />
-    <Compile Include="Tests\TransitionUtilsTest.cs" />
     <Compile Include="ArtificialIntelligence\IHiddenMarkovModel.cs" />
     <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModel.cs" />
     <Compile Include="Bitwise\INumberVector.cs" />
-    <Compile Include="Tests\MathUtilsTest.cs" />
-    <Compile Include="Tests\ExplicitHiddenMarkovModelTest.cs" />
     <Compile Include="IO\IWriteable.cs" />
     <Compile Include="Maths\IGraph.cs" />
     <Compile Include="Maths\IDigraph.cs" />
@@ -98,7 +94,6 @@
     <Compile Include="IO\IOUtils.cs" />
     <Compile Include="Functional\Maybe.cs" />
     <Compile Include="Abstract\EqualityFunction.cs" />
-    <Compile Include="Tests\EnumerableUtilsTest.cs" />
     <Compile Include="Maths\IProbabilisticTransition.cs" />
     <Compile Include="Maths\SparseProbabilisticTransition.cs" />
     <Compile Include="Collections\EnumerableBase.cs" />
@@ -204,6 +199,11 @@
     <Compile Include="Automata\NondeterministicFiniteAutomatonTest.cs" />
     <Compile Include="Collections\IEmptyCollection.cs" />
     <Compile Include="Collections\EmptyCollection.cs" />
+    <Compile Include="Bitwise\CompactBitVectorTest.cs" />
+    <Compile Include="Functional\EnumerableUtilsTest.cs" />
+    <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModelTest.cs" />
+    <Compile Include="Maths\MathUtilsTest.cs" />
+    <Compile Include="Maths\TransitionUtilsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

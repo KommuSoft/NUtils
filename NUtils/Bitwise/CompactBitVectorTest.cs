@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using NUtils.Bitwise;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
+
 	[TestFixture()]
 	public class CompactBitVectorTest {
 		[Test()]

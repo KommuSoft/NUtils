@@ -23,6 +23,7 @@ using System.Linq;
 using System.Collections.Generic;
 using NUtils.Functional;
 using System.Data;
+using NUtils.Abstract;
 
 namespace NUtils.Collections {
 
