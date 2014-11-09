@@ -26,6 +26,14 @@ namespace NUtils.Visual.GraphViz {
 	/// An <see cref="T:IDotAttribute"/> that describes the shape of a node.
 	/// </summary>
 	public interface IShapeDotAttribute {
+
+		/// <summary>
+		/// Get the shape of the node to which this attribute is assigned.
+		/// </summary>
+		/// <value>A <see cref="T:IDotShape"/> that describes the shape of the assigned node.</value>
+		IDotShape Shape {
+			get;
+		}
 	}
 }
 

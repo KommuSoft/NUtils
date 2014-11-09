@@ -190,6 +190,16 @@
     <Compile Include="Visual\GraphViz\IDotAttribute.cs" />
     <Compile Include="Visual\GraphViz\IShapeDotAttribute.cs" />
     <Compile Include="Visual\GraphViz\IDotShape.cs" />
+    <Compile Include="Visual\GraphViz\DotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\LabelDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\DotTextWriterUtils.cs" />
+    <Compile Include="Visual\GraphViz\PlainTextDotShape.cs" />
+    <Compile Include="Visual\GraphViz\CircleDotShape.cs" />
+    <Compile Include="Visual\GraphViz\DoubleCircleDotShape.cs" />
+    <Compile Include="Visual\GraphViz\RecordDotShape.cs" />
+    <Compile Include="Visual\GraphViz\BoxDotShape.cs" />
+    <Compile Include="Visual\GraphViz\ShapeDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\INodeDotAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

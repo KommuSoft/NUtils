@@ -21,6 +21,7 @@
 using System;
 using System.CodeDom.Compiler;
 using System.IO;
+using NUtils.Functional;
 
 namespace NUtils.Visual.GraphViz {
 
@@ -30,6 +31,8 @@ namespace NUtils.Visual.GraphViz {
 	/// </summary>
 	public class DotTextWriter : IndentedTextWriter, IDotTextWriter {
 
+		#region Fields
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:DotTextWriter"/> class with a given <see cref="T:TextWriter"/>
@@ -45,16 +48,54 @@ namespace NUtils.Visual.GraphViz {
 		/// </summary>
 		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
 		/// <param name="name">The name of the graph, optional, by default not effective.</param>
-		public void AddGraph (DotGraphType type = (DotGraphType)1, string name = null) {
+		public void AddGraph (DotGraphType type = DotGraphType.DirectedGraph, string name = null) {
 			//TODO: cleanup
 			switch (type) {
 			case DotGraphType.DirectedGraph:
-				this.Write (DotVisual.DirectedGraphKeyword);
+				this.Write (DotVisualUtils.DirectedGraphKeyword);
 				break;
 			case DotGraphType.Graph:
-				this.Write (DotVisual.GraphKeyword);
+				this.Write (DotVisualUtils.GraphKeyword);
 				break;
 			}
+			this.Write (' ');
+			this.Write (DotVisualUtils.ScopeOpen);
+		}
+		#endregion
+		#region IDotTextWriter implementation
+		/// <summary>
+		/// Add a node to the current graph.
+		/// </summary>
+		/// <param name="identifier">The identifier of the current node.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of optional attributes to be added to the
+		/// node that will be added.</param>
+		/// <remarks>
+		/// <para>The identifier must be effective for the operation to take place.</para>
+		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// </remarks>
+		public void AddNode (string identifier, System.Collections.Generic.IEnumerable<IDotAttribute> dotAttributes) {
+			if (identifier != null) {
+				this.Write (identifier);
+				if (dotAttributes != null && dotAttributes.Contains ()) {
+					this.Write (string.Format ("{0}{1}{2}", DotVisualUtils.AttributeOpen, string.Join (DotVisualUtils.AttributeSeparator, dotAttributes), DotVisualUtils.AttributeClose));
+				}
+				this.WriteLine (DotVisualUtils.ScopeSeparator);
+			}
+		}
+		#endregion
+		#region Close override method
+		/// <summary>
+		/// Closes the current writer and releases any system resources associated with the writer, missing unidents are added.
+		/// </summary>
+		/// <remarks>
+		/// <para>Scopes that are open at that time will be closed, to generate a valid GraphViz DOT graph file.</para>
+		/// </remarks>
+		public override void Close () {
+			int n = this.Indent;
+			for (; n > 0x00; n--) {
+				this.WriteLine (DotVisualUtils.ScopeClose);
+			}
+			base.Close ();
 		}
 		#endregion
 	}

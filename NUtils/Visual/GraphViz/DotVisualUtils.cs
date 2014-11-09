@@ -39,7 +39,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <summary>
 		/// The separator between two commands.
 		/// </summary>
-		public const string CommandSeparator = ";";
+		public const string ScopeSeparator = ";";
 		/// <summary>
 		/// The character used to open a new scope (i.e. a graph environment).
 		/// </summary>
@@ -56,6 +56,22 @@ namespace NUtils.Visual.GraphViz {
 		/// The character used to close an attribute array (i.e. describe how to draw a node or edge).
 		/// </summary>
 		public const string AttributeClose = "]";
+		/// <summary>
+		/// A string that represents the token used to assign a value to an attribute.
+		/// </summary>
+		public const string AttributeAssignment = "=";
+		/// <summary>
+		/// The token that is used to open a string.
+		/// </summary>
+		public const string StringOpen = "\"";
+		/// <summary>
+		/// The token that is used to close a string.
+		/// </summary>
+		public const string StringClose = "\"";
+		/// <summary>
+		/// The token that separates attributes from each other.
+		/// </summary>
+		public const string AttributeSeparator = ",";
 		#endregion
 		#region Utility methods
 		#endregion

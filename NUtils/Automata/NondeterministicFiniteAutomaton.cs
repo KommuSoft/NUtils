@@ -25,9 +25,9 @@ using NUtils.Abstract;
 using NUtils.Automata;
 using NUtils.Collections;
 using NUtils.Functional;
-using NUtils.Visual;
 using System.IO;
 using System.CodeDom.Compiler;
+using NUtils.Visual.GraphViz;
 
 namespace NUtils {
 

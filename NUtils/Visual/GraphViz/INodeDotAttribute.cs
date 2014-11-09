@@ -1,5 +1,5 @@
 //
-//  ILabelDotAttribute.cs
+//  INodeDotAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,9 @@ using System;
 namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An <see cref="T:IDotAttribute"/> that describes the label that is attached to a node or edge.
+	/// An <see cref="T:IDotAttribute"/> for the GraphViz DOT Graph format that can be applied to nodes.
 	/// </summary>
-	public interface ILabelDotAttribute : IDotAttribute {
-
-		/// <summary>
-		/// Get the label associated with this dot attribute.
-		/// </summary>
-		/// <value>The label associated with this dot attribute that will be printed on the corresponding node or edge.</value>
-		string Label {
-			get;
-		}
+	public interface INodeDotAttribute : IDotAttribute {
 	}
 }
 

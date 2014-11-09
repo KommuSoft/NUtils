@@ -1,5 +1,5 @@
 //
-//  IDotTextWriter.cs
+//  DotTextWriterUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,29 +24,27 @@ using System.Collections.Generic;
 namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An interface describing a <see cref="T:TextWriter"/> that supports the generation
-	/// of GraphViz DOT Graph files.
+	/// A set of utility methods defined for the <see cref="T:IDotTextWriter"/> interface.
 	/// </summary>
-	public interface IDotTextWriter {
-
-		/// <summary>
-		/// Add a graph to the file with a given name.
-		/// </summary>
-		/// <param name="type">The type of the graph to be added, optional, by default <see cref="DotGraphType.DirectedGraph"/>.</param>
-		/// <param name="name">The name of the graph, optional, by default not effective.</param>
-		void AddGraph (DotGraphType type = DotGraphType.DirectedGraph, string name = null);
-
+	public static class DotTextWriterUtils {
+		#region IEnumerable to params
 		/// <summary>
 		/// Add a node to the current graph.
 		/// </summary>
+		/// <param name="writer">The writer to which the node is added.</param>
 		/// <param name="identifier">The identifier of the current node.</param>
 		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of optional attributes to be added to the
 		/// node that will be added.</param>
 		/// <remarks>
 		/// <para>The identifier must be effective for the operation to take place.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// <para>If the given <paramref name="writer"/> is not effective, nothing happens.</para>
 		/// </remarks>
-		void AddNode (string identifier, IEnumerable<IDotAttribute> dotAttributes);
+		public static void AddNode (this IDotTextWriter writer, string identifier, params IDotAttribute[] dotAttributes) {
+			if (writer != null) {
+				writer.AddNode (identifier, (IEnumerable<IDotAttribute>)dotAttributes);
+			}
+		}
+		#endregion
 	}
 }
-

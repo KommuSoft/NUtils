@@ -19,33 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
 namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// The set of shapes supported by the GraphViz DOT Graph package.
+	/// An interface describing several kinds of shapes supported by the GraphViz DOT Graph format.
 	/// </summary>
-	public enum DotShape {
-		/// <summary>
-		/// The node is painted as plain text: no shape surrounds the text.
-		/// </summary>
-		PlainText,
-		/// <summary>
-		/// The node is painted as a circle.
-		/// </summary>
-		Circle,
-		/// <summary>
-		/// The node is painted as a double circle.
-		/// </summary>
-		DoubleCircle,
-		/// <summary>
-		/// The node is painted as a record.
-		/// </summary>
-		Record,
-		/// <summary>
-		/// The node is painted as a box.
-		/// </summary>
-		Box
+	public interface IDotShape : IName {
 	}
 }
 

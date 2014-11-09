@@ -19,13 +19,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
 namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
 	/// An interface describing a attribute that is attached to a GraphViz element (graph, node, edge, ...).
 	/// </summary>
-	public interface IDotAttribute {
+	/// <remarks>
+	/// <para>An attribute has a name, the identifier of the attribute, this is not the value of the attribute.</para>
+	/// </remarks>
+	public interface IDotAttribute : IName {
 	}
 }
 
