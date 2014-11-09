@@ -221,7 +221,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Visual.GraphViz.DotTextWriter:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+        <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -255,6 +255,32 @@
         <div class="SectionBox" id="Public Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute})">AddDirectedEdge</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdgeDotAttribute&gt;</a>)<blockquote>
+            Add an directed edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute})">AddEdge</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdgeDotAttribute&gt;</a>)<blockquote>
+            Add an undirected edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </blockquote></td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>
@@ -297,6 +323,30 @@
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Visual.GraphViz/DotTextWriterUtils.html#M:NUtils.Visual.GraphViz.DotTextWriterUtils.AddDirectedEdge(NUtils.Visual.GraphViz.IDotTextWriter,System.String,System.String,NUtils.Visual.GraphViz.IEdgeDotAttribute[])">AddDirectedEdge</a>
+                  </b>(<i>this</i> <a href="../NUtils.Visual.GraphViz/IDotTextWriter.html">IDotTextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="../NUtils.Visual.GraphViz/IEdgeDotAttribute.html">IEdgeDotAttribute</a>[])<blockquote>
+            Add an directed edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Visual.GraphViz/DotTextWriterUtils.html#M:NUtils.Visual.GraphViz.DotTextWriterUtils.AddEdge(NUtils.Visual.GraphViz.IDotTextWriter,System.String,System.String,NUtils.Visual.GraphViz.IEdgeDotAttribute[])">AddEdge</a>
+                  </b>(<i>this</i> <a href="../NUtils.Visual.GraphViz/IDotTextWriter.html">IDotTextWriter</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="../NUtils.Visual.GraphViz/IEdgeDotAttribute.html">IEdgeDotAttribute</a>[])<blockquote>
+            Add an undirected edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </blockquote></td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>static </div>
@@ -424,7 +474,83 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Visual.GraphViz.DotTextWriter(System.IO.TextWriter):Version Information">
-            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute})">AddDirectedEdge Method</h3>
+        <blockquote id="M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):member">
+          <p class="Summary">
+            Add an directed edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddDirectedEdge</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> fromIdentifier, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> toIdentifier, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdgeDotAttribute&gt;</a> dotAttributes)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Parameters">
+            <dl>
+              <dt>
+                <i>fromIdentifier</i>
+              </dt>
+              <dd>The identifier of the first node of the edge.</dd>
+              <dt>
+                <i>toIdentifier</i>
+              </dt>
+              <dd>The identifier of the second node of the edge.</dd>
+              <dt>
+                <i>dotAttributes</i>
+              </dt>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEdgeDotAttribute</a> instances
+            that alter the way the edge is displayed.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Remarks">
+            <p>If one of the identifiers (<i>fromIdentifier</i> or <i>toIdentifier</i>), the edge is not added.</p>
+            <p>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+            this is the behavior of GraphViz DOT graphs.</p>
+            <p>If the given list of attributes is not effective, no attributes are added to the node.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddDirectedEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Version Information">
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute})">AddEdge Method</h3>
+        <blockquote id="M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):member">
+          <p class="Summary">
+            Add an undirected edge from a node with the given <i>fromIdentifier</i> to a node
+            with the given <i>toIdentifier</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddEdge</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> fromIdentifier, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> toIdentifier, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEdgeDotAttribute&gt;</a> dotAttributes)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Parameters">
+            <dl>
+              <dt>
+                <i>fromIdentifier</i>
+              </dt>
+              <dd>The identifier of the first node of the edge.</dd>
+              <dt>
+                <i>toIdentifier</i>
+              </dt>
+              <dd>The identifier of the second node of the edge.</dd>
+              <dt>
+                <i>dotAttributes</i>
+              </dt>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEdgeDotAttribute</a> instances
+            that alter the way the edge is displayed.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Remarks">
+            <p>If one of the identifiers (<i>fromIdentifier</i> or <i>toIdentifier</i>), the edge is not added.</p>
+            <p>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+            this is the behavior of GraphViz DOT graphs.</p>
+            <p>If the given list of attributes is not effective, no attributes are added to the node.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddEdge(System.String,System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.IEdgeDotAttribute}):Version Information">
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Visual.GraphViz.DotTextWriter.AddGraph(NUtils.Visual.GraphViz.DotGraphType,System.String)">AddGraph Method</h3>
@@ -453,7 +579,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddGraph(NUtils.Visual.GraphViz.DotGraphType,System.String):Version Information">
-            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Visual.GraphViz.DotTextWriter.AddNode(System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.INodeDotAttribute})">AddNode Method</h3>
@@ -484,7 +610,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.AddNode(System.String,System.Collections.Generic.IEnumerable{NUtils.Visual.GraphViz.INodeDotAttribute}):Version Information">
-            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Visual.GraphViz.DotTextWriter.Close()">Close Method</h3>
@@ -498,7 +624,7 @@
           <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.Close():Remarks">Scopes that are open at that time will be closed, to generate a valid GraphViz DOT graph file.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Visual.GraphViz.DotTextWriter.Close():Version Information">
-            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+            <b>Namespace: </b>NUtils.Visual.GraphViz<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
           <hr size="1" />
         </blockquote>
       </div>

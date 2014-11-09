@@ -234,7 +234,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.NondeterministicFiniteAutomaton`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -245,6 +245,21 @@
         <div class="SectionBox" id="Public Constructors">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`2</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            </td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>
@@ -576,6 +591,41 @@
     <div class="Members" id="T:NUtils.NondeterministicFiniteAutomaton`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
+        <blockquote id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`2</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>NondeterministicFiniteAutomaton</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a> edges, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> initialStateTag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> acceptingStateTags)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Parameters">
+            <dl>
+              <dt>
+                <i>edges</i>
+              </dt>
+              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`3</a> instances representing edges to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`2</a>.</dd>
+              <dt>
+                <i>initialStateTag</i>
+              </dt>
+              <dd>The tag of the state that is the initial state.</dd>
+              <dt>
+                <i>acceptingStateTags</i>
+              </dt>
+              <dd>The list of tags representing the accepting states.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Remarks">
+            <p>Edges with tags that are not associated with any state will result in the creation of new <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`2</a>.</p>
+            <p>If the given <i>initialStateTag</i> does not correspond with any registered state, a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance will be created.</p>
+            <p>For each tag in the list of <i>acceptingStateTags</i>, the "first" <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that matches the tag will be picked, if no <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance matches the given tag, the tag is ignored.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+          <hr size="1" />
+        </blockquote>
         <h3 id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
         <blockquote id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):member">
           <p class="Summary">
@@ -613,7 +663,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.26019</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
           <hr size="1" />
         </blockquote>
       </div>
