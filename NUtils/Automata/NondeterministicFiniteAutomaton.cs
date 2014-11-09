@@ -284,14 +284,36 @@ namespace NUtils {
 		public void WriteDotText (TextWriter textWriter) {
 			DotTextWriter dtw = new DotTextWriter (textWriter);
 			dtw.AddGraph ();
-			int id = 0x00;
-			IShapeDotAttribute isda = new IShapeDotAttribute (DoubleCircleDotShape.Instance);
-			foreach (IState<TStateTag,TEdgeTag> state in (ICollection<IState<TStateTag,TEdgeTag>>) this.stateDictionary) {
-				string identifier = string.Format ("n{0}", id++);
+			int id = 0x00, idi, idj;
+			Dictionary<IState<TStateTag,TEdgeTag>,int> identifiers = new Dictionary<IState<TStateTag,TEdgeTag>,int> ();
+			ShapeDotAttribute sda = new ShapeDotAttribute (DoubleCircleDotShape.Instance);
+			LabelDotAttribute lda;
+			ICollection<IState<TStateTag,TEdgeTag>> states = (ICollection<IState<TStateTag,TEdgeTag>>)this.stateDictionary;
+			string sidi, sidj;
+			foreach (IState<TStateTag,TEdgeTag> state in states) {
+				if (!identifiers.TryGetValue (state, out idi)) {
+					idi = id++;
+					identifiers.Add (state, idi);
+				}
+				sidi = string.Format ("n{0}", idi);
+				lda = new LabelDotAttribute (state.Tag);
 				if (this.acceptingStateDictionary.Contains (state)) {
-					dtw.AddNode (identifier, isda);
+					dtw.AddNode (sidi, lda, sda);
 				} else {
-					dtw.AddNode (identifier);
+					dtw.AddNode (sidi, lda);
+				}
+			}
+			foreach (IState<TStateTag,TEdgeTag> fstate in states) {
+				idi = identifiers [fstate];
+				sidi = string.Format ("n{0}", idi);
+				foreach (IEdge<TStateTag,TEdgeTag> edge in fstate.Edges) {
+					lda = new LabelDotAttribute (edge.Tag);
+					foreach (IState<TStateTag,TEdgeTag> tstate in edge) {
+						if (identifiers.TryGetValue (tstate, out idj)) {
+							sidj = string.Format ("n{0}", idj);
+							dtw.AddDirectedEdge (sidi, sidj, lda);
+						}
+					}
 				}
 			}
 			//TODO

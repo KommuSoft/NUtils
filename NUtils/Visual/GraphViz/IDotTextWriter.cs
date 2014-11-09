@@ -47,6 +47,36 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
 		void AddNode (string identifier, IEnumerable<INodeDotAttribute> dotAttributes);
+
+		/// <summary>
+		/// Add an undirected edge from a node with the given <paramref name="fromIdentifier"/> to a node
+		/// with the given <paramref name="toIdentifier"/>.
+		/// </summary>
+		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
+		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// that alter the way the edge is displayed.</param>
+		/// <remarks>
+		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+		/// this is the behavior of GraphViz DOT graphs.</para>
+		/// </remarks>
+		void AddEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes);
+
+		/// <summary>
+		/// Add an directed edge from a node with the given <paramref name="fromIdentifier"/> to a node
+		/// with the given <paramref name="toIdentifier"/>.
+		/// </summary>
+		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
+		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// that alter the way the edge is displayed.</param>
+		/// <remarks>
+		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+		/// this is the behavior of GraphViz DOT graphs.</para>
+		/// </remarks>
+		void AddDirectedEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes);
 	}
 }
 

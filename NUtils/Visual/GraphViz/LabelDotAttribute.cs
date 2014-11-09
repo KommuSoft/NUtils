@@ -45,6 +45,14 @@ namespace NUtils.Visual.GraphViz {
 		#endregion
 		#region Constructors
 		/// <summary>
+		/// Initializes a new instance of the <see cref="T:LabelDotAttribute"/> class with the given object
+		/// that provides the label.
+		/// </summary>
+		/// <param name="obj">The object that is formatted into a string as the label.</param>
+		public LabelDotAttribute (object obj) : this(String.Format ("{0}",obj)) {
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:LabelDotAttribute"/> class with the label to be assigned to the node or edge.
 		/// </summary>
 		/// <param name="label">The label that must be assigned to the given label or edge.</param>

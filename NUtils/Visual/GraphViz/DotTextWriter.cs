@@ -22,6 +22,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.IO;
 using NUtils.Functional;
+using System.Collections.Generic;
 
 namespace NUtils.Visual.GraphViz {
 
@@ -73,7 +74,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>The identifier must be effective for the operation to take place.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
-		public void AddNode (string identifier, System.Collections.Generic.IEnumerable<INodeDotAttribute> dotAttributes) {
+		public void AddNode (string identifier, IEnumerable<INodeDotAttribute> dotAttributes) {
 			if (identifier != null) {
 				this.Write (identifier);
 				if (dotAttributes != null && dotAttributes.Contains ()) {
@@ -81,6 +82,39 @@ namespace NUtils.Visual.GraphViz {
 				}
 				this.WriteLine (DotVisualUtils.ScopeSeparator);
 			}
+		}
+
+		/// <summary>
+		/// Add an undirected edge from a node with the given <paramref name="fromIdentifier"/> to a node
+		/// with the given <paramref name="toIdentifier"/>.
+		/// </summary>
+		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
+		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// that alter the way the edge is displayed.</param>
+		/// <remarks>
+		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+		/// this is the behavior of GraphViz DOT graphs.</para>
+		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// </remarks>
+		public void AddEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes) {
+		}
+
+		/// <summary>
+		/// Add an directed edge from a node with the given <paramref name="fromIdentifier"/> to a node
+		/// with the given <paramref name="toIdentifier"/>.
+		/// </summary>
+		/// <param name="fromIdentifier">The identifier of the first node of the edge.</param>
+		/// <param name="toIdentifier">The identifier of the second node of the edge.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of <see cref="T:IEdgeDotAttribute"/> instances
+		/// that alter the way the edge is displayed.</param>
+		/// <remarks>
+		/// <para>If there are no nodes defined with the given identifier, additional nodes will be added to the graph,
+		/// this is the behavior of GraphViz DOT graphs.</para>
+		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
+		/// </remarks>
+		public void AddDirectedEdge (string fromIdentifier, string toIdentifier, IEnumerable<IEdgeDotAttribute> dotAttributes) {
+
 		}
 		#endregion
 		#region Close override method
