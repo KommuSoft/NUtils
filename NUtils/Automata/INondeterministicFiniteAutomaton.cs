@@ -35,6 +35,7 @@ namespace NUtils.Automata {
 	/// </remarks>
 	public interface INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
 
+		#region Obtaining properties, states and edges
 		/// <summary>
 		/// Get the number of states in the nondeterminstic finite state automaton.
 		/// </summary>
@@ -88,7 +89,8 @@ namespace NUtils.Automata {
 		/// <returns>A <see cref="T:IEnumerable`1"/> that contains the tags of all edges originating from the state(s) associated with the given state tag.</returns>
 		/// <param name="statetag">The given state tag.</param>
 		IEnumerable<TEdgeTag> GetEdgeTags (TStateTag statetag);
-
+		#endregion
+		#region Checking/determining
 		/// <summary>
 		/// Checks if this non-deterministic finite automaton contains the given <see cref="T:IState`2"/> instance.
 		/// </summary>
@@ -110,7 +112,8 @@ namespace NUtils.Automata {
 		/// <returns><c>true</c> if the given <see cref="T:IState`2"/> instance is accepting; otherwise, <c>false</c>.</returns>
 		/// <param name="state">The given state to check for.</param>
 		bool IsAccepting (IState<TStateTag,TEdgeTag> state);
-
+		#endregion
+		#region Registering states and edges
 		/// <summary>
 		/// Register the given <paramref name="state"/> including any edges.
 		/// </summary>
@@ -175,5 +178,8 @@ namespace NUtils.Automata {
 		/// automaton, the edge will be added to all the automata.</para>
 		/// </remarks>
 		IEdge<TStateTag,TEdgeTag> RegisterEdge (TStateTag fromStateTag, TEdgeTag edgeTag, TStateTag toStateTag);
+		#endregion
+		#region Combinating automata
+		#endregion
 	}
 }
