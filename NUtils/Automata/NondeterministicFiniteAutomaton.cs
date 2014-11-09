@@ -38,7 +38,7 @@ namespace NUtils {
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
 	/// <typeparam name='TCollection'>The type of collection used to store different states given they share the same tag.</typeparam>
-	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, IDotVisual
+	public class NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : CloneBase<NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection>>, INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, IDotVisual
 	    where TCollection : ICollection<IState<TStateTag,TEdgeTag>>, new() {
 
 		#region Fields
@@ -332,6 +332,46 @@ namespace NUtils {
 				}
 			}
 			dtw.Close ();
+		}
+		#endregion
+		#region INondeterministicFiniteAutomaton implementation
+		/// <summary>
+		/// Concatenate this nondeterministic finite automaton with the given one into a new one such that
+		/// the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+		/// that the first part is accepted by this automaton and the second by the <paramref name="other"/> automaton.
+		/// </summary>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
+		/// <param name="other">The second <see cref="T:INondeterministicFiniteAutomaton`2"/> in the concatenation process.</param>
+		/// <remarks>
+		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
+		/// </remarks>
+		public INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> Concatenate (TEdgeTag nullTag, INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> other) {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		public override NondeterministicFiniteAutomaton<TStateTag, TEdgeTag,TCollection> Clone () {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> ICloneable<INondeterministicFiniteAutomaton<TStateTag, TEdgeTag>>.Clone () {
+			return this.Clone ();
 		}
 		#endregion
 	}
