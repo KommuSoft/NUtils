@@ -25,7 +25,7 @@ namespace NUtils.Visual.GraphViz {
 	/// <summary>
 	/// An <see cref="T:IDotAttribute"/> that describes the label that is attached to a node or edge.
 	/// </summary>
-	public interface ILabelDotAttribute : IDotAttribute {
+	public interface ILabelDotAttribute : INodeDotAttribute {
 
 		/// <summary>
 		/// Get the label associated with this dot attribute.

@@ -282,8 +282,19 @@ namespace NUtils {
 		/// </summary>
 		/// <param name="textWriter">The <see cref="T:TextWriter"/> to write this instance to.</param>
 		public void WriteDotText (TextWriter textWriter) {
-			IndentedTextWriter itw = new IndentedTextWriter (textWriter);
-			throw new NotImplementedException ();//TODO
+			DotTextWriter dtw = new DotTextWriter (textWriter);
+			dtw.AddGraph ();
+			int id = 0x00;
+			IShapeDotAttribute isda = new IShapeDotAttribute (DoubleCircleDotShape.Instance);
+			foreach (IState<TStateTag,TEdgeTag> state in (ICollection<IState<TStateTag,TEdgeTag>>) this.stateDictionary) {
+				string identifier = string.Format ("n{0}", id++);
+				if (this.acceptingStateDictionary.Contains (state)) {
+					dtw.AddNode (identifier, isda);
+				} else {
+					dtw.AddNode (identifier);
+				}
+			}
+			//TODO
 		}
 		#endregion
 	}

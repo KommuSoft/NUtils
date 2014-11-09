@@ -40,13 +40,13 @@ namespace NUtils.Visual.GraphViz {
 		/// Add a node to the current graph.
 		/// </summary>
 		/// <param name="identifier">The identifier of the current node.</param>
-		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of optional attributes to be added to the
-		/// node that will be added.</param>
+		/// <param name="dotAttributes">A <see cref="T:IEnumerable`1"/> of optional <see cref="INodeDotAttribute"/>
+		/// attributes to be added to the node that will be added.</param>
 		/// <remarks>
 		/// <para>The identifier must be effective for the operation to take place.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
-		void AddNode (string identifier, IEnumerable<IDotAttribute> dotAttributes);
+		void AddNode (string identifier, IEnumerable<INodeDotAttribute> dotAttributes);
 	}
 }
 

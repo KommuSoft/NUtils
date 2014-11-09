@@ -40,9 +40,9 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// <para>If the given <paramref name="writer"/> is not effective, nothing happens.</para>
 		/// </remarks>
-		public static void AddNode (this IDotTextWriter writer, string identifier, params IDotAttribute[] dotAttributes) {
+		public static void AddNode (this IDotTextWriter writer, string identifier, params INodeDotAttribute[] dotAttributes) {
 			if (writer != null) {
-				writer.AddNode (identifier, (IEnumerable<IDotAttribute>)dotAttributes);
+				writer.AddNode (identifier, (IEnumerable<INodeDotAttribute>)dotAttributes);
 			}
 		}
 		#endregion

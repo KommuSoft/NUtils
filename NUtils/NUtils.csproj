@@ -200,6 +200,7 @@
     <Compile Include="Visual\GraphViz\BoxDotShape.cs" />
     <Compile Include="Visual\GraphViz\ShapeDotAttribute.cs" />
     <Compile Include="Visual\GraphViz\INodeDotAttribute.cs" />
+    <Compile Include="Visual\GraphViz\IEdgeDotAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

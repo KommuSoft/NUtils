@@ -1,5 +1,5 @@
 //
-//  IShapeDotAttribute.cs
+//  IEdgeDotAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,9 @@ using System;
 namespace NUtils.Visual.GraphViz {
 
 	/// <summary>
-	/// An <see cref="T:IDotAttribute"/> that describes the shape of a node.
+	/// An <see cref="T:IDotAttribute"/> for the GraphViz DOT Graph format that can be applied to edges.
 	/// </summary>
-	public interface IShapeDotAttribute : INodeDotAttribute {
-
-		/// <summary>
-		/// Get the shape of the node to which this attribute is assigned.
-		/// </summary>
-		/// <value>A <see cref="T:IDotShape"/> that describes the shape of the assigned node.</value>
-		IDotShape Shape {
-			get;
-		}
+	public interface IEdgeDotAttribute : IDotAttribute {
 	}
 }
 

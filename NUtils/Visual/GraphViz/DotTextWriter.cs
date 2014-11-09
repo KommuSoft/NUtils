@@ -73,7 +73,7 @@ namespace NUtils.Visual.GraphViz {
 		/// <para>The identifier must be effective for the operation to take place.</para>
 		/// <para>If the given list of attributes is not effective, no attributes are added to the node.</para>
 		/// </remarks>
-		public void AddNode (string identifier, System.Collections.Generic.IEnumerable<IDotAttribute> dotAttributes) {
+		public void AddNode (string identifier, System.Collections.Generic.IEnumerable<INodeDotAttribute> dotAttributes) {
 			if (identifier != null) {
 				this.Write (identifier);
 				if (dotAttributes != null && dotAttributes.Contains ()) {
