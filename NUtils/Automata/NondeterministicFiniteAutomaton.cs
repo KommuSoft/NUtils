@@ -356,18 +356,48 @@ namespace NUtils {
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
+		/// Enumerate all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
+		public IEnumerable<IState<TStateTag,TEdgeTag>> States () {
+			IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.stateDictionary;
+			return states.AsEnumerable ();
+		}
+
+		/// <summary>
+		/// Enumerate all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
+		public IEnumerable<IState<TStateTag,TEdgeTag>> AcceptingStates () {
+			IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.acceptingStateDictionary;
+			return states.AsEnumerable ();
+		}
+
+		/// <summary>
 		/// Concatenate this nondeterministic finite automaton with the given one into a new one such that
 		/// the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
 		/// that the first part is accepted by this automaton and the second by the <paramref name="other"/> automaton.
 		/// </summary>
-		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
 		/// <param name="other">The second <see cref="T:INondeterministicFiniteAutomaton`2"/> in the concatenation process.</param>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
 		/// <remarks>
 		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// </remarks>
-		public INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> Concatenate (TEdgeTag nullTag, INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> other) {
-			throw new NotImplementedException ();
+		public INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> Concatenate (INondeterministicFiniteAutomaton<TStateTag, TEdgeTag> other, TEdgeTag nullTag) {
+			NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> clone = this.Clone ();
+			if (other != null) {
+				IState<TStateTag,TEdgeTag> tostate = other.InitalState;
+				IEdge<TStateTag,TEdgeTag> edge = new Edge<TStateTag,TEdgeTag> (nullTag, tostate);
+				IEnumerable<IState<TStateTag,TEdgeTag>> acceptings = this.acceptingStateDictionary;
+				foreach (IState<TStateTag,TEdgeTag> state in acceptings) {
+					state.AddEdge (edge);
+				}
+				clone.stateDictionary.AddAll (other.States ());
+				clone.acceptingStateDictionary.Clear ();
+				clone.acceptingStateDictionary.AddAll (other.AcceptingStates ());
+			}
+			return clone;
 		}
 		#endregion
 		#region ICloneable implementation
