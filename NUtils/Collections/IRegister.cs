@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using NUtils.Abstract;
 
 namespace NUtils.Collections {
 
@@ -29,7 +30,7 @@ namespace NUtils.Collections {
 	/// </summary>
 	/// <typeparam name='TKey'>The key on which the given items are stored.</typeparam>
 	/// <typeparam name='TValue'>The items to store in the register</typeparam>
-	public interface IRegister<TKey,TValue> : IListDictionary<TKey,TValue>, ICollection<TValue> {
+	public interface IRegister<TKey,TValue> : IListDictionary<TKey,TValue>, ICollection<TValue>, ICloneable<IRegister<TKey,TValue>> {
 
 		/// <summary>
 		/// A function that generates keys given a <typeparamref name="TValue"/>.

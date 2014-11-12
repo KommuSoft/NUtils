@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using NUtils.Functional;
 using System.Data;
 using NUtils.Abstract;
+using System.Diagnostics.Contracts;
 
 namespace NUtils.Collections {
 
@@ -35,7 +36,7 @@ namespace NUtils.Collections {
 	/// <typeparam name='TValue'>The type of the values of the dictionary.</typeparam>
 	/// <typeparam name='TCollection'>The type of collections that store entries in the dictionary (necessary if more
 	/// than one value is added).</typeparam>
-	public class ListDictionary<TKey,TValue,TCollection> : IListDictionary<TKey,TValue>
+	public class ListDictionary<TKey,TValue,TCollection> : IListDictionary<TKey,TValue>, ICloneable<ListDictionary<TKey,TValue,TCollection>>
 	    where TCollection : ICollection<TValue>, new() {
 
 		#region Fields
@@ -118,6 +119,26 @@ namespace NUtils.Collections {
 		}
 		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ListDictionary`3"/> class by copying keys and values
+		/// from the given <see cref="T:ListDictionary`3"/> instance.
+		/// </summary>
+		/// <param name="origin">The given <see cref="T:ListDictionary`3"/> that must be copied.</param>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="origin"/> is not effective.</exception>
+		protected ListDictionary (ListDictionary<TKey,TValue,TCollection> origin) {
+			if (origin == null) {
+				throw new ArgumentNullException ("origin", "The origin must be effective in order to clone it.");
+			}
+			Contract.EndContractBlock ();
+			this.count = origin.count;
+			Dictionary<TKey,TCollection> ldd = this.innerDictionary;
+			foreach (KeyValuePair<TKey,TCollection> kvp in origin.innerDictionary) {
+				TCollection col = new TCollection ();
+				col.AddAll (kvp.Value);
+				ldd.Add (kvp.Key, col);
+			}
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:ListDictionary`3"/> class.
 		/// </summary>
@@ -315,6 +336,42 @@ namespace NUtils.Collections {
 		/// describing all keys and associative values.</returns>
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
 			return this.GetEnumerator ();
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		public virtual ListDictionary<TKey, TValue, TCollection> Clone () {
+			return new ListDictionary<TKey, TValue, TCollection> (this);
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		object ICloneable.Clone () {
+			return this.Clone ();
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		IListDictionary<TKey, TValue> ICloneable<IListDictionary<TKey, TValue>>.Clone () {
+			return this.Clone ();
 		}
 		#endregion
 	}

@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using NUtils.Abstract;
 
 namespace NUtils.Collections {
 
@@ -28,7 +29,7 @@ namespace NUtils.Collections {
 	/// </summary>
 	/// <typeparam name='TKey'>The type of the keys of the dictionary.</typeparam>
 	/// <typeparam name='TValue'>The type of the values of the dictionary.</typeparam>
-	public interface IListDictionary<TKey,TValue> : IDictionary<TKey,TValue> {
+	public interface IListDictionary<TKey,TValue> : IDictionary<TKey,TValue>, ICloneable<IListDictionary<TKey,TValue>> {
 
 		/// <summary>
 		/// Get the list of values associated with the given <paramref name="key"/>.

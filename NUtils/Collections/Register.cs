@@ -22,6 +22,8 @@ using System;
 using System.Collections.Generic;
 using NUtils.Functional;
 using System.Linq;
+using NUtils.Abstract;
+using System.Diagnostics.Contracts;
 
 namespace NUtils.Collections {
 
@@ -33,7 +35,7 @@ namespace NUtils.Collections {
 	/// <typeparam name='TKey'>The key on which the given items are stored.</typeparam>
 	/// <typeparam name='TValue'>The items to store in the register.</typeparam>
 	/// <typeparam name='TCollection'>The type of collection used to store values if multiple values map on the same key.</typeparam>
-	public class Register<TKey,TValue,TCollection> : ListDictionary<TKey,TValue,TCollection>, IRegister<TKey,TValue>
+	public class Register<TKey,TValue,TCollection> : ListDictionary<TKey,TValue,TCollection>, IRegister<TKey,TValue>, ICloneable<Register<TKey,TValue,TCollection>>
 	where TCollection : ICollection<TValue>, new() {
 
 		
@@ -49,9 +51,22 @@ namespace NUtils.Collections {
 		#endregion
 		#region Constructors
 		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Register`3"/> class by cloning the given register.
+		/// </summary>
+		/// <param name='origin'>The given <see cref="T:Register`3"/> instance that must be cloned, must be effective.</param>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="origin"/> is not effective.</exception>
+		protected Register (Register<TKey,TValue,TCollection> origin) : base(origin) {
+			if (origin == null) {
+				throw new ArgumentNullException ("origin", "The given register must be effective");
+			}
+			Contract.EndContractBlock ();
+			this.KeyGenerator = origin.KeyGenerator;
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Register`3"/> class with a given key generator.
 		/// </summary>
-		/// <param name='keyGenerator'>The key generator associated with this register.</param>">
+		/// <param name='keyGenerator'>The key generator associated with this register.</param>
 		public Register (Func<TValue,TKey> keyGenerator) {
 			this.KeyGenerator = keyGenerator;
 		}
@@ -105,6 +120,42 @@ namespace NUtils.Collections {
 		/// describing all values in this <see cref="T:IRegister`2"/>.</returns>
 		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator () {
 			return this.Values.GetEnumerator ();
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		Register<TKey, TValue, TCollection> ICloneable<Register<TKey, TValue, TCollection>>.Clone () {
+			return new Register<TKey,TValue,TCollection> (this);
+		}
+		#endregion
+		#region Clone method override
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		public override ListDictionary<TKey, TValue, TCollection> Clone () {
+			return new Register<TKey, TValue, TCollection> (this);
+		}
+		#endregion
+		#region ICloneable implementation
+		/// <summary>
+		/// Generate a clone of this instance: a different instance with the same data.
+		/// </summary>
+		/// <returns>A new object that is a copy of this instance</returns>
+		/// <remarks>
+		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
+		/// </remarks>
+		IRegister<TKey, TValue> ICloneable<IRegister<TKey, TValue>>.Clone () {
+			return ((ICloneable<Register<TKey,TValue,TCollection>>)this).Clone ();
 		}
 		#endregion
 	}

@@ -28,6 +28,7 @@ using NUtils.Functional;
 using System.IO;
 using System.CodeDom.Compiler;
 using NUtils.Visual.GraphViz;
+using System.Diagnostics.Contracts;
 
 namespace NUtils {
 
@@ -97,6 +98,25 @@ namespace NUtils {
 		}
 		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class by copying the states from the given <paramref name="origin"/>.
+		/// </summary>
+		/// <param name="origin">The given <see cref="T:NondeterministicFiniteAutomaton`3"/> from which the data is copied, must be effective.</param>
+		/// <remarks>
+		/// <para>The <see cref="T:IState`2"/> instances in the given <paramref name="origin"/> are not cloned: they are the same and modifications
+		/// to the states in the original automaton can have effects in the new automaton and vice-versa.</para>
+		/// </remarks>
+		/// <exception cref="ArgumentNullException">The given automaton must be effective.</exception>
+		protected NondeterministicFiniteAutomaton (NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> origin) {
+			if (origin == null) {
+				throw new ArgumentNullException ("origin", "Origin must be effective");
+			}
+			Contract.EndContractBlock ();
+			this.stateDictionary = ((ICloneable<Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.stateDictionary).Clone ();
+			this.acceptingStateDictionary = ((ICloneable<Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.acceptingStateDictionary).Clone ();
+			this.initialState = origin.initialState;
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:NondeterministicFiniteAutomaton`3"/> class based on tags with a given list of <paramref name="edges"/>, the tag of the initial state (<paramref name="initialStateTag"/>) and a list of accepting states (<paramref name="acceptingStateTags"/>).
 		/// </summary>
@@ -359,7 +379,7 @@ namespace NUtils {
 		/// <para>The resulting clone is - unless specified otherwise - not deep.</para>
 		/// </remarks>
 		public override NondeterministicFiniteAutomaton<TStateTag, TEdgeTag,TCollection> Clone () {
-			throw new NotImplementedException ();
+			return new NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> (this);
 		}
 		#endregion
 		#region ICloneable implementation
