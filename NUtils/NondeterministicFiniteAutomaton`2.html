@@ -234,7 +234,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.NondeterministicFiniteAutomaton`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.13013</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -352,6 +352,18 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStates()">AcceptingStates</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote>
+            Enumerate all the accepting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
+             (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStateTags()">AcceptingStateTags</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a></nobr><blockquote>
             Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
@@ -386,8 +398,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1})">Concatenate</a>
-                  </b>(<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1)">Concatenate</a>
+                  </b>(<a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
             Concatenate this nondeterministic finite automaton with the given one into a new one such that
             the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
             that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
@@ -501,6 +513,18 @@
                   </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="../NUtils.Automata/IState`2.html">NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
             Register a state for the given <i>sateTag</i>. The new state doesn't contain any
             edges.
+             (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.States()">States</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote>
+            Enumerate all the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
              (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
@@ -694,7 +718,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.13013</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
@@ -734,7 +758,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.13013</div>
           <hr size="1" />
         </blockquote>
       </div>
