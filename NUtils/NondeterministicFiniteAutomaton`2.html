@@ -234,7 +234,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.NondeterministicFiniteAutomaton`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -355,6 +355,42 @@
                     <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStateTags()">AcceptingStateTags</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a></nobr><blockquote>
             Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+             (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.Clone()">Clone</a>
+                  </b>()<nobr> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a></nobr><blockquote>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/CloneBase`1.html#M:NUtils.Abstract.CloneBase`1.Clone()">Clone</a>
+                  </b>()<nobr> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a></nobr><blockquote>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;TClone&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1})">Concatenate</a>
+                  </b>(<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Concatenate this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+            that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
              (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
@@ -494,6 +530,41 @@
             </table>
           </div>
         </div>
+        <h2 class="Section">Explicitly Implemented Interface Members</h2>
+        <div class="SectionBox" id="Explicitly Implemented Interface Members">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils/NondeterministicFiniteAutomaton`3.html#M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">
+                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Abstract/CloneBase`1.html#M:NUtils.Abstract.CloneBase`1.System#ICloneable#Clone()">
+                    <b>ICloneable.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Creates a new object that is a copy of the current instance.
+             (<i>Inherited from <a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;TClone&gt;</a>.</i>)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
         <h2 class="Section">Extension Methods</h2>
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
@@ -623,7 +694,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
@@ -663,7 +734,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`2(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
       </div>

@@ -212,7 +212,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.NondeterministicFiniteAutomaton`3:Signature">public class  <b>NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</b> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Visual.GraphViz/IDotVisual.html">NUtils.Visual.GraphViz.IDotVisual</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, new()</div>
+      <div class="Signature" id="T:NUtils.NondeterministicFiniteAutomaton`3:Signature">public class  <b>NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</b> : <a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;&gt;</a>,	<a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Visual.GraphViz/IDotVisual.html">NUtils.Visual.GraphViz.IDotVisual</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, new()</div>
     </div>
     <div class="Remarks" id="T:NUtils.NondeterministicFiniteAutomaton`3:Docs">
       <h4 class="Subsection">Type Parameters</h4>
@@ -238,12 +238,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.NondeterministicFiniteAutomaton`3:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+								<a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;&gt;</a>.
 							</p>
         <h2 class="Section">Public Constructors</h2>
         <div class="SectionBox" id="Public Constructors">
@@ -277,6 +277,28 @@
                 </td>
                 <td>
             Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>states</i>, <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Protected Constructors</h2>
+        <div class="SectionBox" id="Protected Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2})">NondeterministicFiniteAutomaton</a>
+                    </b>(<a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
             </td>
               </tr>
             </table>
@@ -359,6 +381,42 @@
                     <a href="#M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStateTags()">AcceptingStateTags</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a></nobr><blockquote>
             Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.NondeterministicFiniteAutomaton`3.Clone()">Clone</a>
+                  </b>()<nobr> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a></nobr><blockquote>
+            Generate a clone of this instance: a different instance with the same data.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/CloneBase`1.html#M:NUtils.Abstract.CloneBase`1.Clone()">Clone</a>
+                  </b>()<nobr> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a></nobr><blockquote>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;TClone&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1})">Concatenate</a>
+                  </b>(<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Concatenate this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+            that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -494,6 +552,41 @@
                   </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.TextWriter">System.IO.TextWriter</a>)<blockquote>
             Write a GraphViz DOT Graph stream to the given <i>textWriter</i> visualizing this instance.
             </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Explicitly Implemented Interface Members</h2>
+        <div class="SectionBox" id="Explicitly Implemented Interface Members">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="#M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">
+                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Generate a clone of this instance: a different instance with the same data.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Abstract/CloneBase`1.html#M:NUtils.Abstract.CloneBase`1.System#ICloneable#Clone()">
+                    <b>ICloneable.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Creates a new object that is a copy of the current instance.
+             (<i>Inherited from <a href="../NUtils.Abstract/CloneBase`1.html">NUtils.Abstract.CloneBase&lt;TClone&gt;</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -685,6 +778,45 @@
     <div class="Members" id="T:NUtils.NondeterministicFiniteAutomaton`3:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2})">NondeterministicFiniteAutomaton Constructor</h3>
+        <blockquote id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">protected  <b>NondeterministicFiniteAutomaton</b> (<a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a> origin)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2}):Parameters">
+            <dl>
+              <dt>
+                <i>origin</i>
+              </dt>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">NondeterministicFiniteAutomaton`3</a> from which the data is copied, must be effective.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>The given automaton must be effective.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in the given <i>origin</i> are not cloned: they are the same and modifications
+            to the states in the original automaton can have effects in the new automaton and vice-versa.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(NUtils.NondeterministicFiniteAutomaton{`0,`1,`2}):Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+          <hr size="1" />
+        </blockquote>
         <h3 id="C:NUtils.NondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
         <blockquote id="C:NUtils.NondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):member">
           <p class="Summary">
@@ -717,7 +849,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.NondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0})">NondeterministicFiniteAutomaton Constructor</h3>
@@ -758,7 +890,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.NondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStateTags()">AcceptingStateTags Method</h3>
@@ -776,7 +908,59 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.AcceptingStateTags():Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.Clone()">Clone Method</h3>
+        <blockquote id="M:NUtils.NondeterministicFiniteAutomaton`3.Clone():member">
+          <p class="Summary">
+            Generate a clone of this instance: a different instance with the same data.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a> <b>Clone</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Clone():Returns">A new object that is a copy of this instance</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Clone():Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1})">Concatenate Method</h3>
+        <blockquote id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1}):member">
+          <p class="Summary">
+            Concatenate this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+            that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>Concatenate</b> (<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullTag, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> other)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>nullTag</i>
+              </dt>
+              <dd>An edge tag used for transitions without the need to consume (or "eat") any characters.</dd>
+              <dt>
+                <i>other</i>
+              </dt>
+              <dd>The second <a href="javascript:alert(&quot;Documentation not found.&quot;)">INondeterministicFiniteAutomaton`2</a> in the concatenation process.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1}):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1}):Remarks">
+            <p>For some implementations, the <i>nullTag</i> might be optional, in that case, any value can be passed.</p>
+            <p>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances).</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.Concatenate(`1,NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.ContainsState(NUtils.Automata.IState{`0,`1})">ContainsState Method</h3>
@@ -804,7 +988,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.ContainsState(NUtils.Automata.IState{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.GetEdgeTags(`0)">GetEdgeTags Method</h3>
@@ -830,7 +1014,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.GetEdgeTags(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`3.InitalState">InitalState Property</h3>
@@ -848,7 +1032,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`3.InitalState:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`3.InitialStateTag">InitialStateTag Property</h3>
@@ -866,7 +1050,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`3.InitialStateTag:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.IsAccepting(NUtils.Automata.IState{`0,`1})">IsAccepting Method</h3>
@@ -894,7 +1078,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.IsAccepting(NUtils.Automata.IState{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.IsAccepting(`0)">IsAccepting Method</h3>
@@ -923,7 +1107,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.IsAccepting(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`3.NumberOfEdges">NumberOfEdges Property</h3>
@@ -941,7 +1125,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`3.NumberOfEdges:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.NondeterministicFiniteAutomaton`3.NumberOfStates">NumberOfStates Property</h3>
@@ -959,7 +1143,24 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.NondeterministicFiniteAutomaton`3.NumberOfStates:Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">NUtils.Abstract.ICloneable&lt;NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone Method</h3>
+        <blockquote id="M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():member">
+          <p class="Summary">
+            Generate a clone of this instance: a different instance with the same data.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">
+            <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Returns">A new object that is a copy of this instance</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Version Information">
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterAcceptingState(NUtils.Automata.IState{`0,`1})">RegisterAcceptingState Method</h3>
@@ -990,7 +1191,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterAcceptingState(`0)">RegisterAcceptingState Method</h3>
@@ -1018,7 +1219,7 @@
             nothing happens and <tt>false</tt> is returned.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterAcceptingState(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterEdge(`0,`1,`0)">RegisterEdge Method</h3>
@@ -1060,7 +1261,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterEdge(`0,`1,`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(NUtils.Automata.IState{`0,`1})">RegisterState Method</h3>
@@ -1083,7 +1284,7 @@
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(NUtils.Automata.IState{`0,`1}):Remarks">If the given <i>state</i> is not effective, nothing happens.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(NUtils.Automata.IState{`0,`1}):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(`0)">RegisterState Method</h3>
@@ -1110,7 +1311,7 @@
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(`0):Remarks">If there exists already a state for the given <i>tag</i>, no new state is initialized.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.RegisterState(`0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.StateTags()">StateTags Method</h3>
@@ -1126,7 +1327,7 @@
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.StateTags():Remarks">If two states share the same tag, duplicates will be enumerated.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.StateTags():Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.NondeterministicFiniteAutomaton`3.WriteDotText(System.IO.TextWriter)">WriteDotText Method</h3>
@@ -1151,7 +1352,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.NondeterministicFiniteAutomaton`3.WriteDotText(System.IO.TextWriter):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5426.32156</div>
+            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5429.42742</div>
           <hr size="1" />
         </blockquote>
       </div>
