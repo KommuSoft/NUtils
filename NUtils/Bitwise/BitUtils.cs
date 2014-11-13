@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 
 namespace NUtils.Bitwise {
+
 	/// <summary>
 	/// A utility class that specifies usefull operations on bit strings, bit tiles, etc.
 	/// </summary>
@@ -108,6 +109,14 @@ namespace NUtils.Bitwise {
 			return origin;
 		}
 
+		/// <summary>
+		/// Calculate the bitwise or operation per row such
+		/// that given a bit in the <c>i</c>-th row is true,
+		/// the lowest column of the <c>i</c>-th returning tile
+		/// is true.
+		/// </summary>
+		/// <returns>A tile where the first column is the bitwise or operator of all the columns at the specified row.</returns>
+		/// <param name="origin">The tile on which the operation is performed.</param>
 		public static ulong Or8Rows (ulong origin) {
 			ulong mask = origin & 0x0101010101010101UL;
 			mask |= (origin & 0x0202020202020202UL) >> 0x01;
@@ -120,6 +129,12 @@ namespace NUtils.Bitwise {
 			return mask;
 		}
 
+		/// <summary>
+		/// Given a tile, the given <paramref name="col"/> column, is copied to all rows of the resulting tile.
+		/// </summary>
+		/// <returns>A tile where the given <paramref name="col"/> of the <paramref name="origin"/> tile is copied to all other rows.</returns>
+		/// <param name="origin">The original tile that contains the data that must be copied.</param>
+		/// <param name="col">The index of the column that must be copied.</param>
 		public static ulong Copy8Col (ulong origin, int col = 0x00) {
 			ulong mask = ((0x0101010101010101UL << col) & origin) >> col;
 			mask |= mask << 0x04;
@@ -128,6 +143,16 @@ namespace NUtils.Bitwise {
 			return mask;
 		}
 
+		/// <summary>
+		/// A coroutine that packs 64 booleans into a single <see cref="ulong"/>. In case the booleans
+		/// are exhausted and the length is not modulo 64, the booleans are padded with <c>false</c> values.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable`1"/> of <see cref="ulong"/> instances, such that each <see cref="ulong"/>
+		/// represents the value of 64 <see cref="bool"/> values.</returns>
+		/// <param name="data">A <see cref="IEnumerable`1"/> instance of <see cref="bool"/> values that will be grouped together.</param>
+		/// <remarks>
+		/// <para>The result is calculated lazily, thus <see cref="IEnumerable`1"/> instances without an end are supported.</para>
+		/// </remarks>
 		public static IEnumerable<ulong> PackUlong (IEnumerable<bool> data) {
 			IEnumerator<bool> en = data.GetEnumerator ();
 			ulong pack;
