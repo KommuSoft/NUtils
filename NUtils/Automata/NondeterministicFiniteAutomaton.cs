@@ -421,7 +421,17 @@ namespace NUtils {
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// </remarks>
 		public INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag, TStateTag startTag) {
-			return null;
+			NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> clone = this.Clone ();
+			if (other != null) {
+				IState<TStateTag,TEdgeTag> initState = new State<TStateTag,TEdgeTag> (startTag);
+				initState.AddEdge (new Edge<TStateTag,TEdgeTag> (nullTag, this.initialState));
+				initState.AddEdge (new Edge<TStateTag,TEdgeTag> (nullTag, other.InitalState));
+				clone.stateDictionary.Add (initState);
+				clone.initialState = initState;
+				clone.stateDictionary.AddAll (other.States);
+				clone.acceptingStateDictionary.AddAll (other.AcceptingStates);
+			}
+			return clone;
 		}
 		#endregion
 		#region ICloneable implementation
