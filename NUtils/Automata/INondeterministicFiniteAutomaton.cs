@@ -71,29 +71,37 @@ namespace NUtils.Automata {
 		/// <summary>
 		/// Enumerate all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
 		/// </summary>
-		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
-		IEnumerable<IState<TStateTag,TEdgeTag>> States ();
+		/// <value>An <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</value>
+		IEnumerable<IState<TStateTag,TEdgeTag>> States {
+			get;
+		}
 
 		/// <summary>
 		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
 		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</returns>
+		/// <value>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</value>
 		/// <remarks>
 		/// <para>If two states share the same tag, duplicates will be enumerated.</para>
 		/// </remarks>
-		IEnumerable<TStateTag> StateTags ();
+		IEnumerable<TStateTag> StateTags {
+			get;
+		}
 
 		/// <summary>
 		/// Enumerate all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
 		/// </summary>
-		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
-		IEnumerable<IState<TStateTag,TEdgeTag>> AcceptingStates ();
+		/// <value>An <see cref="T:IEnumerable`1"/> containing all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</value>
+		IEnumerable<IState<TStateTag,TEdgeTag>> AcceptingStates {
+			get;
+		}
 
 		/// <summary>
 		/// Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
 		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</returns>
-		IEnumerable<TStateTag> AcceptingStateTags ();
+		/// <value>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</value>
+		IEnumerable<TStateTag> AcceptingStateTags {
+			get;
+		}
 
 		/// <summary>
 		/// Enumerate all the tags of the associated edges originating form the state(s) with the given <paramref name="statetag"/>
@@ -204,6 +212,20 @@ namespace NUtils.Automata {
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// </remarks>
 		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Concatenate (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag);
+
+		/// <summary>
+		/// Disjunct this nondeterministic finite automaton with the given one into a new one such that
+		/// the resulting one accepts a sequence of data if and only if this sequence can be accepted by this automaton
+		/// or by the <paramref name="other"/> automaton.
+		/// </summary>
+		/// <param name="other">The second <see cref="T:INondeterministicFiniteAutomaton`2"/> in the disjunction process.</param>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
+		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to disjunct this and the given automaton.</param>
+		/// <remarks>
+		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
+		/// </remarks>
+		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag, TStateTag startTag);
 		#endregion
 	}
 }

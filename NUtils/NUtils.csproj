@@ -204,6 +204,8 @@
     <Compile Include="ArtificialIntelligence\ExplicitHiddenMarkovModelTest.cs" />
     <Compile Include="Maths\MathUtilsTest.cs" />
     <Compile Include="Maths\TransitionUtilsTest.cs" />
+    <Compile Include="Collections\ITagRegister.cs" />
+    <Compile Include="Collections\TagRegister.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

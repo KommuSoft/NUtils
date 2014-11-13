@@ -44,17 +44,17 @@ namespace NUtils {
 
 		#region Fields
 		/// <summary>
-		/// A <see cref="T:Register`2"/> that maps the <typeparamref name="TStateTag"/> instances on the <see cref="T:IState`2"/> instances.
+		/// A <see cref="T:TagRegister`2"/> that maps the <typeparamref name="TStateTag"/> instances on the <see cref="T:IState`2"/> instances.
 		/// </summary>
-		private readonly Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> stateDictionary = new Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> (x => x.Tag);
+		private readonly TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> stateDictionary = new TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> ();
 		/// <summary>
 		/// The initial <see cref="T:IState`2"/> of this non-deterministic finite automaton.
 		/// </summary>
 		private IState<TStateTag,TEdgeTag> initialState;
 		/// <summary>
-		/// A <see cref="T:Register`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
+		/// A <see cref="T:TagRegister`2"/> that maps the <typeparamref name="TStateTag"/> instances on the accepting <see cref="T:IState`2"/> instances of this non-deterministic finite automaton.
 		/// </summary>
-		private readonly Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> acceptingStateDictionary = new Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> (x => x.Tag);
+		private readonly TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> acceptingStateDictionary = new TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection> ();
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
@@ -96,6 +96,51 @@ namespace NUtils {
 				return this.initialState;
 			}
 		}
+
+		/// <summary>
+		/// Enumerate all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <values>An <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</values>
+		public IEnumerable<IState<TStateTag,TEdgeTag>> States {
+			get {
+				IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.stateDictionary;
+				return states.AsEnumerable ();
+			}
+		}
+
+		/// <summary>
+		/// Enumerate all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <values>An <see cref="T:IEnumerable`1"/> containing all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</values>
+		public IEnumerable<IState<TStateTag,TEdgeTag>> AcceptingStates {
+			get {
+				IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.acceptingStateDictionary;
+				return states.AsEnumerable ();
+			}
+		}
+
+		/// <summary>
+		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <values>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</values>
+		/// <remarks>
+		/// <para>If two states share the same tag, duplicates will be enumerated.</para>
+		/// </remarks>
+		public IEnumerable<TStateTag> StateTags {
+			get {
+				return this.stateDictionary.Keys.AsEnumerable ();
+			}
+		}
+
+		/// <summary>
+		/// Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+		/// </summary>
+		/// <values>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</values>
+		public IEnumerable<TStateTag> AcceptingStateTags {
+			get {
+				return this.acceptingStateDictionary.Keys.AsEnumerable ();
+			}
+		}
 		#endregion
 		#region Constructors
 		/// <summary>
@@ -112,8 +157,8 @@ namespace NUtils {
 				throw new ArgumentNullException ("origin", "Origin must be effective");
 			}
 			Contract.EndContractBlock ();
-			this.stateDictionary = ((ICloneable<Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.stateDictionary).Clone ();
-			this.acceptingStateDictionary = ((ICloneable<Register<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.acceptingStateDictionary).Clone ();
+			this.stateDictionary = ((ICloneable<TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.stateDictionary).Clone ();
+			this.acceptingStateDictionary = ((ICloneable<TagRegister<TStateTag,IState<TStateTag,TEdgeTag>,TCollection>>)origin.acceptingStateDictionary).Clone ();
 			this.initialState = origin.initialState;
 		}
 
@@ -256,25 +301,6 @@ namespace NUtils {
 		}
 
 		/// <summary>
-		/// Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
-		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the states in this nondeterministic finite state automaton.</returns>
-		/// <remarks>
-		/// <para>If two states share the same tag, duplicates will be enumerated.</para>
-		/// </remarks>
-		public IEnumerable<TStateTag> StateTags () {
-			return this.stateDictionary.Values.Select (x => x.Tag);
-		}
-
-		/// <summary>
-		/// Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
-		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> containing the tags of all the accepting states in this nondeterministic finite state automaton.</returns>
-		public IEnumerable<TStateTag> AcceptingStateTags () {
-			return this.acceptingStateDictionary.Values.Select (x => x.Tag);
-		}
-
-		/// <summary>
 		/// Enumerate all the tags of the associated edges originating form the state(s) with the given <paramref name="statetag"/>
 		/// </summary>
 		/// <returns>A <see cref="T:IEnumerable`1"/> that contains the tags of all edges originating from the state(s) associated with the given state tag.</returns>
@@ -356,24 +382,6 @@ namespace NUtils {
 		#endregion
 		#region INondeterministicFiniteAutomaton implementation
 		/// <summary>
-		/// Enumerate all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
-		/// </summary>
-		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
-		public IEnumerable<IState<TStateTag,TEdgeTag>> States () {
-			IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.stateDictionary;
-			return states.AsEnumerable ();
-		}
-
-		/// <summary>
-		/// Enumerate all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.
-		/// </summary>
-		/// <returns>An <see cref="T:IEnumerable`1"/> containing all the accepting <see cref="T:IState`2"/> instances in this nondeterministic finite state automaton.</returns>
-		public IEnumerable<IState<TStateTag,TEdgeTag>> AcceptingStates () {
-			IEnumerable<IState<TStateTag,TEdgeTag>> states = (IEnumerable<IState<TStateTag,TEdgeTag>>)this.acceptingStateDictionary;
-			return states.AsEnumerable ();
-		}
-
-		/// <summary>
 		/// Concatenate this nondeterministic finite automaton with the given one into a new one such that
 		/// the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
 		/// that the first part is accepted by this automaton and the second by the <paramref name="other"/> automaton.
@@ -393,11 +401,27 @@ namespace NUtils {
 				foreach (IState<TStateTag,TEdgeTag> state in acceptings) {
 					state.AddEdge (edge);
 				}
-				clone.stateDictionary.AddAll (other.States ());
+				clone.stateDictionary.AddAll (other.States);
 				clone.acceptingStateDictionary.Clear ();
-				clone.acceptingStateDictionary.AddAll (other.AcceptingStates ());
+				clone.acceptingStateDictionary.AddAll (other.AcceptingStates);
 			}
 			return clone;
+		}
+
+		/// <summary>
+		/// Disjunct this nondeterministic finite automaton with the given one into a new one such that
+		/// the resulting one accepts a sequence of data if and only if this sequence can be accepted by this automaton
+		/// or by the <paramref name="other"/> automaton.
+		/// </summary>
+		/// <param name="other">The second <see cref="T:INondeterministicFiniteAutomaton`2"/> in the disjunction process.</param>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
+		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to disjunct this and the given automaton.</param>
+		/// <remarks>
+		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
+		/// </remarks>
+		public INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag, TStateTag startTag) {
+			return null;
 		}
 		#endregion
 		#region ICloneable implementation

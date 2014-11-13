@@ -29,8 +29,7 @@ namespace NUtils.Collections {
 
 	/// <summary>
 	/// A basic implementation of a <see cref="T:IRegister`2"/>. A register is a datastructure that
-	/// stores items based on a <typeparamref name="TKey"/> for
-	/// fast lookups.
+	/// stores items based on a <typeparamref name="TKey"/> for fast lookups.
 	/// </summary>
 	/// <typeparam name='TKey'>The key on which the given items are stored.</typeparam>
 	/// <typeparam name='TValue'>The items to store in the register.</typeparam>
@@ -170,7 +169,7 @@ namespace NUtils.Collections {
 		
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Register`3"/> class with a given key generator.
+		/// Initializes a new instance of the <see cref="T:Register`2"/> class with a given key generator.
 		/// </summary>
 		/// <param name='keyGenerator'>The key generator associated with this register.</param>">
 		public Register (Func<TValue,TKey> keyGenerator) : base(keyGenerator) {
