@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Collections.Register&lt;TKey,TValue&gt;</title>
+    <title>NUtils.Collections.TagRegister&lt;TKey,TValue&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,33 +190,33 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Collections.Register`2">Overview</a>
+        <a href="#T:NUtils.Collections.TagRegister`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.Register`2:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.TagRegister`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.Register`2:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.TagRegister`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Collections.Register`2:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.TagRegister`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Collections.Register`2">Register&lt;TKey,TValue&gt; Generic Class</h1>
-    <p class="Summary" id="T:NUtils.Collections.Register`2:Summary">
-            A basic implementation of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a> where the collection is by default <a href="javascript:alert(&quot;Documentation not found.&quot;)">List`1</a>.
+    <h1 class="PageTitle" id="T:NUtils.Collections.TagRegister`2">TagRegister&lt;TKey,TValue&gt; Generic Class</h1>
+    <p class="Summary" id="T:NUtils.Collections.TagRegister`2:Summary">
+            A basic implementation of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITagRegister`2</a> where the collection is by default <a href="javascript:alert(&quot;Documentation not found.&quot;)">List`1</a>.
             A register is a datastructure that stores items based on a <i>TKey</i> for fast lookups.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Collections.Register`2:Signature">public class  <b>Register&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a></div>
+      <div class="Signature" id="T:NUtils.Collections.TagRegister`2:Signature">public class  <b>TagRegister&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Collections/TagRegister`3.html">TagRegister&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a><br /> where TValue : <a href="../NUtils.Abstract/ITag`1.html">NUtils.Abstract.ITag&lt;TKey&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Collections.Register`2:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.TagRegister`2:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.Collections.Register`2:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Collections.TagRegister`2:Docs:Type Parameters">
         <dl>
           <dt>
             <i>TKey</i>
@@ -229,17 +229,17 @@
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.Register`2:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.TagRegister`2:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Collections.Register`2:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Collections.TagRegister`2:Docs:Version Information">
         <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a>.
+								<a href="../NUtils.Collections/TagRegister`3.html">TagRegister&lt;TKey, TValue, List&lt;TValue&gt;&gt;</a>.
 							</p>
         <h2 class="Section">Public Constructors</h2>
         <div class="SectionBox" id="Public Constructors">
@@ -253,11 +253,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Collections.Register`2(System.Func{`1,`0})">Register</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a>)</div>
+                      <a href="#C:NUtils.Collections.TagRegister`2()">TagRegister</a>
+                    </b>()</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`2</a> class with a given key generator.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagRegister`2</a> class.
             </td>
               </tr>
             </table>
@@ -425,6 +425,17 @@
                   </b>()<blockquote>
             Removes all items from this <a href="javascript:alert(&quot;Documentation not found.&quot;)">ListDictionary`3</a>.
              (<i>Inherited from <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/TagRegister`3.html#M:NUtils.Collections.TagRegister`3.Clone()">Clone</a>
+                  </b>()<nobr> : <a href="../NUtils.Collections/ListDictionary`3.html">ListDictionary&lt;TKey, TValue, TCollection&gt;</a></nobr><blockquote>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils.Collections/TagRegister`3.html">TagRegister&lt;TKey, TValue, TCollection&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -600,6 +611,34 @@
                 </td>
                 <td>
                   <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Collections/Register`3.html">Register&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/TagRegister`3.html#M:NUtils.Collections.TagRegister`3.NUtils#Abstract#ICloneable{NUtils#Collections#ITagRegister{TKey,TValue}}#Clone()">
+                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Collections.ITagRegister&lt;TKey, TValue&gt;&gt;.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils.Collections/TagRegister`3.html">TagRegister&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <a href="../NUtils.Collections/TagRegister`3.html#M:NUtils.Collections.TagRegister`3.NUtils#Abstract#ICloneable{NUtils#Collections#TagRegister{TKey,TValue,TCollection}}#Clone()">
+                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Collections.TagRegister&lt;TKey, TValue, TCollection&gt;&gt;.Clone</b>
+                  </a>
+                </td>
+                <td>
+            Generate a clone of this instance: a different instance with the same data.
+             (<i>Inherited from <a href="../NUtils.Collections/TagRegister`3.html">TagRegister&lt;TKey, TValue, TCollection&gt;</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -809,31 +848,22 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Collections.Register`2:Members">
+    <div class="Members" id="T:NUtils.Collections.TagRegister`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Collections.Register`2(System.Func{`1,`0})">Register Constructor</h3>
-        <blockquote id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):member">
+        <h3 id="C:NUtils.Collections.TagRegister`2()">TagRegister Constructor</h3>
+        <blockquote id="C:NUtils.Collections.TagRegister`2():member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Register`2</a> class with a given key generator.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">TagRegister`2</a> class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>Register</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TValue, TKey&gt;</a> keyGenerator)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Parameters">
-            <dl>
-              <dt>
-                <i>keyGenerator</i>
-              </dt>
-              <dd>The key generator associated with this register.</dd>
-            </dl>
-          </blockquote>
+          <div class="Signature">public  <b>TagRegister</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Remarks">
+          <div class="SectionBox" id="C:NUtils.Collections.TagRegister`2():Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Collections.Register`2(System.Func{`1,`0}):Version Information">
+          <div class="SectionBox" id="C:NUtils.Collections.TagRegister`2():Version Information">
             <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
           <hr size="1" />
         </blockquote>

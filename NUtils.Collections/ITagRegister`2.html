@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Maths.ExplicitTransition</title>
+    <title>NUtils.Collections.ITagRegister&lt;TKey,TValue&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -187,335 +187,71 @@
   </head>
   <body>
     <div class="CollectionTitle">
-      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Maths Namespace</a></div>
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Maths.ExplicitTransition">Overview</a>
+        <a href="#T:NUtils.Collections.ITagRegister`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Maths.ExplicitTransition:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.ITagRegister`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Maths.ExplicitTransition:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.ITagRegister`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Maths.ExplicitTransition:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.ITagRegister`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Maths.ExplicitTransition">ExplicitTransition  Class</h1>
-    <p class="Summary" id="T:NUtils.Maths.ExplicitTransition:Summary">
-            A basic implementation of the <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> interface that stores the permutation explicitly as
-            an array. This is useful for fast item access but takes much memory.
+    <h1 class="PageTitle" id="T:NUtils.Collections.ITagRegister`2">ITagRegister&lt;TKey,TValue&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Collections.ITagRegister`2:Summary">
+            A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IRegister`2</a> implementation that uses the tag of <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITag`1</a> instances
+            to register the given instances.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Maths.ExplicitTransition:Signature">public class  <b>ExplicitTransition</b> : <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>,	<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a></div>
+      <div class="Signature" id="T:NUtils.Collections.ITagRegister`2:Signature">public interface  <b>ITagRegister&lt;TKey, TValue&gt;</b> : <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;IListDictionary&lt;TKey, TValue&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;IRegister&lt;TKey, TValue&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;ITagRegister&lt;TKey, TValue&gt;&gt;</a>, <a href="../NUtils.Collections/IListDictionary`2.html">IListDictionary&lt;TKey, TValue&gt;</a>, <a href="../NUtils.Collections/IRegister`2.html">IRegister&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IDictionary`2">IDictionary&lt;TKey, TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TValue&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a><br /> where TValue : <a href="../NUtils.Abstract/ITag`1.html">NUtils.Abstract.ITag&lt;TKey&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Maths.ExplicitTransition:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.ITagRegister`2:Docs">
+      <h4 class="Subsection">Type Parameters</h4>
+      <blockquote class="SubsectionBox" id="T:NUtils.Collections.ITagRegister`2:Docs:Type Parameters">
+        <dl>
+          <dt>
+            <i>TKey</i>
+          </dt>
+          <dd>The key on which the given items are stored, the type of tag associated with <i>TValue</i>.</dd>
+          <dt>
+            <i>TValue</i>
+          </dt>
+          <dd>The items to store in the register</dd>
+        </dl>
+      </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Maths.ExplicitTransition:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.ITagRegister`2:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Maths.ExplicitTransition:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
+      <div class="SectionBox" id="T:NUtils.Collections.ITagRegister`2:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
-        <p>
-								See Also: Inherited members from
-								<a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.
-							</p>
-        <h2 class="Section">Public Constructors</h2>
-        <div class="SectionBox" id="Public Constructors">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32})">ExplicitTransition</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class with a given list of initial permutations.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.Maths.ExplicitTransition(System.Int32)">ExplicitTransition</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.Maths.ExplicitTransition(System.Int32[])">ExplicitTransition</a>
-                    </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[])</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class with a given initial permutation.
-            </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Protected Fields</h2>
-        <div class="SectionBox" id="Protected Fields">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>readonly </div>
-                </td>
-                <td>
-                  <b>
-                    <a href="#F:NUtils.Maths.ExplicitTransition.Indices">Indices</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[]</i>. 
-            The array containing the indices that describe the transition.
-            </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Public Properties</h2>
-        <div class="SectionBox" id="Public Properties">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>[read-only]<div>override </div></td>
-                <td>
-                  <b>
-                    <a href="#P:NUtils.Maths.ExplicitTransition.Length">Length</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
-                  </i>. 
-            Gets the number of subelements.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div>abstract </div></td>
-                <td>
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#P:NUtils.Maths.TransitionBase.Length">Length</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
-                  </i>. 
-            Gets the number of subelements.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Public Methods</h2>
-        <div class="SectionBox" id="Public Methods">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.ContainsLoop(System.Int32)">ContainsLoop</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Determines if there is an edge containing the given <i>node</i> with itself.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.GetDirectedConnectedNodes(System.Int32)">GetDirectedConnectedNodes</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a></nobr><blockquote>
-            Enumerate the indices of the nodes such that there is a directed edge from the given <i>node</i> to the emited node.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.GetEdges()">GetEdges</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int&gt;&gt;</a></nobr><blockquote>
-            Enumerate the edges contained in the graph.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>override </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Maths.ExplicitTransition.GetEnumerator()">GetEnumerator</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerator`1">IEnumerator&lt;int&gt;</a></nobr><blockquote>
-            Gets the enumerator that enumerates the target indices contained in this transition function.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.GetEnumerator()">GetEnumerator</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerator`1">IEnumerator&lt;int&gt;</a></nobr><blockquote>
-            Gets the enumerator that enumerates the target indices contained in this transition function.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.GetNeighbors(System.Int32)">GetNeighbors</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a></nobr><blockquote>
-            Enumerate the indices of the nodes that have an edge connecting the given <i>node</i> and the returned node.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>override </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32)">GetTransitionOfIndex</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
-            Gets the index on which the given index maps.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.GetTransitionOfIndex(System.Int32)">GetTransitionOfIndex</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
-            Gets the index on which the given index maps.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.IsConnected(System.Int32,System.Int32)">IsConnected</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Determines whether there is a sequence of edges between the two given nodes such that eventually the two given nodes are connected.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.IsDirectedConnected(System.Int32,System.Int32)">IsDirectedConnected</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.IsImmediatelyConnected(System.Int32,System.Int32)">IsImmediatelyConnected</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Determines whether there is an edge between the two given nodes.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.IsImmediatelyDirectedConnected(System.Int32,System.Int32)">IsImmediatelyDirectedConnected</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>override </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.ToString()">ToString</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
-            Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a>.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</blockquote></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <h2 class="Section">Explicitly Implemented Interface Members</h2>
-        <div class="SectionBox" id="Explicitly Implemented Interface Members">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <a href="../NUtils.Maths/TransitionBase.html#M:NUtils.Maths.TransitionBase.System#Collections#IEnumerable#GetEnumerator()">
-                    <b>IEnumerable.GetEnumerator</b>
-                  </a>
-                </td>
-                <td>
-            Gets the enumerator that enumerates the target indices contained in this transition function.
-             (<i>Inherited from <a href="../NUtils.Maths/TransitionBase.html">TransitionBase</a>.</i>)</td>
-              </tr>
-            </table>
-          </div>
-        </div>
         <h2 class="Section">Extension Methods</h2>
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/CollectionUtils.html#M:NUtils.Collections.CollectionUtils.AddAll``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">AddAll&lt;T&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<blockquote>
+            Add all the given <i>items</i> to the given
+            </blockquote></td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>static </div>
@@ -593,6 +329,17 @@
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Contains``1(System.Collections.Generic.IEnumerable{``0})">Contains&lt;T&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Checks if the given <i>source</i> contains at least one element (this element can be non-effective).
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/DictionaryUtils.html#M:NUtils.Collections.DictionaryUtils.Contains``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">Contains&lt;TKey,TValue&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TKey</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TValue</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the given <i>value</i> is associated with the given <i>key</i> in the given <i>dictionary</i>.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -1372,6 +1119,17 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Collections/DictionaryUtils.html#M:NUtils.Collections.DictionaryUtils.Remove``2(System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{``0,``1}},``0,``1)">Remove&lt;TKey,TValue&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TKey</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TValue</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Removes the given <i>key</i> and <i>value</i> association from the <i>dictionary</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Repeat``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">Repeat&lt;TItem&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TItem&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TItem&gt;</a></nobr><blockquote>
             Repeat the specified source the given number of times.
@@ -1520,7 +1278,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Maths/ProbabilityUtils.html#M:NUtils.Maths.ProbabilityUtils.ToSparseProbabilisticTransition(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32,System.Double}})">ToSparseProbabilisticTransition</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int, double&gt;&gt;</a>)<nobr> : <a href="../NUtils.Maths/SparseProbabilisticTransition.html">SparseProbabilisticTransition</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int, double&gt;&gt;</a>)<nobr> : <a href="../NUtils.Maths/SparseProbabilisticTransition.html">NUtils.Maths.SparseProbabilisticTransition</a></nobr><blockquote>
             Converts the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of probabilistic transitions into a <a href="../NUtils.Maths/SparseProbabilisticTransition.html">NUtils.Maths.SparseProbabilisticTransition</a>
             instance.
             </blockquote></td>
@@ -1754,166 +1512,9 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Maths.ExplicitTransition:Members">
+    <div class="Members" id="T:NUtils.Collections.ITagRegister`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32})">ExplicitTransition Constructor</h3>
-        <blockquote id="C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32}):member">
-          <p class="Summary">
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class with a given list of initial permutations.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public  <b>ExplicitTransition</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> indices)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32}):Parameters">
-            <dl>
-              <dt>
-                <i>indices</i>
-              </dt>
-              <dd>The initial indices.</dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="C:NUtils.Maths.ExplicitTransition(System.Int32)">ExplicitTransition Constructor</h3>
-        <blockquote id="C:NUtils.Maths.ExplicitTransition(System.Int32):member">
-          <p class="Summary">
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public  <b>ExplicitTransition</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> n)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32):Parameters">
-            <dl>
-              <dt>
-                <i>n</i>
-              </dt>
-              <dd>The number of items over which the transition is defined.</dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="C:NUtils.Maths.ExplicitTransition(System.Int32[])">ExplicitTransition Constructor</h3>
-        <blockquote id="C:NUtils.Maths.ExplicitTransition(System.Int32[]):member">
-          <p class="Summary">
-            Initializes a new instance of the <a href="../NUtils.Maths/ExplicitTransition.html">NUtils.Maths.ExplicitTransition</a> class with a given initial permutation.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public  <b>ExplicitTransition</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[] indices)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32[]):Parameters">
-            <dl>
-              <dt>
-                <i>indices</i>
-              </dt>
-              <dd>The initial indices.</dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32[]):Remarks">
-            <p>The values of the given indices are not copied: modifications made to the <i>indices</i>
-            array will have effect on the permutations as well.</p>
-            <p>Consistency is not checked: it is possible that the described permutation is not possible. The user
-            should check this.</p>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Maths.ExplicitTransition(System.Int32[]):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Maths.ExplicitTransition.GetEnumerator()">GetEnumerator Method</h3>
-        <blockquote id="M:NUtils.Maths.ExplicitTransition.GetEnumerator():member">
-          <p class="Summary">
-            Gets the enumerator that enumerates the target indices contained in this transition function.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerator`1">IEnumerator&lt;int&gt;</a> <b>GetEnumerator</b> ()</div>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ExplicitTransition.GetEnumerator():Returns">The enumerator that enumerates the target indices contained in this transition function.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Maths.ExplicitTransition.GetEnumerator():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Maths.ExplicitTransition.GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32)">GetTransitionOfIndex Method</h3>
-        <blockquote id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32):member">
-          <p class="Summary">
-            Gets the index on which the given index maps.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>GetTransitionOfIndex</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> index)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32):Parameters">
-            <dl>
-              <dt>
-                <i>index</i>
-              </dt>
-              <dd>The given index.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32):Returns">The target index of the given source <i>index</i>.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Maths.ExplicitTransition.GetTransitionOfIndex(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="F:NUtils.Maths.ExplicitTransition.Indices">Indices Field</h3>
-        <blockquote id="F:NUtils.Maths.ExplicitTransition.Indices:member">
-          <p class="Summary">
-            The array containing the indices that describe the transition.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">protected readonly <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>[] <b>Indices</b> </div>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="F:NUtils.Maths.ExplicitTransition.Indices:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="F:NUtils.Maths.ExplicitTransition.Indices:Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="P:NUtils.Maths.ExplicitTransition.Length">Length Property</h3>
-        <blockquote id="P:NUtils.Maths.ExplicitTransition.Length:member">
-          <p class="Summary">
-            Gets the number of subelements.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>Length</b>  { get; }</div>
-          <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Maths.ExplicitTransition.Length:Value">The length.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Maths.ExplicitTransition.Length:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Maths.ExplicitTransition.Length:Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5430.38988</div>
-          <hr size="1" />
-        </blockquote>
       </div>
     </div>
     <hr size="1" />
