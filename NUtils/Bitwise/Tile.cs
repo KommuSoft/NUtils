@@ -73,13 +73,13 @@ namespace NUtils.Bitwise {
 				data = ((data >> 0x01) & mask) + (data & mask);
 				mask = 0x3333333333333333UL;
 				data = ((data >> 0x02) & mask) + (data & mask);
-				mask = 0x0F0F0F0F0F0F0F0FUL;
+				mask = 0x0707070707070707UL;
 				data = ((data >> 0x04) & mask) + (data & mask);
-				mask = 0x00FF00FF00FF00FFUL;
+				mask = 0x000F000F000F000FUL;
 				data = ((data >> 0x08) & mask) + (data & mask);
-				mask = 0x0000FFFF0000FFFFUL;
+				mask = 0x0000001F0000001FUL;
 				data = ((data >> 0x10) & mask) + (data & mask);
-				mask = 0x00000000FFFFFFFFUL;
+				mask = 0x000000000000003FUL;
 				data = ((data >> 0x20) & mask) + (data & mask);
 				return (int)data;
 			}
