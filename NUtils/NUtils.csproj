@@ -206,6 +206,8 @@
     <Compile Include="Maths\TransitionUtilsTest.cs" />
     <Compile Include="Collections\ITagRegister.cs" />
     <Compile Include="Collections\TagRegister.cs" />
+    <Compile Include="Bitwise\ITile.cs" />
+    <Compile Include="Bitwise\Tile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
