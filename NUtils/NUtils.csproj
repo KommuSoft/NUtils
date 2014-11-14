@@ -208,6 +208,7 @@
     <Compile Include="Collections\TagRegister.cs" />
     <Compile Include="Bitwise\ITile.cs" />
     <Compile Include="Bitwise\Tile.cs" />
+    <Compile Include="Bitwise\IBitCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

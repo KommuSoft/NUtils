@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace NUtils.Bitwise {
 
@@ -41,6 +42,57 @@ namespace NUtils.Bitwise {
 		public ulong Data {
 			get;
 			private set;
+		}
+		#endregion
+		#region IBitCollection implementation
+		/// <summary>
+		/// Get the parity of the <see cref="T:IBitCollection"/>
+		/// </summary>
+		/// <value><c>true</c> if the number of ones is odd; <c>false</c> otherwise.</value>
+		public bool Parity {
+			get {
+				ulong data = this.Data;
+				data ^= data >> 0x20;
+				data ^= data >> 0x10;
+				data ^= data >> 0x08;
+				data ^= data >> 0x04;
+				data &= 0x0f;
+				return ((0x6996UL >> (int)data) & 0x01) == 0x01;
+			}
+		}
+
+		/// <summary>
+		/// Get the number of ones in this <see cref="T:IBitCollection"/>.
+		/// </summary>
+		/// <value>The number of ones in the bit collection.</value>
+		public int NumberOfOnes {
+			get {
+				ulong data = this.Data;
+				ulong mask;
+				mask = 0x5555555555555555UL;
+				data = ((data >> 0x01) & mask) + (data & mask);
+				mask = 0x3333333333333333UL;
+				data = ((data >> 0x02) & mask) + (data & mask);
+				mask = 0x0F0F0F0F0F0F0F0FUL;
+				data = ((data >> 0x04) & mask) + (data & mask);
+				mask = 0x00FF00FF00FF00FFUL;
+				data = ((data >> 0x08) & mask) + (data & mask);
+				mask = 0x0000FFFF0000FFFFUL;
+				data = ((data >> 0x10) & mask) + (data & mask);
+				mask = 0x00000000FFFFFFFFUL;
+				data = ((data >> 0x20) & mask) + (data & mask);
+				return (int)data;
+			}
+		}
+
+		/// <summary>
+		/// Get the number of zeros in this <see cref="T:IBitCollection"/>.
+		/// </summary>
+		/// <value>The number of zeros in the bit collection.</value>
+		public int NumberOfZeros {
+			get {
+				return 0x40 - this.NumberOfOnes;
+			}
 		}
 		#endregion
 		#region ITile implementation
@@ -129,6 +181,35 @@ namespace NUtils.Bitwise {
 				sb.AppendLine ();
 			}
 			return sb.ToString ();
+		}
+		#endregion
+		#region IEnumerable implementation
+		/// <summary>
+		/// Enumerate the boolean values in this <see cref="T:Tile"/> top-to-bottom, left-to-right.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> instance that enumerates all the elements in
+		/// the tile top-to-bottom, left-to-right.</returns>
+		/// <remarks>
+		/// <para>The result enumerates exactly 64 values.</para>
+		/// </remarks>
+		public IEnumerator<bool> GetEnumerator () {
+			ulong data = this.Data;
+			for (int i = 0x00; i < 0x40; i++, data >>= 0x01) {
+				yield return ((data & 0x01) == 0x01);
+			}
+		}
+		#endregion
+		#region IEnumerable implementation
+		/// <summary>
+		/// Enumerate the boolean values in this <see cref="T:Tile"/> top-to-bottom, left-to-right.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> instance that enumerates all the elements in
+		/// the tile top-to-bottom, left-to-right.</returns>
+		/// <remarks>
+		/// <para>The result enumerates exactly 64 values.</para>
+		/// </remarks>
+		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
+			return this.GetEnumerator ();
 		}
 		#endregion
 	}

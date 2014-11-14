@@ -1,5 +1,5 @@
 //
-//  ITile.cs
+//  IBitCollection.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,23 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace NUtils.Bitwise {
 
 	/// <summary>
-	/// A bit tile: an 8x8 Boolean matrix. This can be useful for matrix calculations.
+	/// An interface specifying a collection of bits. This can be a matrix, array or any other kind of collection.
 	/// </summary>
-	public interface ITile : IBitCollection {
+	public interface IBitCollection : IEnumerable<bool> {
 
 		/// <summary>
-		/// Get a <see cref="T:ITile"/> that is the transpose of this <see cref="T:ITile"/>.
+		/// Get the parity of the <see cref="T:IBitCollection"/>
 		/// </summary>
-		/// <value>A <see cref="T:ITile"/> that is the transpose of this <see cref="T:ITile"/>.</value>
-		/// <remarks>
-		/// <para>A transpose means that the <c>i,j</c>-th value of this <see cref="T:ITile"/>
-		/// is the <c>j,i</c>-th value of the returning <see cref="T:ITile"/>.</para>
-		/// </remarks>
-		ITile Transpose {
+		/// <value><c>true</c> if the number of ones is odd; <c>false</c> otherwise.</value>
+		bool Parity {
+			get;
+		}
+
+		/// <summary>
+		/// Get the number of ones in this <see cref="T:IBitCollection"/>.
+		/// </summary>
+		/// <value>The number of ones in the bit collection.</value>
+		int NumberOfOnes {
+			get;
+		}
+
+		/// <summary>
+		/// Get the number of zeros in this <see cref="T:IBitCollection"/>.
+		/// </summary>
+		/// <value>The number of zeros in the bit collection.</value>
+		int NumberOfZeros {
 			get;
 		}
 	}
