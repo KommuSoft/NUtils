@@ -1,0 +1,1222 @@
+<html>
+  <head>
+    <title>NUtils.Automata.INondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Automata Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:NUtils.Automata.INondeterministicFiniteAutomaton`2">Overview</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2">INondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Summary">
+            An interface representing a nondeterministic finite automaton.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Signature">public interface  <b>INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</b> : <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a></div>
+    </div>
+    <div class="Remarks" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Docs">
+      <h4 class="Subsection">Type Parameters</h4>
+      <blockquote class="SubsectionBox" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Docs:Type Parameters">
+        <dl>
+          <dt>
+            <i>TStateTag</i>
+          </dt>
+          <dd>The type of the tags that are assigned to the nodes.</dd>
+          <dt>
+            <i>TEdgeTag</i>
+          </dt>
+          <dd>The type of the tags that are assigned to the edges.</dd>
+        </dl>
+      </blockquote>
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Docs:Remarks">Most implementations of this interface will require that the tags are unique per state: two
+            states can't share the same tag.</div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates">AcceptingStates</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>
+                  </i>. 
+            Enumerate all the accepting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags">AcceptingStateTags</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>
+                  </i>. 
+            Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState">InitalState</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>
+                  </i>. 
+            Get the initial state of the non-deterministic finite automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag">InitialStateTag</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>
+                  </i>. 
+            Gets the tag of the initial state of this nondeterministic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges">NumberOfEdges</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            Get the number of edges in the nondeterministic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates">NumberOfStates</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. 
+            Get the number of states in the nondeterminstic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States">States</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>
+                  </i>. 
+            Enumerate all the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags">StateTags</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>
+                  </i>. 
+            Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1)">Concatenate</a>
+                  </b>(<a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Concatenate this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+            that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1})">ContainsState</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if this non-deterministic finite automaton contains the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0)">Disjunction</a>
+                  </b>(<a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Disjunct this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if this sequence can be accepted by this automaton
+            or by the <i>other</i> automaton.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0)">GetEdgeTags</a>
+                  </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TEdgeTag&gt;</a></nobr><blockquote>
+            Enumerate all the tags of the associated edges originating form the state(s) with the given <i>statetag</i></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1})">IsAccepting</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Check if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> is accepted by this non-deterministic finite automaton.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0)">IsAccepting</a>
+                  </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if there exists at least one state in this nondeterministic finite state automaton that corresponds with
+            the given state tag that is accepting.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0)">KleeneStar</a>
+                  </b>(<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Calculate the Kleene star of this nondeterministic finite automaton such that a sequence is accepted by the
+            resulting nondeterministic finite automaton if and only if the sequence can be subdivided in (possibly zero)
+            subsequences such that every subsequence is accepted by this nondeterministic finite automaton.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1})">RegisterAcceptingState</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Register the given <i>state</i> including any edges as an accepting state.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0)">RegisterAcceptingState</a>
+                  </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Register the first matching registered state with the given <i>stateTag</i> including any edges as an accepting state.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0)">RegisterEdge</a>
+                  </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="../NUtils.Automata/IEdge`2.html">IEdge&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Register a state for the given <i>sateTag</i>. The new state doesn't contain any
+            edges.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1})">RegisterState</a>
+                  </b>(<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>)<blockquote>
+            Register the given <i>state</i> including any edges.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0)">RegisterState</a>
+                  </b>(<i title="The type of the tags that are assigned to the nodes.">TStateTag</i>)<nobr> : <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
+            Register a state for the given <i>sateTag</i>. The new state doesn't contain any
+            edges.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Functional/FunctionUtils.html#M:NUtils.Functional.FunctionUtils.Identity``1(``0)">Identity&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements handled by the identity function.">T</i>)<nobr> : <i title="The type of elements handled by the identity function.">T</i></nobr><blockquote>
+            The identity function, used to returns the same element. Sometimes useful when a function is
+            required, but not useful.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;TX&gt;</a>)<blockquote>
+            Invokes the given <i>action</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, nothing is done, otherwise the action is performed.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, <i>deflt</i> is returned,
+            otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>false</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.IState{``0,``1}[])">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[])<blockquote>
+            Register the array of given <i>states</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{NUtils.Automata.IState{``0,``1}})">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>)<blockquote>
+            Register the list of given <i>states</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{``0})">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>)<blockquote>
+            Register the list of given <i>statesTags</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},``0[])">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="javascript:alert(&quot;Documentation not found.&quot;)">TStateTag</a>[])<blockquote>
+            Register the array of given <i>statesTags</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterEdges``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{System.Tuple{``0,``1,``0}})">RegisterEdges&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>)<blockquote>
+            Register the list of edges with a list of tuples containing the tags of the initial and final state
+            as well as the tag for the edge to create.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterEdges``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Tuple{``0,``1,``0}[])">RegisterEdges&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Tuple`3">Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;</a>[])<blockquote>
+            Register the array of edges with a list of tuples containing the tags of the initial and final state
+            as well as the tag for the edge to create.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.IState{``0,``1}[])">RegisterStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[])<blockquote>
+            Register the array of given <i>states</i> including any edges.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{NUtils.Automata.IState{``0,``1}})">RegisterStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>)<blockquote>
+            Register the list of given <i>states</i> including any edges.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:NUtils.Automata.INondeterministicFiniteAutomaton`2:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates">AcceptingStates Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates:member">
+          <p class="Summary">
+            Enumerate all the accepting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> <b>AcceptingStates</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates:Value">An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing all the accepting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStates:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags">AcceptingStateTags Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags:member">
+          <p class="Summary">
+            Enumerate all the tags associated with the accepting states in this nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> <b>AcceptingStateTags</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags:Value">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing the tags of all the accepting states in this nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.AcceptingStateTags:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1)">Concatenate Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1):member">
+          <p class="Summary">
+            Concatenate this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
+            that the first part is accepted by this automaton and the second by the <i>other</i> automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>Concatenate</b> (<a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> other, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1):Parameters">
+            <dl>
+              <dt>
+                <i>other</i>
+              </dt>
+              <dd>The second <a href="javascript:alert(&quot;Documentation not found.&quot;)">INondeterministicFiniteAutomaton`2</a> in the concatenation process.</dd>
+              <dt>
+                <i>nullTag</i>
+              </dt>
+              <dd>An edge tag used for transitions without the need to consume (or "eat") any characters.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1):Remarks">
+            <p>For some implementations, the <i>nullTag</i> might be optional, in that case, any value can be passed.</p>
+            <p>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances).</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Concatenate(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1})">ContainsState Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Checks if this non-deterministic finite automaton contains the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>ContainsState</b> (<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> to check for.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Returns">
+            <tt>true</tt>, if the given <i>state</i> is part of this non-deterministic finite automaton, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.ContainsState(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0)">Disjunction Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0):member">
+          <p class="Summary">
+            Disjunct this nondeterministic finite automaton with the given one into a new one such that
+            the resulting one accepts a sequence of data if and only if this sequence can be accepted by this automaton
+            or by the <i>other</i> automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>Disjunction</b> (<a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> other, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullTag, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> startTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0):Parameters">
+            <dl>
+              <dt>
+                <i>other</i>
+              </dt>
+              <dd>The second <a href="javascript:alert(&quot;Documentation not found.&quot;)">INondeterministicFiniteAutomaton`2</a> in the disjunction process.</dd>
+              <dt>
+                <i>nullTag</i>
+              </dt>
+              <dd>An edge tag used for transitions without the need to consume (or "eat") any characters.</dd>
+              <dt>
+                <i>startTag</i>
+              </dt>
+              <dd>The tag of an (optional) <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that must be constructed to disjunct this and the given automaton.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0):Remarks">
+            <p>For some implementations, the <i>nullTag</i> might be optional, in that case, any value can be passed.</p>
+            <p>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances).</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.Disjunction(NUtils.Automata.INondeterministicFiniteAutomaton{`0,`1},`1,`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0)">GetEdgeTags Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0):member">
+          <p class="Summary">
+            Enumerate all the tags of the associated edges originating form the state(s) with the given <i>statetag</i></p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TEdgeTag&gt;</a> <b>GetEdgeTags</b> (<i title="The type of the tags that are assigned to the nodes.">TStateTag</i> statetag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0):Parameters">
+            <dl>
+              <dt>
+                <i>statetag</i>
+              </dt>
+              <dd>The given state tag.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> that contains the tags of all edges originating from the state(s) associated with the given state tag.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.GetEdgeTags(`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState">InitalState Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState:member">
+          <p class="Summary">
+            Get the initial state of the non-deterministic finite automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> <b>InitalState</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState:Value">The initial <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> of this non-deterministic finite automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitalState:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag">InitialStateTag Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag:member">
+          <p class="Summary">
+            Gets the tag of the initial state of this nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> <b>InitialStateTag</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag:Value">The tag corresponding with the initial state of this nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.InitialStateTag:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1})">IsAccepting Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Check if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> is accepted by this non-deterministic finite automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsAccepting</b> (<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given state to check for.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Returns">
+            <tt>true</tt> if the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance is accepting; otherwise, <tt>false</tt>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0)">IsAccepting Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0):member">
+          <p class="Summary">
+            Checks if there exists at least one state in this nondeterministic finite state automaton that corresponds with
+            the given state tag that is accepting.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsAccepting</b> (<i title="The type of the tags that are assigned to the nodes.">TStateTag</i> statetag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0):Parameters">
+            <dl>
+              <dt>
+                <i>statetag</i>
+              </dt>
+              <dd>Statetag.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0):Returns">
+            <tt>true</tt> if this instance is accepting the specified statetag; otherwise, <tt>false</tt>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.IsAccepting(`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0)">KleeneStar Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0):member">
+          <p class="Summary">
+            Calculate the Kleene star of this nondeterministic finite automaton such that a sequence is accepted by the
+            resulting nondeterministic finite automaton if and only if the sequence can be subdivided in (possibly zero)
+            subsequences such that every subsequence is accepted by this nondeterministic finite automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>KleeneStar</b> (<i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullTag, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> startTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0):Parameters">
+            <dl>
+              <dt>
+                <i>nullTag</i>
+              </dt>
+              <dd>An edge tag used for transitions without the need to consume (or "eat") any characters.</dd>
+              <dt>
+                <i>startTag</i>
+              </dt>
+              <dd>The tag of an (optional) <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that must be constructed to kleen star this and the given automaton.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0):Remarks">For some implementations, the <i>nullTag</i> might be optional, in that case, any value can be passed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.KleeneStar(`1,`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges">NumberOfEdges Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges:member">
+          <p class="Summary">
+            Get the number of edges in the nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>NumberOfEdges</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges:Value">The number of edges in the nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfEdges:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates">NumberOfStates Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates:member">
+          <p class="Summary">
+            Get the number of states in the nondeterminstic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>NumberOfStates</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates:Value">The number of nodes in the nondeterminstic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.NumberOfStates:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1})">RegisterAcceptingState Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Register the given <i>state</i> including any edges as an accepting state.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>RegisterAcceptingState</b> (<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that must be registered as an accepting state.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):Returns">
+            <tt>true</tt> if the given <i>state</i> is already registered as a state and the state
+            is thus accepted as an accepting state; otherwise <tt>false</tt>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):Remarks">
+            <p>If the given <i>state</i> is not effective, nothing happens.</p>
+            <p>If the given <i>state</i> is not registered as a state of this
+            finite automaton, nothing happens and <tt>false</tt> is returned.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0)">RegisterAcceptingState Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0):member">
+          <p class="Summary">
+            Register the first matching registered state with the given <i>stateTag</i> including any edges as an accepting state.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>RegisterAcceptingState</b> (<i title="The type of the tags that are assigned to the nodes.">TStateTag</i> stateTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0):Parameters">
+            <dl>
+              <dt>
+                <i>stateTag</i>
+              </dt>
+              <dd>The given tag of the state that must be registered as an accepting state.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0):Returns">
+            <tt>true</tt> if there is a state already registered with the given <i>stateTag</i> as a
+            state and the state is thus accepted as an accepting state; otherwise <tt>false</tt>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0):Remarks">If no state is registered with the given <i>stateTag</i> as a state of this finite automaton,
+            nothing happens and <tt>false</tt> is returned.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterAcceptingState(`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0)">RegisterEdge Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0):member">
+          <p class="Summary">
+            Register a state for the given <i>sateTag</i>. The new state doesn't contain any
+            edges.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/IEdge`2.html">IEdge&lt;TStateTag, TEdgeTag&gt;</a> <b>RegisterEdge</b> (<i title="The type of the tags that are assigned to the nodes.">TStateTag</i> fromStateTag, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> edgeTag, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> toStateTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0):Parameters">
+            <dl>
+              <dt>
+                <i>fromStateTag</i>
+              </dt>
+              <dd>The tag of the state from which the edge originates.</dd>
+              <dt>
+                <i>edgeTag</i>
+              </dt>
+              <dd>The tag of the edge that is registered.</dd>
+              <dt>
+                <i>toStateTag</i>
+              </dt>
+              <dd>The tag of the state to which the edge maps.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEdge`2</a> instance that is either an already registered
+            state with the given <i>stateTag</i> or a new state created.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0):Remarks">
+            <p>If there is no state associated with the <i>fromStateTag</i> or <i>toStateTag</i>,
+            states are registered (using the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> method) for these tags.</p>
+            <p>If there already exists an edge between the two given states with the given tag, no additional
+            edge is registered.</p>
+            <p>This operation is not completely specific to the given automaton: if the state is shared with another
+            automaton, the edge will be added to all the automata.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterEdge(`0,`1,`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1})">RegisterState Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1}):member">
+          <p class="Summary">
+            Register the given <i>state</i> including any edges.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>RegisterState</b> (<a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> state)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1}):Parameters">
+            <dl>
+              <dt>
+                <i>state</i>
+              </dt>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that must be added.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1}):Remarks">If the given <i>state</i> is not effective, nothing happens.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(NUtils.Automata.IState{`0,`1}):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0)">RegisterState Method</h3>
+        <blockquote id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0):member">
+          <p class="Summary">
+            Register a state for the given <i>sateTag</i>. The new state doesn't contain any
+            edges.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> <b>RegisterState</b> (<i title="The type of the tags that are assigned to the nodes.">TStateTag</i> stateTag)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0):Parameters">
+            <dl>
+              <dt>
+                <i>stateTag</i>
+              </dt>
+              <dd>The tag of the new state to create.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance that is either an already registered
+            state with the given <i>stateTag</i> or a new state created.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0):Remarks">If there exists already a state for the given <i>tag</i>, no new state is initialized.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Automata.INondeterministicFiniteAutomaton`2.RegisterState(`0):Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States">States Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States:member">
+          <p class="Summary">
+            Enumerate all the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> <b>States</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States:Value">An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing all the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.States:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags">StateTags Property</h3>
+        <blockquote id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags:member">
+          <p class="Summary">
+            Enumerate all the tags associated with the states in this nondeterministic finite state automaton.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> <b>StateTags</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags:Value">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> containing the tags of all the states in this nondeterministic finite state automaton.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags:Remarks">If two states share the same tag, duplicates will be enumerated.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.INondeterministicFiniteAutomaton`2.StateTags:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.1111</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

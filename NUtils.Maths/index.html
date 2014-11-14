@@ -1,0 +1,465 @@
+<html>
+  <head>
+    <title>NUtils: NUtils.Maths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">NUtils</a>
+    </div>
+    <h1 class="PageTitle">NUtils.Maths Namespace</h1>
+    <p class="Summary">
+    </p>
+    <div>
+    </div>
+    <div class="Remarks">
+      <h2 class="Section"> Namespace</h2>
+      <p>
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </p>
+      <table class="TypesListing" style="margin-top: 1em">
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./CyclePermutation.html">CyclePermutation</a>
+          </td>
+          <td>
+            A permutation described as a sequence of integers that describe a cycle.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ExplicitPermutation.html">ExplicitPermutation</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../NUtils.Maths/IPermutation.html">NUtils.Maths.IPermutation</a> interface that stores the permutation explicitly as
+            an array. This is useful for fast item access but takes much memory.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ExplicitTransition.html">ExplicitTransition</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> interface that stores the permutation explicitly as
+            an array. This is useful for fast item access but takes much memory.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./FiniteDistribution`1.html">FiniteDistribution&lt;TItem&gt;</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IFiniteDistribution`1</a> interface that implements some
+            basic functionality.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./FiniteIndexDistribution.html">FiniteIndexDistribution</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../NUtils.Maths/IFiniteIndexDistribution.html">NUtils.Maths.IFiniteIndexDistribution</a> interface. A distribution over some
+            integers ranging from zero up to a number.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./GraphUtils.html">GraphUtils</a>
+          </td>
+          <td>
+            A collection of utility methods for graphs and graph-like structures.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IDigraph.html">IDigraph</a>
+          </td>
+          <td>
+            An interface specifying a directed graph structure.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IDistribution`1.html">IDistribution&lt;TItem&gt;</a>
+          </td>
+          <td>
+            An interface specifying an distribution. A distribution describes the probability
+            of certain events/values. The total probability must sum/integrate up to one.
+            And the probability of every item is greater than or equal to zero.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IFiniteDistribution`1.html">IFiniteDistribution&lt;TItem&gt;</a>
+          </td>
+          <td>
+            An interface specifying a distribution over a finite type (such as an integer range).
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IFiniteIndexDistribution.html">IFiniteIndexDistribution</a>
+          </td>
+          <td>
+            An interfacing specifying a distribution over a finite range of values.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IFiniteStateMachine`1.html">IFiniteStateMachine&lt;TOutput&gt;</a>
+          </td>
+          <td>
+            An interface specifying a finite state machine that uses no input character, but only a transition function
+            and outputs attached to its states.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IFiniteStateOutput`1.html">IFiniteStateOutput&lt;TOutput&gt;</a>
+          </td>
+          <td>
+            An interface specifying that the instance has a number of states and that each state has an output value
+            attached to it.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IGenericTransition`1.html">IGenericTransition&lt;TType&gt;</a>
+          </td>
+          <td>
+            An interface specifying a transition function. That is a function that takes as input some type and
+            returns the the target value. Transitions are guaranteed to be injective but not surjective.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IGraph.html">IGraph</a>
+          </td>
+          <td>
+            An interface specifying a graph structure.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IInputFiniteStateMachine`2.html">IInputFiniteStateMachine&lt;TInput,TOutput&gt;</a>
+          </td>
+          <td>
+            An interface specifying a finite state machine. A formalism of a machine that has a limited
+            number of representable states and deterministic transitions between those states. States
+            also have an output (in order to classify output). A regular expression can be converted
+            to a finite state machine with booleans as output.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IPermutable.html">IPermutable</a>
+          </td>
+          <td>
+            An interface specifying that the content in the object can be permutated.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IPermutation.html">IPermutation</a>
+          </td>
+          <td>
+            An interface representing a permutation. A permutation is permutable.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IProbabilisticTransition.html">IProbabilisticTransition</a>
+          </td>
+          <td>
+            An interface specifying a probabilistic transition function: for each initial index
+            there are one or more indices to which a transition is possible and each of these transitions
+            has a probability.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ITransition.html">ITransition</a>
+          </td>
+          <td>
+            An interface specifying a transition function on indices. Such function is guaranteed to
+            be injective but not surjective.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ITransitionSensitive`1.html">ITransitionSensitive&lt;TTransition&gt;</a>
+          </td>
+          <td>
+            An interface specifying that the instance is sensitive to a <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITransition</a> instance.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./MathUtils.html">MathUtils</a>
+          </td>
+          <td>
+            A utility class that contains mathematical constants, functions and random number generators.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./MathUtilsTest.html">MathUtilsTest</a>
+          </td>
+          <td>
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ProbabilityUtils.html">ProbabilityUtils</a>
+          </td>
+          <td>
+            A set of utility functions related to probabilistic concepts and instances related to distributions,...
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ReferencedFiniteStateMachine`2.html">ReferencedFiniteStateMachine&lt;TOutput,TTransition&gt;</a>
+          </td>
+          <td>
+            An implementation of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IFiniteStateMachine`1</a> that uses a <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> function and
+            a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IList`1</a> to represent the finite state machine.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./Signum.html">Signum</a>
+          </td>
+          <td>
+            An enumeration that contains the possible signum values: positive, negative and zero.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./SparseProbabilisticTransition.html">SparseProbabilisticTransition</a>
+          </td>
+          <td>
+            An implementation of the <a href="../NUtils.Maths/IProbabilisticTransition.html">NUtils.Maths.IProbabilisticTransition</a> interface
+            used when the number of transitions is limited (linear with the number
+            of indices).
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./TransitionBase.html">TransitionBase</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../NUtils.Maths/ITransition.html">NUtils.Maths.ITransition</a> interface that provides basic implementations
+            of some methods to ease subclassing.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./TransitionUtils.html">TransitionUtils</a>
+          </td>
+          <td>
+            A utility class used for functions and methods on <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITransition</a> instances.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./TransitionUtilsTest.html">TransitionUtilsTest</a>
+          </td>
+          <td>
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Members">
+    </div>
+    <hr size="1" />
+    <div class="Copyright">To be added.</div>
+  </body>
+</html>
