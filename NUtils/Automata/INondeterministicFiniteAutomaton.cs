@@ -226,6 +226,18 @@ namespace NUtils.Automata {
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// </remarks>
 		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag, TStateTag startTag);
+
+		/// <summary>
+		/// Calculate the Kleene star of this nondeterministic finite automaton such that a sequence is accepted by the
+		/// resulting nondeterministic finite automaton if and only if the sequence can be subdivided in (possibly zero)
+		/// subsequences such that every subsequence is accepted by this nondeterministic finite automaton.
+		/// </summary>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
+		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to kleen star this and the given automaton.</param>
+		/// <remarks>
+		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// </remarks>
+		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar (TEdgeTag nullTag, TStateTag startTag);
 		#endregion
 	}
 }

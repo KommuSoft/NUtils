@@ -433,6 +433,31 @@ namespace NUtils {
 			}
 			return clone;
 		}
+
+		/// <summary>
+		/// Calculate the Kleene star of this nondeterministic finite automaton such that a sequence is accepted by the
+		/// resulting nondeterministic finite automaton if and only if the sequence can be subdivided in (possibly zero)
+		/// subsequences such that every subsequence is accepted by this nondeterministic finite automaton.
+		/// </summary>
+		/// <param name="nullTag">An edge tag used for transitions without the need to consume (or "eat") any characters.</param>
+		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to kleen star this and the given automaton.</param>
+		/// <remarks>
+		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// </remarks>
+		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar (TEdgeTag nullTag, TStateTag startTag) {
+			NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> clone = this.Clone ();
+			IState<TStateTag,TEdgeTag> init = new State<TStateTag,TEdgeTag> (startTag);
+			init.AddEdge (new Edge<TStateTag,TEdgeTag> (nullTag, this.initialState));
+			IEdge<TStateTag,TEdgeTag> returnEdge = new Edge<TStateTag,TEdgeTag> (nullTag, init);
+			IEnumerable<IState<TStateTag,TEdgeTag>> stateEnum = (IEnumerable<IState<TStateTag,TEdgeTag>>)clone.stateDictionary;
+			foreach (IState<TStateTag,TEdgeTag> state in stateEnum) {
+				state.AddEdge (returnEdge);
+			}
+			clone.initialState = init;
+			clone.stateDictionary.Add (init);
+			clone.acceptingStateDictionary.Add (init);
+			return clone;
+		}
 		#endregion
 		#region ICloneable implementation
 		/// <summary>
