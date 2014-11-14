@@ -40,30 +40,6 @@ namespace NUtils.Bitwise {
 		#endregion
 		#region Static utility functions
 		/// <summary>
-		/// Calculate the transposed version of the tile: the rows are read as columns and vice versa.
-		/// </summary>
-		/// <returns>A bit tile that is the transpose of the <paramref name="original"/> bit tile.</returns>
-		/// <param name="origin">The original bit tile to transpose.</param>
-		public static ulong TransposeTile (ulong origin) {
-			return
-				((origin & 0x8040201008040201)) |
-				((origin & 0x0080402010080402) << 0x07) |
-				((origin & 0x0000804020100804) << 0x0e) |
-				((origin & 0x0000008040201008) << 0x15) |
-				((origin & 0x0000000080402010) << 0x1c) |
-				((origin & 0x0000000000804020) << 0x23) |
-				((origin & 0x0000000000008040) << 0x2a) |
-				((origin & 0x0000000000000080) << 0x31) |
-				((origin & 0x4020100804020100) >> 0x07) |
-				((origin & 0x2010080402010000) >> 0x0e) |
-				((origin & 0x1008040201000000) >> 0x15) |
-				((origin & 0x0804020100000000) >> 0x1c) |
-				((origin & 0x0402010000000000) >> 0x23) |
-				((origin & 0x0201000000000000) >> 0x2a) |
-				((origin & 0x0100000000000000) >> 0x31);
-		}
-
-		/// <summary>
 		/// Copies the row with the given <paramref name="row"/> index to all the other rows in the given <paramref name="origin"/> bit tile.
 		/// </summary>
 		/// <returns>A bit tile that contains eight rows who all have the same values as the row with the given <paramref name="row"/> index.</returns>

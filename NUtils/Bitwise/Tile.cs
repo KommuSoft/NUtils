@@ -83,6 +83,36 @@ namespace NUtils.Bitwise {
 		public Tile (ulong data) : this() {
 			this.Data = data;
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NUtils.Bitwise.Tile"/> struct by providing 8 8-bit rows.
+		/// </summary>
+		/// <param name="row0">The first row of the tile.</param>
+		/// <param name="row1">The second row of the tile.</param>
+		/// <param name="row2">The third row of the tile.</param>
+		/// <param name="row3">The fourth row of the tile.</param>
+		/// <param name="row4">The fifth row of the tile.</param>
+		/// <param name="row5">The sixth row of the tile.</param>
+		/// <param name="row6">The seventh row of the tile.</param>
+		/// <param name="row7">The eight row of the tile.</param>
+		public Tile (byte row0, byte row1, byte row2, byte row3, byte row4, byte row5, byte row6, byte row7) : this() {
+			ulong d = row7;
+			d <<= 0x08;
+			d |= row6;
+			d <<= 0x08;
+			d |= row5;
+			d <<= 0x08;
+			d |= row4;
+			d <<= 0x08;
+			d |= row3;
+			d <<= 0x08;
+			d |= row2;
+			d <<= 0x08;
+			d |= row1;
+			d <<= 0x08;
+			d |= row0;
+			this.Data = d;
+		}
 		#endregion
 		#region ToString method
 		/// <summary>
