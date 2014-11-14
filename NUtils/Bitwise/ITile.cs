@@ -26,6 +26,18 @@ namespace NUtils.Bitwise {
 	/// A bit tile: an 8x8 Boolean matrix. This can be useful for matrix calculations.
 	/// </summary>
 	public interface ITile {
+
+		/// <summary>
+		/// Get a <see cref="T:ITile"/> that is the transpose of this <see cref="T:ITile"/>.
+		/// </summary>
+		/// <value>A <see cref="T:ITile"/> that is the transpose of this <see cref="T:ITile"/>.</value>
+		/// <remarks>
+		/// <para>A transpose means that the <c>i,j</c>-th value of this <see cref="T:ITile"/>
+		/// is the <c>j,i</c>-th value of the returning <see cref="T:ITile"/>.</para>
+		/// </remarks>
+		ITile Transpose {
+			get;
+		}
 	}
 }
 

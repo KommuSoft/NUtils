@@ -147,11 +147,11 @@ namespace NUtils.Bitwise {
 		/// A coroutine that packs 64 booleans into a single <see cref="ulong"/>. In case the booleans
 		/// are exhausted and the length is not modulo 64, the booleans are padded with <c>false</c> values.
 		/// </summary>
-		/// <returns>An <see cref="IEnumerable`1"/> of <see cref="ulong"/> instances, such that each <see cref="ulong"/>
+		/// <returns>An <see cref="T:IEnumerable`1"/> of <see cref="ulong"/> instances, such that each <see cref="ulong"/>
 		/// represents the value of 64 <see cref="bool"/> values.</returns>
-		/// <param name="data">A <see cref="IEnumerable`1"/> instance of <see cref="bool"/> values that will be grouped together.</param>
+		/// <param name="data">A <see cref="T:IEnumerable`1"/> instance of <see cref="bool"/> values that will be grouped together.</param>
 		/// <remarks>
-		/// <para>The result is calculated lazily, thus <see cref="IEnumerable`1"/> instances without an end are supported.</para>
+		/// <para>The result is calculated lazily, thus <see cref="T:IEnumerable`1"/> instances without an end are supported.</para>
 		/// </remarks>
 		public static IEnumerable<ulong> PackUlong (IEnumerable<bool> data) {
 			IEnumerator<bool> en = data.GetEnumerator ();
@@ -201,27 +201,11 @@ namespace NUtils.Bitwise {
 			}
 		}
 
-		public static void PrintRow (StringBuilder sb, ulong tile, int row, int span = 0x08) {
-			ulong mask = (tile >> (row << 0x03)) & 0xff;
-			for (int i = 0x00; i < span; i++, mask >>= 0x01) {
-				sb.Append ((char)(0x30 | (mask & 0x01)));
-			}
-		}
-
 		public static void PrintBitString (StringBuilder sb, ulong bs, int span = 0x40) {
 			ulong c = bs;
 			for (int i = 0x00; i < span; i++, c >>= 0x01) {
 				sb.Append ((char)(0x30 | (c & 0x01)));
 			}
-		}
-
-		public static string PrintTile (ulong tile) {
-			StringBuilder sb = new StringBuilder ();
-			for (int i = 0x00; i < 0x08; i++) {
-				PrintRow (sb, tile, i);
-				sb.AppendLine ();
-			}
-			return sb.ToString ();
 		}
 
 		public static ulong Compose8Col (ulong col0, ulong col1, ulong col2, ulong col3, ulong col4, ulong col5, ulong col6, ulong col7) {

@@ -444,7 +444,7 @@ namespace NUtils {
 		/// <remarks>
 		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
 		/// </remarks>
-		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar (TEdgeTag nullTag, TStateTag startTag) {
+		public INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar (TEdgeTag nullTag, TStateTag startTag) {
 			NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> clone = this.Clone ();
 			IState<TStateTag,TEdgeTag> init = new State<TStateTag,TEdgeTag> (startTag);
 			init.AddEdge (new Edge<TStateTag,TEdgeTag> (nullTag, this.initialState));
