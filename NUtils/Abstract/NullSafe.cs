@@ -66,7 +66,7 @@ namespace NUtils.Abstract {
 		/// <remarks>
 		/// <para>For performance issues, the <paramref name="predicate"/> is assumed to be effective, no check is done.</para>
 		/// </remarks>
-		public static bool OrFalse <TX,TResult> (this TX data, Predicate<TX> predicate)
+		public static bool OrFalse <TX> (this TX data, Predicate<TX> predicate)
 			where TX : class {
 			Contract.Requires (predicate != null);
 			if (data != null) {
