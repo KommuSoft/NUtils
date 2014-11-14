@@ -25,7 +25,7 @@ namespace NUtils.Bitwise {
 	/// <summary>
 	/// A bit tile: an 8x8 Boolean matrix. This can be useful for matrix calculations.
 	/// </summary>
-	public interface ITile : IBitCollection {
+	public interface ITile : IBitCollection, IBitwise<ITile> {
 
 		/// <summary>
 		/// Get a <see cref="T:ITile"/> that is the transpose of this <see cref="T:ITile"/>.
@@ -36,6 +36,15 @@ namespace NUtils.Bitwise {
 		/// is the <c>j,i</c>-th value of the returning <see cref="T:ITile"/>.</para>
 		/// </remarks>
 		ITile Transpose {
+			get;
+		}
+
+		/// <summary>
+		/// Encode the matrix on a 64-bit <see cref="ulong"/> such that the first eight bits
+		/// are the first row, the second eight bits the second row, etc.
+		/// </summary>
+		/// <value>A 64-bit <see cref="ulong"/> encoded matrix.</value>
+		ulong Raster88 {
 			get;
 		}
 	}

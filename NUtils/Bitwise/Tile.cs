@@ -125,6 +125,17 @@ namespace NUtils.Bitwise {
 					((data & 0x0100000000000000UL) >> 0x31));
 			}
 		}
+
+		/// <summary>
+		/// Encode the matrix on a 64-bit <see cref="ulong"/> such that the first eight bits
+		/// are the first row, the second eight bits the second row, etc.
+		/// </summary>
+		/// <value>A 64-bit <see cref="ulong"/> encoded matrix.</value>
+		public ulong Raster88 {
+			get {
+				return this.Data;
+			}
+		}
 		#endregion
 		#region Constructors
 		/// <summary>
@@ -210,6 +221,46 @@ namespace NUtils.Bitwise {
 		/// </remarks>
 		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator () {
 			return this.GetEnumerator ();
+		}
+		#endregion
+		#region IBitwise implementation
+		/// <summary>
+		/// Computes the AND-operator of this <see cref="T:IBitwise`1"/> and the given <see cref="T:ITile"/> instance.
+		/// </summary>
+		/// <returns>An <see cref="T:ITile"/> instance where a "bit" is the AND-operation applied to the corresponding "bits"
+		/// of this instance and the <paramref name="other"/> instance.</returns>
+		/// <param name="other">The <see cref="T:IBitwise`1"/> to perform the AND-operation with.</param>
+		public ITile And (ITile other) {
+			return new Tile (this.Data & other.Raster88);
+		}
+
+		/// <summary>
+		/// Computes the OR-operator of this <see cref="T:IBitwise`1"/> and the given <see cref="T:ITile"/> instance.
+		/// </summary>
+		/// <returns>An <see cref="T:ITile"/> instance where a "bit" is the OR-operation applied to the corresponding "bits"
+		/// of this instance and the <paramref name="other"/> instance.</returns>
+		/// <param name="other">The <see cref="T:IBitwise`1"/> to perform the OR-operation with.</param>
+		public ITile Or (ITile other) {
+			return new Tile (this.Data | other.Raster88);
+		}
+
+		/// <summary>
+		/// Computes the XOR-operator of this <see cref="T:IBitwise`1"/> and the given <see cref="T:ITile"/> instance.
+		/// </summary>
+		/// <returns>An <see cref="T:ITile"/> instance where a "bit" is the XOR-operation applied to the corresponding "bits"
+		/// of this instance and the <paramref name="other"/> instance.</returns>
+		/// <param name="other">The <see cref="T:IBitwise`1"/> to perform the XOR-operation with.</param>
+		public ITile Xor (ITile other) {
+			return new Tile (this.Data ^ other.Raster88);
+		}
+
+		/// <summary>
+		/// Computes the NOT-operator of this <see cref="T:IBitwise`1"/> instance.
+		/// </summary>
+		/// <returns>An <see cref="T:ITile"/> instance where a "bit" is the NOT-operation applied to the corresponding "bit"
+		/// of this instance.</returns>
+		public ITile Not () {
+			return new Tile (~this.Data);
 		}
 		#endregion
 	}
