@@ -211,6 +211,7 @@
     <Compile Include="QueryPath\NullPathNode.cs" />
     <Compile Include="Automata\INullTagNondeterministicFiniteAutomaton.cs" />
     <Compile Include="QueryPath\PathNode.cs" />
+    <Compile Include="Automata\NullTagNondeterministicFiniteAutomaton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
