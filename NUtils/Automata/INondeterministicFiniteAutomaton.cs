@@ -210,6 +210,7 @@ namespace NUtils.Automata {
 		/// <remarks>
 		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
+		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as this type.</para>
 		/// </remarks>
 		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Concatenate (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag);
 
@@ -224,6 +225,7 @@ namespace NUtils.Automata {
 		/// <remarks>
 		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
+		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as this type.</para>
 		/// </remarks>
 		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction (INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TEdgeTag nullTag, TStateTag startTag);
 
@@ -236,6 +238,7 @@ namespace NUtils.Automata {
 		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to kleen star this and the given automaton.</param>
 		/// <remarks>
 		/// <para>For some implementations, the <paramref name="nullTag"/> might be optional, in that case, any value can be passed.</para>
+		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as this type.</para>
 		/// </remarks>
 		INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar (TEdgeTag nullTag, TStateTag startTag);
 		#endregion
