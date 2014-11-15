@@ -86,7 +86,7 @@ namespace NUtils.QueryPath {
 		/// <param name="toValidate">The given instance to validate.</param>
 		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
 		public override bool Validate (T toValidate) {
-			return toValidate is TType;
+			return toValidate is TType && this.validators.OrTrue (x => x.All (y => y.Validate (toValidate)));
 		}
 		#endregion
 		#region ToString method
