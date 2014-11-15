@@ -19,10 +19,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Linq;
 using Microsoft.FSharp.Control;
 using System.Collections;
 using System.Collections.Generic;
 using NUtils.Designpatterns;
+using NUtils.Abstract;
 
 namespace NUtils.QueryPath {
 
@@ -34,13 +36,35 @@ namespace NUtils.QueryPath {
 	public class Path<T> : PathBase<T> where T : IComposition<T> {
 
 		#region Fields
-		private readonly ICollection<IPath<T>> pathElements;
+		private readonly List<IPath<T>> pathElements = null;
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Path`1"/> class.
+		/// Initializes a new instance of the <see cref="T:Path`1"/> class with a given list of <see cref="T:IPath`1"/>
+		/// instances that represent the pattern downwards in the tree.
 		/// </summary>
-		public Path () {
+		/// <param name="pathElements">A list of path elements, optional, if not effective, the list is seen as empty.</param>
+		/// <remarks>
+		/// <para>Not effective elements in the given <paramref name="pathElements"/> are ignored.</para>
+		/// </remarks>
+		public Path (IEnumerable<IPath<T>> pathElements) {
+			if (pathElements != null) {
+				List<IPath<T>> list = pathElements.Effectives ().ToList ();
+				if (list.Count > 0x00) {
+					this.pathElements = list;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Path`1"/> class with a given array of <see cref="T:IPath`1"/>
+		/// instance that represent the pattern downwards in the tree.
+		/// </summary>
+		/// <param name="pathElements">An array of path elements, optional, if not effective, the list is seen as empty.</param>
+		/// <remarks>
+		/// <para>Not effective elements in the given <paramref name="pathElements"/> are ignored.</para>
+		/// </remarks>
+		public Path (params IPath<T>[] pathElements) : this((IEnumerable<IPath<T>>) pathElements) {
 		}
 		#endregion
 		#region IPath implementation
@@ -68,7 +92,7 @@ namespace NUtils.QueryPath {
 		/// </summary>
 		/// <returns>A <see cref="string"/> that represents the current <see cref="T:Path`1"/>.</returns>
 		public override string ToString () {
-			throw new NotImplementedException ();
+			return this.pathElements.Or (x => string.Join ("/", x), string.Empty);
 		}
 		#endregion
 	}

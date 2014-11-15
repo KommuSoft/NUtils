@@ -64,8 +64,6 @@ namespace NUtils.QueryPath {
 				if (lst.Count > 0x00) {
 					this.validators = lst;
 				}
-			} else {
-				this.validators = null;
 			}
 		}
 

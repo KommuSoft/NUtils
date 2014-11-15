@@ -33,7 +33,30 @@ namespace NUtils.Abstract {
 
 		/// <summary>
 		/// Invokes the given <paramref name="function"/> with the given <paramref name="data"/> safely:
-		/// if the given data is <c>null</c>, null is returned as well, otherwise the function is invoked.
+		/// if the given data is <c>null</c>, the <paramref name="alternative"/> is returned, otherwise
+		/// the <paramref name="function"/> is invoked.
+		/// </summary>
+		/// <returns>The result of the data invocation if the given data is effective, <paramref name="alternative"/> otherwise.</returns>
+		/// <param name="data">The given data to check and invoke the <paramref name="function"/> with.</param>
+		/// <param name="function">The given function to invoke.</param>
+		/// <typeparam name="TX">The type of data that is provided.</typeparam>
+		/// <typeparam name="TResult">The type of the result of the function: the type of data that must be returned.</typeparam>
+		/// <remarks>
+		/// <para>For performance issues, the <paramref name="function"/> is assumed to be effective, no check is done.</para>
+		/// </remarks>
+		public static TResult Or <TX,TResult> (this TX data, Func<TX,TResult> function, TResult alternative)
+			where TX : class {
+			Contract.Requires (function != null);
+			if (data != null) {
+				return function (data);
+			} else {
+				return alternative;
+			}
+		}
+
+		/// <summary>
+		/// Invokes the given <paramref name="function"/> with the given <paramref name="data"/> safely:
+		/// if the given data is <c>null</c>, <c>null</c> is returned as well, otherwise the function is invoked.
 		/// </summary>
 		/// <returns>The result of the function invocation if the the given data is effective, <c>null</c> otherwise.</returns>
 		/// <param name="data">The given data to check and invoke the <paramref name="function"/> with.</param>
