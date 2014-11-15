@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Abstract.NullSafe:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+        <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -296,6 +296,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="#M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="#M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0})">OrFalse&lt;TX&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Invokes the given <i>predicate</i> with the given <i>data</i> safely:
@@ -312,7 +325,7 @@
                     <a href="#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -371,7 +384,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt; Generic Method</h3>
@@ -408,7 +421,7 @@
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0}):Remarks">For performance issues, the <i>action</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt; Generic Method</h3>
@@ -454,7 +467,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt; Generic Method</h3>
@@ -495,7 +508,7 @@
             and <i>deflt</i> are null.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt; Generic Method</h3>
@@ -541,7 +554,57 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0[]):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):member">
+          <p class="Summary">
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <i title="The type of the result of the function: the type of data that must be returned.">TResult</i> <b>Or&lt;TX, TResult&gt;</b> (<i>this</i> <i title="The type of data that is provided.">TX</i> data, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a> function, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i> alternative)<br /> where TX : class</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):Type Parameters">
+            <dl>
+              <dt>
+                <i>TX</i>
+              </dt>
+              <dd>The type of data that is provided.</dd>
+              <dt>
+                <i>TResult</i>
+              </dt>
+              <dd>The type of the result of the function: the type of data that must be returned.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):Parameters">
+            <dl>
+              <dt>
+                <i>data</i>
+              </dt>
+              <dd>The given data to check and invoke the <i>function</i> with.</dd>
+              <dt>
+                <i>function</i>
+              </dt>
+              <dd>The given function to invoke.</dd>
+              <dt>
+                <i>alternative</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):Returns">The result of the data invocation if the given data is effective, <i>alternative</i> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):Remarks">For performance issues, the <i>function</i> is assumed to be effective, no check is done.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1):Version Information">
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0})">OrFalse&lt;TX&gt; Generic Method</h3>
@@ -581,14 +644,14 @@
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0}):Remarks">For performance issues, the <i>predicate</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt; Generic Method</h3>
         <blockquote id="M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1}):member">
           <p class="Summary">
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">public static <i title="The type of the result of the function: the type of data that must be returned.">TResult</i> <b>OrNull&lt;TX, TResult&gt;</b> (<i>this</i> <i title="The type of data that is provided.">TX</i> data, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a> function)<br /> where TX : class<br /> where TResult : class</div>
@@ -624,7 +687,7 @@
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1}):Remarks">For performance issues, the <i>function</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0})">OrTrue&lt;TX&gt; Generic Method</h3>
@@ -664,7 +727,7 @@
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0}):Remarks">For performance issues, the <i>predicate</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0}):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
       </div>

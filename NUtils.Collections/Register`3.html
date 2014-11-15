@@ -238,7 +238,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Collections.Register`3:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -1545,6 +1545,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.OrderBy``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})">OrderBy&lt;T&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IComparer`1">IComparer&lt;T&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             Order the given <i>source</i> list with the given <i>comparer</i> in descending order.
@@ -1583,7 +1596,7 @@
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -2072,7 +2085,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Collections.Register`3(NUtils.Collections.Register{`0,`1,`2}):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.Collections.Register`3(System.Func{`1,`0})">Register Constructor</h3>
@@ -2097,7 +2110,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Collections.Register`3(System.Func{`1,`0}):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.Add(`1)">Add Method</h3>
@@ -2138,7 +2151,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.Add(`1):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.Clone()">Clone Method</h3>
@@ -2154,7 +2167,7 @@
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.Clone():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.Contains(`1)">Contains Method</h3>
@@ -2182,7 +2195,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.Contains(`1):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.CopyTo(`1[],System.Int32)">CopyTo Method</h3>
@@ -2240,7 +2253,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.CopyTo(`1[],System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Collections.Register`3.KeyGenerator">KeyGenerator Property</h3>
@@ -2258,7 +2271,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Collections.Register`3.KeyGenerator:Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#IRegister{TKey,TValue}}#Clone()">NUtils.Abstract.ICloneable&lt;NUtils.Collections.IRegister&lt;TKey,TValue&gt;&gt;.Clone Method</h3>
@@ -2275,7 +2288,7 @@
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#IRegister{TKey,TValue}}#Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#IRegister{TKey,TValue}}#Clone():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#Register{TKey,TValue,TCollection}}#Clone()">NUtils.Abstract.ICloneable&lt;NUtils.Collections.Register&lt;TKey,TValue,TCollection&gt;&gt;.Clone Method</h3>
@@ -2292,7 +2305,7 @@
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#Register{TKey,TValue,TCollection}}#Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.NUtils#Abstract#ICloneable{NUtils#Collections#Register{TKey,TValue,TCollection}}#Clone():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.Remove(`1)">Remove Method</h3>
@@ -2320,7 +2333,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.Remove(`1):Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#Clear()">System.Collections.Generic.ICollection&lt;TValue&gt;.Clear Method</h3>
@@ -2337,7 +2350,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#Clear():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_Count()">System.Collections.Generic.ICollection&lt;TValue&gt;.get_Count Method</h3>
@@ -2358,7 +2371,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_Count():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_IsReadOnly()">System.Collections.Generic.ICollection&lt;TValue&gt;.get_IsReadOnly Method</h3>
@@ -2379,7 +2392,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.System#Collections#Generic#ICollection{TValue}#get_IsReadOnly():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Collections.Register`3.System#Collections#Generic#IEnumerable{TValue}#GetEnumerator()">System.Collections.Generic.IEnumerable&lt;TValue&gt;.GetEnumerator Method</h3>
@@ -2399,7 +2412,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Collections.Register`3.System#Collections#Generic#IEnumerable{TValue}#GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
       </div>

@@ -207,8 +207,10 @@
     </div>
     <h1 class="PageTitle" id="T:NUtils.Abstract.IExpandComparer`2">IExpandComparer&lt;TKey,TTarget&gt; Generic Interface</h1>
     <p class="Summary" id="T:NUtils.Abstract.IExpandComparer`2:Summary">
-      <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-    </p>
+            An interface used to compare an instance of the <i>TKey</i> type with an instance of
+            the <a href="javascript:alert(&quot;Documentation not found.&quot;)">`1</a> type. This can be used, for instance to find an element in an ordered array
+            based on a key.
+            </p>
     <div>
       <h2>Syntax</h2>
       <div class="Signature" id="T:NUtils.Abstract.IExpandComparer`2:Signature">public interface  <b>IExpandComparer&lt;TKey, TTarget&gt;</b></div>
@@ -220,24 +222,19 @@
           <dt>
             <i>TKey</i>
           </dt>
-          <dd>
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </dd>
+          <dd>The type of the key, used to retrieve an object.</dd>
           <dt>
             <i>TTarget</i>
           </dt>
-          <dd>
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </dd>
+          <dd>The objects on which comparison actually takes place.</dd>
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Abstract.IExpandComparer`2:Docs:Remarks">
-        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-      </div>
+      <div class="SectionBox" id="T:NUtils.Abstract.IExpandComparer`2:Docs:Remarks">Every <a href="javascript:alert(&quot;Documentation not found.&quot;)">Comparer`1</a> is basically a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IExpandComparer`2</a> where the
+            <i>TKey</i> and the <i>TTarget</i> type are the same.</div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Abstract.IExpandComparer`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+        <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <h2 class="Section">Public Methods</h2>
@@ -252,7 +249,7 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Abstract.IExpandComparer`2.Compare(`0,`1)">Compare</a>
-                  </b>(<i title="To be added.">TKey</i>, <i title="To be added.">TTarget</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+                  </b>(<i title="The type of the key, used to retrieve an object.">TKey</i>, <i title="The objects on which comparison actually takes place.">TTarget</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
             Compares the given key with the given target.
             </blockquote></td>
               </tr>
@@ -329,6 +326,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0})">OrFalse&lt;TX&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Invokes the given <i>predicate</i> with the given <i>data</i> safely:
@@ -345,7 +355,7 @@
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -375,7 +385,7 @@
             Compares the given key with the given target.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>Compare</b> (<i title="To be added.">TKey</i> key, <i title="To be added.">TTarget</i> target)</div>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>Compare</b> (<i title="The type of the key, used to retrieve an object.">TKey</i> key, <i title="The objects on which comparison actually takes place.">TTarget</i> target)</div>
           <h4 class="Subsection">Parameters</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Abstract.IExpandComparer`2.Compare(`0,`1):Parameters">
             <dl>
@@ -400,7 +410,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Abstract.IExpandComparer`2.Compare(`0,`1):Version Information">
-            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
       </div>

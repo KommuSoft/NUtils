@@ -233,7 +233,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.QueryPath.PathNode`2:Docs:Version Information">
-        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -437,6 +437,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0})">OrFalse&lt;TX&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Invokes the given <i>predicate</i> with the given <i>data</i> safely:
@@ -453,7 +466,7 @@
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -488,7 +501,7 @@
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`2():Remarks">Note that there is an implicit constraint to the <i>TType</i> type parameter.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`2():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.QueryPath.PathNode`2(NUtils.Abstract.IValidater{`0}[])">PathNode Constructor</h3>
@@ -514,7 +527,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`2(NUtils.Abstract.IValidater{`0}[]):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.QueryPath.PathNode`2(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}})">PathNode Constructor</h3>
@@ -540,7 +553,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`2(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}}):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.PathNode`2.ToString()">ToString Method</h3>
@@ -558,7 +571,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`2.ToString():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.PathNode`2.Validate(`0)">Validate Method</h3>
@@ -586,7 +599,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`2.Validate(`0):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
       </div>

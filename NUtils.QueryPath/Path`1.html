@@ -233,7 +233,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.QueryPath.Path`1:Docs:Version Information">
-        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -252,11 +252,28 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.QueryPath.Path`1()">Path</a>
-                    </b>()</div>
+                      <a href="#C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[])">Path</a>
+                    </b>(<b>params</b> <a href="../NUtils.QueryPath/IPath`1.html">IPath&lt;T&gt;</a>[])</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class with a given array of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a>
+            instance that represent the pattern downwards in the tree.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}})">Path</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IPath&lt;T&gt;&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class with a given list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a>
+            instances that represent the pattern downwards in the tree.
             </td>
               </tr>
             </table>
@@ -449,6 +466,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.Or``2(``0,System.Func{``0,``1},``1)">Or&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>, <i title="The type of the result of the function: the type of data that must be returned.">TResult</i>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, the <i>alternative</i> is returned, otherwise
+            the <i>function</i> is invoked.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrFalse``1(``0,System.Predicate{``0})">OrFalse&lt;TX&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Invokes the given <i>predicate</i> with the given <i>data</i> safely:
@@ -465,7 +495,7 @@
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
                   </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
             Invokes the given <i>function</i> with the given <i>data</i> safely:
-            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            if the given data is <tt>null</tt>, <tt>null</tt> is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -489,20 +519,52 @@
     <div class="Members" id="T:NUtils.QueryPath.Path`1:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.QueryPath.Path`1()">Path Constructor</h3>
-        <blockquote id="C:NUtils.QueryPath.Path`1():member">
+        <h3 id="C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[])">Path Constructor</h3>
+        <blockquote id="C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[]):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class with a given array of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a>
+            instance that represent the pattern downwards in the tree.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>Path</b> ()</div>
+          <div class="Signature">public  <b>Path</b> (<b>params</b> <a href="../NUtils.QueryPath/IPath`1.html">IPath&lt;T&gt;</a>[] pathElements)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[]):Parameters">
+            <dl>
+              <dt>
+                <i>pathElements</i>
+              </dt>
+              <dd>An array of path elements, optional, if not effective, the list is seen as empty.</dd>
+            </dl>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[]):Remarks">Not effective elements in the given <i>pathElements</i> are ignored.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1(NUtils.QueryPath.IPath{`0}[]):Version Information">
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}})">Path Constructor</h3>
+        <blockquote id="C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">Path`1</a> class with a given list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a>
+            instances that represent the pattern downwards in the tree.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>Path</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IPath&lt;T&gt;&gt;</a> pathElements)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}}):Parameters">
+            <dl>
+              <dt>
+                <i>pathElements</i>
+              </dt>
+              <dd>A list of path elements, optional, if not effective, the list is seen as empty.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}}):Remarks">Not effective elements in the given <i>pathElements</i> are ignored.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.Path`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPath{`0}}):Version Information">
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.Path`1.Evaluate(`0)">Evaluate Method</h3>
@@ -530,7 +592,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.Path`1.Evaluate(`0):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.Path`1.GenerateNFA()">GenerateNFA Method</h3>
@@ -548,7 +610,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.Path`1.GenerateNFA():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.Path`1.ToString()">ToString Method</h3>
@@ -566,7 +628,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.Path`1.ToString():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.42192</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.310</div>
           <hr size="1" />
         </blockquote>
       </div>
