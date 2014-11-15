@@ -221,7 +221,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Bitwise.Tile:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+        <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -1282,6 +1282,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0})">OrTrue&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>true</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">Partition&lt;T&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;T&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Tuple`2">Tuple&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;</a></nobr><blockquote>
             Generates a tuple where the first element is a list containing all the elements from the given list <i>xs</i> who satisfy
@@ -1724,7 +1737,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Bitwise.Tile(System.UInt64):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.Bitwise.Tile(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">Tile Constructor</h3>
@@ -1777,7 +1790,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Bitwise.Tile(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.And(NUtils.Bitwise.ITile)">And Method</h3>
@@ -1805,7 +1818,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.And(NUtils.Bitwise.ITile):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.Data">Data Property</h3>
@@ -1822,7 +1835,7 @@
             the data thus represent the first row.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.Data:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.GetEnumerator()">GetEnumerator Method</h3>
@@ -1839,7 +1852,7 @@
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.GetEnumerator():Remarks">The result enumerates exactly 64 values.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.Not()">Not Method</h3>
@@ -1858,7 +1871,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.Not():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.NumberOfOnes">NumberOfOnes Property</h3>
@@ -1876,7 +1889,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.NumberOfOnes:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.NumberOfZeros">NumberOfZeros Property</h3>
@@ -1894,7 +1907,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.NumberOfZeros:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.Or(NUtils.Bitwise.ITile)">Or Method</h3>
@@ -1922,7 +1935,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.Or(NUtils.Bitwise.ITile):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.Parity">Parity Property</h3>
@@ -1940,7 +1953,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.Parity:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.Raster88">Raster88 Property</h3>
@@ -1959,7 +1972,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.Raster88:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.System#Collections#IEnumerable#GetEnumerator()">System.Collections.IEnumerable.GetEnumerator Method</h3>
@@ -1977,7 +1990,7 @@
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.System#Collections#IEnumerable#GetEnumerator():Remarks">The result enumerates exactly 64 values.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.System#Collections#IEnumerable#GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.ToString()">ToString Method</h3>
@@ -1995,7 +2008,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.ToString():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.Tile.Transpose">Transpose Property</h3>
@@ -2012,7 +2025,7 @@
             is the <tt>j,i</tt>-th value of the returning <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITile</a>.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.Tile.Transpose:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.Tile.Xor(NUtils.Bitwise.ITile)">Xor Method</h3>
@@ -2040,7 +2053,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.Tile.Xor(NUtils.Bitwise.ITile):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
       </div>

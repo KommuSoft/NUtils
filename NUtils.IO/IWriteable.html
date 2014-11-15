@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.IO.IWriteable:Docs:Version Information">
-        <b>Namespace: </b>NUtils.IO<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+        <b>Namespace: </b>NUtils.IO<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <h2 class="Section">Public Methods</h2>
@@ -337,6 +337,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0})">OrTrue&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>true</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="../NUtils.IO/IOUtils.html#M:NUtils.IO.IOUtils.WriteToStream(NUtils.IO.IWriteable,System.IO.Stream)">WriteToStream</a>
                   </b>(<i>this</i> <a href="../NUtils.IO/IWriteable.html">IWriteable</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a>)<blockquote>
             Write the data of the given <a href="../NUtils.IO/IWriteable.html">NUtils.IO.IWriteable</a> to the given <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a>.
@@ -372,7 +385,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.IO.IWriteable.WriteToStream(System.IO.TextWriter):Version Information">
-            <b>Namespace: </b>NUtils.IO<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.IO<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
       </div>

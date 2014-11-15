@@ -229,7 +229,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.QueryPath.PathNode`1:Docs:Version Information">
-        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -252,7 +252,37 @@
                     </b>()</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with no additional validators.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[])">PathNode</a>
+                    </b>(<b>params</b> <a href="../NUtils.Abstract/IValidater`1.html">NUtils.Abstract.IValidater&lt;T&gt;</a>[])</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with an optional list of validators.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}})">PathNode</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;NUtils.Abstract.IValidater&lt;T&gt;&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with an optional list of validators.
             </td>
               </tr>
             </table>
@@ -422,6 +452,19 @@
             if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
             </blockquote></td>
               </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.OrTrue``1(``0,System.Predicate{``0})">OrTrue&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>true</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
             </table>
           </div>
         </div>
@@ -433,15 +476,63 @@
         <h3 id="C:NUtils.QueryPath.PathNode`1()">PathNode Constructor</h3>
         <blockquote id="C:NUtils.QueryPath.PathNode`1():member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with no additional validators.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">public  <b>PathNode</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Remarks">No parameters are required since the type is handled by the typeparameter.</div>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[])">PathNode Constructor</h3>
+        <blockquote id="C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[]):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with an optional list of validators.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>PathNode</b> (<b>params</b> <a href="../NUtils.Abstract/IValidater`1.html">NUtils.Abstract.IValidater&lt;T&gt;</a>[] validators)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[]):Parameters">
+            <dl>
+              <dt>
+                <i>validators</i>
+              </dt>
+              <dd>An array of validators that must be fulfilled.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[]):Remarks">Non effective <i>validators</i> are ignored.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.Abstract.IValidater{`0}[]):Version Information">
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}})">PathNode Constructor</h3>
+        <blockquote id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class with an optional list of validators.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>PathNode</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;NUtils.Abstract.IValidater&lt;T&gt;&gt;</a> validators)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}}):Parameters">
+            <dl>
+              <dt>
+                <i>validators</i>
+              </dt>
+              <dd>A list of validators that must be fulfilled, optional, if not effective, there are no additional validators.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}}):Remarks">Non effective <i>validators</i> are ignored.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.Abstract.IValidater{`0}}):Version Information">
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.35735</div>
           <hr size="1" />
         </blockquote>
       </div>
