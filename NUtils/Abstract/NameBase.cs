@@ -45,7 +45,7 @@ namespace NUtils.Abstract {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.NameBase"/> class with a given
+		/// Initializes a new instance of the <see cref="T:NameBase"/> class with a given
 		/// initial name.
 		/// </summary>
 		/// <param name='name'>
@@ -69,10 +69,10 @@ namespace NUtils.Abstract {
 		#endregion
 		#region ToString method
 		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.Utils.Abstract.NameBase"/>.
+		/// Returns a <see cref="string"/> that represents the current <see cref="T:NameBase"/>.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="System.String"/> that represents the current <see cref="ZincOxide.Utils.Abstract.NameBase"/>.
+		/// A <see cref="string"/> that represents the current <see cref="T:NameBase"/>.
 		/// </returns>
 		/// <remarks>
 		/// <para>The default textual representation of an <see cref="IName"/> instance is the <see cref="Name"/>

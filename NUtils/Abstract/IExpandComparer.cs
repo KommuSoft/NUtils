@@ -21,20 +21,17 @@
 using System;
 
 namespace NUtils.Abstract {
+
 	/// <summary>
 	/// An interface used to compare an instance of the <typeparamref name='TKey'/> type with an instance of
 	/// the <see cref="TTarget"/> type. This can be used, for instance to find an element in an ordered array
 	/// based on a key.
 	/// </summary>
-	/// <typeparam name='TKey'>
-	/// The type of the key, used to retrieve an object.
-	/// </typeparam>
-	/// <typeparam name='TTarget'>
-	/// The objects on which comparison actually takes place.
-	/// </typeparam>
+	/// <typeparam name='TKey'>The type of the key, used to retrieve an object.</typeparam>
+	/// <typeparam name='TTarget'>The objects on which comparison actually takes place.</typeparam>
 	/// <remarks>
-	/// <para>Every <see cref="Comparer`1"/> is basically a <see cref="IExpandComparer`2"/> where the
-	/// <typeparamref name='Tkey'/> and the <typeparamref name='TTarget'> type are the same.</para>
+	/// <para>Every <see cref="T:Comparer`1"/> is basically a <see cref="T:IExpandComparer`2"/> where the
+	/// <typeparamref name='TKey'/> and the <typeparamref name='TTarget'/> type are the same.</para>
 	/// </remarks>
 	public interface IExpandComparer<TKey,TTarget> {
 
