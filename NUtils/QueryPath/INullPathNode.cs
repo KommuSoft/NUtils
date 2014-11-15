@@ -1,5 +1,5 @@
 //
-//  IPathNode.cs
+//  INullPathNode.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,18 +19,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using NUtils.Abstract;
 using NUtils.Designpatterns;
 
 namespace NUtils.QueryPath {
 
 	/// <summary>
-	/// The representation of a single node in a <see cref="T:IPath`1"/>. A node can evaluate a node
-	/// in a tree-like structure.
+	/// An interface that specifies a <see cref="T:INullPathNode`1"/> instance: a node
+	/// that is the epsilon in a string: in other words no node. The node doesn't accept any
+	/// node, but is useful in an nondeterministic finite automaton.
 	/// </summary>
 	/// <typeparam name='T'>The type of the nodes on which this <see cref="T:IPathNode`1"/> operates.</typeparam>
-	public interface IPathNode<T> : IPath<T>, IValidater<T> where T : IComposition<T> {
-
+	/// <remarks>
+	/// <para>A <see cref="T:INullPathNode`1"/> returns <c>false</c> on every <see cref="M:IPathNode`1.Validate"/> call.</para>
+	/// <para>An <see cref="T:INullPathNode`1"/> will not match any item in a given tree, the tree will simply not be evaluated.</para>
+	/// </remarks>
+	public interface INullPathNode<T> : IPathNode<T> where T : IComposition<T> {
 	}
 }
 

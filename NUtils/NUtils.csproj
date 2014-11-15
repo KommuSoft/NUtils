@@ -209,6 +209,8 @@
     <Compile Include="Bitwise\ITile.cs" />
     <Compile Include="Bitwise\Tile.cs" />
     <Compile Include="Bitwise\IBitCollection.cs" />
+    <Compile Include="QueryPath\INullPathNode.cs" />
+    <Compile Include="QueryPath\NullPathNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
