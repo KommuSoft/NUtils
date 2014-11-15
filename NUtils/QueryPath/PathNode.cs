@@ -19,44 +19,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUtils.Functional;
 using NUtils.Designpatterns;
 
 namespace NUtils.QueryPath {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="T:IPathNode`1"/> interface. A <see cref="T:PathNode`1"/>
-	/// is a conjunction of different types of constraints. All constraints must be fulfilled in order to
-	/// validate a node.
+	/// A special path node that filters on the type of the node <typeparamref name="TType"/>.
 	/// </summary>
-	public class PathNode<T> : PathNodeBase<T>, IPath<T> where T : IComposition<T> {
+	/// <typeparam name='T'>The type of the tree nodes that will be queried.</typeparam>
+	/// <typeparam name='TType'>The type of the nodes that will be accepted.</typeparam>
+	public class PathNode<T,TType> : PathNodeBase<T> where T : IComposition<T> {
 
-		#region Fields
-		private readonly ICollection<IPathNode<T>> subConstraints;
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:PathNode`1"/> class, the resulting <see cref="T:IPathNode`1"/>
-		/// will match any value.
+		/// Initializes a new instance of the <see cref="T:PathNode`2"/> class.
 		/// </summary>
-		public PathNode () : this(new IPathNode<T>[0x00]) {
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:PathNode`1"/> class.
-		/// </summary>
-		/// <param name="subConstraints">A list of subconstraints that must all be fulfilled in order to validate a node.</param>
-		public PathNode (IEnumerable<IPathNode<T>> subConstraints) {
-			this.subConstraints = subConstraints.ToLinkedList ();
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:PathNode`1"/> class.
-		/// </summary>
-		/// <param name="subConstraints">A list of subconstraints that must all be fulfilled in order to validate a node.</param>
-		public PathNode (params IPathNode<T>[] subConstraints) : this((IEnumerable<IPathNode<T>>) subConstraints) {
+		/// <remarks>
+		/// <para>No parameters are required since the type is handled by the typeparameter.</para>
+		/// </remarks>
+		public PathNode () {
 		}
 		#endregion
 		#region IValidater implementation
@@ -66,23 +47,40 @@ namespace NUtils.QueryPath {
 		/// <param name="toValidate">The given instance to validate.</param>
 		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
 		public override bool Validate (T toValidate) {
-			return this.subConstraints.All (x => x.Validate (toValidate));
+			return toValidate is TType;
 		}
 		#endregion
 		#region ToString method
 		/// <summary>
-		/// Returns a <see cref="string"/> that represents the current <see cref="T:PathNode`1"/>.
+		/// Returns a <see cref="string"/> that represents the current <see cref="T:PathNode`2"/>.
 		/// </summary>
-		/// <returns>A <see cref="string"/> that represents the current <see cref="T:PathNode`1"/>.</returns>
+		/// <returns>A <see cref="string"/> that represents the current <see cref="T:PathNode`2"/>.</returns>
 		public override string ToString () {
-			int len = this.subConstraints.Count;
-			if (len <= 0x00) {
+			Type tt = typeof(T);
+			Type tttype = typeof(TType);
+			if (tttype.IsAssignableFrom (tt)) {
 				return ".";
-			} else if (len <= 0x01) {
-				return this.subConstraints.First ().ToString ();
 			} else {
-				return string.Format ("[{0}]", string.Join (",", this.subConstraints));
+				return string.Format (tttype.Name);
 			}
+		}
+		#endregion
+	}
+
+	/// <summary>
+	/// A generic implementation of a <see cref="T:IPathNode`1"/> with no constraints.
+	/// </summary>
+	/// <typeparam name='T'>The type of the tree nodes that will be queried.</typeparam>
+	public class PathNode<T> : PathNode<T,T> where T : IComposition<T> {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:PathNode`1"/> class.
+		/// </summary>
+		/// <remarks>
+		/// <para>No parameters are required since the type is handled by the typeparameter.</para>
+		/// </remarks>
+		public PathNode () {
 		}
 		#endregion
 	}
