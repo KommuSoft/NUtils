@@ -77,6 +77,28 @@ namespace NUtils.Abstract {
 		}
 
 		/// <summary>
+		/// Invokes the given <paramref name="predicate"/> with the given <paramref name="data"/> safely:
+		/// if the given data is <c>null</c>, <c>true</c> is returned as well, otherwise the predicate is invoked
+		/// and the result is returned.
+		/// </summary>
+		/// <returns>The result of the predicate invocation if the the given data is effective, <c>true</c> otherwise.</returns>
+		/// <param name="data">The given data to check and invoke the <paramref name="predicate"/> with.</param>
+		/// <param name="predicate">The given predicate to invoke.</param>
+		/// <typeparam name="TX">The type of data that is provided.</typeparam>
+		/// <remarks>
+		/// <para>For performance issues, the <paramref name="predicate"/> is assumed to be effective, no check is done.</para>
+		/// </remarks>
+		public static bool OrTrue <TX> (this TX data, Predicate<TX> predicate)
+			where TX : class {
+			Contract.Requires (predicate != null);
+			if (data != null) {
+				return predicate (data);
+			} else {
+				return true;
+			}
+		}
+
+		/// <summary>
 		/// Invokes the given <paramref name="action"/> with the given <paramref name="data"/> safely:
 		/// if the given data is <c>null</c>, nothing is done, otherwise the action is performed.
 		/// </summary>
