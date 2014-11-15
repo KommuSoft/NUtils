@@ -207,13 +207,11 @@
     </div>
     <h1 class="PageTitle" id="T:NUtils.QueryPath.PathNode`1">PathNode&lt;T&gt; Generic Class</h1>
     <p class="Summary" id="T:NUtils.QueryPath.PathNode`1:Summary">
-            A basic implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1</a> interface. A <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a>
-            is a conjunction of different types of constraints. All constraints must be fulfilled in order to
-            validate a node.
+            A generic implementation of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1</a> with no constraints.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.QueryPath.PathNode`1:Signature">public class  <b>PathNode&lt;T&gt;</b> : <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>,	<a href="../NUtils.QueryPath/IPath`1.html">IPath&lt;T&gt;</a><br /> where T : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;T&gt;</a></div>
+      <div class="Signature" id="T:NUtils.QueryPath.PathNode`1:Signature">public class  <b>PathNode&lt;T&gt;</b> : <a href="../NUtils.QueryPath/PathNode`2.html">PathNode&lt;T, T&gt;</a><br /> where T : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;T&gt;</a></div>
     </div>
     <div class="Remarks" id="T:NUtils.QueryPath.PathNode`1:Docs">
       <h4 class="Subsection">Type Parameters</h4>
@@ -222,9 +220,7 @@
           <dt>
             <i>T</i>
           </dt>
-          <dd>
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </dd>
+          <dd>The type of the tree nodes that will be queried.</dd>
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
@@ -233,12 +229,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.QueryPath.PathNode`1:Docs:Version Information">
-        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
+        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.
+								<a href="../NUtils.QueryPath/PathNode`2.html">PathNode&lt;T, T&gt;</a>.
 							</p>
         <h2 class="Section">Public Constructors</h2>
         <div class="SectionBox" id="Public Constructors">
@@ -254,37 +250,6 @@
                     <b>
                       <a href="#C:NUtils.QueryPath.PathNode`1()">PathNode</a>
                     </b>()</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class, the resulting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1</a>
-            will match any value.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[])">PathNode</a>
-                    </b>(<b>params</b> <a href="../NUtils.QueryPath/IPathNode`1.html">IPathNode&lt;T&gt;</a>[])</div>
-                </td>
-                <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
-            </td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <b>
-                      <a href="#C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}})">PathNode</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IPathNode&lt;T&gt;&gt;</a>)</div>
                 </td>
                 <td>
             Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
@@ -317,7 +282,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.Evaluate(`0)">Evaluate</a>
-                  </b>(<i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i title="The type of the tree nodes that will be queried.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             Evaluate the specified tree using this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a> instance and return all possible matches.
              (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -327,10 +292,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.QueryPath.PathNode`1.ToString()">ToString</a>
+                    <a href="../NUtils.QueryPath/PathNode`2.html#M:NUtils.QueryPath.PathNode`2.ToString()">ToString</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
-            Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a>.
-            </blockquote></td>
+            Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`2</a>.
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNode`2.html">PathNode&lt;T, TType&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -349,10 +314,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.QueryPath.PathNode`1.Validate(`0)">Validate</a>
-                  </b>(<i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                    <a href="../NUtils.QueryPath/PathNode`2.html#M:NUtils.QueryPath.PathNode`2.Validate(`0)">Validate</a>
+                  </b>(<i title="The type of the tree nodes that will be queried.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Validate the given instance.
-            </blockquote></td>
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNode`2.html">PathNode&lt;T, TType&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -361,7 +326,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.Validate(`0)">Validate</a>
-                  </b>(<i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i title="The type of the tree nodes that will be queried.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Validate the given instance.
              (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
@@ -468,114 +433,15 @@
         <h3 id="C:NUtils.QueryPath.PathNode`1()">PathNode Constructor</h3>
         <blockquote id="C:NUtils.QueryPath.PathNode`1():member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class, the resulting <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1</a>
-            will match any value.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">public  <b>PathNode</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Remarks">No parameters are required since the type is handled by the typeparameter.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[])">PathNode Constructor</h3>
-        <blockquote id="C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[]):member">
-          <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public  <b>PathNode</b> (<b>params</b> <a href="../NUtils.QueryPath/IPathNode`1.html">IPathNode&lt;T&gt;</a>[] subConstraints)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[]):Parameters">
-            <dl>
-              <dt>
-                <i>subConstraints</i>
-              </dt>
-              <dd>A list of subconstraints that must all be fulfilled in order to validate a node.</dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[]):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(NUtils.QueryPath.IPathNode{`0}[]):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}})">PathNode Constructor</h3>
-        <blockquote id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}}):member">
-          <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a> class.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public  <b>PathNode</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IPathNode&lt;T&gt;&gt;</a> subConstraints)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}}):Parameters">
-            <dl>
-              <dt>
-                <i>subConstraints</i>
-              </dt>
-              <dd>A list of subconstraints that must all be fulfilled in order to validate a node.</dd>
-            </dl>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.QueryPath.PathNode`1(System.Collections.Generic.IEnumerable{NUtils.QueryPath.IPathNode{`0}}):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.QueryPath.PathNode`1.ToString()">ToString Method</h3>
-        <blockquote id="M:NUtils.QueryPath.PathNode`1.ToString():member">
-          <p class="Summary">
-            Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a>.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ToString</b> ()</div>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryPath.PathNode`1.ToString():Returns">A <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNode`1</a>.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`1.ToString():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`1.ToString():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.QueryPath.PathNode`1.Validate(`0)">Validate Method</h3>
-        <blockquote id="M:NUtils.QueryPath.PathNode`1.Validate(`0):member">
-          <p class="Summary">
-            Validate the given instance.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Validate</b> (<i title="To be added.">T</i> toValidate)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryPath.PathNode`1.Validate(`0):Parameters">
-            <dl>
-              <dt>
-                <i>toValidate</i>
-              </dt>
-              <dd>The given instance to validate.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryPath.PathNode`1.Validate(`0):Returns">
-            <tt>true</tt> if the given instance is validate; otherwise <tt>false</tt>.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`1.Validate(`0):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.QueryPath.PathNode`1.Validate(`0):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.24137</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5432.32682</div>
           <hr size="1" />
         </blockquote>
       </div>
