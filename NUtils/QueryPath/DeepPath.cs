@@ -58,7 +58,7 @@ namespace NUtils.QueryPath {
 		/// </summary>
 		/// <returns>A <see cref="string"/> that represents the current <see cref="T:DeepPath`1"/>.</returns>
 		public override string ToString () {
-			return "..";
+			return string.Empty;
 		}
 		#endregion
 	}

@@ -211,6 +211,7 @@
     <Compile Include="Bitwise\IBitCollection.cs" />
     <Compile Include="QueryPath\INullPathNode.cs" />
     <Compile Include="QueryPath\NullPathNode.cs" />
+    <Compile Include="Automata\INullTagNondeterministicFiniteAutomaton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

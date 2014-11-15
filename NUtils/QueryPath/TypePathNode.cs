@@ -27,7 +27,9 @@ namespace NUtils.QueryPath {
 	/// A special path node that filters on the type of the node <typeparamref name="Q"/>. Evidently
 	/// the type must be an instantiation of the type of tree to process itself.
 	/// </summary>
-	public class TypePathNode<T,Q> : PathNodeBase<T> where Q : T where T : IComposition<T> {
+	/// <typeparam name='T'>The type of the tree nodes that will be queried.<typeparam>
+	/// <typeparam name='TType'>The type of the nodes that will be accepted.<typeparam>
+	public class TypePathNode<T,TType> : PathNodeBase<T> where T : IComposition<T> {
 
 		#region Constructors
 		/// <summary>
@@ -46,7 +48,7 @@ namespace NUtils.QueryPath {
 		/// <param name="toValidate">The given instance to validate.</param>
 		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
 		public override bool Validate (T toValidate) {
-			return toValidate is Q;
+			return toValidate is TType;
 		}
 		#endregion
 		#region ToString method
@@ -55,7 +57,13 @@ namespace NUtils.QueryPath {
 		/// </summary>
 		/// <returns>A <see cref="string"/> that represents the current <see cref="T:TypePathNode`2"/>.</returns>
 		public override string ToString () {
-			return string.Format (typeof(Q).Name);
+			Type tt = typeof(T);
+			Type tttype = typeof(TType);
+			if (tttype.IsAssignableFrom (tt)) {
+				return ".";
+			} else {
+				return string.Format (tttype.Name);
+			}
 		}
 		#endregion
 	}
