@@ -23,6 +23,7 @@ using System.Linq;
 using NUtils.Designpatterns;
 using System.Collections.Generic;
 using NUtils.Abstract;
+using System.Text;
 
 namespace NUtils.QueryPath {
 
@@ -96,12 +97,20 @@ namespace NUtils.QueryPath {
 		/// <returns>A <see cref="string"/> that represents the current <see cref="T:PathNode`2"/>.</returns>
 		public override string ToString () {
 			Type tt = typeof(T);
-			Type tttype = typeof(TType);
-			if (tttype.IsAssignableFrom (tt)) {
-				return ".";
+			Type tc = typeof(TType);
+			StringBuilder sb = new StringBuilder ();
+			if (tc.IsAssignableFrom (tt)) {
+				sb.Append ('.');
 			} else {
-				return string.Format (tttype.Name);
+				sb.Append (tc.Name);
 			}
+			List<IValidater<T>> val = this.validators;
+			if (val != null) {
+				sb.Append ('[');
+				sb.Append (string.Join (",", val));
+				sb.Append (']');
+			}
+			return sb.ToString ();
 		}
 		#endregion
 	}
