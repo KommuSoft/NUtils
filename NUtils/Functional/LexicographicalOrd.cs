@@ -75,7 +75,7 @@ namespace NUtils.Functional {
 					ca = ea.Current;
 					cb = eb.Current;
 					res = itemOrder.Compare (ca, cb);
-					if ((res & Ordering.EQ) != null) {
+					if ((res & Ordering.EQ) != 0x00) {
 						return res;
 					}
 					ma = ea.MoveNext ();
