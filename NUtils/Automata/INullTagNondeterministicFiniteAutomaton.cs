@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
 namespace NUtils.Automata {
 
@@ -29,7 +30,7 @@ namespace NUtils.Automata {
 	/// </summary>
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
-	public interface INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> {
+	public interface INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, ICloneable<INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>> {
 
 		/// <summary>
 		/// Get the tag used for an "epsilon"-edge.
