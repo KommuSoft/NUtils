@@ -38,7 +38,7 @@ namespace NUtils.QueryPath {
 	/// <para>A <see cref="T:INullPathNode`1"/> returns <c>false</c> on every <see cref="M:IPathNode`1.Validate"/> call.</para>
 	/// <para>An <see cref="T:INullPathNode`1"/> will not match any item in a given tree, the tree will simply not be evaluated.</para>
 	/// </remarks>
-	public class NullPathNode<T> : INullPathNode<T> where T : IComposition<T> {
+	public class NullPathNode<T> : PathNodeBase<T>, INullPathNode<T> where T : IComposition<T> {
 
 		#region Constants
 		/// <summary>
@@ -113,35 +113,8 @@ namespace NUtils.QueryPath {
 		/// <remarks>
 		/// <para>A <see cref="T:INullPathNode`1"/> returns <c>false</c> on every <see cref="M:IPathNode`1.Validate"/> call.</para>
 		/// </remarks>
-		public bool Validate (T toValidate) {
+		public override bool Validate (T toValidate) {
 			return false;
-		}
-		#endregion
-		#region IPath implementation
-		/// <summary>
-		/// Evaluate the specified tree using this <see cref="T:IPath`1"/> instance and return all possible matches.
-		/// </summary>
-		/// <param name="tree">The given tree to evaluate.</param>
-		/// <returns>A <see cref="T:IEnumerable`1"/> that contains all possible nodes in the tree that match
-		/// the path specifications. This will in many cases be evaluated lazily.</returns>
-		/// <remarks>
-		/// <para>An <see cref="T:INullPathNode`1"/> will not match any item in a given tree, the tree will simply not be evaluated.</para>
-		/// </remarks>
-		public IEnumerable<T> Evaluate (T tree) {
-			yield break;
-		}
-
-		/// <summary>
-		/// Compiles this <see cref="T:IPath`1"/> instance into an NFA to evaluate trees.
-		/// </summary>
-		/// <remarks>
-		/// <para>In case this method has not been called before the <see cref="M:Evaluate"/> method
-		/// has been called, the method will be called automatically.</para>
-		/// <para>After compilation, the path cannot be modified any further.</para>
-		/// <para>Some instances don't compile first: for instance <see cref="T:IPathNode`1"/> instances. In that
-		/// case the compile method does nothing.</para>
-		/// </remarks>
-		public void Compile () {
 		}
 		#endregion
 	}
