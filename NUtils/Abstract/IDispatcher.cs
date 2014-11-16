@@ -1,5 +1,5 @@
 //
-//  IValidater.cs
+//  IDispatcher.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,23 @@ using System;
 namespace NUtils.Abstract {
 
 	/// <summary>
-	/// An interface describing that the instance can validate a <typeparamref name="T"/> instance.
+	/// An interface desciribing a dispatcher: an instance that provides values.
 	/// </summary>
-	/// <typeparam name='T'>The type of instances this interface can validate.</typeparam>
-	public interface IValidater<in T> {
+	/// <remarks>
+	/// <para>The values should be unique in a weak sense: it is unlikely that in a lifetime
+	/// the same values will be enumerated.</para>
+	/// </remarks>
+	public interface IDispatcher<out T> {
 
 		/// <summary>
-		/// Validate the given instance.
+		/// Generate the next item.
 		/// </summary>
-		/// <param name="toValidate">The given instance to validate.</param>
-		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
-		bool Validate (T toValidate);
+		/// <returns>The next item in the given sequence.</returns>
+		/// <remarks>
+		/// <para>The values should be unique in a weak sense: it is unlikely that in a lifetime
+		/// the same values will be enumerated.</para>
+		/// </remarks>
+		T Next ();
 	}
 }
 

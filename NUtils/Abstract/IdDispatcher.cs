@@ -1,5 +1,5 @@
 //
-//  IValidater.cs
+//  IdDispatcher.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,17 +23,37 @@ using System;
 namespace NUtils.Abstract {
 
 	/// <summary>
-	/// An interface describing that the instance can validate a <typeparamref name="T"/> instance.
+	/// An implementation of the <see cref="T:IIdDispatcher"/> interface that dispatches identification numbers
+	/// to instances.
 	/// </summary>
-	/// <typeparam name='T'>The type of instances this interface can validate.</typeparam>
-	public interface IValidater<in T> {
+	public class IdDispatcher : IIdDispatcher {
 
+		#region Fields
 		/// <summary>
-		/// Validate the given instance.
+		/// The current state of the IdDispatcher.
 		/// </summary>
-		/// <param name="toValidate">The given instance to validate.</param>
-		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
-		bool Validate (T toValidate);
+		private uint state = 0x00;
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:IdDispatcher"/> class.
+		/// </summary>
+		public IdDispatcher () {
+		}
+		#endregion
+		#region IDispatcher implementation
+		/// <summary>
+		/// Generate the next item.
+		/// </summary>
+		/// <returns>The next item in the given sequence.</returns>
+		/// <remarks>
+		/// <para>The values should be unique in a weak sense: it is unlikely that in a lifetime
+		/// the same values will be enumerated.</para>
+		/// </remarks>
+		public uint Next () {
+			return this.state++;
+		}
+		#endregion
 	}
 }
 

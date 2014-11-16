@@ -38,6 +38,7 @@ namespace NUtils.Automata {
 		/// <remarks>
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as the <paramref name="automaton"/> type.</para>
+		/// <para>Evidently the <see cref="P:NullTagNondeterministicFiniteAutomatonUtils`2.NullEdge"/> is used as "epsilon"-edge.</para>
 		/// </remarks>
 		public static INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Concatenate<TStateTag,TEdgeTag> (this INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> automaton, INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other) {
 			return (INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>)automaton.Concatenate (other, automaton.NullEdge);
@@ -54,6 +55,7 @@ namespace NUtils.Automata {
 		/// <remarks>
 		/// <para>If the second automaton is not effective, this automaton will be cloned (not deeply, with the same <see cref="T:IState`2"/> instances).</para>
 		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as the <paramref name="automaton"/> type.</para>
+		/// <para>Evidently the <see cref="P:NullTagNondeterministicFiniteAutomatonUtils`2.NullEdge"/> is used as "epsilon"-edge.</para>
 		/// </remarks>
 		public static INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> Disjunction<TStateTag,TEdgeTag> (this INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> automaton, INondeterministicFiniteAutomaton<TStateTag,TEdgeTag> other, TStateTag startTag) {
 			return (INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>)automaton.Disjunction (other, automaton.NullEdge, startTag);
@@ -68,6 +70,7 @@ namespace NUtils.Automata {
 		/// <param name="startTag">The tag of an (optional) <see cref="T:IState`2"/> that must be constructed to kleen star this and the given automaton.</param>
 		/// <remarks>
 		/// <para>Although the return parameter only specifies <see cref="T:INondeterministicFiniteAutomaton`2"/>, the return type is always the same as the <paramref name="automaton"/> type.</para>
+		/// <para>Evidently the <see cref="P:NullTagNondeterministicFiniteAutomatonUtils`2.NullEdge"/> is used as "epsilon"-edge.</para>
 		/// </remarks>
 		public static INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> KleeneStar<TStateTag,TEdgeTag> (this INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> automaton, TStateTag startTag) {
 			return (INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>)automaton.KleeneStar (automaton.NullEdge, startTag);

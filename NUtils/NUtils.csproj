@@ -213,6 +213,11 @@
     <Compile Include="QueryPath\PathNode.cs" />
     <Compile Include="Automata\NullTagNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Automata\NullTagNondeterministicFiniteAutomatonUtils.cs" />
+    <Compile Include="Abstract\IDispatcher.cs" />
+    <Compile Include="Functional\Validators\IIdValidator.cs" />
+    <Compile Include="Abstract\IIdDispatcher.cs" />
+    <Compile Include="Functional\Validators\IdValidator.cs" />
+    <Compile Include="Abstract\IdDispatcher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -229,6 +234,7 @@
     <Folder Include="Automata\" />
     <Folder Include="Visual\" />
     <Folder Include="Visual\GraphViz\" />
+    <Folder Include="Functional\Validators\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

@@ -1,5 +1,5 @@
 //
-//  IValidater.cs
+//  IIdValidator.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using NUtils.Abstract;
 
-namespace NUtils.Abstract {
+namespace NUtils.Functional.Validators {
 
 	/// <summary>
-	/// An interface describing that the instance can validate a <typeparamref name="T"/> instance.
+	/// A validator for identification numbers.
 	/// </summary>
-	/// <typeparam name='T'>The type of instances this interface can validate.</typeparam>
-	public interface IValidater<in T> {
-
-		/// <summary>
-		/// Validate the given instance.
-		/// </summary>
-		/// <param name="toValidate">The given instance to validate.</param>
-		/// <returns><c>true</c> if the given instance is validate; otherwise <c>false</c>.</returns>
-		bool Validate (T toValidate);
+	public interface IIdValidator : IValidater<IId>, IId {
 	}
 }
 
