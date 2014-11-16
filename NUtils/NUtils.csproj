@@ -218,6 +218,8 @@
     <Compile Include="Abstract\IIdDispatcher.cs" />
     <Compile Include="Functional\Validators\IdValidator.cs" />
     <Compile Include="Abstract\IdDispatcher.cs" />
+    <Compile Include="Automata\IDispatcherNondeterministicFiniteAutomaton.cs" />
+    <Compile Include="Automata\INullTagDispatcherNondeterministicFiniteAutomaton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

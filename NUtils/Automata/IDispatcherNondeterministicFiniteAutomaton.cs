@@ -1,5 +1,5 @@
 //
-//  INullTagINondeterministicFiniteAutomaton.cs
+//  IDispatcherNondeterministicFiniteAutomaton.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,23 +24,24 @@ using NUtils.Abstract;
 namespace NUtils.Automata {
 
 	/// <summary>
-	/// An interface representing a nondeterministic finite automaton that has a definition for
-	/// a special <typeparamref name="TEdgeTag"/> that represents the "epsilon"-transition: a transition
-	/// that doesn't eat any item of the sequence.
+	/// An interface representing an <see cref="T:INondeterministicFiniteAutomaton`2"/> with an embedded dispatcher
+	/// to allocate new state tags.
 	/// </summary>
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
 	/// <remarks>
 	/// <para>Most implementations of this interface will require that the tags are unique per state: two
 	/// states can't share the same tag.</para>
+	/// <para>One can still define statetags oneself, but must be cautious when the dispatcher generates an already
+	/// allocated tag.</para>
 	/// </remarks>
-	public interface INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, ICloneable<INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>> {
+	public interface IDispatcherNondeterministicFiniteAutomaton<TStateTag,TEdgeTag> : INondeterministicFiniteAutomaton<TStateTag,TEdgeTag>, ICloneable<IDispatcherNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>> {
 
 		/// <summary>
-		/// Get the tag used for an "epsilon"-edge.
+		/// Get a <see cref="T:IDispatcher`1"/> that allocates new state tags.
 		/// </summary>
-		/// <value>A <typeparamref name="TEdgeTag"/> that represents the tag assigned to edges that don't "eat" a sequence item.</value>
-		TEdgeTag NullEdge {
+		/// <value>A dispatcher for new state allocation.</value>
+		IDispatcher<TStateTag> StateTagDispatcher {
 			get;
 		}
 	}
