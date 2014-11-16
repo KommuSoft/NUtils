@@ -22,10 +22,11 @@ using System.Collections.Generic;
 using NUtils.Abstract;
 
 namespace NUtils.Bitwise {
+
 	/// <summary>
 	/// A vector of bits. This should be implemented in a compact way.
 	/// </summary>
-	public interface IBitVector : ILength, ICollection<int>, ILowest<int>, ILowerEnumerable<int>, ILocalBitwise<IBitVector> {
+	public interface IBitVector : ILength, ISet<int>, ILowest<int>, ILowerEnumerable<int>, ILocalBitwise<IBitVector> {
 
 		/// <summary>
 		/// Gets or sets the value of a single bit in the bitvector.

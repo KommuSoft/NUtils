@@ -29,6 +29,8 @@ namespace NUtils.QueryPath {
 	/// </summary>
 	public interface IPath<T> where T : IComposition<T> {
 
+
+
 		/// <summary>
 		/// Evaluate the specified tree using this <see cref="T:IPath`1"/> instance and return all possible matches.
 		/// </summary>

@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace NUtils.Bitwise {
+
 	/// <summary>
 	/// An implementation of an <see cref="IBitVector"/>, the implementation uses <see cref="ulong"/> data in an array fashion.
 	/// </summary>
@@ -568,6 +569,20 @@ namespace NUtils.Bitwise {
 			return this.GetEnumerator ();
 		}
 		#endregion
+		#region ISet implementation
+		/// <summary>
+		/// Add the given <paramref name="item"/> to this set.
+		/// </summary>
+		/// <param name="item">The item to be added.</param>
+		/// <returns><c>true</c> if the given <paramref name="item"/> was not part of the <see cref="T:ISet`1"/> yet; otherwise <c>false</c>.</returns>
+		bool ISet<int>.Add (int item) {
+			int bi = item >> 0x06;
+			ulong bo = this.data [bi];
+			ulong bn = bo | (0x01UL << (item & 0x3F));
+			this.data [bi] = bn;
+			return (bo != bn);
+		}
+		#endregion
 		#region ICollection implementation
 		/// <Docs>The item to add to the current collection.</Docs>
 		/// <para>Adds an item to the current collection.</para>
@@ -736,6 +751,65 @@ namespace NUtils.Bitwise {
 				d [i] = u;
 			}
 			return new CompactBitVector (n, d);
+		}
+		#endregion
+		#region ISet implementation
+		public void ExceptWith (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public void IntersectWith (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public bool IsProperSubsetOf (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public bool IsProperSupersetOf (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public bool IsSubsetOf (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public bool IsSupersetOf (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public bool Overlaps (IEnumerable<int> other) {
+			int over = 0x00;
+			foreach (int item in other) {
+				over |= (int)(((this.data [item >> 0x06] >> (item & 0x3F))) & 0x01);
+				if (over != 0x00) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public bool SetEquals (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public void SymmetricExceptWith (IEnumerable<int> other) {
+			throw new NotImplementedException ();
+		}
+
+		public void UnionWith (IEnumerable<int> other) {//TODO: check for bitvector?
+			foreach (int item in other) {
+				this.data [item >> 0x06] |= 0x01UL << (item & 0x3F);
+			}
+		}
+		#endregion
+		#region ICollection implementation
+		/// <summary>
+		/// Adds the given <paramref name="item"/> to the current collection.
+		/// </summary>
+		/// <param name="item">The given item to add.</param>
+		void ICollection<int>.Add (int item) {
+			this.data [item >> 0x06] |= 0x01UL << (item & 0x3F);
 		}
 		#endregion
 	}
