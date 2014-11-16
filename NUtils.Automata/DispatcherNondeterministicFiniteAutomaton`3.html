@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Automata.NullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag,TCollection&gt;</title>
+    <title>NUtils.Automata.DispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag,TCollection&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,34 +190,34 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Automata Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3">Overview</a>
+        <a href="#T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Signature">Signature</a>
+        <a href="#T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Docs">Remarks</a>
+        <a href="#T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Members">Member Details</a>
+        <a href="#T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3">NullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag,TCollection&gt; Generic Class</h1>
-    <p class="Summary" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Summary">
-            An implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">INullTagNondeterministicFiniteAutomaton`2</a> interface representing a
-            nondeterministic finite automaton that has a definition for a special <i>TEdgeTag</i>
-            that represents the "epsilon"-transition: a transition that doesn't eat any item of the sequence.
+    <h1 class="PageTitle" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3">DispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag,TCollection&gt; Generic Class</h1>
+    <p class="Summary" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Summary">
+            An implementation of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`2</a> interface representing a
+            nondeterministic finite automaton that has a dispatcher for <i>TStateTag</i> instances
+            in case a new state must be generated.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Signature">public class  <b>NullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</b> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>,	<a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, new()</div>
+      <div class="Signature" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Signature">public class  <b>DispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</b> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>,	<a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/IDispatcherNondeterministicFiniteAutomaton`2.html">IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a><br /> where TCollection : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;NUtils.Automata.IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, new()</div>
     </div>
-    <div class="Remarks" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Docs">
+    <div class="Remarks" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Docs:Type Parameters">
         <dl>
           <dt>
             <i>TStateTag</i>
@@ -234,10 +234,10 @@
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Docs:Remarks">Most implementations of this interface will require that the tags are unique per state: two
-            states can't share the same tag.</div>
+      <div class="SectionBox" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Docs:Remarks">One can still define statetags oneself, but must be cautious when the dispatcher generates an already
+            allocated tag.</div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Docs:Version Information">
         <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
@@ -257,11 +257,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1)">NullTagNondeterministicFiniteAutomaton</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>)</div>
+                      <a href="#C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0})">DispatcherNondeterministicFiniteAutomaton</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>, <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a>)</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
             </td>
               </tr>
               <tr valign="top">
@@ -272,11 +272,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1)">NullTagNondeterministicFiniteAutomaton</a>
-                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>)</div>
+                      <a href="#C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0})">DispatcherNondeterministicFiniteAutomaton</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>, <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a>)</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>states</i>, <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>states</i>, <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
             </td>
               </tr>
             </table>
@@ -294,11 +294,11 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2})">NullTagNondeterministicFiniteAutomaton</a>
-                    </b>(<a href="../NUtils.Automata/NullTagNondeterministicFiniteAutomaton`3.html">NullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>)</div>
+                      <a href="#C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2})">DispatcherNondeterministicFiniteAutomaton</a>
+                    </b>(<a href="../NUtils.Automata/DispatcherNondeterministicFiniteAutomaton`3.html">DispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>)</div>
                 </td>
                 <td>
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
             </td>
               </tr>
             </table>
@@ -365,23 +365,6 @@
              (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</td>
               </tr>
               <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td>
-                  <b>
-                    <a href="#P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge">NullEdge</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>
-                  </i>. 
-            Get the tag used for an "epsilon"-edge.
-            </td>
-              </tr>
-              <tr valign="top">
                 <td>[read-only]<div></div></td>
                 <td>
                   <b>
@@ -424,6 +407,23 @@
              (<i>Inherited from <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a>.</i>)</td>
               </tr>
               <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher">StateTagDispatcher</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a>
+                  </i>. 
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> that allocates new state tags.
+            </td>
+              </tr>
+              <tr valign="top">
                 <td>[read-only]<div></div></td>
                 <td>
                   <b>
@@ -450,7 +450,7 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone()">Clone</a>
+                    <a href="#M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone()">Clone</a>
                   </b>()<nobr> : <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a></nobr><blockquote>
             Generate a clone of this instance: a different instance with the same data.
             </blockquote></td>
@@ -654,8 +654,8 @@
                   </div>
                 </td>
                 <td>
-                  <a href="#M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">
-                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;.Clone</b>
+                  <a href="#M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">
+                    <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;.Clone</b>
                   </a>
                 </td>
                 <td>
@@ -697,32 +697,6 @@
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Automata/NullTagNondeterministicFiniteAutomatonUtils.html#M:NUtils.Automata.NullTagNondeterministicFiniteAutomatonUtils.Concatenate``2(NUtils.Automata.INullTagNondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1})">Concatenate&lt;TStateTag,TEdgeTag&gt;</a>
-                  </b>(<i>this</i> <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>)<nobr> : <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
-            Concatenate this nondeterministic finite automaton with the given one into a new one such that
-            the resulting one accepts a sequence of data if and only if it can be subdivded into two parts such
-            that the first part is accepted by the <i>automaton</i> and the second by the <i>other</i> automaton.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Automata/NullTagNondeterministicFiniteAutomatonUtils.html#M:NUtils.Automata.NullTagNondeterministicFiniteAutomatonUtils.Disjunction``2(NUtils.Automata.INullTagNondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},``0)">Disjunction&lt;TStateTag,TEdgeTag&gt;</a>
-                  </b>(<i>this</i> <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TStateTag</a>)<nobr> : <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
-            Disjunct this nondeterministic finite automaton with the given one into a new one such that
-            the resulting one accepts a sequence of data if and only if this sequence can be accepted by the <i>automaton</i>
-            or by the <i>other</i> automaton.
-            </blockquote></td>
-              </tr>
               <tr valign="top">
                 <td>
                   <div>static </div>
@@ -781,19 +755,6 @@
                   </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
             If the given <i>value</i> is not effective, the algorithm searches
             for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>static </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../NUtils.Automata/NullTagNondeterministicFiniteAutomatonUtils.html#M:NUtils.Automata.NullTagNondeterministicFiniteAutomatonUtils.KleeneStar``2(NUtils.Automata.INullTagNondeterministicFiniteAutomaton{``0,``1},``0)">KleeneStar&lt;TStateTag,TEdgeTag&gt;</a>
-                  </b>(<i>this</i> <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">TStateTag</a>)<nobr> : <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a></nobr><blockquote>
-            Calculate the Kleene star of this nondeterministic finite automaton such that a sequence is accepted by the
-            resulting nondeterministic finite automaton if and only if the sequence can be subdivided in (possibly zero)
-            subsequences such that every subsequence is accepted by the <i>automaton</i>.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -942,27 +903,27 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3:Members">
+    <div class="Members" id="T:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2})">NullTagNondeterministicFiniteAutomaton Constructor</h3>
-        <blockquote id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2}):member">
+        <h3 id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2})">DispatcherNondeterministicFiniteAutomaton Constructor</h3>
+        <blockquote id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2}):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class by copying the states from the given <i>origin</i>.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">protected  <b>NullTagNondeterministicFiniteAutomaton</b> (<a href="../NUtils.Automata/NullTagNondeterministicFiniteAutomaton`3.html">NullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a> origin)</div>
+          <div class="Signature">protected  <b>DispatcherNondeterministicFiniteAutomaton</b> (<a href="../NUtils.Automata/DispatcherNondeterministicFiniteAutomaton`3.html">DispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a> origin)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2}):Parameters">
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2}):Parameters">
             <dl>
               <dt>
                 <i>origin</i>
               </dt>
-              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> from which the data is copied, must be effective.</dd>
+              <dd>The given <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> from which the data is copied, must be effective.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Exceptions</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2}):Exceptions">
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2}):Exceptions">
             <table class="TypeDocumentation">
               <tr>
                 <th>Type</th>
@@ -977,27 +938,27 @@
             </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in the given <i>origin</i> are not cloned: they are the same and modifications
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2}):Remarks">The <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in the given <i>origin</i> are not cloned: they are the same and modifications
             to the states in the original automaton can have effects in the new automaton and vice-versa.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(NUtils.Automata.NullTagNondeterministicFiniteAutomaton{`0,`1,`2}):Version Information">
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(NUtils.Automata.DispatcherNondeterministicFiniteAutomaton{`0,`1,`2}):Version Information">
             <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1)">NullTagNondeterministicFiniteAutomaton Constructor</h3>
-        <blockquote id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):member">
+        <h3 id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0})">DispatcherNondeterministicFiniteAutomaton Constructor</h3>
+        <blockquote id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>NullTagNondeterministicFiniteAutomaton</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a> edges, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> initialStateTag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> acceptingStateTags, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullEdge)</div>
+          <div class="Signature">public  <b>DispatcherNondeterministicFiniteAutomaton</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a> edges, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> initialStateTag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> acceptingStateTags, <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a> stateTagDispatcher)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Parameters">
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Parameters">
             <dl>
               <dt>
                 <i>edges</i>
               </dt>
-              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`3</a> instances representing edges to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a>.</dd>
+              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`3</a> instances representing edges to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a>.</dd>
               <dt>
                 <i>initialStateTag</i>
               </dt>
@@ -1007,40 +968,55 @@
               </dt>
               <dd>The list of tags representing the accepting states.</dd>
               <dt>
-                <i>nullEdge</i>
+                <i>stateTagDispatcher</i>
               </dt>
-              <dd>The tag associated with the epsilon edge: an edge that doesn't "eat" any item in the verifying sequence.</dd>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> to generate new state tags in case they are necessary, must be effective.</dd>
             </dl>
           </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If the given <i>stateTagDispatcher</i> is not effective.</td>
+              </tr>
+            </table>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Remarks">
-            <p>Edges with tags that are not associated with any state will result in the creation of new <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a>.</p>
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Remarks">
+            <p>Edges with tags that are not associated with any state will result in the creation of new <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a>.</p>
             <p>If the given <i>initialStateTag</i> does not correspond with any registered state, a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance will be created.</p>
             <p>For each tag in the list of <i>acceptingStateTags</i>, the "first" <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that matches the tag will be picked, if no <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance matches the given tag, the tag is ignored.</p>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Version Information">
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Version Information">
             <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1)">NullTagNondeterministicFiniteAutomaton Constructor</h3>
-        <blockquote id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):member">
+        <h3 id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0})">DispatcherNondeterministicFiniteAutomaton Constructor</h3>
+        <blockquote id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):member">
           <p class="Summary">
-            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>states</i>, <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
+            Initializes a new instance of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a> class based on tags with a given list of <i>states</i>, <i>edges</i>, the tag of the initial state (<i>initialStateTag</i>) and a list of accepting states (<i>acceptingStateTags</i>).
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public  <b>NullTagNondeterministicFiniteAutomaton</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> states, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a> edges, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> initialStateTag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> acceptingStateTags, <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> nullEdge)</div>
+          <div class="Signature">public  <b>DispatcherNondeterministicFiniteAutomaton</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> states, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a> edges, <i title="The type of the tags that are assigned to the nodes.">TStateTag</i> initialStateTag, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a> acceptingStateTags, <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a> stateTagDispatcher)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Parameters">
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Parameters">
             <dl>
               <dt>
                 <i>states</i>
               </dt>
-              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a>.</dd>
+              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a>.</dd>
               <dt>
                 <i>edges</i>
               </dt>
-              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`3</a> instances representing edges to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a>.</dd>
+              <dd>The list of <a href="javascript:alert(&quot;Documentation not found.&quot;)">Tuple`3</a> instances representing edges to be added to the new <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a>.</dd>
               <dt>
                 <i>initialStateTag</i>
               </dt>
@@ -1050,72 +1026,87 @@
               </dt>
               <dd>The list of tags representing the accepting states.</dd>
               <dt>
-                <i>nullEdge</i>
+                <i>stateTagDispatcher</i>
               </dt>
-              <dd>The tag associated with the epsilon edge: an edge that doesn't "eat" any item in the verifying sequence.</dd>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> to generate new state tags in case they are necessary, must be effective.</dd>
             </dl>
           </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If the given <i>stateTagDispatcher</i> is not effective.</td>
+              </tr>
+            </table>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Remarks">
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Remarks">
             <p>If the given list of <i>states</i> is not effective, then no states are added.</p>
             <p>Non-effective <i>states</i> will not be added to the list of states.</p>
-            <p>Edges with tags that are not associated with any state will result in the creation of new <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">NullTagNondeterministicFiniteAutomaton`3</a>.</p>
+            <p>Edges with tags that are not associated with any state will result in the creation of new <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances in this <a href="javascript:alert(&quot;Documentation not found.&quot;)">DispatcherNondeterministicFiniteAutomaton`3</a>.</p>
             <p>If the given <i>initialStateTag</i> does not correspond with any registered state, a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance will be created.</p>
             <p>For each tag in the list of <i>acceptingStateTags</i>, the "first" <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> that matches the tag will be picked, if no <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instance matches the given tag, the tag is ignored.</p>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},`1):Version Information">
+          <div class="SectionBox" id="C:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3(System.Collections.Generic.IEnumerable{NUtils.Automata.IState{`0,`1}},System.Collections.Generic.IEnumerable{System.Tuple{`0,`1,`0}},`0,System.Collections.Generic.IEnumerable{`0},NUtils.Abstract.IDispatcher{`0}):Version Information">
             <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone()">Clone Method</h3>
-        <blockquote id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone():member">
+        <h3 id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone()">Clone Method</h3>
+        <blockquote id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone():member">
           <p class="Summary">
             Generate a clone of this instance: a different instance with the same data.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">public override <a href="../NUtils/NondeterministicFiniteAutomaton`3.html">NUtils.NondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag, TCollection&gt;</a> <b>Clone</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone():Returns">A new object that is a copy of this instance</blockquote>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone():Returns">A new object that is a copy of this instance</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
+          <div class="SectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.Clone():Version Information">
+          <div class="SectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.Clone():Version Information">
             <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge">NullEdge Property</h3>
-        <blockquote id="P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge:member">
-          <p class="Summary">
-            Get the tag used for an "epsilon"-edge.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> <b>NullEdge</b>  { get; protected set; }</div>
-          <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge:Value">A <i>TEdgeTag</i> that represents the tag assigned to edges that don't "eat" a sequence item.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NullEdge:Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">NUtils.Abstract.ICloneable&lt;NUtils.Automata.INullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone Method</h3>
-        <blockquote id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():member">
+        <h3 id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone()">NUtils.Abstract.ICloneable&lt;NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone Method</h3>
+        <blockquote id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():member">
           <p class="Summary">
             Generate a clone of this instance: a different instance with the same data.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">
-            <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.INullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone</b> ()</div>
+            <a href="../NUtils.Automata/IDispatcherNondeterministicFiniteAutomaton`2.html">IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a> <b>NUtils.Abstract.ICloneable&lt;NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;&gt;.Clone</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Returns">A new object that is a copy of this instance</blockquote>
+          <blockquote class="SubsectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Returns">A new object that is a copy of this instance</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
+          <div class="SectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Remarks">The resulting clone is - unless specified otherwise - not deep.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.NullTagNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#INullTagNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Version Information">
+          <div class="SectionBox" id="M:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.NUtils#Abstract#ICloneable{NUtils#Automata#IDispatcherNondeterministicFiniteAutomaton{TStateTag,TEdgeTag}}#Clone():Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher">StateTagDispatcher Property</h3>
+        <blockquote id="P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher:member">
+          <p class="Summary">
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> that allocates new state tags.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a> <b>StateTagDispatcher</b>  { get; protected set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher:Value">A dispatcher for new state allocation.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:NUtils.Automata.DispatcherNondeterministicFiniteAutomaton`3.StateTagDispatcher:Version Information">
             <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>

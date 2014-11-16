@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Automata.INullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;</title>
+    <title>NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -190,34 +190,33 @@
       <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Automata Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2">Overview</a>
+        <a href="#T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Signature">Signature</a>
+        <a href="#T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Docs">Remarks</a>
+        <a href="#T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Members">Member Details</a>
+        <a href="#T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2">INullTagNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt; Generic Interface</h1>
-    <p class="Summary" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Summary">
-            An interface representing a nondeterministic finite automaton that has a definition for
-            a special <i>TEdgeTag</i> that represents the "epsilon"-transition: a transition
-            that doesn't eat any item of the sequence.
+    <h1 class="PageTitle" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2">INullTagDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Summary">
+            An interface representing an <a href="javascript:alert(&quot;Documentation not found.&quot;)">INondeterministicFiniteAutomaton`2</a> with an embedded dispatcher
+            to allocate new state tags and a embedded "epsilon" edge tag.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Signature">public interface  <b>INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</b> : <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a></div>
+      <div class="Signature" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Signature">public interface  <b>INullTagDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</b> : <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INullTagDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/IDispatcherNondeterministicFiniteAutomaton`2.html">IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="../NUtils.Automata/INullTagNondeterministicFiniteAutomaton`2.html">INullTagNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Docs">
+    <div class="Remarks" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Docs:Type Parameters">
         <dl>
           <dt>
             <i>TStateTag</i>
@@ -230,34 +229,17 @@
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Docs:Remarks">Most implementations of this interface will require that the tags are unique per state: two
-            states can't share the same tag.</div>
+      <div class="SectionBox" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Docs:Remarks">
+        <p>Most implementations of this interface will require that the tags are unique per state: two
+            states can't share the same tag.</p>
+        <p>One can still define statetags oneself, but must be cautious when the dispatcher generates an already
+            allocated tag.</p>
+      </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Docs:Version Information">
+      <div class="SectionBox" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Docs:Version Information">
         <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
-        <h2 class="Section">Public Properties</h2>
-        <div class="SectionBox" id="Public Properties">
-          <div class="SubsectionBox">
-            <table class="TypeMembers">
-              <tr valign="top">
-                <td>[read-only]<div></div></td>
-                <td>
-                  <b>
-                    <a href="#P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge">NullEdge</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i>
-                  </i>. 
-            Get the tag used for an "epsilon"-edge.
-            </td>
-              </tr>
-            </table>
-          </div>
-        </div>
         <h2 class="Section">Extension Methods</h2>
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
@@ -507,27 +489,9 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2:Members">
+    <div class="Members" id="T:NUtils.Automata.INullTagDispatcherNondeterministicFiniteAutomaton`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge">NullEdge Property</h3>
-        <blockquote id="P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge:member">
-          <p class="Summary">
-            Get the tag used for an "epsilon"-edge.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <i title="The type of the tags that are assigned to the edges.">TEdgeTag</i> <b>NullEdge</b>  { get; }</div>
-          <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge:Value">A <i>TEdgeTag</i> that represents the tag assigned to edges that don't "eat" a sequence item.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="P:NUtils.Automata.INullTagNondeterministicFiniteAutomaton`2.NullEdge:Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
-          <hr size="1" />
-        </blockquote>
       </div>
     </div>
     <hr size="1" />

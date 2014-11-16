@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Textual.IFormatProviderToString</title>
+    <title>NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -187,58 +187,76 @@
   </head>
   <body>
     <div class="CollectionTitle">
-      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Textual Namespace</a></div>
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Automata Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Textual.IFormatProviderToString">Overview</a>
+        <a href="#T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Textual.IFormatProviderToString:Signature">Signature</a>
+        <a href="#T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Textual.IFormatProviderToString:Docs">Remarks</a>
+        <a href="#T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Textual.IFormatProviderToString:Members">Member Details</a>
+        <a href="#T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Textual.IFormatProviderToString">IFormatProviderToString  Interface</h1>
-    <p class="Summary" id="T:NUtils.Textual.IFormatProviderToString:Summary">
-            An interface that specifies that the instance can be converted to a string, given a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IFormatProvider">IFormatProvider</a> instance
-            that specifies how certain elements should be printed.
+    <h1 class="PageTitle" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2">IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag,TEdgeTag&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Summary">
+            An interface representing an <a href="javascript:alert(&quot;Documentation not found.&quot;)">INondeterministicFiniteAutomaton`2</a> with an embedded dispatcher
+            to allocate new state tags.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Textual.IFormatProviderToString:Signature">public interface  <b>IFormatProviderToString</b></div>
+      <div class="Signature" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Signature">public interface  <b>IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</b> : <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;IDispatcherNondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Abstract/ICloneable`1.html">NUtils.Abstract.ICloneable&lt;INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;&gt;</a>, <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ICloneable">ICloneable</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Textual.IFormatProviderToString:Docs">
+    <div class="Remarks" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Docs">
+      <h4 class="Subsection">Type Parameters</h4>
+      <blockquote class="SubsectionBox" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Docs:Type Parameters">
+        <dl>
+          <dt>
+            <i>TStateTag</i>
+          </dt>
+          <dd>The type of the tags that are assigned to the nodes.</dd>
+          <dt>
+            <i>TEdgeTag</i>
+          </dt>
+          <dd>The type of the tags that are assigned to the edges.</dd>
+        </dl>
+      </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Textual.IFormatProviderToString:Docs:Remarks">
-        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      <div class="SectionBox" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Docs:Remarks">
+        <p>Most implementations of this interface will require that the tags are unique per state: two
+            states can't share the same tag.</p>
+        <p>One can still define statetags oneself, but must be cautious when the dispatcher generates an already
+            allocated tag.</p>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Textual.IFormatProviderToString:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Textual<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
+      <div class="SectionBox" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
-        <h2 class="Section">Public Methods</h2>
-        <div class="SectionBox" id="Public Methods">
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
           <div class="SubsectionBox">
             <table class="TypeMembers">
               <tr valign="top">
+                <td>[read-only]<div></div></td>
                 <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider)">ToString</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IFormatProvider">IFormatProvider</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
-            Converts the numeric value of this instance to its equivalent string representation using the specified culture-specific format information.
-            </blockquote></td>
+                    <a href="#P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher">StateTagDispatcher</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a>
+                  </i>. 
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> that allocates new state tags.
+            </td>
               </tr>
             </table>
           </div>
@@ -358,41 +376,120 @@
             and the result is returned.
             </blockquote></td>
               </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.IState{``0,``1}[])">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[])<blockquote>
+            Register the array of given <i>states</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{NUtils.Automata.IState{``0,``1}})">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>)<blockquote>
+            Register the list of given <i>states</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{``0})">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TStateTag&gt;</a>)<blockquote>
+            Register the list of given <i>statesTags</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterAcceptingStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},``0[])">RegisterAcceptingStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="javascript:alert(&quot;Documentation not found.&quot;)">TStateTag</a>[])<blockquote>
+            Register the array of given <i>statesTags</i> including any edges as accepting states.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterEdges``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{System.Tuple{``0,``1,``0}})">RegisterEdges&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;&gt;</a>)<blockquote>
+            Register the list of edges with a list of tuples containing the tags of the initial and final state
+            as well as the tag for the edge to create.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterEdges``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Tuple{``0,``1,``0}[])">RegisterEdges&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Tuple`3">Tuple&lt;TStateTag, TEdgeTag, TStateTag&gt;</a>[])<blockquote>
+            Register the array of edges with a list of tuples containing the tags of the initial and final state
+            as well as the tag for the edge to create.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},NUtils.Automata.IState{``0,``1}[])">RegisterStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <b>params</b> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>[])<blockquote>
+            Register the array of given <i>states</i> including any edges.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Automata/FiniteAutomatonUtils.html#M:NUtils.Automata.FiniteAutomatonUtils.RegisterStates``2(NUtils.Automata.INondeterministicFiniteAutomaton{``0,``1},System.Collections.Generic.IEnumerable{NUtils.Automata.IState{``0,``1}})">RegisterStates&lt;TStateTag,TEdgeTag&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Automata/INondeterministicFiniteAutomaton`2.html">INondeterministicFiniteAutomaton&lt;TStateTag, TEdgeTag&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a>)<blockquote>
+            Register the list of given <i>states</i> including any edges.
+            </blockquote></td>
+              </tr>
             </table>
           </div>
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Textual.IFormatProviderToString:Members">
+    <div class="Members" id="T:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider)">ToString Method</h3>
-        <blockquote id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider):member">
+        <h3 id="P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher">StateTagDispatcher Property</h3>
+        <blockquote id="P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher:member">
           <p class="Summary">
-            Converts the numeric value of this instance to its equivalent string representation using the specified culture-specific format information.
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IDispatcher`1</a> that allocates new state tags.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ToString</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IFormatProvider">IFormatProvider</a> provider)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider):Parameters">
-            <dl>
-              <dt>
-                <i>provider</i>
-              </dt>
-              <dd>An <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IFormatProvider">IFormatProvider</a> that supplies culture-specific formatting information.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider):Returns">
-            The string representation of the value of this instance as specified by <i>provider</i>.
-            </blockquote>
+          <div class="Signature">public <a href="../NUtils.Abstract/IDispatcher`1.html">NUtils.Abstract.IDispatcher&lt;TStateTag&gt;</a> <b>StateTagDispatcher</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher:Value">A dispatcher for new state allocation.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider):Remarks">
+          <div class="SectionBox" id="P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Textual.IFormatProviderToString.ToString(System.IFormatProvider):Version Information">
-            <b>Namespace: </b>NUtils.Textual<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
+          <div class="SectionBox" id="P:NUtils.Automata.IDispatcherNondeterministicFiniteAutomaton`2.StateTagDispatcher:Version Information">
+            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.24726</div>
           <hr size="1" />
         </blockquote>
       </div>
