@@ -32,6 +32,10 @@ namespace NUtils.Automata {
 	/// <typeparam name='TStateTag'>The type of the tags that are assigned to the nodes.</typeparam>
 	/// <typeparam name='TEdgeTag'>The type of the tags that are assigned to the edges.</typeparam>
 	/// <typeparam name='TCollection'>The type of collection used to store different states given they share the same tag.</typeparam>
+	/// <remarks>
+	/// <para>Most implementations of this interface will require that the tags are unique per state: two
+	/// states can't share the same tag.</para>
+	/// </remarks>
 	public class NullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> : NondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection>, INullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag>
 	    where TCollection : ICollection<IState<TStateTag,TEdgeTag>>, new() {
 
@@ -42,7 +46,7 @@ namespace NUtils.Automata {
 		/// <value>A <typeparamref name="TEdgeTag"/> that represents the tag assigned to edges that don't "eat" a sequence item.</value>
 		public TEdgeTag NullEdge {
 			get;
-			private set;
+			protected set;
 		}
 		#endregion
 		#region Constructors
@@ -56,7 +60,7 @@ namespace NUtils.Automata {
 		/// </remarks>
 		/// <exception cref="ArgumentNullException">The given automaton must be effective.</exception>
 		protected NullTagNondeterministicFiniteAutomaton (NullTagNondeterministicFiniteAutomaton<TStateTag,TEdgeTag,TCollection> origin) : base(origin) {
-			origin.NullEdge = origin.NullEdge;
+			this.NullEdge = origin.NullEdge;
 		}
 
 		/// <summary>

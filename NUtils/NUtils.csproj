@@ -220,6 +220,7 @@
     <Compile Include="Abstract\IdDispatcher.cs" />
     <Compile Include="Automata\IDispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Automata\INullTagDispatcherNondeterministicFiniteAutomaton.cs" />
+    <Compile Include="Automata\DispatcherNondeterministicFiniteAutomaton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
