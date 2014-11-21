@@ -28,24 +28,65 @@ namespace NUtils.Maths {
 	[TestFixture()]
 	public class ProbabilityUtilsTest {
 		[Test()]
-		public void PickKUniform () {
-			List<int> fibonnaccis = new List <int> ();
-			int i0 = 0x00, i1 = 0x01, i2 = 0x01;
-			for (; i2 < int.MaxValue/0x02;) {
-				fibonnaccis.Add (i2);
-				i0 = i1;
-				i1 = i2;
-				i2 += i0;
+		public void TestPickKUniform () {
+			List<int> id = new List <int> ();
+			int l = 0x2b;
+			int T = 0x8000;
+			int divp = 0x04;
+			for (int i = 0x00; i < l; i++) {
+				id.Add (i);
 			}
-			Console.WriteLine (string.Join (",", fibonnaccis));
-			for (int k = 0x00; k < fibonnaccis.Count; k++) {
-				int[] ci = new int[fibonnaccis.Count];
-				List<int> li = fibonnaccis.PickKUniform (k).ToList ();
-				Assert.AreEqual (k, li.Count);
-				Console.WriteLine (string.Join (",", li));
+			for (int k = 0x00; k < id.Count; k++) {
+				int[] ci = new int[id.Count];
+				List<int> li = id.PickKUniform (k).ToList ();
+				Assert.AreEqual (k, li.Count);//size check
 				for (int j = 0x01; j < k; j++) {
-					Assert.Less (li [j - 0x01], li [j]);
+					Assert.Less (li [j - 0x01], li [j]);//order+unique check
 				}
+				for (int t = 0x00; t < T; t++) {
+					foreach (int idi in id.PickKUniform (k)) {
+						ci [idi]++;
+					}
+				}
+				int exp = T * k / ci.Length;
+				for (int j = 0x00; j < ci.Length; j++) {
+					Assert.GreaterOrEqual (ci [j], exp - exp / divp);//counting check
+					Assert.LessOrEqual (ci [j], exp + exp / divp);//counting check
+				}
+			}
+		}
+
+		[Test()]
+		public void TestPickKUniformPerformance () {
+			List<int> id = new List <int> ();
+			int l = 0x7cf;
+			int T = 0x800;
+			int divp = 0x04;
+			for (int i = 0x00; i < l; i++) {
+				id.Add (i);
+			}
+			for (int k = 0x00; k < l; k++) {
+				Console.Write (k);
+				Console.Write ('\t');
+				DateTime bg = DateTime.Now;
+				for (int t = 0x00; t < T; t++) {
+					foreach (int sel in id.PickKUniform (k)) {
+					}
+				}
+				DateTime en = DateTime.Now;
+				Console.Write (en - bg);
+				Console.Write ('\t');
+				HashSet<int> hst = new HashSet<int> ();
+				bg = DateTime.Now;
+				for (int t = 0x00; t < T; t++) {
+					while (hst.Count < k) {
+						int r = MathUtils.Next (l);
+						hst.Add (id [r]);
+					}
+					hst.Clear ();
+				}
+				en = DateTime.Now;
+				Console.WriteLine (en - bg);
 			}
 		}
 	}

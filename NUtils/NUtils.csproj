@@ -223,6 +223,8 @@
     <Compile Include="Automata\DispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Abstract\IWeight.cs" />
     <Compile Include="Maths\ProbabilityUtilsTest.cs" />
+    <Compile Include="Collections\IJumpEnumerator.cs" />
+    <Compile Include="Collections\IJumpEnumerable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

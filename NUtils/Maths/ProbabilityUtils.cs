@@ -109,7 +109,7 @@ namespace NUtils.Maths {
 				l = n - k;
 				pi = (double)k / n;
 				r = MathUtils.NextDouble ();
-				while (pi <= r) {
+				while (pi < r) {
 					r -= pi;
 					colen.MoveNext ();
 					pi *= (l - i++);
