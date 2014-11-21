@@ -86,6 +86,7 @@ namespace NUtils.Maths {
 		/// <exception cref="ArgumentException">If the <paramref name="collection"/> generates a non-effective <see cref="T:IEnumerator`1"/>.</exception>
 		/// <remarks>
 		/// <para>If <paramref name="k"/> is less than or equal to zero, no items are enumerated.</para>
+		/// <para>If the <paramref name="collection"/> contains an item twice, it can be enumerated twice. The algorithm only guarantees that an item at the same index will not be enumerated twice.</para>
 		/// </remarks>
 		public static IEnumerable<T> PickKUniform<T> (this ICollection<T> collection, int k) {
 			if (collection == null) {
