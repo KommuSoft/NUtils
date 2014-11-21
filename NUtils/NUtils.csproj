@@ -221,6 +221,7 @@
     <Compile Include="Automata\IDispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Automata\INullTagDispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Automata\DispatcherNondeterministicFiniteAutomaton.cs" />
+    <Compile Include="Abstract\IWeight.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

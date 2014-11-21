@@ -798,8 +798,13 @@ namespace NUtils.Bitwise {
 		}
 
 		public void UnionWith (IEnumerable<int> other) {//TODO: check for bitvector?
-			foreach (int item in other) {
-				this.data [item >> 0x06] |= 0x01UL << (item & 0x3F);
+			IBitVector ibv = other as IBitVector;
+			if (ibv != null) {
+				((IBitVector)this).OrLocal (ibv);
+			} else {
+				foreach (int item in other) {
+					this.data [item >> 0x06] |= 0x01UL << (item & 0x3F);
+				}
 			}
 		}
 		#endregion
