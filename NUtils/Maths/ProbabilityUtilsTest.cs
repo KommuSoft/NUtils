@@ -21,6 +21,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NUtils.Maths {
 
@@ -36,8 +37,15 @@ namespace NUtils.Maths {
 				i1 = i2;
 				i2 += i0;
 			}
+			Console.WriteLine (string.Join (",", fibonnaccis));
 			for (int k = 0x00; k < fibonnaccis.Count; k++) {
-
+				int[] ci = new int[fibonnaccis.Count];
+				List<int> li = fibonnaccis.PickKUniform (k).ToList ();
+				Assert.AreEqual (k, li.Count);
+				Console.WriteLine (string.Join (",", li));
+				for (int j = 0x01; j < k; j++) {
+					Assert.Less (li [j - 0x01], li [j]);
+				}
 			}
 		}
 	}
