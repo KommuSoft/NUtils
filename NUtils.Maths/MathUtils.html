@@ -220,13 +220,54 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Maths.MathUtils:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
 								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
 							</p>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static readonly </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.MathUtils.LogSqrt2Pi">LogSqrt2Pi</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a>
+                  </i>. 
+            The natural logarithm of the square root of 2*pi. This is a modification of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> constant
+            to use in log-space.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static readonly </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Maths.MathUtils.Sqrt2Pi">Sqrt2Pi</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a>
+                  </i>. 
+            The square root of 2*pi. This is a constant that is very popular in probability theory and statistics. The constant
+            can furthermore be used to approximate a lot of formulas.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
         <h2 class="Section">Public Methods</h2>
         <div class="SectionBox" id="Public Methods">
           <div class="SubsectionBox">
@@ -297,6 +338,37 @@
                   </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
             Calculate the least common multiple of the two given numbers.
             </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32)">LogFactorialDivGosper</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a></nobr><blockquote>
+            Approximate the natural logarithm of the factorial of <i>n</i> using the Gosper approximation.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32)">LogFactorialGosper</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a></nobr><blockquote>
+            Approximate the natural logarithm of the factorial of <i>n</i> using the Gosper approximation.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32)">LogFactorialStirling</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -533,7 +605,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.EqualEpsilon(System.Double,System.Double,System.Double):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Collections.Generic.IEnumerable{System.Int32})">GreatestCommonDivider Method</h3>
@@ -558,7 +630,7 @@
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">All given numbers must be strictly larger than zero (<tt>0</tt>).</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Int32,System.Int32)">GreatestCommonDivider Method</h3>
@@ -587,7 +659,7 @@
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Int32,System.Int32):Remarks">Both given numbers must be strictly larger than zero (<tt>0</tt>).</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.GreatestCommonDivider(System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Collections.Generic.IEnumerable{System.Int32})">LeastCommonMultiple Method</h3>
@@ -615,7 +687,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Int32[])">LeastCommonMultiple Method</h3>
@@ -643,7 +715,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Int32[]):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Int32,System.Int32)">LeastCommonMultiple Method</h3>
@@ -672,7 +744,119 @@
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Int32,System.Int32):Remarks">Both given numbers must be strictly larger than zero (<tt>0</tt>).</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LeastCommonMultiple(System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32)">LogFactorialDivGosper Method</h3>
+        <blockquote id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32):member">
+          <p class="Summary">
+            Approximate the natural logarithm of the factorial of <i>n</i> using the Gosper approximation.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a> <b>LogFactorialDivGosper</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> n, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> k)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>n</i>
+              </dt>
+              <dd>The value to calculate the logarithm of the factorial from.</dd>
+              <dt>
+                <i>k</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32):Returns">An approximation for the natural logarithm of the factorial for .</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32):Remarks">
+            <p>If <i>n</i> is less than or equal to zero (<tt>0</tt>), the result is <a href="http://www.go-mono.com/docs/monodoc.ashx?link=F:System.Double.NaN">double.NaN</a>.</p>
+            <p>The Gosper approximation is more accurate than the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> approximation, but more computationally expensive as well.</p>
+            <p>The Gosper approximation is always greater than the real value for log(n!)</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialDivGosper(System.Int32,System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32)">LogFactorialGosper Method</h3>
+        <blockquote id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32):member">
+          <p class="Summary">
+            Approximate the natural logarithm of the factorial of <i>n</i> using the Gosper approximation.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a> <b>LogFactorialGosper</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> n)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>n</i>
+              </dt>
+              <dd>The value to calculate the logarithm of the factorial from.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32):Returns">An approximation for the natural logarithm of the factorial for .</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32):Remarks">
+            <p>If <i>n</i> is less than or equal to zero (<tt>0</tt>), the result is <a href="http://www.go-mono.com/docs/monodoc.ashx?link=F:System.Double.NaN">double.NaN</a>.</p>
+            <p>The Gosper approximation is more accurate than the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> approximation, but more computationally expensive as well.</p>
+            <p>The Gosper approximation is always greater than the real value for log(n!)</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialGosper(System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32)">LogFactorialStirling Method</h3>
+        <blockquote id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a> <b>LogFactorialStirling</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> n)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>n</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.MathUtils.LogFactorialStirling(System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.MathUtils.LogSqrt2Pi">LogSqrt2Pi Field</h3>
+        <blockquote id="F:NUtils.Maths.MathUtils.LogSqrt2Pi:member">
+          <p class="Summary">
+            The natural logarithm of the square root of 2*pi. This is a modification of the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> constant
+            to use in log-space.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static readonly <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a> <b>LogSqrt2Pi</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.MathUtils.LogSqrt2Pi:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.MathUtils.LogSqrt2Pi:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Maximum``1(``0,``0)">Maximum&lt;X&gt; Generic Method</h3>
@@ -714,7 +898,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Maximum``1(``0,``0):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Minimum``1(``0,``0)">Minimum&lt;T&gt; Generic Method</h3>
@@ -754,7 +938,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Minimum``1(``0,``0):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Minimum``2(System.Tuple{``0,``1},System.Tuple{``0,``1})">Minimum&lt;T1,T2&gt; Generic Method</h3>
@@ -798,7 +982,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Minimum``2(System.Tuple{``0,``1},System.Tuple{``0,``1}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Minimum``3(System.Tuple{``0,``1,``2},System.Tuple{``0,``1,``2})">Minimum&lt;T1,T2,T3&gt; Generic Method</h3>
@@ -846,7 +1030,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Minimum``3(System.Tuple{``0,``1,``2},System.Tuple{``0,``1,``2}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Next()">Next Method</h3>
@@ -866,7 +1050,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Next():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Next(System.Int32)">Next Method</h3>
@@ -911,7 +1095,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Next(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.Next(System.Int32,System.Int32)">Next Method</h3>
@@ -960,7 +1144,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.Next(System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextDouble()">NextDouble Method</h3>
@@ -980,7 +1164,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextDouble():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextGaussian()">NextGaussian Method</h3>
@@ -1000,7 +1184,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextGaussian():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Collections.Generic.IList{System.Collections.Generic.IList{System.Double}})">NextScaledDistribution Method</h3>
@@ -1026,7 +1210,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Collections.Generic.IList{System.Collections.Generic.IList{System.Double}}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Collections.Generic.IList{System.Double})">NextScaledDistribution Method</h3>
@@ -1052,7 +1236,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Collections.Generic.IList{System.Double}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Double[,])">NextScaledDistribution Method</h3>
@@ -1079,7 +1263,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextScaledDistribution(System.Double[,]):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextUlong()">NextUlong Method</h3>
@@ -1097,7 +1281,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextUlong():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.NextUshort()">NextUshort Method</h3>
@@ -1115,7 +1299,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.NextUshort():Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.PowerSum(System.Double)">PowerSum Method</h3>
@@ -1142,7 +1326,7 @@
             results are invalid.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.PowerSum(System.Double):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.PowerSum(System.Double,System.Int32)">PowerSum Method</h3>
@@ -1173,7 +1357,7 @@
             results are invalid.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.PowerSum(System.Double,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.MathUtils.PowerSum(System.Double,System.Int32,System.Int32)">PowerSum Method</h3>
@@ -1208,7 +1392,24 @@
             results are invalid.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.MathUtils.PowerSum(System.Double,System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5433.29379</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Maths.MathUtils.Sqrt2Pi">Sqrt2Pi Field</h3>
+        <blockquote id="F:NUtils.Maths.MathUtils.Sqrt2Pi:member">
+          <p class="Summary">
+            The square root of 2*pi. This is a constant that is very popular in probability theory and statistics. The constant
+            can furthermore be used to approximate a lot of formulas.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static readonly <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Double">double</a> <b>Sqrt2Pi</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.MathUtils.Sqrt2Pi:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Maths.MathUtils.Sqrt2Pi:Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.8417</div>
           <hr size="1" />
         </blockquote>
       </div>
