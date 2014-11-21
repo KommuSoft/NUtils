@@ -22,12 +22,16 @@ using System;
 using System.Collections.Generic;
 
 namespace NUtils.Maths {
+
 	/// <summary>
 	/// A utility class that contains mathematical constants, functions and random number generators.
 	/// </summary>
 	public static class MathUtils {
 
 		#region Random number generators
+		/// <summary>
+		/// The random generator used for static random numbers
+		/// </summary>
 		private static Random random = new Random ();
 
 		/// <summary>
@@ -161,6 +165,18 @@ namespace NUtils.Maths {
 				NextScaledDistribution (list);
 			}
 		}
+		#endregion
+		#region Constants
+		/// <summary>
+		/// The square root of 2*pi. This is a constant that is very popular in probability theory and statistics. The constant
+		/// can furthermore be used to approximate a lot of formulas.
+		/// </summary>
+		public static readonly double Sqrt2Pi = Math.Sqrt (2.0d * Math.PI);
+		/// <summary>
+		/// The natural logarithm of the square root of 2*pi. This is a modification of the <see cref="P:Sqrt2Pi"/> constant
+		/// to use in log-space.
+		/// </summary>
+		public static readonly double LogSqrt2Pi = Math.Log (Sqrt2Pi);
 		#endregion
 		#region Number theory
 		/// <summary>
@@ -346,6 +362,64 @@ namespace NUtils.Maths {
 			} else {
 				return x2;
 			}
+		}
+		#endregion
+		#region Approximations
+		/// <summary>
+		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Stirling approximation.
+		/// </summary>
+		/// <returns>An approximation for the natural logarithm of the factorial for .</returns>
+		/// <param name="n">The value to calculate the logarithm of the factorial from.</param>
+		/// <remarks>
+		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
+		/// <para>The Stirling approximation is less accurate than the <see cref="M:LogFactorialGospor"/> approximation, but less computationally expensive as well.</para>
+		/// <para>Especially if <paramref name="n"/> is low, the relative error is significant op to 100%.</para>
+		/// <para>In the table below, we list the result of this operation for values from one to ten with absolute and relative error, please note that the values are logarithmic:
+		/// the error on the factorial can blow up.<list type=table">
+		/// <listheader><term>n</term><term>result</term><term>approximation</term><term>absolute difference</term><term>relative difference</term></listheader>
+		/// <item><term>1</term><term>0</term><term>-0.0810614667953273</term><term>0.0810614667953273</term><term>Infinity</term></item>
+		/// <item><term>2</term><term>0.693147180559945</term><term>0.651806484604536</term><term>0.0413406959554093</term><term>0.0596420170417675</term></item>
+		/// <item><term>3</term><term>1.79175946922806</term><term>1.76408154354306</term><term>0.0276779256849982</term><term>0.0154473444456932</term></item>
+		/// <item><term>4</term><term>3.17805383034795</term><term>3.15726315824418</term><term>0.0207906721037654</term><term>0.00654195089624682</term></item>
+		/// <item><term>5</term><term>4.78749174278205</term><term>4.77084705159222</term><term>0.0166446911898213</term><term>0.00347670389508576</term></item>
+		/// <item><term>6</term><term>6.5792512120101</term><term>6.56537508318703</term><term>0.0138761288230711</term><term>0.00210907417514943</term></item>
+		/// <item><term>7</term><term>8.52516136106541</term><term>8.51326465111952</term><term>0.0118967099458924</term><term>0.00139548208438903</term></item>
+		/// <item><term>8</term><term>10.6046029027453</term><term>10.5941916374833</term><term>0.0104112652619754</term><term>0.000981768516695731</term></item>
+		/// <item><term>9</term><term>12.8018274800815</term><term>12.7925720178988</term><term>0.00925546218271123</term><term>0.000722979761843528</term></item>
+		/// <item><term>10</term><term>15.1044125730755</term><term>15.0960820096422</term><term>0.00833056343336125</term><term>0.000551531772126707</term></item>
+		/// </list></para>
+		/// </remarks>
+		public static double LogFactorialStirling (int n) {
+			return n * (Math.Log (n) - 1.0d) + Math.Log (Math.Sqrt (n)) + LogSqrt2Pi;
+		}
+
+		/// <summary>
+		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Gosper approximation.
+		/// </summary>
+		/// <returns>An approximation for the natural logarithm of the factorial for .</returns>
+		/// <param name="n">The value to calculate the logarithm of the factorial from.</param>
+		/// <remarks>
+		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
+		/// <para>The Gosper approximation is more accurate than the <see cref="M:LogFactorialStirling"/> approximation, but more computationally expensive as well.</para>
+		/// <para>The Gosper approximation is always greater than the real value for log(n!)</para>
+		/// </remarks>
+		public static double LogFactorialGosper (int n) {
+			return Math.Log (Math.Sqrt (0x06 * n + 0x02) * Math.PI / 3.0d) + n * (Math.Log (n) - 1.0d);
+		}
+
+		/// <summary>
+		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Gosper approximation.
+		/// </summary>
+		/// <returns>An approximation for the natural logarithm of the factorial for .</returns>
+		/// <param name="n">The value to calculate the logarithm of the factorial from.</param>
+		/// <remarks>
+		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
+		/// <para>The Gosper approximation is more accurate than the <see cref="M:LogFactorialStirling"/> approximation, but more computationally expensive as well.</para>
+		/// <para>The Gosper approximation is always greater than the real value for log(n!)</para>
+		/// </remarks>
+		public static double LogFactorialDivGosper (int n, int k) {
+			int nk = n - k;
+			return Math.Log (Math.Sqrt ((double)(0x06 * n + 0x01) / (0x06 * nk + 0x01))) + n * Math.Log ((double)n / nk) + k * Math.Log (nk) + k;
 		}
 		#endregion
 		#region Tests
