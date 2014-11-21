@@ -222,6 +222,7 @@
     <Compile Include="Automata\INullTagDispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Automata\DispatcherNondeterministicFiniteAutomaton.cs" />
     <Compile Include="Abstract\IWeight.cs" />
+    <Compile Include="Maths\ProbabilityUtilsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
