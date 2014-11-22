@@ -405,15 +405,16 @@ namespace NUtils.Maths {
 		/// Calculate the binomium for the given <paramref name="n"/>and <paramref name="k"/>,
 		/// or the number of ways you can pick <paramref name="k"/> elements out of a collection of <paramref name="n"/>.
 		/// </summary>
-		/// <param name="k">The number of available items.</param>
-		/// <param name="n">The number of items to pick.</param>
+		/// <param name="n">The number of available items.</param>
+		/// <param name="k">The number of items to pick.</param>
 		/// <returns>The number of ways to pick <paramref name="k"/> items out of a collection of <paramref name="n"/> items.</returns>
 		/// <remarks>
 		/// <para>This function will only work for small number due to <see cref="ulong"/> overflow.</para>
 		/// <para>If <paramref name="n"/> is less or equal to <paramref name="k"/> or equal to zero, one is returned.</para>
 		/// <para>If <paramref name="k"/> is less than or equal to zero, one is returned.</para>
+		/// <para>If <paramref name="k"/> is one, the result is always <paramref name="n"/>, this is a special property of the binomial operator.</para>
 		/// </remarks>
-		public static ulong Binomial (int k, int n) {
+		public static ulong Binomial (int n, int k) {
 			ulong r = 0x01;
 			uint l = (uint)(n - k);
 			if (k > (n >> 0x01)) {
@@ -426,6 +427,20 @@ namespace NUtils.Maths {
 					;
 			}
 			return r;
+		}
+
+		/// <summary>
+		/// Calculate the multiset binomium for the given <paramref name="n"/>and <paramref name="k"/>,
+		/// or the number of ways you can pick <paramref name="k"/> elements with repitition out of a collection of <paramref name="n"/>.
+		/// </summary>
+		/// <param name="n">The number of available items.</param>
+		/// <param name="k">The number of items in a resulting multiset.</param>
+		/// <returns>The number of ways to pick <paramref name="k"/> items with repitition out of a collection of <paramref name="n"/> items.</returns>
+		/// <remarks>
+		/// <para>This function will only work for small number due to <see cref="ulong"/> overflow.</para>
+		/// </remarks>
+		public static ulong MultisetBinomial (int n, int k) {
+			return Binomial (n + k - 0x01, k);
 		}
 		#endregion
 		#region Approximations
