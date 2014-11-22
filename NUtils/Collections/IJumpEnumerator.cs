@@ -35,6 +35,7 @@ namespace NUtils.Collections {
 		/// </summary>
 		/// <param name="steps">The number of steps to move forward.</param>
 		/// <returns><c>true</c> if the jump was successful (if the cursor is standing on an element, or the number of <paramref name="steps"/> is zero or less; otherwise <c>false</c>.</returns>
+		/// <exception cref="T:System.InvalidOperationException">The collection was modified after the enumerator was created.</exception>
 		/// <remarks>
 		/// <para>If the number of jumps is zero or less, nothing happens and the answer is always <c>true</c>, the cursor does not return back.</para>
 		/// </remarks>

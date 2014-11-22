@@ -413,6 +413,8 @@ namespace NUtils.Maths {
 		/// <para>If <paramref name="n"/> is less or equal to <paramref name="k"/> or equal to zero, one is returned.</para>
 		/// <para>If <paramref name="k"/> is less than or equal to zero, one is returned.</para>
 		/// <para>If <paramref name="k"/> is one, the result is always <paramref name="n"/>, this is a special property of the binomial operator.</para>
+		/// <para>The algorithm is implemented to reduce the cases where overflow is reached, as a rule of the thumb: if the result can be be represented
+		/// with 60 bits, it will probably work.</para>
 		/// </remarks>
 		public static ulong Binomial (int n, int k) {
 			ulong r = 0x01;
