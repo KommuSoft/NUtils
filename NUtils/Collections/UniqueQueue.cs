@@ -21,7 +21,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Collections {
+
 	/// <summary>
 	/// A basic implementation of the <see cref="T:IUniqueQueue`1"/> interface describing a queue where each
 	/// element can only occur once.

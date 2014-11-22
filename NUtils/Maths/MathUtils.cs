@@ -375,19 +375,21 @@ namespace NUtils.Maths {
 		/// <para>The Stirling approximation is less accurate than the <see cref="M:LogFactorialGospor"/> approximation, but less computationally expensive as well.</para>
 		/// <para>Especially if <paramref name="n"/> is low, the relative error is significant op to 100%.</para>
 		/// <para>In the table below, we list the result of this operation for values from one to ten with absolute and relative error, please note that the values are logarithmic:
-		/// the error on the factorial can blow up.<list type=table">
-		/// <listheader><term>n</term><term>result</term><term>approximation</term><term>absolute difference</term><term>relative difference</term></listheader>
-		/// <item><term>1</term><term>0</term><term>-0.0810614667953273</term><term>0.0810614667953273</term><term>Infinity</term></item>
-		/// <item><term>2</term><term>0.693147180559945</term><term>0.651806484604536</term><term>0.0413406959554093</term><term>0.0596420170417675</term></item>
-		/// <item><term>3</term><term>1.79175946922806</term><term>1.76408154354306</term><term>0.0276779256849982</term><term>0.0154473444456932</term></item>
-		/// <item><term>4</term><term>3.17805383034795</term><term>3.15726315824418</term><term>0.0207906721037654</term><term>0.00654195089624682</term></item>
-		/// <item><term>5</term><term>4.78749174278205</term><term>4.77084705159222</term><term>0.0166446911898213</term><term>0.00347670389508576</term></item>
-		/// <item><term>6</term><term>6.5792512120101</term><term>6.56537508318703</term><term>0.0138761288230711</term><term>0.00210907417514943</term></item>
-		/// <item><term>7</term><term>8.52516136106541</term><term>8.51326465111952</term><term>0.0118967099458924</term><term>0.00139548208438903</term></item>
-		/// <item><term>8</term><term>10.6046029027453</term><term>10.5941916374833</term><term>0.0104112652619754</term><term>0.000981768516695731</term></item>
-		/// <item><term>9</term><term>12.8018274800815</term><term>12.7925720178988</term><term>0.00925546218271123</term><term>0.000722979761843528</term></item>
-		/// <item><term>10</term><term>15.1044125730755</term><term>15.0960820096422</term><term>0.00833056343336125</term><term>0.000551531772126707</term></item>
-		/// </list></para>
+		/// the error on the factorial can blow up.
+		/// <list type="table">
+		/// <listheader><term>n</term><description>result</description><description>approximation</description><description>absolute difference</description><description>relative difference</description></listheader>
+		/// <item><term>1</term><description>0</description><description>-0.0810614667953273</description><description>0.0810614667953273</description><description>Infinity</description></item>
+		/// <item><term>2</term><description>0.693147180559945</description><description>0.651806484604536</description><description>0.0413406959554093</description><description>0.0596420170417675</description></item>
+		/// <item><term>3</term><description>1.79175946922806</description><description>1.76408154354306</description><description>0.0276779256849982</description><description>0.0154473444456932</description></item>
+		/// <item><term>4</term><description>3.17805383034795</description><description>3.15726315824418</description><description>0.0207906721037654</description><description>0.00654195089624682</description></item>
+		/// <item><term>5</term><description>4.78749174278205</description><description>4.77084705159222</description><description>0.0166446911898213</description><description>0.00347670389508576</description></item>
+		/// <item><term>6</term><description>6.5792512120101</description><description>6.56537508318703</description><description>0.0138761288230711</description><description>0.00210907417514943</description></item>
+		/// <item><term>7</term><description>8.52516136106541</description><description>8.51326465111952</description><description>0.0118967099458924</description><description>0.00139548208438903</description></item>
+		/// <item><term>8</term><description>10.6046029027453</description><description>10.5941916374833</description><description>0.0104112652619754</description><description>0.000981768516695731</description></item>
+		/// <item><term>9</term><description>12.8018274800815</description><description>12.7925720178988</description><description>0.00925546218271123</description><description>0.000722979761843528</description></item>
+		/// <item><term>10</term><description>15.1044125730755</description><description>15.0960820096422</description><description>0.00833056343336125</description><description>0.000551531772126707</description></item>
+		/// </list>
+		/// </para>
 		/// </remarks>
 		public static double LogFactorialStirling (int n) {
 			return n * (Math.Log (n) - 1.0d) + Math.Log (Math.Sqrt (n)) + LogSqrt2Pi;
