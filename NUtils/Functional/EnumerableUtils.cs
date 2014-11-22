@@ -1294,12 +1294,8 @@ namespace NUtils.Functional {
 		/// Ties a finite list into a circular one, or equivalently, the infinite repition of the original list. It is the
 		/// identity on infinite lists.
 		/// </summary>
-		/// <param name="list">
-		/// The list to be repeated infinitly.
-		/// </param>
-		/// <returns>
-		/// A lazy generated list who keeps repeating the given list.
-		/// </returns>
+		/// <param name="source">The list to be repeated infinitly.</param>
+		/// <returns>A lazy generated list who keeps repeating the given list.</returns>
 		/// <typeparam name="TItem">The type of items that will be enumerated.</typeparam>
 		/// <remarks>
 		/// <para>If the given source is empty, the result is empty as well. The system does not go into an infinite loop.</para>
@@ -1319,7 +1315,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region Unfolding
 		/// <summary>
-		/// The "dual" method of the <see cref="EnumerableUtils.Foldr"/>: while <see cref="EnumerableUtils.Foldr"/> reduces a list to a
+		/// The "dual" method of the <see cref="M:EnumerableUtils.Foldr"/>: while <see cref="M:EnumerableUtils.Foldr"/> reduces a list to a
 		/// summary value, unfoldr builds a list from a seed value. The function takes the element and returns Nothing if
 		/// it is done producing the list or returns a <c>Tuple&lt;A,B&gt;(a,b)</c> in which case, a is a prepended to the list and b is
 		/// used in the next element in a recursive call.
@@ -1337,7 +1333,7 @@ namespace NUtils.Functional {
 		/// <para>
 		/// Note that <code>DataList.Unfoldr(x => new Tuple&lt;X,Y&gt;(x,f(x)),offset)</code> is equivalent to <code>DataList.Iterate(f,x)</code>.
 		/// </para><para>
-		/// As the name suggests, in some cases Unfoldr can undo <see cref="EnumerableUtils.Foldr"/> operations:
+		/// As the name suggests, in some cases Unfoldr can undo <see cref="M:EnumerableUtils.Foldr"/> operations:
 		/// <code>DataList.Unfoldr(f2,DataList.Foldr(f,z,xs))</code> is then equivalent to <code>xs</code>. This happens when the following constraints hold:
 		/// <list type="bullet">
 		/// <item><code>f2(f(x,y))</code> is equal to <code>new Tuple&lt;X,Y&gt;(x,y)</code></item>
@@ -1376,7 +1372,7 @@ namespace NUtils.Functional {
 		/// than <paramref name="n"/>.
 		/// </returns>
 		/// <remarks>
-		/// It is an instance of the more general <see cref="GenericTake"/> in which <paramref name="n"/> may be of any integral type.
+		/// It is an instance of the more general <see cref="M:GenericTake"/> in which <paramref name="n"/> may be of any integral type.
 		/// </remarks>
 		public static IEnumerable<T> Take<T> (this IEnumerable<T> xs, int n) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
@@ -1400,7 +1396,7 @@ namespace NUtils.Functional {
 		/// or an empty list if the list is shorter than <paramref name="n"/>.
 		/// </returns>
 		/// <remarks>
-		/// It is an instance of the more general <see cref="GenericDrop"/> in which <paramref name="n"/> may be of any integral type.
+		/// It is an instance of the more general <see cref="M:GenericDrop"/> in which <paramref name="n"/> may be of any integral type.
 		/// </remarks>
 		public static IEnumerable<T> Drop<T> (this IEnumerable<T> xs, int n) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
@@ -1449,7 +1445,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Generates the suffix remaining after <see cref="EnumerableUtils.TakeWhile"/> performed on <paramref name="xs"/> and <paramref name="p"/>.
+		/// Generates the suffix remaining after <see cref="M:EnumerableUtils.TakeWhile"/> performed on <paramref name="xs"/> and <paramref name="p"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The list of elements to generate the conditional suffix from.
@@ -1579,7 +1575,7 @@ namespace NUtils.Functional {
 		/// The grouping of <code>"Mississippi".Group();</code> is equal to <code>["M","i","ss","i","ss","i","pp","i"]</code>.
 		/// </example>
 		/// <remarks>
-		/// This method is a special case of <see cref="EnumerableUtils.GroupBy"/> wich allows the programmer to supply their own equality test.
+		/// This method is a special case of <see cref="M:EnumerableUtils.GroupBy"/> wich allows the programmer to supply their own equality test.
 		/// </remarks>
 		public static IEnumerable<IEnumerable<T>> Group<T> (this IEnumerable<T> xs) {
 			IEnumerator<T> ie = xs.GetEnumerator ();
@@ -1816,7 +1812,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The negation of <see cref="EnumerableUtils.Elem"/>.
+		/// The negation of <see cref="M:EnumerableUtils.Elem"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to check membership on.
@@ -2061,7 +2057,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking three lists and returns a list of corresponding triples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking three lists and returns a list of corresponding triples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2085,7 +2081,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking four lists and returns a list of corresponding quadruples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking four lists and returns a list of corresponding quadruples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2113,7 +2109,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking five lists and returns a list of corresponding five-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking five lists and returns a list of corresponding five-tuples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2145,7 +2141,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking six lists and returns a list of corresponding six-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking six lists and returns a list of corresponding six-tuples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2181,7 +2177,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking seven lists and returns a list of corresponding seven-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking seven lists and returns a list of corresponding seven-tuples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2221,7 +2217,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method taking eight lists and returns a list of corresponding eight-tuples, analogues to <see cref="EnumerableUtils.Zip"/>.
+		/// A method taking eight lists and returns a list of corresponding eight-tuples, analogues to <see cref="M:EnumerableUtils.Zip"/>.
 		/// </summary>
 		/// <param name="ss">
 		/// The first list to zip.
@@ -2265,7 +2261,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A generaliziation of <see cref="EnumerableUtils.Zip"/> by zipping with the function <paramref name="f"/> given as the first argument,
+		/// A generaliziation of <see cref="M:EnumerableUtils.Zip"/> by zipping with the function <paramref name="f"/> given as the first argument,
 		/// instead of a tupling function.
 		/// </summary>
 		/// <param name="f">
@@ -2290,7 +2286,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines three elements, as well as three lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
+		/// analogous to <see cref="M:EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2318,7 +2314,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines four elements, as well as four lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
+		/// analogous to <see cref="M:EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2350,7 +2346,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines five elements, as well as five lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
+		/// analogous to <see cref="M:EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2386,7 +2382,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines six elements, as well as six lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
+		/// analogous to <see cref="M:EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2426,7 +2422,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// Takes a function <paramref name="f"/> which combines seven elements, as well as seven lists and returns a list of their point-wise combination,
-		/// analogous to <see cref="EnumerableUtils.ZipWith"/>.
+		/// analogous to <see cref="M:EnumerableUtils.ZipWith"/>.
 		/// </summary>
 		/// <param name="f">
 		/// The function to perform on the items of the the given lists.
@@ -2484,7 +2480,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of triples and returns three lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of triples and returns three lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2500,7 +2496,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of quadruples and returns four lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of quadruples and returns four lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2517,7 +2513,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of five-tuples and returns five lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of five-tuples and returns five lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2535,7 +2531,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of six-tuples and returns six lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of six-tuples and returns six lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2554,7 +2550,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of seven-tuples and returns seven lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of seven-tuples and returns seven lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2574,7 +2570,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Transforms a list of eight-tuples and returns eight lists, analoguous to <see cref="EnumerableUtils.Unzip"/>.
+		/// Transforms a list of eight-tuples and returns eight lists, analoguous to <see cref="M:EnumerableUtils.Unzip"/>.
 		/// </summary>
 		/// <param name="tuples">
 		/// The given list of tuples.
@@ -2710,7 +2706,7 @@ namespace NUtils.Functional {
 		/// </returns>
 		/// <remarks>
 		/// <para>
-		/// It is a special case of <see cref="EnumerableUtils.NubBy"/> which allows the programmer to supply their own equality test.
+		/// It is a special case of <see cref="M:EnumerableUtils.NubBy"/> which allows the programmer to supply their own equality test.
 		/// </para><para>
 		/// The time complexity of this function is <i>O(n^2)</i> with <i>n</i> the length of the original list.
 		/// </para>
@@ -2780,7 +2776,7 @@ namespace NUtils.Functional {
 
 		/// <summary>
 		/// The union function returns the list union of two lists. Duplicates, and elements of the first list, are removed from the second list, but
-		/// if the first list contains duplicates, so will the result. It is a special case of <see cref="EnumerableUtils.UnionBy"/> which allows the programmer
+		/// if the first list contains duplicates, so will the result. It is a special case of <see cref="M:EnumerableUtils.UnionBy"/> which allows the programmer
 		/// to supply their own equality test.
 		/// </summary>
 		/// <param name="xs">
@@ -2813,7 +2809,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// Takes the list intersection of two lists. If the first list contains duplicates, so will the result. It is a special case of <see cref="EnumerableUtils.IntersectBy"/>,
+		/// Takes the list intersection of two lists. If the first list contains duplicates, so will the result. It is a special case of <see cref="M:EnumerableUtils.IntersectBy"/>,
 		/// which allows the programmer to supply their own equality test.
 		/// </summary>
 		/// <param name="xs">
@@ -2856,7 +2852,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// This method implements a stable sorting algorithm. It is a special case of <see cref="EnumerableUtils.SortBy"/>, which
+		/// This method implements a stable sorting algorithm. It is a special case of <see cref="M:EnumerableUtils.SortBy"/>, which
 		/// allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="list">
@@ -2906,7 +2902,7 @@ namespace NUtils.Functional {
 		/// <summary>
 		/// The Insert method takes an element <paramref name="x"/> and a list <paramref name="xs"/> and inserts the element into the list at the last position
 		/// where it is still less than or equal to the next element. In particular, if the list is sorted before the call, the result will also be sorted. It is
-		/// a special case of <see cref="EnumerableUtils.InsertBy"/>, which allows the programmer to supply their own comparison function.
+		/// a special case of <see cref="M:EnumerableUtils.InsertBy"/>, which allows the programmer to supply their own comparison function.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list of items to insert the given element in.
@@ -2938,7 +2934,7 @@ namespace NUtils.Functional {
 		#region TheByOperations
 		#region UserSuppliedEqualityReplacingTheOrdContext
 		/// <summary>
-		/// A method behaving just like <see cref="EnumerableUtils.Nub"/>, except it uses a user-supplied equality predicate instead of the
+		/// A method behaving just like <see cref="M:EnumerableUtils.Nub"/>, except it uses a user-supplied equality predicate instead of the
 		/// overloaded <see cref="Object.Equals"/> function.
 		/// </summary>
 		/// <param name="xs">
@@ -2968,7 +2964,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// A method behaving like <see cref="EnumerableUtils.Delete"/>, but takes a user-supplied equality predicate.
+		/// A method behaving like <see cref="M:EnumerableUtils.Delete"/>, but takes a user-supplied equality predicate.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to delete the first occurence of <paramref name="x"/> from.
@@ -3028,7 +3024,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The UnionBy function is the non-overloaded version of <see cref="EnumerableUtils.Union"/>.
+		/// The UnionBy function is the non-overloaded version of <see cref="M:EnumerableUtils.Union"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The first list to calculate the union from.
@@ -3074,7 +3070,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The IntersectBy function is the non-overloaded version of <see cref="Intersect"/>.
+		/// The IntersectBy function is the non-overloaded version of <see cref="M:Intersect"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The first list to calculate the intersection from.
@@ -3116,7 +3112,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The GroupBy function is the non-overloaded version of <see cref="EnumerableUtils.Group"/>.
+		/// The GroupBy function is the non-overloaded version of <see cref="M:EnumerableUtils.Group"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to group into equality partitions.
@@ -3145,7 +3141,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region UserSuppliedComparisonReplacingAnOrdContext
 		/// <summary>
-		/// The non-overloaded version of <see cref="EnumerableUtils.Sort"/>.
+		/// The non-overloaded version of <see cref="M:EnumerableUtils.Sort"/>.
 		/// </summary>
 		/// <param name="list">
 		/// The list of elements to be sorted.
@@ -3195,7 +3191,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The non-overloaded version of <see cref="EnumerableUtils.Insert"/>.
+		/// The non-overloaded version of <see cref="M:EnumerableUtils.Insert"/>.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list to insert the item in.
@@ -3279,7 +3275,7 @@ namespace NUtils.Functional {
 		#endregion
 		#region TheGenericOperations
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.Length"/>. In particular, instead of returning an <see cref="int"/>,
+		/// The overloaded version of <see cref="M:EnumerableUtils.Length"/>. In particular, instead of returning an <see cref="int"/>,
 		/// it returns any type which is an instance of <see cref="INumeric"/>. It is, however, less efficient than length.
 		/// </summary>
 		/// <param name="xs">
@@ -3300,7 +3296,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.Take"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
+		/// The overloaded version of <see cref="M:EnumerableUtils.Take"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
 		/// of elements to take.
 		/// </summary>
 		/// <param name="xs">
@@ -3321,7 +3317,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.Drop"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
+		/// The overloaded version of <see cref="M:EnumerableUtils.Drop"/>, which accepts a <see cref="IIntegral{I}"/> value as the number
 		/// of elements to take.
 		/// </summary>
 		/// <param name="xs">
@@ -3344,7 +3340,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.SplitAt"/>, which accepts any <see cref="IIntegral{I}"/> value as the position
+		/// The overloaded version of <see cref="M:EnumerableUtils.SplitAt"/>, which accepts any <see cref="IIntegral{I}"/> value as the position
 		/// at which to split.
 		/// </summary>
 		/// <param name="xs">
@@ -3361,7 +3357,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.IndexOperator"/>. Which accepts any <see cref="IIntegral{I}"/> value as the position at which to split.
+		/// The overloaded version of <see cref="M:EnumerableUtils.IndexOperator"/>. Which accepts any <see cref="IIntegral{I}"/> value as the position at which to split.
 		/// </summary>
 		/// <param name="xs">
 		/// The given list of elements to extract the <paramref name="integer"/>-th element from.
@@ -3390,7 +3386,7 @@ namespace NUtils.Functional {
 		}
 
 		/// <summary>
-		/// The overloaded version of <see cref="EnumerableUtils.Replicate"/>, which accepts any <see cref="IIntegral{I}"/> value as
+		/// The overloaded version of <see cref="M:EnumerableUtils.Replicate"/>, which accepts any <see cref="IIntegral{I}"/> value as
 		/// the number of repititions to make.
 		/// </summary>
 		/// <param name="integer">
