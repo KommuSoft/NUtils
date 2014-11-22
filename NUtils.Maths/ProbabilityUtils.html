@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Maths.ProbabilityUtils:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.39487</div>
+        <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -272,6 +272,19 @@
                 </td>
                 <td colspan="2">
                   <b>
+                    <a href="#M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32)">PickKUniformJump&lt;T&gt;</a>
+                  </b>(<a href="../NUtils.Collections/IJumpEnumerator`1.html">NUtils.Collections.IJumpEnumerator&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            Pick <i>k</i> unique uniformly items of of the given <i>jumpEnumerator</i> using an algorithm
+            that runs linear in the number of items to pick and logarithmic in the number of elements in the collection.
+            This algorithm is only useful if <i>k</i> is proportional to the size of the <i>collection</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
                     <a href="#M:NUtils.Maths.ProbabilityUtils.ToSparseProbabilisticTransition(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32,System.Double}})">ToSparseProbabilisticTransition</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;int, int, double&gt;&gt;</a>)<nobr> : <a href="../NUtils.Maths/SparseProbabilisticTransition.html">SparseProbabilisticTransition</a></nobr><blockquote>
             Converts the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of probabilistic transitions into a <a href="../NUtils.Maths/SparseProbabilisticTransition.html">NUtils.Maths.SparseProbabilisticTransition</a>
@@ -313,7 +326,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.IsValidDistribution(System.Collections.Generic.IEnumerable{System.Double}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.39487</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.ProbabilityUtils.IsValidDistribution(System.Collections.Generic.IEnumerable{System.Double},System.Double)">IsValidDistribution Method</h3>
@@ -344,7 +357,7 @@
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.IsValidDistribution(System.Collections.Generic.IEnumerable{System.Double},System.Double):Remarks">If the given <i>probabilities</i> is not effective, the condition returns <tt>false</tt>.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.IsValidDistribution(System.Collections.Generic.IEnumerable{System.Double},System.Double):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.39487</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.ProbabilityUtils.PickKUniform``1(System.Collections.Generic.ICollection{``0},System.Int32)">PickKUniform&lt;T&gt; Generic Method</h3>
@@ -410,7 +423,80 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniform``1(System.Collections.Generic.ICollection{``0},System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.39487</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32)">PickKUniformJump&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):member">
+          <p class="Summary">
+            Pick <i>k</i> unique uniformly items of of the given <i>jumpEnumerator</i> using an algorithm
+            that runs linear in the number of items to pick and logarithmic in the number of elements in the collection.
+            This algorithm is only useful if <i>k</i> is proportional to the size of the <i>collection</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>PickKUniformJump&lt;T&gt;</b> (<a href="../NUtils.Collections/IJumpEnumerator`1.html">NUtils.Collections.IJumpEnumerator&lt;T&gt;</a> jumpEnumerator, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> n, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> k)</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of elements in the <i>collection</i> that will be enumerated.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>jumpEnumerator</i>
+              </dt>
+              <dd>An <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator`1</a> over the collection from which the elements are picked.</dd>
+              <dt>
+                <i>n</i>
+              </dt>
+              <dd>The number of items in the collection from which the elements are picked.</dd>
+              <dt>
+                <i>k</i>
+              </dt>
+              <dd>The number of items to enumerate, should be larger than zero.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> that enumerates <i>k</i> unique elements in the same
+            order as how the items are enumerated from the <i>collection</i>. The probability of an item
+            getting selected is uniform.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If the given <i>jumpEnumerator</i> is not effective.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentException">ArgumentException</a>
+                </td>
+                <td>If <i>k</i> is strictly greater than <i>n</i>.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Remarks">
+            <p>The probability is not exactly uniform: an approximation algorithm is used, but with very strict bounds on
+            the error. For most applications, the items will look unformly picked.</p>
+            <p>If <i>k</i> is less than or equal to zero, no items are enumerated.</p>
+            <p>If the <i>collection</i> contains an item twice, it can be enumerated twice. The algorithm only guarantees that an item at the same index will not be enumerated twice.</p>
+            <p>In case <i>n</i> is less than the number of items in the collection, only the first <i>n</i> enumerated elements will be considered.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.PickKUniformJump``1(NUtils.Collections.IJumpEnumerator{``0},System.Int32,System.Int32):Version Information">
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Maths.ProbabilityUtils.ToSparseProbabilisticTransition(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32,System.Double}})">ToSparseProbabilisticTransition Method</h3>
@@ -437,7 +523,7 @@
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.ToSparseProbabilisticTransition(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32,System.Double}}):Remarks">This method can be used for caching purposes.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Maths.ProbabilityUtils.ToSparseProbabilisticTransition(System.Collections.Generic.IEnumerable{System.Tuple{System.Int32,System.Int32,System.Double}}):Version Information">
-            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5439.39487</div>
+            <b>Namespace: </b>NUtils.Maths<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
           <hr size="1" />
         </blockquote>
       </div>
