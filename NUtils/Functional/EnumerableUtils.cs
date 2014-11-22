@@ -3276,13 +3276,13 @@ namespace NUtils.Functional {
 		#region TheGenericOperations
 		/// <summary>
 		/// The overloaded version of <see cref="M:EnumerableUtils.Length"/>. In particular, instead of returning an <see cref="int"/>,
-		/// it returns any type which is an instance of <see cref="INumeric"/>. It is, however, less efficient than length.
+		/// it returns any type which is an instance of <see cref="T:INumeric`1"/>. It is, however, less efficient than length.
 		/// </summary>
 		/// <param name="xs">
 		/// The list of elements to calculate the length from.
 		/// </param>
 		/// <param name="number">
-		/// An instance of the type of number the programmer want to be returned (for instance <see cref="BigInteger"/>).
+		/// An instance of the type of number the programmer want to be returned (for instance <see cref="T:System.Numerics.BigInteger"/>).
 		/// </param>
 		/// <returns>
 		/// A numeric type who stores the length of the given list.
