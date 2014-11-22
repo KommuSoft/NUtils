@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using NUtils.Collections;
 
 namespace NUtils.Maths {
 
@@ -119,6 +120,40 @@ namespace NUtils.Maths {
 				colen.MoveNext ();
 				n -= i + 0x01;
 			}
+		}
+
+		/// <summary>
+		/// Pick <paramref name="k"/> unique uniformly items of of the given <paramref name="jumpEnumerator"/> using an algorithm
+		/// that runs linear in the number of items to pick and logarithmic in the number of elements in the collection.
+		/// This algorithm is only useful if <paramref name="k"/> is proportional to the size of the <paramref name="collection"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> that enumerates <paramref name="k"/> unique elements in the same
+		/// order as how the items are enumerated from the <paramref name="collection"/>. The probability of an item
+		/// getting selected is uniform.</returns>
+		/// <param name="jumpEnumerator">An <see cref="T:IJumpEnumerator`1"/> over the collection from which the elements are picked.</param>
+		/// <param name="n">The number of items in the collection from which the elements are picked.</param>
+		/// <param name="k">The number of items to enumerate, should be larger than zero.</param>
+		/// <typeparam name="T">The type of elements in the <paramref name="collection"/> that will be enumerated.</typeparam>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="jumpEnumerator"/> is not effective.</exception>
+		/// <exception cref="ArgumentException">If <paramref name="n"/> is less than zero.</exception>
+		/// <exception cref="ArgumentException">If <paramref name="k"/> is strictly greater than <paramref name="n"/>.</exception>
+		/// <remarks>
+		/// <para>If <paramref name="k"/> is less than or equal to zero, no items are enumerated.</para>
+		/// <para>If the <paramref name="collection"/> contains an item twice, it can be enumerated twice. The algorithm only guarantees that an item at the same index will not be enumerated twice.</para>
+		/// <para>In case <paramref name="n"/> is less than the number of items in the collection, only the first <paramref name="n"/> enumerated elements will be considered.</para>
+		/// </remarks>
+		public static IEnumerable<T> PickKUniformJump<T> (IJumpEnumerator<T> jumpEnumerator, int n, int k) {
+			if (jumpEnumerator == null) {
+				throw new ArgumentNullException ("jumpEnumerator", "The jump enumerator must be effective.");
+			}
+			if (n < 0x00) {
+				throw new ArgumentException ("The number of elements in the collection must be larger than zero.", "n");
+			}
+			if (k > n) {
+				throw new ArgumentException ("The number of items to pick must be less than or equal to the number of elements in the jumpEnumerator.", "k");
+			}
+			Contract.EndContractBlock ();
+			yield break;//TODO
 		}
 		#endregion
 		#region Caching
