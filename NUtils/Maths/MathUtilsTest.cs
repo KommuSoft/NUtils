@@ -22,19 +22,44 @@ using NUnit.Framework;
 using System;
 
 namespace NUtils.Maths {
-	[TestFixture()]
+
+	[TestFixture]
 	public class MathUtilsTest {
 
 		
-		[Test()]
+		[Test]
 		public void TestGreatestCommonDivider () {
 			Assert.AreEqual (0x02, MathUtils.GreatestCommonDivider (0x04, 0x06));
 		}
 
-		[Test()]
+		[Test]
 		public void TestLeastCommonMultiple () {
 			Assert.AreEqual (0x0c, MathUtils.LeastCommonMultiple (0x04, 0x06));
 			Assert.AreEqual (0x1f8, MathUtils.LeastCommonMultiple (0x08, 0x09, 0x15));
+		}
+
+		[Test]
+		public void TestStirlingLogApproximation () {
+			long j = 0x01;
+			Console.WriteLine (@"<listheader><term>n</term><description>result</description><description>approximation</description><description>absolute difference</description><description>relative difference</description></listheader>");
+			for (int i = 0x01; j <= int.MaxValue; i++, j *= i) {
+				double e = Math.Log (j);
+				double r = MathUtils.LogFactorialStirling (i);
+				Assert.AreEqual (e, r, 1e-1d);
+				Console.WriteLine ("<item><term>{0}</term><description>{1}</description><description>{2}</description><description>{3}</description><description>{4}</description></item>", i, e, r, e - r, (e - r) / e);
+			}
+		}
+
+		[Test]
+		public void TestGosperLogApproximation () {
+			long j = 0x01;
+			Console.WriteLine (@"<listheader><term>n</term><description>result</description><description>approximation</description><description>absolute difference</description><description>relative difference</description></listheader>");
+			for (int i = 0x01; j <= int.MaxValue; i++, j *= i) {
+				double e = Math.Log (j);
+				double r = MathUtils.LogFactorialGosper (i);
+				Assert.AreEqual (e, r, 1e-1d);
+				Console.WriteLine ("<item><term>{0}</term><description>{1}</description><description>{2}</description><description>{3}</description><description>{4}</description></item>", i, e, r, e - r, (e - r) / e);
+			}
 		}
 	}
 }
