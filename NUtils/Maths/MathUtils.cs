@@ -366,18 +366,65 @@ namespace NUtils.Maths {
 		#endregion
 		#region Functions
 		/// <summary>
-		/// Calculate the factorial for the given <paramref name="n"/>
+		/// Calculate the factorial for the given <paramref name="n"/>.
 		/// </summary>
 		/// <param name="n">The value to calculate the factorial from.</param>
 		/// <returns>The factorial of the given value.</returns>
 		/// <remarks>
-		/// <para>This function will only work for values up to 20, because of <see cref="ulong"/> overflow.</para>
+		/// <para>This function will only work for values up to 20, due to <see cref="ulong"/> overflow.</para>
 		/// <para>If <paramref name="n"/> is less than or equal to zero, one is returned.</para>
 		/// </remarks>
 		public static ulong Factorial (int n) {
 			ulong r = 0x01;
 			for (uint i = 0x02; i <= n; r*= i, i++)
 				;
+			return r;
+		}
+
+		/// <summary>
+		/// Calculate the factorial for the given <paramref name="n"/>, divided by the factorial for <paramref name="k"/>,
+		/// or in mathematical form: n!/k!.
+		/// </summary>
+		/// <param name="k">The value to calculate the factorial of the divider.</param>
+		/// <param name="n">The value to calculate the factorial of the numerator.</param>
+		/// <returns>The factorial of the given <paramref name="n"/> divided by the factorial of the given <paramref name="k"/>.</returns>
+		/// <remarks>
+		/// <para>This function will only work for small number (or a small difference between the numbers), due to <see cref="ulong"/> overflow.</para>
+		/// <para>If <paramref name="n"/> is less or equal to <paramref name="k"/> or equal to zero, one is returned.</para>
+		/// <para>If <paramref name="k"/> is strictly negative, the result is one.</para>
+		/// <para>If <paramref name="k"/> is zero, the factorial of <paramref name="n"/> is returned.</para>
+		/// </remarks>
+		public static ulong Factorial (int k, int n) {
+			ulong r = 0x01;
+			for (uint i = (uint)k+0x01; i <= n; r*= i, i++)
+				;
+			return r;
+		}
+
+		/// <summary>
+		/// Calculate the binomium for the given <paramref name="n"/>and <paramref name="k"/>,
+		/// or the number of ways you can pick <paramref name="k"/> elements out of a collection of <paramref name="n"/>.
+		/// </summary>
+		/// <param name="k">The number of available items.</param>
+		/// <param name="n">The number of items to pick.</param>
+		/// <returns>The number of ways to pick <paramref name="k"/> items out of a collection of <paramref name="n"/> items.</returns>
+		/// <remarks>
+		/// <para>This function will only work for small number due to <see cref="ulong"/> overflow.</para>
+		/// <para>If <paramref name="n"/> is less or equal to <paramref name="k"/> or equal to zero, one is returned.</para>
+		/// <para>If <paramref name="k"/> is less than or equal to zero, one is returned.</para>
+		/// </remarks>
+		public static ulong Binomial (int k, int n) {
+			ulong r = 0x01;
+			uint l = (uint)(n - k);
+			if (k > (n >> 0x01)) {
+				l = (uint)k;
+				k = (n - k);
+			}
+			uint div = 0x02;
+			for (uint i = (uint)n; i > l; r*= i, i--) {
+				for (; div < k && (r%div) == 0x00; r /= div, div++)
+					;
+			}
 			return r;
 		}
 		#endregion
@@ -921,7 +968,6 @@ namespace NUtils.Maths {
 		/// <item><term>(20, 17)</term><description>40.5438569915254</description><description>40.5444843882906</description><description>-0.000627396765210619</description><description>-1.54745209697676E-05</description></item>
 		/// <item><term>(20, 18)</term><description>41.6424692801935</description><description>41.6437717040275</description><description>-0.00130242383399803</description><description>-3.12763353497269E-05</description></item>
 		/// <item><term>(20, 19)</term><description>42.3356164607535</description><description>42.3395856693505</description><description>-0.00396920859704153</description><description>-9.37557765509596E-05</description></item>
-		/// 
 		/// </list>
 		/// </para>
 		/// </remarks>
