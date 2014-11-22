@@ -326,7 +326,7 @@ namespace NUtils.Maths {
 		/// <typeparam name='T1'>The type of the first element of the tuples to calculate the minimum from.</typeparam>
 		/// <typeparam name='T2'>The type of the second element of the tuples to calculate the minimum from.</typeparam>
 		public static Tuple<T1,T2> Minimum<T1,T2> (Tuple<T1,T2> t1, Tuple<T1,T2> t2)
-				where T1 : IComparable<T1>
+			where T1 : IComparable<T1>
 				where T2 : IComparable<T2> {
 			return new Tuple<T1,T2> (Minimum (t1.Item1, t2.Item1),
 			                         Minimum (t1.Item2, t2.Item2));
@@ -343,8 +343,8 @@ namespace NUtils.Maths {
 		/// <typeparam name='T3'>The type of the third element of the tuples to calculate the minimum from.</typeparam>
 		public static Tuple<T1,T2,T3> Minimum<T1,T2,T3> (Tuple<T1,T2,T3> t1, Tuple<T1,T2,T3> t2)
 			where T1 : IComparable<T1>
-			where T2 : IComparable<T2>
-			where T3 : IComparable<T3> {
+				where T2 : IComparable<T2>
+				where T3 : IComparable<T3> {
 			return new Tuple<T1,T2,T3> (Minimum (t1.Item1, t2.Item1),
 			                            Minimum (t1.Item2, t2.Item2),
 			                            Minimum (t1.Item3, t2.Item3));
@@ -396,6 +396,23 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
+		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> over the factorial of <paramref name="n"/> minus <paramref name="k"/> using the Stirling approximation.
+		/// </summary>
+		/// <returns>An approximation for the natural logarithm of the factorial for the devision between the factorials of <paramref name="n"/> and <paramref name="n"/>-<paramref name="k"/>.</returns>
+		/// <param name="n">The value of the factorial numerator.</param>
+		/// <param name="k">The value to substract from <paramref name="n"/> for the factorial divider.</param>
+		/// <remarks>
+		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
+		/// <para>If <paramref name="k"/> is negative, the approximate still works and in that case the divider is greater than the numerator.</para>
+		/// <para>If <paramref name="k"/> is greater than or equal to <paramref name="n"/>, the result is <see cref="double.NaN"/>.</para>
+		/// <para>The Stirling approximation is less accurate than the <see cref="M:LogFactorialGosperDiv"/> approximation, but less computationally expensive as well.</para>
+		/// </remarks>
+		public static double LogFactorialDivStirling (int n, int k) {
+			int nk = n - k;
+			return (n + 0.5d) * Math.Log ((double)n / nk) + k * (Math.Log (nk) - 1.0d);
+		}
+
+		/// <summary>
 		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Gosper approximation.
 		/// </summary>
 		/// <returns>An approximation for the natural logarithm of the factorial for .</returns>
@@ -410,18 +427,20 @@ namespace NUtils.Maths {
 		}
 
 		/// <summary>
-		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Gosper approximation.
+		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> over the factorial of <paramref name="n"/> minus <paramref name="k"/> using the Gosper approximation.
 		/// </summary>
-		/// <returns>An approximation for the natural logarithm of the factorial for .</returns>
-		/// <param name="n">The value to calculate the logarithm of the factorial from.</param>
+		/// <returns>An approximation for the natural logarithm of the factorial for the devision between the factorials of <paramref name="n"/> and <paramref name="n"/>-<paramref name="k"/>.</returns>
+		/// <param name="n">The value of the factorial numerator.</param>
+		/// <param name="k">The value to substract from <paramref name="n"/> for the factorial divider.</param>
 		/// <remarks>
 		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
-		/// <para>The Gosper approximation is more accurate than the <see cref="M:LogFactorialStirling"/> approximation, but more computationally expensive as well.</para>
-		/// <para>The Gosper approximation is always greater than the real value for log(n!)</para>
+		/// <para>If <paramref name="k"/> is negative, the approximate still works and in that case the divider is greater than the numerator.</para>
+		/// <para>If <paramref name="k"/> is greater than or equal to <paramref name="n"/>, the result is <see cref="double.NaN"/>.</para>
+		/// <para>The Gosper approximation is more accurate than the <see cref="M:LogFactorialStirlingDiv"/> approximation, but more computationally expensive as well.</para>
 		/// </remarks>
 		public static double LogFactorialDivGosper (int n, int k) {
 			int nk = n - k;
-			return Math.Log (Math.Sqrt ((double)(0x06 * n + 0x01) / (0x06 * nk + 0x01))) + n * Math.Log ((double)n / nk) + k * Math.Log (nk) + k;
+			return Math.Log (Math.Sqrt ((double)(0x06 * n + 0x01) / (0x06 * nk + 0x01))) + n * Math.Log ((double)n / nk) + k * Math.Log (nk) - k;
 		}
 		#endregion
 		#region Tests
