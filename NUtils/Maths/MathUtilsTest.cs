@@ -59,6 +59,18 @@ namespace NUtils.Maths {
 		public void TestGosperLogApproximation () {
 			testApproximation<int> (x => Math.Log (MathUtils.Factorial (x)), MathUtils.LogFactorialGosper, Enumerable.Range (0x01, 0x14), 1e-1d);
 		}
+
+		[Test]
+		public void TestStirlingDivLogApproximation () {
+			IEnumerable<Tuple<int,int>> te = Enumerable.Range (1, 20).SelectMany (x => Enumerable.Range (0, x).Select (y => new Tuple<int,int> (x, y)));
+			testApproximation<Tuple<int,int>> (x => Math.Log (MathUtils.Factorial (x.Item1) / MathUtils.Factorial (x.Item1 - x.Item2)), x => MathUtils.LogFactorialDivStirling (x.Item1, x.Item2), te, 1e-1d, "(n,k)");
+		}
+
+		[Test]
+		public void TestGosperDivLogApproximation () {
+			IEnumerable<Tuple<int,int>> te = Enumerable.Range (1, 20).SelectMany (x => Enumerable.Range (0, x).Select (y => new Tuple<int,int> (x, y)));
+			testApproximation<Tuple<int,int>> (x => Math.Log (MathUtils.Factorial (x.Item1) / MathUtils.Factorial (x.Item1 - x.Item2)), x => MathUtils.LogFactorialDivGosper (x.Item1, x.Item2), te, 1e-1d, "(n,k)");
+		}
 	}
 }
 
