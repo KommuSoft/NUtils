@@ -364,6 +364,23 @@ namespace NUtils.Maths {
 			}
 		}
 		#endregion
+		#region Functions
+		/// <summary>
+		/// Calculate the factorial for the given <paramref name="n"/>
+		/// </summary>
+		/// <param name="n">The value to calculate the factorial from.</param>
+		/// <returns>The factorial of the given value.</returns>
+		/// <remarks>
+		/// <para>This function will only work for values up to 20, because of <see cref="ulong"/> overflow.</para>
+		/// <para>If <paramref name="n"/> is less than or equal to zero, one is returned.</para>
+		/// </remarks>
+		public static ulong Factorial (int n) {
+			ulong r = 0x01;
+			for (uint i = 0x02; i <= n; r*= i, i++)
+				;
+			return r;
+		}
+		#endregion
 		#region Approximations
 		/// <summary>
 		/// Approximate the natural logarithm of the factorial of <paramref name="n"/> using the Stirling approximation.
@@ -390,6 +407,15 @@ namespace NUtils.Maths {
 		/// <item><term>10</term><description>15.1044125730755</description><description>15.0960820096422</description><description>0.00833056343336125</description><description>0.000551531772126707</description></item>
 		/// <item><term>11</term><description>17.5023078458739</description><description>17.4947341703859</description><description>0.00757367548795074</description><description>0.000432724390100144</description></item>
 		/// <item><term>12</term><description>19.9872144956619</description><description>19.9802716555547</description><description>0.00694284010720381</description><description>0.000347364066599211</description></item>
+		/// <item><term>13</term><description>22.5521638531234</description><description>22.5457548589354</description><description>0.00640899418800345</description><description>0.000284185332713243</description></item>
+		/// <item><term>14</term><description>25.1912211827387</description><description>25.1852698126259</description><description>0.00595137011276137</description><description>0.000236247781304041</description></item>
+		/// <item><term>15</term><description>27.8992713838409</description><description>27.8937166502889</description><description>0.00555473355196057</description><description>0.000199099592083894</description></item>
+		/// <item><term>16</term><description>30.6718601060807</description><description>30.6666524501611</description><description>0.00520765591960881</description><description>0.000169786113447238</description></item>
+		/// <item><term>17</term><description>33.5050734501369</description><description>33.5001720541885</description><description>0.00490139594843697</description><description>0.000146288172020615</description></item>
+		/// <item><term>18</term><description>36.3954452080331</description><description>36.3908160542837</description><description>0.00462915374933459</description><description>0.000127190469106086</description></item>
+		/// <item><term>19</term><description>39.3398841871995</description><description>39.3354986269503</description><description>0.00438556024923997</description><description>0.000111478728009752</description></item>
+		/// <item><term>20</term><description>42.3356164607535</description><description>42.3314501410615</description><description>0.00416631969199699</description><description>9.84116930447748E-05</description></item>
+		/// 
 		/// </list>
 		/// </para>
 		/// </remarks>
@@ -439,6 +465,14 @@ namespace NUtils.Maths {
 		/// <item><term>10</term><description>15.1044125730755</description><description>15.1355357196443</description><description>-0.0311231465687793</description><description>-0.00206053339831687</description></item>
 		/// <item><term>11</term><description>17.5023078458739</description><description>17.5327194505514</description><description>-0.0304116046775356</description><description>-0.00173757683531461</description></item>
 		/// <item><term>12</term><description>19.9872144956619</description><description>20.0170299412394</description><description>-0.0298154455774977</description><description>-0.00149172590227463</description></item>
+		/// <item><term>13</term><description>22.5521638531234</description><description>22.5814725615182</description><description>-0.0293087083947867</description><description>-0.0012995962864436</description></item>
+		/// <item><term>14</term><description>25.1912211827387</description><description>25.2200938599217</description><description>-0.0288726771829815</description><description>-0.0011461404341432</description></item>
+		/// <item><term>15</term><description>27.8992713838409</description><description>27.927764902239</description><description>-0.0284935183980721</description><description>-0.00102129973238568</description></item>
+		/// <item><term>16</term><description>30.6718601060807</description><description>30.7000208923531</description><description>-0.0281607862724016</description><description>-0.000918131022214031</description></item>
+		/// <item><term>17</term><description>33.5050734501369</description><description>33.5329398957076</description><description>-0.0278664455707585</description><description>-0.000831708237029536</description></item>
+		/// <item><term>18</term><description>36.3954452080331</description><description>36.4230494222085</description><description>-0.0276042141754118</description><description>-0.000758452438694695</description></item>
+		/// <item><term>19</term><description>39.3398841871995</description><description>39.3672532968968</description><description>-0.0273691096973394</description><description>-0.000695708954482505</description></item>
+		/// <item><term>20</term><description>42.3356164607535</description><description>42.3627735906277</description><description>-0.0271571298742472</description><description>-0.000641472408921287</description></item>
 		/// </list>
 		/// </para>
 		/// </remarks>
