@@ -138,6 +138,8 @@ namespace NUtils.Maths {
 		/// <exception cref="ArgumentException">If <paramref name="n"/> is less than zero.</exception>
 		/// <exception cref="ArgumentException">If <paramref name="k"/> is strictly greater than <paramref name="n"/>.</exception>
 		/// <remarks>
+		/// <para>The probability is not exactly uniform: an approximation algorithm is used, but with very strict bounds on
+		/// the error. For most applications, the items will look unformly picked.</para>
 		/// <para>If <paramref name="k"/> is less than or equal to zero, no items are enumerated.</para>
 		/// <para>If the <paramref name="collection"/> contains an item twice, it can be enumerated twice. The algorithm only guarantees that an item at the same index will not be enumerated twice.</para>
 		/// <para>In case <paramref name="n"/> is less than the number of items in the collection, only the first <paramref name="n"/> enumerated elements will be considered.</para>
@@ -153,7 +155,24 @@ namespace NUtils.Maths {
 				throw new ArgumentException ("The number of items to pick must be less than or equal to the number of elements in the jumpEnumerator.", "k");
 			}
 			Contract.EndContractBlock ();
-			yield break;//TODO
+			double pi, r;
+			int i, l;
+			jumpEnumerator.MoveNext ();
+			for (; k > 0x00; k--) {
+				i = 0x00;
+				l = n - k;
+				pi = (double)k / n;
+				r = MathUtils.NextDouble ();
+				while (pi < r) {
+					r -= pi;
+					jumpEnumerator.MoveNext ();
+					pi *= (l - i++);
+					pi /= (n - i);
+				}
+				yield return jumpEnumerator.Current;
+				jumpEnumerator.MoveNext ();
+				n -= i + 0x01;
+			}
 		}
 		#endregion
 		#region Caching
