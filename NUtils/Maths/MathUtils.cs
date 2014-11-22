@@ -326,7 +326,7 @@ namespace NUtils.Maths {
 		/// <typeparam name='T1'>The type of the first element of the tuples to calculate the minimum from.</typeparam>
 		/// <typeparam name='T2'>The type of the second element of the tuples to calculate the minimum from.</typeparam>
 		public static Tuple<T1,T2> Minimum<T1,T2> (Tuple<T1,T2> t1, Tuple<T1,T2> t2)
-				where T1 : IComparable<T1>
+			where T1 : IComparable<T1>
 				where T2 : IComparable<T2> {
 			return new Tuple<T1,T2> (Minimum (t1.Item1, t2.Item1),
 			                         Minimum (t1.Item2, t2.Item2));
@@ -343,8 +343,8 @@ namespace NUtils.Maths {
 		/// <typeparam name='T3'>The type of the third element of the tuples to calculate the minimum from.</typeparam>
 		public static Tuple<T1,T2,T3> Minimum<T1,T2,T3> (Tuple<T1,T2,T3> t1, Tuple<T1,T2,T3> t2)
 			where T1 : IComparable<T1>
-			where T2 : IComparable<T2>
-			where T3 : IComparable<T3> {
+				where T2 : IComparable<T2>
+				where T3 : IComparable<T3> {
 			return new Tuple<T1,T2,T3> (Minimum (t1.Item1, t2.Item1),
 			                            Minimum (t1.Item2, t2.Item2),
 			                            Minimum (t1.Item3, t2.Item3));
