@@ -423,7 +423,7 @@ namespace NUtils.Maths {
 			}
 			uint div = 0x02;
 			for (uint i = (uint)n; i > l; r*= i, i--) {
-				for (; div < k && (r%div) == 0x00; r /= div, div++)
+				for (; div <= k && (r%div) == 0x00; r /= div, div++)
 					;
 			}
 			return r;
