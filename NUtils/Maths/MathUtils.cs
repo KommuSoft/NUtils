@@ -388,6 +388,8 @@ namespace NUtils.Maths {
 		/// <item><term>8</term><description>10.6046029027453</description><description>10.5941916374833</description><description>0.0104112652619754</description><description>0.000981768516695731</description></item>
 		/// <item><term>9</term><description>12.8018274800815</description><description>12.7925720178988</description><description>0.00925546218271123</description><description>0.000722979761843528</description></item>
 		/// <item><term>10</term><description>15.1044125730755</description><description>15.0960820096422</description><description>0.00833056343336125</description><description>0.000551531772126707</description></item>
+		/// <item><term>11</term><description>17.5023078458739</description><description>17.4947341703859</description><description>0.00757367548795074</description><description>0.000432724390100144</description></item>
+		/// <item><term>12</term><description>19.9872144956619</description><description>19.9802716555547</description><description>0.00694284010720381</description><description>0.000347364066599211</description></item>
 		/// </list>
 		/// </para>
 		/// </remarks>
@@ -421,6 +423,24 @@ namespace NUtils.Maths {
 		/// <para>If <paramref name="n"/> is less than or equal to zero (<c>0</c>), the result is <see cref="double.NaN"/>.</para>
 		/// <para>The Gosper approximation is more accurate than the <see cref="M:LogFactorialStirling"/> approximation, but more computationally expensive as well.</para>
 		/// <para>The Gosper approximation is always greater than the real value for log(n!)</para>
+		/// <para>In the table below, we list the result of this operation for the first values with absolute and relative error, please note that the values are logarithmic:
+		/// the error on the factorial can blow up.
+		/// <list type="table">
+		/// <listheader><term>n</term><description>result</description><description>approximation</description><description>absolute difference</description><description>relative difference</description></listheader>
+		/// <item><term>1</term><description>0</description><description>0.0858383680212085</description><description>-0.0858383680212085</description><description>-Infinity</description></item>
+		/// <item><term>2</term><description>0.693147180559945</description><description>0.75194062310881</description><description>-0.0587934425488649</description><description>-0.0848210080020375</description></item>
+		/// <item><term>3</term><description>1.79175946922806</description><description>1.83982059996262</description><description>-0.0480611307345604</description><description>-0.0268234277870269</description></item>
+		/// <item><term>4</term><description>3.17805383034795</description><description>3.22034331067159</description><description>-0.0422894803236478</description><description>-0.0133067224726706</description></item>
+		/// <item><term>5</term><description>4.78749174278205</description><description>4.82617511075166</description><description>-0.0386833679696093</description><description>-0.00808009079659113</description></item>
+		/// <item><term>6</term><description>6.5792512120101</description><description>6.61546749241281</description><description>-0.0362162804027122</description><description>-0.00550462039458246</description></item>
+		/// <item><term>7</term><description>8.52516136106541</description><description>8.55958345752761</description><description>-0.0344220964621993</description><description>-0.00403770615057279</description></item>
+		/// <item><term>8</term><description>10.6046029027453</description><description>10.637661433334</description><description>-0.0330585305887983</description><description>-0.00311737562377185</description></item>
+		/// <item><term>9</term><description>12.8018274800815</description><description>12.8338146385748</description><description>-0.0319871584933722</description><description>-0.00249864002175794</description></item>
+		/// <item><term>10</term><description>15.1044125730755</description><description>15.1355357196443</description><description>-0.0311231465687793</description><description>-0.00206053339831687</description></item>
+		/// <item><term>11</term><description>17.5023078458739</description><description>17.5327194505514</description><description>-0.0304116046775356</description><description>-0.00173757683531461</description></item>
+		/// <item><term>12</term><description>19.9872144956619</description><description>20.0170299412394</description><description>-0.0298154455774977</description><description>-0.00149172590227463</description></item>
+		/// </list>
+		/// </para>
 		/// </remarks>
 		public static double LogFactorialGosper (int n) {
 			return Math.Log (Math.Sqrt (0x06 * n + 0x02) * Math.PI / 3.0d) + n * (Math.Log (n) - 1.0d);
