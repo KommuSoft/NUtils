@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.Bitwise.CompactBitVector:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+        <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -277,6 +277,61 @@
                 <td>
             Initializes a new instance of the <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> class with a given number
             of items and initial data.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Bitwise.CompactBitVector.BlockIndexMask">BlockIndexMask</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i> (63). 
+            A mask used to get the index inside a block.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Bitwise.CompactBitVector.BlockShift">BlockShift</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i> (6). 
+            The 2-log of <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>, used to shift data efficiently.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:NUtils.Bitwise.CompactBitVector.BlockSize">BlockSize</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i> (64). 
+            The number of bits stored in a single block.
             </td>
               </tr>
             </table>
@@ -499,7 +554,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32})">ExceptWith</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote>
+            Removes all elements in the specified collection from the current set.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -570,7 +627,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32})">IntersectWith</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote>
+            Modifies the current set so that it contains only elements that are also in a specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -580,7 +639,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsProperSubsetOf</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current set is a proper (strict) subset of a specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -590,7 +651,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsProperSupersetOf</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current set is a proper (strict) superset of a specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -600,7 +663,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsSubsetOf</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether a set is a subset of a specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -610,7 +675,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsSupersetOf</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current set is a superset of a specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -670,7 +737,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32})">Overlaps</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current set overlaps with the specified collection.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -693,7 +762,7 @@
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32)">Remove</a>
                   </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Remove the specified item.
+            Removes the first occurrence of an item from the current collection.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -728,7 +797,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32})">SetEquals</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Determines whether the current set and the specified collection contain the same elements.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -750,7 +821,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32})">SymmetricExceptWith</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote>
+            Modifies the current set so that it contains only elements that are present either in the current set or in the specified collection, but not both.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -771,7 +844,9 @@
                 <td colspan="2">
                   <b>
                     <a href="#M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32})">UnionWith</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a>)<blockquote>
+            Modifies the current set so that it contains all elements that are present in the current set, in the specified collection, or in both.
+            </blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -2320,7 +2395,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Bitwise.CompactBitVector(System.Int32,System.Boolean[]):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.Bitwise.CompactBitVector(System.Int32,System.Collections.Generic.IEnumerable{System.Boolean})">CompactBitVector Constructor</h3>
@@ -2350,7 +2425,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Bitwise.CompactBitVector(System.Int32,System.Collections.Generic.IEnumerable{System.Boolean}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="C:NUtils.Bitwise.CompactBitVector(System.Int32,System.UInt64[])">CompactBitVector Constructor</h3>
@@ -2379,7 +2454,7 @@
             as well and vice versa.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:NUtils.Bitwise.CompactBitVector(System.Int32,System.UInt64[]):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Add(System.Int32)">Add Method</h3>
@@ -2419,7 +2494,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Add(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.All(System.Int32)">All Method</h3>
@@ -2446,7 +2521,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.All(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.AllSet">AllSet Property</h3>
@@ -2465,7 +2540,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.AllSet:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.And(NUtils.Bitwise.CompactBitVector)">And Method</h3>
@@ -2494,7 +2569,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.And(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.AndLocal(NUtils.Bitwise.CompactBitVector)">AndLocal Method</h3>
@@ -2519,7 +2594,57 @@
             vector is not modified. Furthermore this method will use less memory.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.AndLocal(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Bitwise.CompactBitVector.BlockIndexMask">BlockIndexMask Field</h3>
+        <blockquote id="F:NUtils.Bitwise.CompactBitVector.BlockIndexMask:member">
+          <p class="Summary">
+            A mask used to get the index inside a block.
+            </p>
+          <p>
+            <b>Value: </b>63</p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>BlockIndexMask</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockIndexMask:Remarks">Given a real index, by masking the index with <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>, one gets the index of the bit in the corresponding block.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockIndexMask:Version Information">
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Bitwise.CompactBitVector.BlockShift">BlockShift Field</h3>
+        <blockquote id="F:NUtils.Bitwise.CompactBitVector.BlockShift:member">
+          <p class="Summary">
+            The 2-log of <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>, used to shift data efficiently.
+            </p>
+          <p>
+            <b>Value: </b>6</p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>BlockShift</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockShift:Remarks">Given a real index, by shifting the value to the right with <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>, one gets the block index.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockShift:Version Information">
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:NUtils.Bitwise.CompactBitVector.BlockSize">BlockSize Field</h3>
+        <blockquote id="F:NUtils.Bitwise.CompactBitVector.BlockSize:member">
+          <p class="Summary">
+            The number of bits stored in a single block.
+            </p>
+          <p>
+            <b>Value: </b>64</p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>BlockSize</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockSize:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:NUtils.Bitwise.CompactBitVector.BlockSize:Version Information">
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Clear()">Clear Method</h3>
@@ -2535,7 +2660,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Clear():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Contains(System.Int32)">Contains Method</h3>
@@ -2564,7 +2689,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Contains(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.CopyTo(System.Int32[],System.Int32)">CopyTo Method</h3>
@@ -2640,7 +2765,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.CopyTo(System.Int32[],System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.Count">Count Property</h3>
@@ -2658,7 +2783,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.Count:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Equals(System.Object)">Equals Method</h3>
@@ -2687,14 +2812,14 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Equals(System.Object):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32})">ExceptWith Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Removes all elements in the specified collection from the current set.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ExceptWith</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2703,18 +2828,33 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of values that must be removed.</dd>
             </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.ExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.GetBlock64(System.Int32)">GetBlock64 Method</h3>
@@ -2741,7 +2881,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetBlock64(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.GetEnumerator()">GetEnumerator Method</h3>
@@ -2760,7 +2900,7 @@
             in future blocks however are somtimes enumerated.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.GetEnumeratorLower(System.Int32)">GetEnumeratorLower Method</h3>
@@ -2787,7 +2927,7 @@
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetEnumeratorLower(System.Int32):Remarks">The items are ordered in ascending order.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetEnumeratorLower(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.GetHashCode()">GetHashCode Method</h3>
@@ -2805,7 +2945,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetHashCode():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.GetLowest(System.Int32)">GetLowest Method</h3>
@@ -2831,14 +2971,14 @@
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetLowest(System.Int32):Remarks">If no bit is set with an index larger than or equal to the given <i>lower</i> bound, <tt>-1</tt> is returned.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.GetLowest(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32})">IntersectWith Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Modifies the current set so that it contains only elements that are also in a specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>IntersectWith</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2847,25 +2987,40 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a> of items to calculate the intersection with.</dd>
             </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IntersectWith(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsProperSubsetOf Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether the current set is a proper (strict) subset of a specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsProperSubsetOf</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2874,29 +3029,43 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <tt>true</tt> if this instance is proper subset of the specified other; otherwise, <tt>false</tt>.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsProperSupersetOf Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether the current set is a proper (strict) superset of a specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsProperSupersetOf</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2905,22 +3074,36 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <tt>true</tt> if this instance is proper superset of the specified other; otherwise, <tt>false</tt>.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsProperSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.IsReadOnly">IsReadOnly Property</h3>
@@ -2939,14 +3122,14 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.IsReadOnly:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsSubsetOf Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether a set is a subset of a specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsSubsetOf</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2955,29 +3138,43 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <tt>true</tt> if this instance is subset of the specified other; otherwise, <tt>false</tt>.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSubsetOf(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32})">IsSupersetOf Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether the current set is a superset of a specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>IsSupersetOf</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -2986,22 +3183,36 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <tt>true</tt> if this instance is superset of the specified other; otherwise, <tt>false</tt>.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.IsSupersetOf(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.Item(System.Int32)">Item Property</h3>
@@ -3033,7 +3244,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.Item(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.LastMask">LastMask Property</h3>
@@ -3051,7 +3262,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.LastMask:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.LastN">LastN Property</h3>
@@ -3069,7 +3280,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.LastN:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:NUtils.Bitwise.CompactBitVector.Length">Length Property</h3>
@@ -3087,7 +3298,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:NUtils.Bitwise.CompactBitVector.Length:Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Not()">Not Method</h3>
@@ -3107,7 +3318,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Not():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NotLocal()">NotLocal Method</h3>
@@ -3123,7 +3334,7 @@
             vector is not modified. Furthermore this method will use less memory.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NotLocal():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Abstract#ILowest{System#Int32}#GetLowest()">NUtils.Abstract.ILowest&lt;System.Int32&gt;.GetLowest Method</h3>
@@ -3142,7 +3353,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Abstract#ILowest{System#Int32}#GetLowest():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#And(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.IBitwise&lt;NUtils.Bitwise.IBitVector&gt;.And Method</h3>
@@ -3174,7 +3385,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#And(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Not()">NUtils.Bitwise.IBitwise&lt;NUtils.Bitwise.IBitVector&gt;.Not Method</h3>
@@ -3195,7 +3406,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Not():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Or(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.IBitwise&lt;NUtils.Bitwise.IBitVector&gt;.Or Method</h3>
@@ -3227,7 +3438,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Or(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Xor(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.IBitwise&lt;NUtils.Bitwise.IBitVector&gt;.Xor Method</h3>
@@ -3259,7 +3470,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#IBitwise{NUtils#Bitwise#IBitVector}#Xor(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#AndLocal(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.ILocalBitwise&lt;NUtils.Bitwise.IBitVector&gt;.AndLocal Method</h3>
@@ -3287,7 +3498,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#AndLocal(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#NotLocal()">NUtils.Bitwise.ILocalBitwise&lt;NUtils.Bitwise.IBitVector&gt;.NotLocal Method</h3>
@@ -3304,7 +3515,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#NotLocal():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#OrLocal(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.ILocalBitwise&lt;NUtils.Bitwise.IBitVector&gt;.OrLocal Method</h3>
@@ -3332,7 +3543,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#OrLocal(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#XorLocal(NUtils.Bitwise.IBitVector)">NUtils.Bitwise.ILocalBitwise&lt;NUtils.Bitwise.IBitVector&gt;.XorLocal Method</h3>
@@ -3360,7 +3571,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.NUtils#Bitwise#ILocalBitwise{NUtils#Bitwise#IBitVector}#XorLocal(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Or(NUtils.Bitwise.CompactBitVector)">Or Method</h3>
@@ -3389,7 +3600,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Or(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.OrLocal(NUtils.Bitwise.CompactBitVector)">OrLocal Method</h3>
@@ -3414,14 +3625,14 @@
             vector is not modified. Furthermore this method will use less memory.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.OrLocal(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32})">Overlaps Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether the current set overlaps with the specified collection.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Overlaps</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -3430,22 +3641,37 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Overlaps(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Remove(NUtils.Bitwise.IBitVector)">Remove Method</h3>
@@ -3470,13 +3696,13 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Remove(NUtils.Bitwise.IBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32)">Remove Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32):member">
           <p class="Summary">
-            Remove the specified item.
+            Removes the first occurrence of an item from the current collection.
             </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Remove</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> item)</div>
@@ -3486,20 +3712,19 @@
               <dt>
                 <i>item</i>
               </dt>
-              <dd>The item to remove.</dd>
+              <dd>The item to remove from the current collection.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+            <tt>true</tt> if this collection contained the <i>item</i>; otherwise <tt>false</tt>.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Remove(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.ResetRange(System.Int32,System.Int32)">ResetRange Method</h3>
@@ -3528,7 +3753,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.ResetRange(System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.SetBlock64(System.Int32,System.UInt64)">SetBlock64 Method</h3>
@@ -3557,14 +3782,14 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetBlock64(System.Int32,System.UInt64):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32})">SetEquals Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Determines whether the current set and the specified collection contain the same elements.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>SetEquals</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -3573,22 +3798,36 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The collection to compare to the current set.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
           <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32}):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <tt>true</tt>, if equals was set, <tt>false</tt> otherwise.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetEquals(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.SetRange(System.Int32,System.Int32)">SetRange Method</h3>
@@ -3617,14 +3856,14 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SetRange(System.Int32,System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32})">SymmetricExceptWith Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Modifies the current set so that it contains only elements that are present either in the current set or in the specified collection, but not both.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>SymmetricExceptWith</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -3633,18 +3872,33 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Other.</dd>
             </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.SymmetricExceptWith(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.System#Collections#Generic#ICollection{System#Int32}#Add(System.Int32)">System.Collections.Generic.ICollection&lt;System.Int32&gt;.Add Method</h3>
@@ -3670,7 +3924,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.System#Collections#Generic#ICollection{System#Int32}#Add(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.System#Collections#Generic#ISet{System#Int32}#Add(System.Int32)">System.Collections.Generic.ISet&lt;System.Int32&gt;.Add Method</h3>
@@ -3699,7 +3953,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.System#Collections#Generic#ISet{System#Int32}#Add(System.Int32):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.System#Collections#IEnumerable#GetEnumerator()">System.Collections.IEnumerable.GetEnumerator Method</h3>
@@ -3718,7 +3972,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.System#Collections#IEnumerable#GetEnumerator():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.ToString()">ToString Method</h3>
@@ -3735,14 +3989,14 @@
             separated by spaces.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.ToString():Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32})">UnionWith Method</h3>
         <blockquote id="M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32}):member">
           <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+            Modifies the current set so that it contains all elements that are present in the current set, in the specified collection, or in both.
+            </p>
           <h2>Syntax</h2>
           <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>UnionWith</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a> other)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -3751,18 +4005,33 @@
               <dt>
                 <i>other</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Other.</dd>
             </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>other</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32}):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+            <p>The operation scales linear with the number of elements in <i>other</i>.</p>
+            <p>This method ignores any duplicate elements in <i>other</i>.</p>
+            <p>If <i>other</i> is a <a href="../NUtils.Bitwise/CompactBitVector.html">NUtils.Bitwise.CompactBitVector</a> or an <a href="../NUtils.Bitwise/IBitVector.html">NUtils.Bitwise.IBitVector</a> as well, performance will increase.</p>
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.UnionWith(System.Collections.Generic.IEnumerable{System.Int32}):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.Xor(NUtils.Bitwise.CompactBitVector)">Xor Method</h3>
@@ -3791,7 +4060,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.Xor(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.Bitwise.CompactBitVector.XorLocal(NUtils.Bitwise.CompactBitVector)">XorLocal Method</h3>
@@ -3816,7 +4085,7 @@
             vector is not modified. Furthermore this method will use less memory.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.Bitwise.CompactBitVector.XorLocal(NUtils.Bitwise.CompactBitVector):Version Information">
-            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+            <b>Namespace: </b>NUtils.Bitwise<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.30041</div>
           <hr size="1" />
         </blockquote>
       </div>
