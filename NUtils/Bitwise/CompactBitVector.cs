@@ -34,6 +34,24 @@ namespace NUtils.Bitwise {
 		private readonly int n;
 		private readonly ulong[] data;
 		#endregion
+		#region Constants
+		/// <summary>
+		/// The number of bits stored in a single block.
+		/// </summary>
+		public const int BlockSize = 0x40;
+		/// <summary>
+		/// The 2-log of <see cref="P:BlockSize"/>, used to shift data efficiently.
+		/// </summary>
+		/// <remarks>
+		/// <para>Given a real index, by shifting the value to the right with <see cref="P:BlockShift"/>, one gets the block index.</para>
+		/// </remarks>
+		public const int BlockShift = 0x06;
+		/// <summary>
+		/// A mask used to get the index inside a block.
+		/// </summary>
+		/// <remarks>Given a real index, by masking the index with <see cref="P:BlockIndexMask"/>, one gets the index of the bit in the corresponding block.</remarks>
+		public const int BlockIndexMask = 0x3f;
+		#endregion
 		#region Protected Fields
 		/// <summary>
 		/// Gets the number of bits stored in the last block of the bit vector.
@@ -131,6 +149,27 @@ namespace NUtils.Bitwise {
 		}
 		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CompactBitVector"/> class with a given length and a
+		/// list of indices that are set.
+		/// </summary>
+		/// <param name="n">The number of elements in the vector.</param>
+		/// <param name="indices">The list of indices to set.</param>
+		/// <remarks>
+		/// <para>Values lower than zero or greater than or equal to <paramref name="n"/> are ignored.</para>
+		/// </remarks>
+		private CompactBitVector (int n, IEnumerable<int> indices) {
+			this.n = n;
+			int nb = (n + BlockIndexMask) >> BlockShift;
+			ulong[] data = new ulong[nb];
+			foreach (int index in indices) {
+				int bi = index >> BlockShift;
+				if (bi < nb) {
+					data [nb] |= 0x01UL << (index & BlockIndexMask);
+				}
+			}
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CompactBitVector"/> class with a given number
 		/// of items and initial data.
@@ -797,7 +836,7 @@ namespace NUtils.Bitwise {
 			throw new NotImplementedException ();
 		}
 
-		public void UnionWith (IEnumerable<int> other) {//TODO: check for bitvector?
+		public void UnionWith (IEnumerable<int> other) {
 			IBitVector ibv = other as IBitVector;
 			if (ibv != null) {
 				((IBitVector)this).OrLocal (ibv);
