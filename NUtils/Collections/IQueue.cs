@@ -21,7 +21,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Collections {
+
 	/// <summary>
 	/// An interface specifying a queue. A queue is a collection that works First-In-First-Out (FIFO).
 	/// </summary>

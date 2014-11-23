@@ -23,7 +23,7 @@ using NUtils.Abstract;
 using System.Collections.Generic;
 using NUtils.Functional;
 
-namespace NUtils {
+namespace NUtils.Abstract {
 
 	/// <summary>
 	/// A utility class providing additional functionality for <see cref="T:IQuery`2"/> instances.

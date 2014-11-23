@@ -89,6 +89,35 @@ namespace NUtils.Maths {
 				Console.WriteLine (en - bg);
 			}
 		}
+
+		[Test()]
+		public void TestPickKUniformJump () {
+			List<int> id = new List <int> ();
+			int l = 0x2b;
+			int T = 0x8000;
+			int divp = 0x04;
+			for (int i = 0x00; i < l; i++) {
+				id.Add (i);
+			}
+			for (int k = 0x00; k < id.Count; k++) {
+				int[] ci = new int[id.Count];
+				List<int> li = id.PickKUniform (k).ToList ();
+				Assert.AreEqual (k, li.Count);//size check
+				for (int j = 0x01; j < k; j++) {
+					Assert.Less (li [j - 0x01], li [j]);//order+unique check
+				}
+				for (int t = 0x00; t < T; t++) {
+					foreach (int idi in id.PickKUniform (k)) {
+						ci [idi]++;
+					}
+				}
+				int exp = T * k / ci.Length;
+				for (int j = 0x00; j < ci.Length; j++) {
+					Assert.GreaterOrEqual (ci [j], exp - exp / divp);//counting check
+					Assert.LessOrEqual (ci [j], exp + exp / divp);//counting check
+				}
+			}
+		}
 	}
 }
 

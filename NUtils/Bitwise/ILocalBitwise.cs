@@ -20,7 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace NUtils {
+namespace NUtils.Bitwise {
+
 	/// <summary>
 	/// An interface specifying that "bitwise" operations can be performed locally on this instance. Local
 	/// operations are in most cases faster since for instance no additional memory should be declared.

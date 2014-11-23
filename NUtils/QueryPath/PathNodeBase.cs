@@ -23,7 +23,7 @@ using NUtils.QueryPath;
 using System.Collections.Generic;
 using NUtils.Designpatterns;
 
-namespace NUtils {
+namespace NUtils.QueryPath {
 
 	/// <summary>
 	/// A basic implementation of the <see cref="T:IPathNode`1"/> interface, for programmer convenience.

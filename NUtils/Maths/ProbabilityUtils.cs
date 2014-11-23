@@ -155,22 +155,26 @@ namespace NUtils.Maths {
 				throw new ArgumentException ("The number of items to pick must be less than or equal to the number of elements in the jumpEnumerator.", "k");
 			}
 			Contract.EndContractBlock ();
-			double pi, r;
-			int i, l;
-			jumpEnumerator.MoveNext ();
+			double ril, ym;
+			int i, l, low, hgh, xm1;
 			for (; k > 0x00; k--) {
 				i = 0x00;
 				l = n - k;
-				pi = (double)k / n;
-				r = MathUtils.NextDouble ();
-				while (pi < r) {
-					r -= pi;
-					jumpEnumerator.MoveNext ();
-					pi *= (l - i++);
-					pi /= (n - i);
+				ril = Math.Log (1.0d - MathUtils.NextDouble ()) + (n + 0.5d) * Math.Log (n) - (l + 0.5d) * Math.Log (l);
+				low = 0x000;
+				hgh = l;
+				while (low < hgh) {
+					xm1 = ((low + hgh) >> 0x01) + 0x01;
+					ym = (n - xm1 + 0.5d) * Math.Log (n - xm1) - (l - xm1 + 0.5d) * Math.Log (l - xm1);
+					xm1--;
+					if (ril > ym) {
+						hgh = xm1;
+					} else {
+						low = xm1;
+					}
 				}
+				jumpEnumerator.Jump (low + 0x01);//low is the element to select
 				yield return jumpEnumerator.Current;
-				jumpEnumerator.MoveNext ();
 				n -= i + 0x01;
 			}
 		}
