@@ -21,7 +21,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace NUtils {
+namespace NUtils.Collections {
+
 	/// <summary>
 	/// An interface describing an object that works as a FIFO-queue but where each element can only occur once.
 	/// </summary>

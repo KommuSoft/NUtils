@@ -18,7 +18,8 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-namespace NUtils {
+namespace NUtils.Bitwise {
+
 	/// <summary>
 	/// An interface specifying that bitwise operations are supported with the given type <typeparamref name='TBitwise'/>
 	/// </summary>

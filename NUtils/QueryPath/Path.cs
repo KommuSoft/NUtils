@@ -25,6 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NUtils.Designpatterns;
 using NUtils.Abstract;
+using NUtils.Automata;
 
 namespace NUtils.QueryPath {
 

@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUtils.Abstract;
-using NUtils.Automata;
 using NUtils.Collections;
 using NUtils.Functional;
 using System.IO;
@@ -30,7 +29,7 @@ using System.CodeDom.Compiler;
 using NUtils.Visual.GraphViz;
 using System.Diagnostics.Contracts;
 
-namespace NUtils {
+namespace NUtils.Automata {
 
 	/// <summary>
 	/// An implementation of the <see cref="T:INondeterministicFiniteAutomaton`2"/> interface that uses a number
