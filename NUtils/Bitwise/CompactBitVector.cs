@@ -22,6 +22,7 @@ using NUtils.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics.Contracts;
 
 namespace NUtils.Bitwise {
 
@@ -33,6 +34,24 @@ namespace NUtils.Bitwise {
 		#region Fields
 		private readonly int n;
 		private readonly ulong[] data;
+		#endregion
+		#region Constants
+		/// <summary>
+		/// The number of bits stored in a single block.
+		/// </summary>
+		public const int BlockSize = 0x40;
+		/// <summary>
+		/// The 2-log of <see cref="P:BlockSize"/>, used to shift data efficiently.
+		/// </summary>
+		/// <remarks>
+		/// <para>Given a real index, by shifting the value to the right with <see cref="P:BlockShift"/>, one gets the block index.</para>
+		/// </remarks>
+		public const int BlockShift = 0x06;
+		/// <summary>
+		/// A mask used to get the index inside a block.
+		/// </summary>
+		/// <remarks>Given a real index, by masking the index with <see cref="P:BlockIndexMask"/>, one gets the index of the bit in the corresponding block.</remarks>
+		public const int BlockIndexMask = 0x3f;
 		#endregion
 		#region Protected Fields
 		/// <summary>
@@ -132,6 +151,43 @@ namespace NUtils.Bitwise {
 		#endregion
 		#region Constructors
 		/// <summary>
+		/// Initializes a new instance of the <see cref="CompactBitVector"/> class with a given length and a
+		/// list of indices that are set.
+		/// </summary>
+		/// <param name="n">The number of elements in the vector.</param>
+		/// <param name="indices">The list of indices to set.</param>
+		/// <remarks>
+		/// <para>Values lower than zero or greater than or equal to <paramref name="n"/> are ignored.</para>
+		/// <para>This compact bit vector can (!) be a shadow copy, in case the <paramref name="indices"/> turn out
+		/// to be a <see cref="T:CompactBitVector"/> the reference to the data is copied.</para>
+		/// </remarks>
+		private CompactBitVector (int n, IEnumerable<int> indices) {
+			this.n = n;
+			CompactBitVector cbv = indices as CompactBitVector;
+			if (cbv != null) {
+				this.data = cbv.data;
+				return;
+			}
+			int nb = (n + BlockIndexMask) >> BlockShift;
+			ulong[] dat = new ulong[nb];
+			this.data = dat;
+			IBitVector ibv = indices as IBitVector;
+			if (ibv != null) {
+				nb = Math.Min (nb, ibv.Length);
+				for (int i = 0x00; i < nb; i++) {
+					dat [i] = ibv.GetBlock64 (i);
+				}
+				return;
+			}
+			foreach (int index in indices) {
+				int bi = index >> BlockShift;
+				if (bi < nb) {
+					dat [nb] |= 0x01UL << (index & BlockIndexMask);
+				}
+			}
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="CompactBitVector"/> class with a given number
 		/// of items and initial data.
 		/// </summary>
@@ -168,6 +224,26 @@ namespace NUtils.Bitwise {
 			foreach (ulong pack in BitUtils.PackUlong (values)) {
 				this.data [i++] = pack;
 			}
+		}
+		#endregion
+		#region Private utility methods
+		/// <summary>
+		/// Get the number of blocks required to store <paramref name="n"/> bits.
+		/// </summary>
+		/// <param name="n">The number of bits to store.</param>
+		/// <returns>The number of blocks required to store <paramref name="n"/> bits.</returns>
+		private static int GetNumberOfBlocks (int n) {
+			return (n + BlockIndexMask) >> BlockShift;
+		}
+
+		/// <summary>
+		/// Set the tailing bits of the last block all to zero. This is useful for some computations.
+		/// </summary>
+		/// <remarks>
+		/// <para>Clearing the tail before any operation should not have any effect.</para>
+		/// </remarks>
+		private void clearTail () {
+			this.data [this.data.Length - 0x01] &= this.LastMask;
 		}
 		#endregion
 		#region Operations
@@ -638,12 +714,11 @@ namespace NUtils.Bitwise {
 			}
 		}
 
-		/// <Docs>The item to remove from the current collection.</Docs>
-		/// <para>Removes the first occurrence of an item from the current collection.</para>
 		/// <summary>
-		/// Remove the specified item.
+		/// Removes the first occurrence of an item from the current collection.
 		/// </summary>
-		/// <param name="item">The item to remove.</param>
+		/// <param name="item">The item to remove from the current collection.</param>
+		/// <returns><c>true</c> if this collection contained the <paramref name="item"/>; otherwise <c>false</c>.</returns>
 		public bool Remove (int item) {
 			int ii = item >> 0x06;
 			ulong[] da = this.data;
@@ -754,57 +829,233 @@ namespace NUtils.Bitwise {
 		}
 		#endregion
 		#region ISet implementation
+		/// <summary>
+		/// Removes all elements in the specified collection from the current set.
+		/// </summary>
+		/// <param name="other">A <see cref="T:IEnumerable`1"/> of values that must be removed.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public void ExceptWith (IEnumerable<int> other) {
-			throw new NotImplementedException ();
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				dat [i] &= ~dbt [i];
+			}
 		}
 
+		/// <summary>
+		/// Modifies the current set so that it contains only elements that are also in a specified collection.
+		/// </summary>
+		/// <param name="other">A <see cref="T:IEnumerable`1"/> of items to calculate the intersection with.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public void IntersectWith (IEnumerable<int> other) {
-			throw new NotImplementedException ();
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				dat [i] &= dbt [i];
+			}
 		}
 
+		/// <summary>
+		/// Determines whether the current set is a proper (strict) subset of a specified collection.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is proper subset of the specified other; otherwise, <c>false</c>.</returns>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool IsProperSubsetOf (IEnumerable<int> other) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Determines whether the current set is a proper (strict) superset of a specified collection.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is proper superset of the specified other; otherwise, <c>false</c>.</returns>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool IsProperSupersetOf (IEnumerable<int> other) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Determines whether a set is a subset of a specified collection.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is subset of the specified other; otherwise, <c>false</c>.</returns>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool IsSubsetOf (IEnumerable<int> other) {
-			throw new NotImplementedException ();
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			this.clearTail ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				if ((dat [i] & dbt [i]) != dat [i]) {
+					return false;
+				}
+			}
+			return true;
 		}
 
+		/// <summary>
+		/// Determines whether the current set is a superset of a specified collection.
+		/// </summary>
+		/// <returns><c>true</c> if this instance is superset of the specified other; otherwise, <c>false</c>.</returns>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool IsSupersetOf (IEnumerable<int> other) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			this.clearTail ();
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Determines whether the current set overlaps with the specified collection.
+		/// </summary>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool Overlaps (IEnumerable<int> other) {
-			int over = 0x00;
-			foreach (int item in other) {
-				over |= (int)(((this.data [item >> 0x06] >> (item & 0x3F))) & 0x01);
-				if (over != 0x00) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			this.clearTail ();
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				if ((dat [i] & dbt [i]) != 0x00) {
 					return true;
 				}
 			}
 			return false;
 		}
 
+		/// <summary>
+		/// Determines whether the current set and the specified collection contain the same elements.
+		/// </summary>
+		/// <returns><c>true</c>, if equals was set, <c>false</c> otherwise.</returns>
+		/// <param name="other">The collection to compare to the current set.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public bool SetEquals (IEnumerable<int> other) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Modifies the current set so that it contains only elements that are present either in the current set or in the specified collection, but not both. 
+		/// </summary>
+		/// <param name="other">Other.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
 		public void SymmetricExceptWith (IEnumerable<int> other) {
-			throw new NotImplementedException ();
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				dat [i] ^= dbt [i];
+			}
 		}
 
-		public void UnionWith (IEnumerable<int> other) {//TODO: check for bitvector?
-			IBitVector ibv = other as IBitVector;
-			if (ibv != null) {
-				((IBitVector)this).OrLocal (ibv);
-			} else {
-				foreach (int item in other) {
-					this.data [item >> 0x06] |= 0x01UL << (item & 0x3F);
-				}
+		/// <summary>
+		/// Modifies the current set so that it contains all elements that are present in the current set, in the specified collection, or in both.
+		/// </summary>
+		/// <param name="other">Other.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="other"/> is not effective.</exception>
+		/// <remarks>
+		/// <para>The operation scales linear with the number of elements in <paramref name="other"/>.</para>
+		/// <para>This method ignores any duplicate elements in <paramref name="other"/>.</para>
+		/// <para>If <paramref name="other"/> is a <see cref="CompactBitVector"/> or an <see cref="IBitVector"/> as well, performance will increase.</para>
+		/// </remarks>
+		public void UnionWith (IEnumerable<int> other) {
+			if (other == null) {
+				throw new ArgumentNullException ("other", "other is null");
+			}
+			Contract.EndContractBlock ();
+			ulong[] dat = this.data;
+			CompactBitVector cbv = new CompactBitVector (this.n, other);
+			int nd = dat.Length;
+			ulong[] dbt = cbv.data;
+			for (int i = 0x00; i < nd; i++) {
+				dat [i] |= dbt [i];
 			}
 		}
 		#endregion
