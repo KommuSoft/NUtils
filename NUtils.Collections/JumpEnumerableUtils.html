@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.QueryUtils</title>
+    <title>NUtils.Collections.JumpEnumerableUtils</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -187,40 +187,40 @@
   </head>
   <body>
     <div class="CollectionTitle">
-      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils Namespace</a></div>
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.QueryUtils">Overview</a>
+        <a href="#T:NUtils.Collections.JumpEnumerableUtils">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.QueryUtils:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.JumpEnumerableUtils:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.QueryUtils:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.JumpEnumerableUtils:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.QueryUtils:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.JumpEnumerableUtils:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.QueryUtils">QueryUtils  Class</h1>
-    <p class="Summary" id="T:NUtils.QueryUtils:Summary">
-            A utility class providing additional functionality for <a href="javascript:alert(&quot;Documentation not found.&quot;)">IQuery`2</a> instances.
+    <h1 class="PageTitle" id="T:NUtils.Collections.JumpEnumerableUtils">JumpEnumerableUtils  Class</h1>
+    <p class="Summary" id="T:NUtils.Collections.JumpEnumerableUtils:Summary">
+            A set of utility functions for collections to support <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerable`1</a> and <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator`1</a> interfaces.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.QueryUtils:Signature">public static class  <b>QueryUtils</b></div>
+      <div class="Signature" id="T:NUtils.Collections.JumpEnumerableUtils:Signature">public static class  <b>JumpEnumerableUtils</b></div>
     </div>
-    <div class="Remarks" id="T:NUtils.QueryUtils:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.JumpEnumerableUtils:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.QueryUtils:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.JumpEnumerableUtils:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.QueryUtils:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+      <div class="SectionBox" id="T:NUtils.Collections.JumpEnumerableUtils:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -237,9 +237,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0)">Find&lt;TSource,TResult&gt;</a>
-                  </b>(<i>this</i> <a href="../NUtils.Abstract/IQuery`2.html">NUtils.Abstract.IQuery&lt;TSource, TResult&gt;</a>, <i title="The type of the source that is given.">TSource</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
-            Checks if the query succeeds by finding at least one match in the given <i>source</i>.
+                    <a href="#M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0})">GetJumpEnumerator&lt;T&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.List`1">List&lt;T&gt;</a>)<nobr> : <a href="../NUtils.Collections/ListJumpEnumerator`1.html">ListJumpEnumerator&lt;T&gt;</a></nobr><blockquote>
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator</a> to enumerate over this instance but in such a way
+            that several items can be skipped at once (or at least faster than linear).
             </blockquote></td>
               </tr>
             </table>
@@ -247,52 +248,59 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.QueryUtils:Members">
+    <div class="Members" id="T:NUtils.Collections.JumpEnumerableUtils:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0)">Find&lt;TSource,TResult&gt; Generic Method</h3>
-        <blockquote id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):member">
+        <h3 id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0})">GetJumpEnumerator&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):member">
           <p class="Summary">
-            Checks if the query succeeds by finding at least one match in the given <i>source</i>.
+            Get a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator</a> to enumerate over this instance but in such a way
+            that several items can be skipped at once (or at least faster than linear).
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Find&lt;TSource, TResult&gt;</b> (<i>this</i> <a href="../NUtils.Abstract/IQuery`2.html">NUtils.Abstract.IQuery&lt;TSource, TResult&gt;</a> query, <i title="The type of the source that is given.">TSource</i> source)</div>
+          <div class="Signature">public static <a href="../NUtils.Collections/ListJumpEnumerator`1.html">ListJumpEnumerator&lt;T&gt;</a> <b>GetJumpEnumerator&lt;T&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.List`1">List&lt;T&gt;</a> list)</div>
           <h4 class="Subsection">Type Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Type Parameters">
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Type Parameters">
             <dl>
               <dt>
-                <i>TSource</i>
+                <i>T</i>
               </dt>
-              <dd>The type of the source that is given.</dd>
-              <dt>
-                <i>TResult</i>
-              </dt>
-              <dd>The type of results generated by the query.</dd>
+              <dd>The type of elements stored in the <i>list</i> and will be enumerated.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Parameters">
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Parameters">
             <dl>
               <dt>
-                <i>query</i>
+                <i>list</i>
               </dt>
-              <dd>The given query that must be checked.</dd>
-              <dt>
-                <i>source</i>
-              </dt>
-              <dd>The given source on which the query runs.</dd>
+              <dd>The given list to generate a <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator`1</a> from.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Returns">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerator</a> that can enumerate over this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IJumpEnumerable`1</a>.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If the given <i>list</i> is not effective.</td>
+              </tr>
+            </table>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Remarks">If the query is performed lazily (what is the case in for instance Prolog), one can save
-            computation and can see this as a <tt>once</tt> directive.</div>
+          <div class="SectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Version Information">
-            <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+          <div class="SectionBox" id="M:NUtils.Collections.JumpEnumerableUtils.GetJumpEnumerator``1(System.Collections.Generic.List{``0}):Version Information">
+            <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
       </div>

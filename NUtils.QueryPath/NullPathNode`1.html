@@ -213,7 +213,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.QueryPath.NullPathNode`1:Signature">public class  <b>NullPathNode&lt;T&gt;</b> : <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>,	<a href="../NUtils.Abstract/IValidater`1.html">NUtils.Abstract.IValidater&lt;T&gt;</a>, <a href="../NUtils.QueryPath/INullPathNode`1.html">INullPathNode&lt;T&gt;</a>, <a href="../NUtils.QueryPath/IPath`1.html">IPath&lt;T&gt;</a>, <a href="../NUtils.QueryPath/IPathNode`1.html">IPathNode&lt;T&gt;</a><br /> where T : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;T&gt;</a></div>
+      <div class="Signature" id="T:NUtils.QueryPath.NullPathNode`1:Signature">public class  <b>NullPathNode&lt;T&gt;</b> : <a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>,	<a href="../NUtils.Abstract/IValidater`1.html">NUtils.Abstract.IValidater&lt;T&gt;</a>, <a href="../NUtils.QueryPath/INullPathNode`1.html">INullPathNode&lt;T&gt;</a>, <a href="../NUtils.QueryPath/IPath`1.html">IPath&lt;T&gt;</a>, <a href="../NUtils.QueryPath/IPathNode`1.html">IPathNode&lt;T&gt;</a><br /> where T : <a href="../NUtils.Designpatterns/IComposition`1.html">NUtils.Designpatterns.IComposition&lt;T&gt;</a></div>
     </div>
     <div class="Remarks" id="T:NUtils.QueryPath.NullPathNode`1:Docs">
       <h4 class="Subsection">Type Parameters</h4>
@@ -230,12 +230,12 @@
             <a href="javascript:alert(&quot;Documentation not found.&quot;)">INUllPathNode`1</a> instance, as long as <i>T</i> is equivalent.<p>A <a href="javascript:alert(&quot;Documentation not found.&quot;)">INullPathNode`1</a> returns <tt>false</tt> on every <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1.Validate</a> call.</p><p>An <a href="javascript:alert(&quot;Documentation not found.&quot;)">INullPathNode`1</a> will not match any item in a given tree, the tree will simply not be evaluated.</p></div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:NUtils.QueryPath.NullPathNode`1:Docs:Version Information">
-        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+        <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.
+								<a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>.
 							</p>
         <h2 class="Section">Public Fields</h2>
         <div class="SectionBox" id="Public Fields">
@@ -287,10 +287,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.Compile()">Compile</a>
+                    <a href="../NUtils.QueryPath/PathNodeBase`1.html#M:NUtils.QueryPath.PathNodeBase`1.Compile()">Compile</a>
                   </b>()<blockquote>
             Compiles this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a> instance into an NFA to evaluate trees.
-             (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -310,10 +310,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.Evaluate(`0)">Evaluate</a>
+                    <a href="../NUtils.QueryPath/PathNodeBase`1.html#M:NUtils.QueryPath.PathNodeBase`1.Evaluate(`0)">Evaluate</a>
                   </b>(<i title="The type of the nodes on which this  operates.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             Evaluate the specified tree using this <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPath`1</a> instance and return all possible matches.
-             (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -343,10 +343,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.ToString()">ToString</a>
+                    <a href="../NUtils.QueryPath/PathNodeBase`1.html#M:NUtils.QueryPath.PathNodeBase`1.ToString()">ToString</a>
                   </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a></nobr><blockquote>
             Returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> that represents the current <a href="javascript:alert(&quot;Documentation not found.&quot;)">PathNodeBase`1</a>.
-             (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -365,10 +365,10 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="../NUtils/PathNodeBase`1.html#M:NUtils.PathNodeBase`1.Validate(`0)">Validate</a>
+                    <a href="../NUtils.QueryPath/PathNodeBase`1.html#M:NUtils.QueryPath.PathNodeBase`1.Validate(`0)">Validate</a>
                   </b>(<i title="The type of the nodes on which this  operates.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Validate the given instance.
-             (<i>Inherited from <a href="../NUtils/PathNodeBase`1.html">NUtils.PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
+             (<i>Inherited from <a href="../NUtils.QueryPath/PathNodeBase`1.html">PathNodeBase&lt;T&gt;</a>.</i>)</blockquote></td>
               </tr>
             </table>
           </div>
@@ -521,7 +521,7 @@
             <a href="javascript:alert(&quot;Documentation not found.&quot;)">INUllPathNode`1</a> instance, as long as <i>T</i> is equivalent.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.NullPathNode`1.Equals(System.Object):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.NullPathNode`1.GetHashCode()">GetHashCode Method</h3>
@@ -539,7 +539,7 @@
             all instances must return the same <a href="javascript:alert(&quot;Documentation not found.&quot;)">Object.GetHashCode</a> value.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.NullPathNode`1.GetHashCode():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
         <h3 id="F:NUtils.QueryPath.NullPathNode`1.HashCode">HashCode Field</h3>
@@ -555,7 +555,7 @@
             all instances must return the same <a href="javascript:alert(&quot;Documentation not found.&quot;)">Object.GetHashCode</a> value.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="F:NUtils.QueryPath.NullPathNode`1.HashCode:Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
         <h3 id="F:NUtils.QueryPath.NullPathNode`1.Instance">Instance Field</h3>
@@ -571,7 +571,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="F:NUtils.QueryPath.NullPathNode`1.Instance:Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.NullPathNode`1.ToString()">ToString Method</h3>
@@ -589,7 +589,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.NullPathNode`1.ToString():Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:NUtils.QueryPath.NullPathNode`1.Validate(`0)">Validate Method</h3>
@@ -615,7 +615,7 @@
           <div class="SectionBox" id="M:NUtils.QueryPath.NullPathNode`1.Validate(`0):Remarks">A <a href="javascript:alert(&quot;Documentation not found.&quot;)">INullPathNode`1</a> returns <tt>false</tt> on every <a href="javascript:alert(&quot;Documentation not found.&quot;)">IPathNode`1.Validate</a> call.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:NUtils.QueryPath.NullPathNode`1.Validate(`0):Version Information">
-            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+            <b>Namespace: </b>NUtils.QueryPath<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
       </div>

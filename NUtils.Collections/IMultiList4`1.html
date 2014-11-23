@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.IUniqueQueue&lt;TElement&gt;</title>
+    <title>NUtils.Collections.IMultiList4&lt;T&gt;</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -187,51 +187,49 @@
   </head>
   <body>
     <div class="CollectionTitle">
-      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils Namespace</a></div>
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Collections Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.IUniqueQueue`1">Overview</a>
+        <a href="#T:NUtils.Collections.IMultiList4`1">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.IUniqueQueue`1:Signature">Signature</a>
+        <a href="#T:NUtils.Collections.IMultiList4`1:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.IUniqueQueue`1:Docs">Remarks</a>
+        <a href="#T:NUtils.Collections.IMultiList4`1:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.IUniqueQueue`1:Members">Member Details</a>
+        <a href="#T:NUtils.Collections.IMultiList4`1:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.IUniqueQueue`1">IUniqueQueue&lt;TElement&gt; Generic Interface</h1>
-    <p class="Summary" id="T:NUtils.IUniqueQueue`1:Summary">
-            An interface describing an object that works as a FIFO-queue but where each element can only occur once.
+    <h1 class="PageTitle" id="T:NUtils.Collections.IMultiList4`1">IMultiList4&lt;T&gt; Generic Interface</h1>
+    <p class="Summary" id="T:NUtils.Collections.IMultiList4`1:Summary">
+            An interface specifying a list of lists of lists of lists.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.IUniqueQueue`1:Signature">public interface  <b>IUniqueQueue&lt;TElement&gt;</b> : <a href="../NUtils/IQueue`1.html">IQueue&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ISet`1">ISet&lt;TElement&gt;</a></div>
+      <div class="Signature" id="T:NUtils.Collections.IMultiList4`1:Signature">public interface  <b>IMultiList4&lt;T&gt;</b> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.ICollection`1">ICollection&lt;IList&lt;IList&lt;IList&lt;T&gt;&gt;&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IList&lt;IList&lt;IList&lt;T&gt;&gt;&gt;&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IList&lt;IList&lt;IList&lt;T&gt;&gt;&gt;&gt;</a></div>
     </div>
-    <div class="Remarks" id="T:NUtils.IUniqueQueue`1:Docs">
+    <div class="Remarks" id="T:NUtils.Collections.IMultiList4`1:Docs">
       <h4 class="Subsection">Type Parameters</h4>
-      <blockquote class="SubsectionBox" id="T:NUtils.IUniqueQueue`1:Docs:Type Parameters">
+      <blockquote class="SubsectionBox" id="T:NUtils.Collections.IMultiList4`1:Docs:Type Parameters">
         <dl>
           <dt>
-            <i>TElement</i>
+            <i>T</i>
           </dt>
-          <dd>
-            The type of elements stored in the queue.
-            </dd>
+          <dd>The type of the elements at the element-level.</dd>
         </dl>
       </blockquote>
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.IUniqueQueue`1:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Collections.IMultiList4`1:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.IUniqueQueue`1:Docs:Version Information">
-        <b>Namespace: </b>NUtils<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.4178</div>
+      <div class="SectionBox" id="T:NUtils.Collections.IMultiList4`1:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Collections<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <h2 class="Section">Extension Methods</h2>
@@ -270,6 +268,42 @@
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Append``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})">Append&lt;T,SX&gt;</a>
                   </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;SX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             Appends two lists. The equivalent of the <table class="CodeExampleTable"><tr><td><b><font size="-1"> Example</font></b></td></tr><tr><td><pre class="">xs++ys</pre></td></tr></table> operator in Haskell.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/ListUtils.html#M:NUtils.Collections.ListUtils.BinarySearch``2(System.Collections.Generic.IList{``1},``0,NUtils.Abstract.IExpandComparer{``0,``1})">BinarySearch&lt;TKey,TTarget&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;TTarget&gt;</a>, <i title="The type of  that is used for the search.">TKey</i>, <a href="../NUtils.Abstract/IExpandComparer`2.html">NUtils.Abstract.IExpandComparer&lt;TKey, TTarget&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Search an object in the given ordered <i>list</i> based on the given <i>key</i> and
+            the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> that also determined the order of the given <i>list</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/ListUtils.html#M:NUtils.Collections.ListUtils.BinarySearch``2(System.Collections.Generic.IList{``1},``0,NUtils.Abstract.IExpandComparer{``0,``1},System.Int32)">BinarySearch&lt;TKey,TTarget&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;TTarget&gt;</a>, <i title="The type of  that is used for the search.">TKey</i>, <a href="../NUtils.Abstract/IExpandComparer`2.html">NUtils.Abstract.IExpandComparer&lt;TKey, TTarget&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Search an object in the given ordered <i>list</i> based on the given <i>key</i> and
+            the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> that also determined the order of the given <i>list</i>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Collections/ListUtils.html#M:NUtils.Collections.ListUtils.BinarySearch``2(System.Collections.Generic.IList{``1},``0,NUtils.Abstract.IExpandComparer{``0,``1},System.Int32,System.Int32)">BinarySearch&lt;TKey,TTarget&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;TTarget&gt;</a>, <i title="The type of  that is used for the search.">TKey</i>, <a href="../NUtils.Abstract/IExpandComparer`2.html">NUtils.Abstract.IExpandComparer&lt;TKey, TTarget&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+            Search an object in the given ordered <i>list</i> based on the given <i>key</i> and
+            the <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> that also determined the order of the given <i>list</i>.
             </blockquote></td>
               </tr>
               <tr valign="top">
@@ -369,7 +403,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Delete``1(System.Collections.Generic.IEnumerable{``0},``0)">Delete&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             Removes the first occurence of <i>x</i> from the list argument <i>xs</i>.
             </blockquote></td>
               </tr>
@@ -380,7 +414,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.DeleteBy``1(System.Collections.Generic.IEnumerable{``0},NUtils.Abstract.EqualityFunction{``0},``0)">DeleteBy&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Abstract/EqualityFunction`1.html">NUtils.Abstract.EqualityFunction&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Abstract/EqualityFunction`1.html">NUtils.Abstract.EqualityFunction&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             A method behaving like <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.Delete</a>, but takes a user-supplied equality predicate.
             </blockquote></td>
               </tr>
@@ -447,7 +481,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Elem``1(System.Collections.Generic.IEnumerable{``0},``0)">Elem&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             The lest membership predicate. For the result to be False, the list must be finite; True, however, results from an element equal to
             <i>x</i> found at a finite index of a finite or infinite list.
             </blockquote></td>
@@ -459,7 +493,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.ElemIndex``1(System.Collections.Generic.IEnumerable{``0},``0)">ElemIndex&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="../NUtils.Functional/Maybe`1.html">NUtils.Functional.Maybe&lt;int&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="../NUtils.Functional/Maybe`1.html">NUtils.Functional.Maybe&lt;int&gt;</a></nobr><blockquote>
             Returns the index of the first element in the given list <i>xs</i> which is equal to the query element <i>x</i>,
             or Nothing if there is no such element.
             </blockquote></td>
@@ -471,7 +505,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.ElemIndices``1(System.Collections.Generic.IEnumerable{``0},``0)">ElemIndices&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;int&gt;</a></nobr><blockquote>
             An extension of <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.ElementIndex`1</a>, by returning the indices of all elements equal to the query element <i>x</i>,
             in ascending order.
             </blockquote></td>
@@ -565,7 +599,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.GenericIndex``2(System.Collections.Generic.IEnumerable{``0},``1)">GenericIndex&lt;T,I&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">I</i>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">I</i>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             The overloaded version of <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.IndexOperator</a>. Which accepts any <a href="javascript:alert(&quot;Documentation not found.&quot;)">Microsoft.FSharp.Math.IIntegral`1</a> value as the position at which to split.
             </blockquote></td>
               </tr>
@@ -646,7 +680,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Head``1(System.Collections.Generic.IEnumerable{``0})">Head&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Extract the first element of a list, which must be non-empty.
             </blockquote></td>
               </tr>
@@ -657,7 +691,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/FunctionUtils.html#M:NUtils.Functional.FunctionUtils.Identity``1(``0)">Identity&lt;T&gt;</a>
-                  </b>(<i>this</i> <i title="The type of elements handled by the identity function.">T</i>)<nobr> : <i title="The type of elements handled by the identity function.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             The identity function, used to returns the same element. Sometimes useful when a function is
             required, but not useful.
             </blockquote></td>
@@ -681,7 +715,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
-                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             If the given <i>value</i> is not effective, the algorithm searches
             for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
             </blockquote></td>
@@ -693,7 +727,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
-                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             If the given <i>value</i> is not effective, <i>deflt</i> is returned,
             otherwise the <i>value</i> is returned.
             </blockquote></td>
@@ -705,7 +739,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Abstract/NullSafe.html#M:NUtils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
-                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>, <b>params</b> <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>[])<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             If the given <i>value</i> is not effective, the algorithm searches
             for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
             </blockquote></td>
@@ -717,7 +751,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)">IndexOf&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="The type of the elements of the given .">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a></nobr><blockquote>
             Determines the index of a specific item in the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IEnumerable`1</a>.
             </blockquote></td>
               </tr>
@@ -728,7 +762,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.IndexOperator``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">IndexOperator&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             List index (subscript) operator, starting from 0. It is an instance of the more general <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a> which takes an index of any
             integral type.
             </blockquote></td>
@@ -762,7 +796,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Insert``1(System.Collections.Generic.IEnumerable{``0},``0)">Insert&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             The Insert method takes an element <i>x</i> and a list <i>xs</i> and inserts the element into the list at the last position
             where it is still less than or equal to the next element. In particular, if the list is sorted before the call, the result will also be sorted. It is
             a special case of <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.InsertBy</a>, which allows the programmer to supply their own comparison function.
@@ -775,7 +809,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.InsertBy``1(System.Collections.Generic.IEnumerable{``0},NUtils.Functional.IOrd{``0},``0)">InsertBy&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             The non-overloaded version of <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.Insert</a>.
             </blockquote></td>
               </tr>
@@ -797,7 +831,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)">Intersperse&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
             The intersperse function takes an element and a list and ``intersperses'' that element between the elements of the list.
             </blockquote></td>
               </tr>
@@ -830,7 +864,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.IthOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">IthOrDefault&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <i title="The type of the elements of the given .">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Returns the <i>ith</i> element of the given <i>source</i>, in case
             such element does not exists, the <tt>default(T)</tt> is returned.
             </blockquote></td>
@@ -886,7 +920,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Lookup``2(System.Collections.Generic.IEnumerable{System.Tuple{``0,``1}},``0)">Lookup&lt;T,Y&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;T, Y&gt;&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="../NUtils.Functional/Maybe`1.html">NUtils.Functional.Maybe&lt;Y&gt;</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Tuple&lt;T, Y&gt;&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="../NUtils.Functional/Maybe`1.html">NUtils.Functional.Maybe&lt;Y&gt;</a></nobr><blockquote>
             Look up a key in association list.
             </blockquote></td>
               </tr>
@@ -908,7 +942,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Maximum``1(System.Collections.Generic.IEnumerable{``0})">Maximum&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Computes the maximum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
             <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.MaximumBy`1</a> which allows the programmer to supply their own comparison function.
             </blockquote></td>
@@ -920,7 +954,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.MaximumBy``1(System.Collections.Generic.IEnumerable{``0},NUtils.Functional.IOrd{``0})">MaximumBy&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             The MaximumBy function takes a comparison function and a list and returns the greatest element of the list by the comparison function.
             The list must be finite and non-empty.
             </blockquote></td>
@@ -932,7 +966,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Minimum``1(System.Collections.Generic.IEnumerable{``0})">Minimum&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Computes the minimum value from a list which must be non-empty, finite and of a comparable type. It is a special case of
             <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.MinimumBy`1</a> which allows the programmer to supply their own comparison function.
             </blockquote></td>
@@ -944,10 +978,28 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.MinimumBy``1(System.Collections.Generic.IEnumerable{``0},NUtils.Functional.IOrd{``0})">MinimumBy&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="../NUtils.Functional/IOrd`1.html">NUtils.Functional.IOrd&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             The MinimumBy function takes a comparison function and a list and returns the least element of the list by the comparison function.
             The list must be finite and non-empty.
             </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Functional/SequenceGenerators.html#M:NUtils.Functional.SequenceGenerators.NextSequence``2(``1,System.Func{``0,``0},``0,System.Predicate{``0},System.Func{``1,System.Int32,System.Boolean})">NextSequence&lt;TElement,TList&gt;</a>
+                  </b>(<i>this</i> <i title="To be added.">TList</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TElement, TElement&gt;</a>, <i title="To be added.">TElement</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;TList, int, bool&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../NUtils.Functional/SequenceGenerators.html#M:NUtils.Functional.SequenceGenerators.NextSequence``2(``1,System.Func{``0,``0},``0,System.Predicate{``0},System.Func{``1,System.Int32,System.Boolean},System.Int32)">NextSequence&lt;TElement,TList&gt;</a>
+                  </b>(<i>this</i> <i title="To be added.">TList</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TElement, TElement&gt;</a>, <i title="To be added.">TElement</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TElement&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;TList, int, bool&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -978,7 +1030,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.NotElem``1(System.Collections.Generic.IEnumerable{``0},``0)">NotElem&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <i title="To be added.">T</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             The negation of <a href="javascript:alert(&quot;Documentation not found.&quot;)">EnumerableUtils.Elem</a>.
             </blockquote></td>
               </tr>
@@ -1145,7 +1197,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Product``1(System.Collections.Generic.IEnumerable{``0})">Product&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Computes the product of a finite list of numbers.
             </blockquote></td>
               </tr>
@@ -1247,7 +1299,7 @@
                 <td colspan="2">
                   <b>
                     <a href="../NUtils.Functional/EnumerableUtils.html#M:NUtils.Functional.EnumerableUtils.Sum``1(System.Collections.Generic.IEnumerable{``0})">Sum&lt;T&gt;</a>
-                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="To be added.">T</i></nobr><blockquote>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="javascript:alert(&quot;Documentation not found.&quot;)">T</a></nobr><blockquote>
             Computes the sum of a finite list of numbers.
             </blockquote></td>
               </tr>
@@ -1548,7 +1600,7 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.IUniqueQueue`1:Members">
+    <div class="Members" id="T:NUtils.Collections.IMultiList4`1:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
       </div>

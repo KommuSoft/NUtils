@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>NUtils.Automata.StateUtils</title>
+    <title>NUtils.Abstract.QueryUtils</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       a { text-decoration: none }
@@ -187,40 +187,40 @@
   </head>
   <body>
     <div class="CollectionTitle">
-      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Automata Namespace</a></div>
+      <a href="../index.html">NUtils</a> : <a href="index.html">NUtils.Abstract Namespace</a></div>
     <div class="SideBar">
       <p>
-        <a href="#T:NUtils.Automata.StateUtils">Overview</a>
+        <a href="#T:NUtils.Abstract.QueryUtils">Overview</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.StateUtils:Signature">Signature</a>
+        <a href="#T:NUtils.Abstract.QueryUtils:Signature">Signature</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.StateUtils:Docs">Remarks</a>
+        <a href="#T:NUtils.Abstract.QueryUtils:Docs">Remarks</a>
       </p>
       <p>
         <a href="#Members">Members</a>
       </p>
       <p>
-        <a href="#T:NUtils.Automata.StateUtils:Members">Member Details</a>
+        <a href="#T:NUtils.Abstract.QueryUtils:Members">Member Details</a>
       </p>
     </div>
-    <h1 class="PageTitle" id="T:NUtils.Automata.StateUtils">StateUtils  Class</h1>
-    <p class="Summary" id="T:NUtils.Automata.StateUtils:Summary">
-            Utility functions for <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> instances.
+    <h1 class="PageTitle" id="T:NUtils.Abstract.QueryUtils">QueryUtils  Class</h1>
+    <p class="Summary" id="T:NUtils.Abstract.QueryUtils:Summary">
+            A utility class providing additional functionality for <a href="javascript:alert(&quot;Documentation not found.&quot;)">IQuery`2</a> instances.
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:NUtils.Automata.StateUtils:Signature">public static class  <b>StateUtils</b></div>
+      <div class="Signature" id="T:NUtils.Abstract.QueryUtils:Signature">public static class  <b>QueryUtils</b></div>
     </div>
-    <div class="Remarks" id="T:NUtils.Automata.StateUtils:Docs">
+    <div class="Remarks" id="T:NUtils.Abstract.QueryUtils:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.StateUtils:Docs:Remarks">
+      <div class="SectionBox" id="T:NUtils.Abstract.QueryUtils:Docs:Remarks">
         <span class="NotEntered">Documentation for this section has not yet been entered.</span>
       </div>
       <h2 class="Section">Requirements</h2>
-      <div class="SectionBox" id="T:NUtils.Automata.StateUtils:Docs:Version Information">
-        <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+      <div class="SectionBox" id="T:NUtils.Abstract.QueryUtils:Docs:Version Information">
+        <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -237,9 +237,9 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1)">GetBlanket&lt;TStateTag,TEdgeTag&gt;</a>
-                  </b>(<i>this</i> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a>, <i title="The 2nd type parameter.">TEdgeTag</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a></nobr><blockquote>
-            Calculate the blanket of the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> for the given <i>blankettag</i>.
+                    <a href="#M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0)">Find&lt;TSource,TResult&gt;</a>
+                  </b>(<i>this</i> <a href="../NUtils.Abstract/IQuery`2.html">IQuery&lt;TSource, TResult&gt;</a>, <i title="The type of the source that is given.">TSource</i>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if the query succeeds by finding at least one match in the given <i>source</i>.
             </blockquote></td>
               </tr>
             </table>
@@ -247,54 +247,52 @@
         </div>
       </div>
     </div>
-    <div class="Members" id="T:NUtils.Automata.StateUtils:Members">
+    <div class="Members" id="T:NUtils.Abstract.QueryUtils:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1)">GetBlanket&lt;TStateTag,TEdgeTag&gt; Generic Method</h3>
-        <blockquote id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):member">
+        <h3 id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0)">Find&lt;TSource,TResult&gt; Generic Method</h3>
+        <blockquote id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):member">
           <p class="Summary">
-            Calculate the blanket of the given <a href="javascript:alert(&quot;Documentation not found.&quot;)">IState`2</a> for the given <i>blankettag</i>.
+            Checks if the query succeeds by finding at least one match in the given <i>source</i>.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IState&lt;TStateTag, TEdgeTag&gt;&gt;</a> <b>GetBlanket&lt;TStateTag, TEdgeTag&gt;</b> (<i>this</i> <a href="../NUtils.Automata/IState`2.html">IState&lt;TStateTag, TEdgeTag&gt;</a> state, <i title="The 2nd type parameter.">TEdgeTag</i> blankettag)</div>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>Find&lt;TSource, TResult&gt;</b> (<i>this</i> <a href="../NUtils.Abstract/IQuery`2.html">IQuery&lt;TSource, TResult&gt;</a> query, <i title="The type of the source that is given.">TSource</i> source)</div>
           <h4 class="Subsection">Type Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):Type Parameters">
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Type Parameters">
             <dl>
               <dt>
-                <i>TStateTag</i>
+                <i>TSource</i>
               </dt>
-              <dd>The 1st type parameter.</dd>
+              <dd>The type of the source that is given.</dd>
               <dt>
-                <i>TEdgeTag</i>
+                <i>TResult</i>
               </dt>
-              <dd>The 2nd type parameter.</dd>
+              <dd>The type of results generated by the query.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):Parameters">
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Parameters">
             <dl>
               <dt>
-                <i>state</i>
+                <i>query</i>
               </dt>
-              <dd>Current.</dd>
+              <dd>The given query that must be checked.</dd>
               <dt>
-                <i>blankettag</i>
+                <i>source</i>
               </dt>
-              <dd>Blankettag.</dd>
+              <dd>The given source on which the query runs.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):Returns">The blanket.</blockquote>
+          <blockquote class="SubsectionBox" id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):Remarks">
-            <p>A blanket is the set of states that can be reached by applying zero, one or more times the given tag onto the given state.</p>
-            <p>Each state is included in its own blanket.</p>
-            <p>The algorithm avoids loops by storing the already visited states.</p>
-            <p>The order of the blanken is unique depth-first.</p>
-          </div>
+          <div class="SectionBox" id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Remarks">If the query is performed lazily (what is the case in for instance Prolog), one can save
+            computation and can see this as a <tt>once</tt> directive.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:NUtils.Automata.StateUtils.GetBlanket``2(NUtils.Automata.IState{``0,``1},``1):Version Information">
-            <b>Namespace: </b>NUtils.Automata<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
+          <div class="SectionBox" id="M:NUtils.Abstract.QueryUtils.Find``2(NUtils.Abstract.IQuery{``0,``1},``0):Version Information">
+            <b>Namespace: </b>NUtils.Abstract<br /><b>Assembly: </b>NUtils (in NUtils.dll)<br /><b>Assembly Versions: </b>0.1.5440.22871</div>
           <hr size="1" />
         </blockquote>
       </div>
