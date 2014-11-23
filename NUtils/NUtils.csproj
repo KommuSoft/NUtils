@@ -226,6 +226,7 @@
     <Compile Include="Collections\IJumpEnumerator.cs" />
     <Compile Include="Collections\IJumpEnumerable.cs" />
     <Compile Include="Collections\ListJumpEnumerator.cs" />
+    <Compile Include="Collections\JumpEnumerableUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
