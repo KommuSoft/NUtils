@@ -227,6 +227,11 @@
     <Compile Include="Collections\IJumpEnumerable.cs" />
     <Compile Include="Collections\ListJumpEnumerator.cs" />
     <Compile Include="Collections\JumpEnumerableUtils.cs" />
+    <Compile Include="Abstract\INote.cs" />
+    <Compile Include="Abstract\Standardization\IsoStandard.cs" />
+    <Compile Include="Abstract\Standardization\IIsoStandard.cs" />
+    <Compile Include="Abstract\Standardization\IsoRegisterStandard.cs" />
+    <Compile Include="Abstract\Standardization\IIsoRegisterStandard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -244,6 +249,8 @@
     <Folder Include="Visual\" />
     <Folder Include="Visual\GraphViz\" />
     <Folder Include="Functional\Validators\" />
+    <Folder Include="ArtificialIntelligence\Nlp\" />
+    <Folder Include="Abstract\Standardization\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
